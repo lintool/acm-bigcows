@@ -19,7 +19,7 @@ It does not complete the separate [Fellows sweep](profile_review_status.md).
 
 CSRankings has 18 linked names and 63 blanks; it has no publication-quality flag.
 All presented identity and quality decisions are resolved, including rejecting Manuel Blum's Scholar candidate and linking Hopcroft's historical CSRankings row.
-Karp, Patterson, Gray and Wilkinson's accepted DBLP links still lack accepted capture dates; this does not reopen the user's decisions.
+Karp, Patterson, Gray and Wilkinson's accepted DBLP links received accepted capture dates in the [September 19 gap fill](dblp_gap_fill_2026-09-19.md); their quality decisions remain unchanged.
 Broader Scholar coverage remains unverified beyond the retained 20-entry captures, and the separate Fellows review remains incomplete.
 Use the [current status index](profile_review_status.md) for the combined backlog.
 
