@@ -14,6 +14,146 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+## 2026-09-19 16:52 EDT - Clarify the Approved DBLP State
+
+Made the current status explicit: DBLP review is complete within its documented scope, all user decisions are applied, and no decision or capture task is pending.
+Distinguished intentional N ratings, approved holds and missing links from incomplete Scholar/CSRankings work.
+Documentation only; no data, quality judgments or captures changed.
+
+## 2026-09-19 16:51 EDT - Review Session Edits for Repository Consistency
+
+Reviewed all tracked changes and new DBLP reports, audit CSVs and queues from the September 19 session.
+Confirmed the net canonical diff contains only 17 DBLP URL changes, 20 quality-flag changes and 104 capture-date changes across the two unchanged award rosters.
+Clarified historical batch checkpoints and superseding MacQueen/capture outcomes, corrected the current visualization-freshness statement, and distinguished completed DBLP work from the unfinished broader service audit.
+Made current-audit capture paths relative to the repository root and documented the historical audits’ parent-directory path convention.
+Verified all 1,719 current snapshot rows match the canonical data, all audit capture references resolve, local Markdown links and anchors resolve, and the capture queue exactly matches its generator.
+All 40 canonical-data tests passed, as did `git diff --check`; visualization snapshot regeneration and its synchronization check remain deferred as requested.
+No canonical data or visualization files changed during this consistency cleanup.
+
+## 2026-09-19 16:46 EDT - Verify DBLP Consistency and Applied Decisions
+
+Completed a [DBLP-only consistency audit](dblp_consistency_2026-09-19.md) across all 1,719 award rows, with no canonical changes.
+Verified all 17 replacements, the four explicit N downgrades, four user-approved holds, agreement for 63 shared recipients, and all 1,641 accepted capture hashes and dates.
+The current distinct-profile totals are 1,598 Y and 43 linked N, with 15 missing-link Fellow rows and no capture gaps.
+Added a [current row snapshot](dblp_current_status_2026-09-19.csv) and clarified stale historical report wording without erasing prior evidence.
+No new quality decision is warranted by this consistency check; publication-level sampling limits remain explicit.
+Retained machine-readable verification under `../bigcows-crawler/.cache/dblp-consistency-2026-09-19-164601/`.
+
+## 2026-09-19 16:36 EDT - Capture All Seventeen Approved DBLP Replacements
+
+Completed the [replacement gap fill](dblp_replacement_captures_2026-09-19.md), retaining raw HTML for all 17 profiles and importing exactly 17 Fellow DBLP capture dates from their UTC timestamps.
+All 1,641 distinct stored DBLP URLs now have accepted captures; the 15 missing-link cases remain separate.
+Verified all capture hashes, sizes, final PIDs, author markup and record counts against the candidate reviews, with chronological publication samples for identity consistency.
+Preserved all URLs and quality flags, including MacQueen’s N, plus Turing rows, Scholar data and visualization files.
+The capture queue now contains only the five existing Scholar tasks; none was fetched.
+Retained inputs, raw HTML, crawl state, logs, review evidence and exact import validation under `../bigcows-crawler/.cache/dblp-replacement-gap-fill-2026-09-19-163416/`.
+
+## 2026-09-19 16:28 EDT - Adopt MacQueen’s Better DBLP Candidate with N Retained
+
+The user explicitly selected [84/3383](https://dblp.org/pid/84/3383) for David MacQueen, replacing [54/6101](https://dblp.org/pid/54/6101) while retaining quality N.
+The 24-record candidate supports his identity and core Standard ML work, but its documented coverage gaps remain; this supersedes the previous hold without upgrading quality.
+Changed exactly two Fellow cells: the DBLP URL and its old capture date, now blank pending an accepted capture.
+Removed MacQueen from the review queue, leaving four user-approved holds.
+The capture backlog now has seventeen DBLP tasks and five Scholar tasks; no crawl was performed.
+Turing rows, unrelated fields and visualization files remain unchanged.
+Retained snapshots and field-level validation under `../bigcows-crawler/.cache/dblp-reassessment-2026-09-19-152400/apply-macqueen-162848/`.
+
+## 2026-09-19 16:27 EDT - Apply the Third Approved DBLP Replacement Batch
+
+Applied the user-approved [third batch](dblp_replacement_recommendations_batch3_2026-09-19.md): Y replacements for Rob Cook, Raymond Miller, John B. Goodenough, Won Kim, William Daniel Hillis, Bruce Lindsay and C. L. Liu.
+Changed exactly 21 Fellow cells: seven URLs, seven N-to-Y ratings and seven old capture dates cleared pending accepted captures.
+Recorded user-approved N holds for Gupta, Adams, Friedman and Harris, preserving their existing values and MacQueen’s earlier hold.
+The review queue now contains five holds and no pending presented decisions.
+The capture backlog is sixteen DBLP replacement URLs and five Scholar URLs; no crawl was performed.
+Turing Award rows, unrelated fields and visualization files are unchanged.
+All 40 targeted canonical-data tests passed; field-level validation confirms exactly the 21 authorized cell changes.
+Retained before snapshots and field-level validation under `../bigcows-crawler/.cache/dblp-reassessment-2026-09-19-152400/apply-batch3-162726/`.
+
+## 2026-09-19 16:23 EDT - Review the Remaining Eleven DBLP Cases
+
+Completed the [third recommendation batch](dblp_replacement_recommendations_batch3_2026-09-19.md) for the 11 Fellows awaiting recommendations.
+Proposed seven Y replacements and four N holds; no canonical data, capture dates, queues or visualization datasets changed.
+Corrected the Lindsay candidate lead and identified a supported Friedman identity with unresolved substantial coverage.
+Preserved MacQueen’s separate user-approved hold.
+Retained assessment notes under `../bigcows-crawler/.cache/dblp-reassessment-2026-09-19-152400/recommendations-batch-3/`; these are not accepted crawler captures.
+Verified both canonical award CSV hashes were unchanged during report generation.
+
+## 2026-09-19 16:04 EDT - Apply the Second Approved DBLP Replacement Batch
+
+Applied the user-approved [second batch](dblp_replacement_recommendations_batch2_2026-09-19.md): replaced Dhiraj Pradhan, Ahmed Sameh, John Rice and J. Nievergelt’s DBLP URLs and rated their new profiles Y.
+Changed exactly 12 Fellow cells: four URLs, four quality ratings and four old capture dates cleared because the new URLs have no accepted captures.
+Verified the exact field-level diff, preservation of all other canonical data, 40 passing canonical tests and `git diff --check`.
+Recorded David MacQueen’s explicit hold; preserved his current URL, N rating and capture date.
+The review queue retains 11 other cases plus MacQueen on hold, with no immediate new decision requested for the held case.
+The capture backlog now contains nine DBLP tasks and the existing five Scholar tasks; no crawl was performed.
+Preserved all other canonical fields, award rows and ordering, Turing data, Scholar data, CSRankings source fields and visualization snapshots.
+Retained before snapshots and a field-level validation under `../bigcows-crawler/.cache/dblp-reassessment-2026-09-19-152400/apply-batch2-160414/`.
+
+## 2026-09-19 16:01 EDT - Review a Second Batch of Five DBLP Candidates
+
+Recorded a [second recommendation batch](dblp_replacement_recommendations_batch2_2026-09-19.md): proposed Y replacements for Dhiraj Pradhan, Ahmed Sameh, John Rice and J. Nievergelt, with David MacQueen held for coverage review.
+Inspected live unfiltered profiles, documented exact record totals and citation-level inspection scope, and expanded the Sameh and Rice screens to all citations after finding isolated attribution errors.
+MacQueen’s candidate identity is supported, but its 1976–2002 bibliography omits independently verified later work; no replacement is proposed without a coverage decision.
+No canonical CSV, crawl date, capture queue or visualization changed, and no new crawler capture was imported.
+The 16 review cases remain open pending the user’s decisions.
+Retained notes and canonical file hashes under `../bigcows-crawler/.cache/dblp-reassessment-2026-09-19-152400/recommendations-batch-2/`.
+
+## 2026-09-19 15:50 EDT - Apply Five Approved DBLP Replacements
+
+Applied the user-approved [five replacement recommendations](dblp_replacement_recommendations_2026-09-19.md) for Robert Constable, Richard P. Gabriel, David S. Johnson, Kai Li and Allen Tucker.
+Changed exactly 15 Fellow CSV cells: five DBLP URLs, five quality flags from N to Y, and five old capture dates to blank.
+Validated the exact 15-cell diff, preservation of all other canonical fields, 40 passing canonical-data tests and `git diff --check`.
+The new profiles were inspected interactively, but have no accepted crawler capture; their dates must remain blank until an accepted capture exists.
+Preserved award identities, row order, all Scholar fields including Johnson’s explicit N, the Turing roster, CSRankings source fields and visualization snapshots.
+Resolved the five cases in the audit and removed them from the active review queue, leaving 16 cases.
+The capture/import backlog now has five DBLP tasks plus the existing five Scholar tasks; no crawl or import was performed.
+Retained before snapshots and a field-level validation under `../bigcows-crawler/.cache/dblp-reassessment-2026-09-19-152400/apply-replacements-155029/`.
+
+## 2026-09-19 15:48 EDT - Recommend Five DBLP Replacement Profiles
+
+Inspected five candidate bibliographies live and recorded [replacement recommendations](dblp_replacement_recommendations_2026-09-19.md) for Robert Constable, Richard P. Gabriel, David S. Johnson, Kai Li and Allen Tucker.
+All five candidates support Y based on identity, substantial relevant coverage and no material unrelated cluster found in the documented citation-level screen.
+Recorded isolated questionable entries and corroboration for legitimate interdisciplinary work rather than treating every topic change as contamination.
+These recommendations await the user’s decision; all 21 queue cases remain open, with five now supported by this follow-up and 16 outside its scope.
+No canonical CSV, accepted crawl date or visualization snapshot changed, and no crawler capture was imported.
+Retained the per-candidate assessment and canonical file hashes under `../bigcows-crawler/.cache/dblp-reassessment-2026-09-19-152400/high-confidence-recommendations/`.
+
+## 2026-09-19 15:40 EDT - Apply Four Explicit DBLP Quality Decisions
+
+The user rated the stored DBLP profiles for Burton Smith, Chung-Jen Tan, Aaron Finerman and Herbert Grosch N after reviewing the coverage evidence.
+Changed exactly four `dblp_profile_quality` cells in `data/acm_fellows.csv` from Y to N; preserved all URLs, capture dates, award fields, row order and unrelated canonical data.
+The user selected N for Tan despite the provisional Y recommendation; all four decisions are now resolved.
+Updated the [reassessment audit and report](dblp_reassessment_2026-09-19.md#resolved-user-decisions), exception inventory and current status; the [active review queue](dblp_reassessment_review_queue_2026-09-19.csv) now contains 21 other cases.
+There are now 59 distinct linked DBLP profiles rated N, with no unresolved coverage judgments among these four cases.
+Validated the exact four-cell diff against retained before snapshots; the capture/import queue is unchanged because this was a quality-only update.
+No crawl or visualization regeneration was performed.
+Before snapshots and field-level validation are retained under `../bigcows-crawler/.cache/dblp-reassessment-2026-09-19-152400/user-decisions-154009/`.
+
+## 2026-09-19 15:35 EDT - Reassess DBLP Identities and Profile Quality
+
+Completed a DBLP-only outcome inventory for all 1,638 ACM Fellows and 81 Turing Award rows against their latest accepted September 17–19 captures.
+Verified 1,641 raw-capture hashes and reparsed 414,937 bibliography records; reviewed all 500 nonexact name mappings and 44 strict name-screen exceptions.
+Fresh manual samples and expanded concern checks covered 503 distinct profiles; 1,138 reused the prior content assessment of an identical capture, with fresh extraction and name screening.
+The assessment supports 1,582 unique stored profiles as Y, retains 55 existing N findings, recommends N for Burton Smith's split bibliography, and leaves the current Y coverage judgments for Chung-Jen Tan, Aaron Finerman and Herbert Grosch unresolved.
+The 15 missing Fellows DBLP links remain missing, with prior user rejections preserved.
+The [report](dblp_reassessment_2026-09-19.md), [1,719-row audit](dblp_reassessment_2026-09-19.csv), [74-case exception inventory](dblp_reassessment_exceptions_2026-09-19.csv) and [25-case actionable queue](dblp_reassessment_review_queue_2026-09-19.csv) distinguish new questions, known N cases, replacement leads and missing links.
+General web searches covered all linked N and missing cases; replacement leads are not accepted profiles, and several direct inspections failed because of tool access limitations.
+No canonical CSV, capture date or visualization changed in this assessment; the preceding gap-fill changes remain intact.
+All 41 Python tests passed, source-field manifest checks passed, and award-row coverage, shared-profile decisions and byte-identical canonical inputs were validated.
+Retained snapshots, parsed bibliographies, searches, decisions and checks are under `../bigcows-crawler/.cache/dblp-reassessment-2026-09-19-152400/`.
+This DBLP inventory does not complete the unfinished Scholar/CSRankings portions of the earlier full-service review, and retained evidence does not establish live profile availability.
+
+## 2026-09-19 15:10 EDT - Fill the Accepted DBLP Capture Backlog
+
+Completed the approved targeted crawl of 84 distinct DBLP URLs, filling 87 previously blank capture-date cells across 83 Fellows and four Turing Award rows.
+Verified saved HTML sizes and SHA-256 hashes, final PIDs, author headings and chronological publication samples before importing the actual UTC capture date of September 19.
+Preserved all existing September 17–18 dates, stored URLs, quality flags, roster ordering and unrelated canonical data.
+The [capture report](dblp_gap_fill_2026-09-19.md) and [row audit](dblp_gap_fill_2026-09-19.csv) record the outcomes, pilot name-order exceptions, inspection scope and retained evidence.
+All 1,641 distinct stored DBLP profiles now have accepted capture dates; the 15 Fellows without stored DBLP links remain missing-link cases.
+Regenerated the [capture/import queue](profile_capture_queue.json), which now contains only the five previously queued Scholar URLs.
+No Scholar crawl, CSRankings update or visualization regeneration was performed.
+Snapshots, raw captures, attempt logs, review decisions, scripts and exact import validation are retained under `../bigcows-crawler/.cache/dblp-gap-fill-2026-09-19-145403/`.
+
 ## 2026-09-18 17:29 EDT - Consolidate Test Helpers and Presentation Assets
 
 Consolidated synthetic dataset setup, row-name extraction and sort interactions in the renderer test harness.
