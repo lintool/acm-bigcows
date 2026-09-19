@@ -75,7 +75,8 @@ Corroboration: [Source](https://sei.cmu.edu/authors/john-goodenough/).
 
 ## Kim, Won
 
-Database researcher with IBM/MCC/UniSQL and later Korean affiliations. Broad relational-query, object-oriented database and database-systems coverage, including ORION and Modern Database Systems.
+Database researcher with IBM/MCC/UniSQL and later Korean affiliations.
+Broad relational-query, object-oriented database and database-systems coverage, including ORION and Modern Database Systems.
 Replaces Won-Bin Kim.
 No material unrelated cluster in chronological samples.
 Inspected 62 of 218 citations.
