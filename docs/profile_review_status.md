@@ -1,10 +1,11 @@
 # Current Profile Review Status
 
-This is the current progress and open-work index for the September 18–19, 2026 reviews.
+This is the current progress and open-work index for the September 18–19, 2026 reviews and the September 28 Scholar capture checkpoint.
 **DBLP is in an approved state across both award rosters: the review is complete within its documented scope, all user decisions are applied, every stored link has an accepted capture, and no DBLP decision or capture task is pending.**
 Approved N ratings, four user-approved holds and 15 missing-link Fellow rows remain intentional; approved state does not mean every profile is rated Y.
 The [detailed report](check_profiles_full_2026-09-18.md) retains historical observations and the 18 explicit user dispositions.
-The broader Scholar/CSRankings review remains incomplete; its initial inspection notes are not a completed service audit or a fresh capture.
+The broader Scholar/CSRankings quality review remains incomplete; its initial inspection notes are not a completed service audit.
+The separately authorized [September 28 Scholar refresh](scholar_capture_checkpoint_2026-09-28.md) has 1,263 successful captures and one unresolved redirect across 1,264 distinct stored URLs; none has been imported by this refresh.
 No new crawl or source refresh is authorized by maintaining this index.
 The lookup table now preserves [CSRankings-generated DBLP links](../README_FOR_AGENTS.md#csrankings-dblp-link-generation), independently of reviewed award links.
 Historical audits and saved resume scripts used roster-derived lookup URLs; update any such writer to regenerate from source names before applying another checkpoint.
@@ -14,6 +15,7 @@ Do not restore their old DBLP cells or blank exceptions, and do not treat their 
 
 | Work | Current State | Next Step |
 | --- | --- | --- |
+| September 28 Scholar refresh | All 1,264 distinct URLs attempted; 1,263 successful captures, one redirect requiring review; crawl stopped | Review Paulson's redirect and 69 heuristic name-mismatch flags before an authorized import; no restart scheduled. |
 | DBLP-only September 19 reassessment | All 1,719 award rows have recorded outcomes; the four new coverage flags are resolved and applied as N | Preserve the [four user-approved holds](dblp_reassessment_review_queue_2026-09-19.csv); all presented decisions are applied. |
 | Fellows 1–100 | Trial audit recorded for 100 recipients and 300 services | Preserve the [trial outcomes and evidence limits](check_profiles_trial_100_2026-09-18.md). |
 | Fellows 101–1,300 | Initial individual inspection notes saved for 1,200 recipients | Finish the service audit and remaining follow-ups. |
@@ -63,7 +65,8 @@ All 1,641 distinct stored DBLP profiles have accepted captures; no DBLP capture 
 The [machine-readable queue](profile_capture_queue.json) contains only the five existing Scholar tasks, all referring to Fellows.
 The five Scholar recipients are Paola Inverardi, David Abramson, Lawrence Paulson, Richard DeMillo and Vishwani Agrawal.
 Their blank dates remain intentional pending accepted captures; quality approval alone does not import metrics.
-These Scholar tasks still await a separately approved targeted refresh; the DBLP authorization did not include them.
+The separately authorized September 28 refresh now provides successful 100-row captures for Inverardi, Abramson, DeMillo and Agrawal; Paulson's changed Scholar ID remains under redirect review.
+The five canonical missing-date tasks remain open until accepted capture dates and statistics are imported; they no longer all represent missing local evidence.
 The queue contains no missing links or unadopted discovery candidates.
 Use the [queue-generation workflow](../README_FOR_AGENTS.md#capture-and-import-backlog) after relevant CSV updates, then update these counts.
 

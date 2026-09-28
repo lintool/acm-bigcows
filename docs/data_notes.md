@@ -14,6 +14,14 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+## 2026-09-28 13:43 EDT - Checkpoint the Safari Scholar Refresh
+
+Completed the final bounded capture batch across both award rosters: all 1,264 distinct stored URLs were attempted, with 1,263 successful captures and Lawrence Charles Paulson's redirect awaiting review.
+Of the successful profiles, 1,246 contain 100 publication rows and 17 have shorter exhausted lists.
+The [capture checkpoint](scholar_capture_checkpoint_2026-09-28.md) records retained evidence, coverage limits, 69 heuristic name-mismatch flags and remaining review/import work.
+The run is stopped with no restart scheduled; canonical award CSVs, Scholar statistics, quality flags and visualization snapshots remain unchanged.
+This is a capture checkpoint, not completion of the broader Scholar/CSRankings quality audit.
+
 ## 2026-09-19 16:52 EDT - Clarify the Approved DBLP State
 
 Made the current status explicit: DBLP review is complete within its documented scope, all user decisions are applied, and no decision or capture task is pending.
