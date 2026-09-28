@@ -1,5 +1,8 @@
 # ACM Fellows Scholar Profile Quality — September 17, 2026
 
+**Later Scholar disposition:** The [September 28 retained-evidence audit and final user decisions](scholar_recalibration_2026-09-28.md) supersede Scholar proposals here where applicable.
+This report preserves its original inspection scope and evidence; consult the [current status](profile_review_status.md) before resuming work.
+
 Updated 2026-09-17 21:29 EDT with the user's decisions on the four substantially mixed profiles.
 
 This report and its row audit assess Scholar profiles using the evidence available at that time.

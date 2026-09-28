@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-19T20:36:58.121091+00:00",
+  "generated_at": "2026-09-28T21:27:46.505999+00:00",
   "scope": "Accepted stored links only; excludes missing links and unadopted discovery candidates",
   "tasks": [
     {
@@ -36,24 +36,6 @@
           "award_year": "2021",
           "acm_profile": "https://awards.acm.org/award-recipients/inverardi_4724209",
           "stored_url": "https://scholar.google.com/citations?user=FxKiXx0AAAAJ"
-        }
-      ]
-    },
-    {
-      "service": "scholar",
-      "url": "https://scholar.google.com/citations?user=Sv1hcjEAAAAJ",
-      "status": "awaiting_refresh_approval",
-      "reasons": [
-        "missing_metrics_import",
-        "no_accepted_capture"
-      ],
-      "recipients": [
-        {
-          "roster": "acm_fellows.csv",
-          "name": "Paulson, Lawrence Charles",
-          "award_year": "2008",
-          "acm_profile": "https://awards.acm.org/award-recipients/paulson_4585196",
-          "stored_url": "https://scholar.google.com/citations?user=Sv1hcjEAAAAJ"
         }
       ]
     },

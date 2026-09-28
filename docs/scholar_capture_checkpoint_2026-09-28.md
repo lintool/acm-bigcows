@@ -2,14 +2,15 @@
 
 The Safari refresh of stored Google Scholar links across both award rosters finished its final batch on September 28, 2026 at 13:43 EDT.
 All 1,264 distinct input URLs were attempted: 1,263 have successful captures and one remains `redirect_review`.
-This is a capture checkpoint, not a completed profile-quality review or an import into canonical datasets.
+This report preserves the capture checkpoint; the subsequent [Scholar audit and final decisions](scholar_recalibration_2026-09-28.md) completed retained-evidence quality review, with Paulson subsequently accepted and imported in the [targeted import](paulson_scholar_import_2026-09-28.md); the other refresh profiles remain unimported.
 No crawl or automatic restart remains scheduled.
 
 ## Scope and Coverage
 
 The input snapshots contain 1,638 Fellows and 81 Turing Award recipients.
 There are 1,254 Fellows Scholar links and 40 Turing links, with 30 URLs shared across the rosters, yielding 1,264 unique URLs.
-Both canonical award CSVs still match the SHA-256 hashes recorded when the crawl inputs were prepared.
+At the capture checkpoint, both canonical award CSVs matched the SHA-256 hashes recorded when the crawl inputs were prepared.
+Later authorized Paulson-link and Scholar-quality changes supersede those input snapshots; do not expect current canonical hashes to match them.
 
 | Capture Outcome | Profiles |
 | --- | ---: |
@@ -20,8 +21,8 @@ Both canonical award CSVs still match the SHA-256 hashes recorded when the crawl
 
 The shorter successful lists contain 34–99 publication rows; the captured Show More button is disabled for each.
 Success validates the requested Scholar ID, complete profile markup and first-page coverage, not publication authorship, deduplication or profile quality.
-The report flags 69 name mismatches for review; these are heuristic flags, not confirmed identity errors.
-The broader Scholar/CSRankings audit remains unfinished, as recorded in the [current review status](profile_review_status.md).
+The capture report flagged 69 heuristic name mismatches, all subsequently covered by the completed Scholar audit.
+The broader CSRankings audit remains unfinished, as recorded in the [current review status](profile_review_status.md).
 
 ## Retained Evidence
 
@@ -48,15 +49,20 @@ See the [crawler reference](https://github.com/lintool/bigcows-crawler/blob/main
 
 ## Remaining Redirect and Import Work
 
-Lawrence Charles Paulson's stored Scholar ID [`Sv1hcjEAAAAJ`](https://scholar.google.com/citations?user=Sv1hcjEAAAAJ) redirected to [`x4toSGEAAAAJ`](https://scholar.google.com/citations?user=x4toSGEAAAAJ&hl=en) on September 28 at 07:44:59 EDT.
+Lawrence Charles Paulson's then-stored Scholar ID [`Sv1hcjEAAAAJ`](https://scholar.google.com/citations?user=Sv1hcjEAAAAJ) redirected to [`x4toSGEAAAAJ`](https://scholar.google.com/citations?user=x4toSGEAAAAJ&hl=en) on September 28 at 07:44:59 EDT.
 The crawler preserved the page and rejected it as `redirect_review` because the final ID differed from the requested ID.
-The destination has not been accepted as a replacement identity, and this event was not classified as a traffic block.
+The user subsequently confirmed the destination, and the canonical link now uses `x4toSGEAAAAJ`.
+The original retained destination page contains 20 entries and was subsequently accepted and imported.
+A later user-authorized Paulson-only crawl returned 100 entries at 22:17:11 UTC on September 28; all were reviewed and the capture accepted, with metrics and canonical date unchanged.
+The [targeted import report](paulson_scholar_import_2026-09-28.md#latest-accepted-capture-100-entries) documents the superseding evidence; the original run manifest remains historical.
+This event was not classified as a traffic block.
 The failed entry remained intact while later batches continued with uncached profiles.
 
-The five canonical missing-date tasks still exist because no capture dates or statistics have been imported.
+Four canonical missing-date tasks remain after Paulson’s targeted import.
 Four now have successful 100-row captures in this run: Paola Inverardi, David Abramson, Richard DeMillo and Vishwani Agrawal.
-Paulson remains unresolved.
+Paulson's destination identity, capture acceptance and statistics import are complete; its canonical capture date is 2026-09-28.
 The [capture queue](profile_capture_queue.json) describes canonical import state; it does not imply those four still lack local captures.
 
-Next work is to review the redirect and flagged identities, then obtain authorization for any canonical data import or correction.
+The Scholar quality decisions are resolved and applied.
+Remaining refresh work concerns the other profiles’ capture acceptance and authorized imports; do not restart crawling or regenerate visualizations without an explicit request.
 Award rows, profile links, quality flags, Scholar statistics and visualization snapshots were unchanged by this checkpoint.

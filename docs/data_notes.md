@@ -14,6 +14,93 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+## 2026-09-28 18:23 EDT - Check Current Repository Consistency
+
+Completed an offline consistency sweep of canonical data, final Scholar dispositions, capture/import backlog, local documentation links and retained Paulson acceptance evidence.
+All 40 canonical-data tests passed; 379 local links across 31 Markdown files resolved, including checked Markdown anchors.
+Confirmed the only award-field differences from HEAD are the five approved quality cells and Paulson's corrected URL and capture date; the statistics table adds only Paulson, preserving every previous row.
+All 43 recalibrated profiles across 46 award rows agree with final canonical decisions, and the current quality queue is empty.
+The separate capture/import queue contains four profiles; Paulson's accepted 100-entry capture hash and status validate.
+Clarified the resolved Paulson redirect in the status table and nested the earlier 20-entry import as historical provenance.
+Both visualization datasets are byte-identical to HEAD and intentionally lag canonical data; snapshot synchronization was not run while regeneration remains deferred.
+No canonical data edits, crawling, imports, commits or visualization regeneration occurred during this sweep; `git diff --check` passed.
+
+## 2026-09-28 18:19 EDT - Capture and Review 100 Paulson Publications
+
+Completed the explicitly authorized Paulson-only Safari crawl at 2026-09-28 22:17:11 UTC, retrieving exactly 100 publication entries from the corrected ID `x4toSGEAAAAJ` without blocking.
+A preceding sandbox browser-control failure occurred before navigation; the native-access retry succeeded and exited, with no other profile fetched and no further crawl scheduled.
+Verified HTML integrity and all parsed fields, inspected every entry, and corroborated 80 normalized titles against the retained September 17 DBLP capture.
+Identity and substantial research coverage are supported within the 100-entry page, with no apparent unrelated cluster; quality Y remains appropriate.
+Accepted the fresh capture and reconciled its statistics with the canonical row; values and the UTC date 2026-09-28 are unchanged, so no additional canonical edits were needed.
+The [targeted report](paulson_scholar_import_2026-09-28.md#latest-accepted-capture-100-entries) supersedes the earlier 20-entry scope while preserving historical evidence.
+Retained capture, input snapshots, publication list, corroboration and acceptance under `../bigcows-crawler/.cache/paulson-100-2026-09-28/`.
+The queue remains four other profiles; no other imports or visualization regeneration occurred.
+All 40 canonical-data tests and exact before/after checks passed, along with local documentation links and `git diff --check`.
+
+## 2026-09-28 17:28 EDT - Accept and Import Paulson's Retained Scholar Capture
+
+Completed the user-authorized [Paulson import](paulson_scholar_import_2026-09-28.md) using the existing September 28 11:44:59 UTC redirected destination page.
+Verified its HTML hash, complete markup, parsed statistics, destination ID and supported identity; preserved the original crawler redirect status and recorded application acceptance separately.
+Set the Fellow capture date and new statistics row date to 2026-09-28, importing 23,632 citations, h-index 60, i10-index 146, recent-period metrics, affiliation, interests and the captured annual series.
+Preserved the accepted URL, quality Y, all unrelated records and visualization snapshots; no new crawling occurred.
+The retained page contains 20 publication entries, so broader coverage and contamination remain unverified beyond that scope.
+Rebuilt the capture/import queue from five tasks to four and updated the current status, capture checkpoint and audit documentation.
+Retained before snapshots, import script and acceptance provenance under `../bigcows-crawler/.cache/paulson-reviewed-import-2026-09-28/`.
+All 40 canonical-data tests passed, along with exact change-scope checks, local documentation links and `git diff --check`; visualization regeneration remains deferred.
+
+## 2026-09-28 17:24 EDT - Synchronize Scholar Review Documentation
+
+Updated the README, authoritative quality guidance, capture checkpoint, audit reports and current status to reflect the lenient Scholar tolerance and all five final user decisions.
+Marked initial proposal queues and older review reports as historical, with links to the final disposition ledger and empty current quality-review queue.
+Recorded current canonical totals: 1,251 distinct linked Scholar profiles rated Y and 13 rated N, with 425 blank-link award rows.
+Clarified that Paulson's link identity is resolved while capture acceptance/import remains pending, and that visualization snapshots do not yet reflect the new N ratings.
+Preserved historical evidence and prior Data Notes entries; no canonical data, crawl artifacts or visualization files changed during this documentation sweep.
+Validated current counts and final dispositions against both rosters, checked local documentation links and Markdown anchors, and ran `git diff --check`.
+
+## 2026-09-28 17:21 EDT - Apply Explicit Scholar Quality Decisions
+
+The user explicitly rated Lixin Gao, Robert Morris, Michael F. Cohen and Dana Scott N, and Yorick Wilks Y.
+Applied four Y-to-N changes in the Fellows roster and the matching Dana Scott Y-to-N change in the Turing roster; reaffirmed Wilks's existing Y.
+Recorded final dispositions in the [recalibration ledger](scholar_recalibration_2026-09-28.csv) and [decision report](scholar_recalibration_2026-09-28.md#resolved-user-decisions), and cleared the current review queue.
+These explicit decisions supersede the earlier recommendations, including Dana Scott's borderline Y proposal.
+Preserved URLs, capture dates, metrics, prior unrelated edits and visualization snapshots; no new crawling or imports occurred.
+Validated that only the five authorized quality cells changed in the canonical data during this step and that shared-recipient decisions agree.
+
+## 2026-09-28 17:13 EDT - Recalibrate Scholar Contamination Proposals
+
+Applied the user's preference that contamination below roughly 20% is acceptable to the current Scholar review proposals.
+The [recalibration](scholar_recalibration_2026-09-28.md) closes 38 of the original 43 flags and retains three proposed Ns (Lixin Gao, Robert Morris, Michael F. Cohen), plus Dana Scott at the approximate boundary and Yorick Wilks with uncertain book/chapter attribution, both retaining Y.
+Counts refer to explicitly flagged entries in retained 100-entry pages, not confirmed contamination across complete profiles.
+Preserved original audit evidence and prior explicit ratings; no canonical data edits, new crawling or visualization regeneration occurred.
+Validated all 46 affected award rows, 43 unique profiles and shared-recipient proposal consistency.
+
+## 2026-09-28 16:31 EDT - Complete the Retained-Evidence Scholar Profile Audit
+
+Completed a [Scholar-only holistic audit](scholar_holistic_review_2026-09-28.md) covering all 1,638 ACM Fellow rows and 81 Turing Award rows using existing crawls only.
+Individually judged all 1,264 distinct linked profiles using recipient identity, affiliation, career, coauthors, representative publications and expanded inspection of suspicious clusters; retained missing-link outcomes for all 425 blank-link rows.
+The [row ledger](scholar_holistic_review_2026-09-28.csv) records separate identity, coverage and contamination findings, exact inspected entries, evidence paths and prior/proposed quality.
+The [user-review queue](scholar_holistic_review_queue_2026-09-28.csv) flags 43 distinct profiles across 46 award rows: 35 proposed N findings for substantial contamination and eight borderline cluster/aggregation cases with current Y preserved.
+Preserved all nine existing linked N profiles, explicit accepted Y decisions and previously rejected or removed associations; no canonical quality changes were applied.
+
+The retained September 24–28 Scholar pages contain 125,695 raw entries; the exact inspection ledger covers 18,092 entries across baseline and expanded samples.
+Most pages contain 100 most-cited entries, 17 successful captures have shorter exhausted lists, and Paulson's retained redirect page contains only 20 entries.
+These pages support identity and sampled-quality judgments but do not certify full career coverage, all recent work or live availability.
+The prior user-authorized Paulson URL correction remains intact; successful-capture acceptance and metric import remain separate pending work.
+No new crawling, browsing, source refresh, metric import or visualization regeneration occurred.
+
+Validated all 1,719 ledger rows, 63 shared-recipient associations, 1,264 Scholar capture hashes and 1,259 supporting DBLP hashes, and confirmed canonical files match pre-audit snapshots.
+All 40 canonical-data tests passed, including source-field manifest checks; deferred visualization synchronization was not run.
+Retained inputs, judgments and validation are under `../bigcows-crawler/.cache/scholar-holistic-review-2026-09-28/`.
+Updated the [current review status](profile_review_status.md) to distinguish this completed Scholar sweep from the unfinished broader CSRankings audit and pending Scholar import.
+
+## 2026-09-28 15:15 EDT - Correct Paulson’s Scholar Link
+
+The user confirmed that Lawrence Charles Paulson’s correct Scholar ID is `x4toSGEAAAAJ`.
+Changed his `google_scholar_profile` in `data/acm_fellows.csv` from [`Sv1hcjEAAAAJ`](https://scholar.google.com/citations?user=Sv1hcjEAAAAJ) to [`x4toSGEAAAAJ`](https://scholar.google.com/citations?user=x4toSGEAAAAJ), resolving the identity decision recorded in the [September 28 capture checkpoint](scholar_capture_checkpoint_2026-09-28.md).
+Preserved his existing quality flag and blank capture date; no statistics were imported and the original redirect capture and crawl inputs remain unchanged.
+Regenerated the capture/import queue for the corrected URL and updated the current review status; capture validation/import remain pending.
+No visualization datasets or snapshots were regenerated.
+
 ## 2026-09-28 13:43 EDT - Checkpoint the Safari Scholar Refresh
 
 Completed the final bounded capture batch across both award rosters: all 1,264 distinct stored URLs were attempted, with 1,263 successful captures and Lawrence Charles Paulson's redirect awaiting review.
