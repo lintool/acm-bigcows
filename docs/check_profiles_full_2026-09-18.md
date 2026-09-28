@@ -1,5 +1,8 @@
 # Full Profile Review, September 18, 2026
 
+**Later Scholar disposition:** The [September 28 retained-evidence audit and final user decisions](scholar_recalibration_2026-09-28.md) supersede Scholar proposals here where applicable.
+This report preserves its original inspection scope and evidence; consult the [current status](profile_review_status.md) before resuming work.
+
 The [current status index](profile_review_status.md) is authoritative for progress, outstanding work and the capture/import backlog.
 The inspection sections below preserve historical findings; the explicit decisions supersede their initial dispositions.
 

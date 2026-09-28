@@ -293,7 +293,7 @@ Do not claim an individual ACM page was inspected when no such capture exists.
 
 | Finding | Rating And Action |
 | --- | --- |
-| Supported identity, substantial publication coverage and mostly matching or adjacent work without substantial unrelated contamination | `Y`, allowing a couple of questionable or misattributed papers. |
+| Supported identity, substantial publication coverage and mostly matching or adjacent work without substantial unrelated contamination | `Y`, applying the service-specific contamination tolerance below. |
 | Wrong person or substantial unrelated contamination | `N`; record the identity or contamination evidence. |
 | Missing link | `N`, with URL and crawl date blank. |
 | Obviously incomplete Scholar or DBLP bibliography | `N`, including incidental or split fragments omitting the established body of work. |
@@ -306,7 +306,11 @@ For both services, assess coverage against the ACM-recognized contributions and 
 Do not retain `Y` merely because a handful of titles fit the topic or the recipient has a historical or service-oriented career; any justified exception requires positive identity and coverage evidence.
 There is no universal numerical cutoff; the nine one-to-four-record profiles in the September 17 reassessment describe that batch, not a general threshold.
 
-Substantial contamination can warrant `N` despite a relevant majority; this is a profile-level judgment, not a percentage formula.
+Substantial contamination can warrant `N` despite a relevant majority.
+For Scholar, the user requested a lenient tolerance on September 28: below roughly 20% is acceptable when identity and substantial coverage are supported.
+Use this as contextual guidance, not a rigid cutoff or proof that unflagged entries are correct; state the inspected denominator, attribution uncertainty and capture limits.
+The [recalibration and final decisions](docs/scholar_recalibration_2026-09-28.md) use explicitly flagged entries in retained most-cited 100-entry pages, not full-profile or citation-weighted fractions.
+This Scholar preference does not reopen explicit prior ratings or change DBLP, identity or coverage requirements.
 An isolated attribution error, abbreviated author list, name variant, contributor credit or interdisciplinary topic does not by itself justify `N`.
 Cross-service title agreement is corroboration, not independent proof of authorship.
 A rating does not certify every publication or aggregate citation total.
@@ -318,6 +322,8 @@ When a URL changes, reassess its quality instead of carrying the old URL's ratin
 Keep quality ratings consistent for the same publication-service URL shared across both rosters, preserving explicit user decisions.
 
 The user explicitly rated the Scholar profiles of Arindam Banerjee, Ramesh C Jain, James H Morris and David S Johnson `N`; do not upgrade them solely because a majority of sampled papers are adjacent.
+The [September 28 final Scholar decisions](docs/scholar_recalibration_2026-09-28.md#resolved-user-decisions) additionally rate Lixin Gao, Robert Morris, Michael F. Cohen and Dana Scott `N`, and explicitly retain Yorick Wilks as `Y`.
+All are applied, including Scott in both rosters; preserve these decisions rather than reopening the historical proposal queues.
 The user explicitly accepted Stephen David Crocker’s DBLP profile `https://dblp.org/pid/49/6744` as `Y` after reviewing its 15-record coverage and missing early RFC work; preserve this [documented coverage exception](docs/check_profiles_trial_100_2026-09-18.md) rather than reopening the same concern without new evidence.
 The user rejected the stored DBLP profiles for David Patterson, Jim Gray, Richard Karp, J. H. Wilkinson, Seymour J. Wolfson, Roger R Bate and Karen Duncan; rejected URLs remain evidence only and must not be restored from older captures or snapshots.
 The [September 18 user dispositions](docs/check_profiles_full_2026-09-18.md#explicit-user-decisions) additionally retain the reviewed Meenakshi Balakrishnan and Mihai Pop DBLP candidates as `N`, rate Sudipta Sengupta's Scholar profile `N`, and accept Aravind Srinivasan and Vishwani Agrawal's Scholar profiles as `Y`.
