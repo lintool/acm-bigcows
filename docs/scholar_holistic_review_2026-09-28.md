@@ -103,7 +103,8 @@ All 43 cases have final dispositions in the recalibration ledger; do not treat t
   Patents and agricultural AI alone are not counted as conflicts.
 - [Zheng, Haitao](https://scholar.google.com/citations?user=XrIr0nYAAAAJ): Chicago affiliation, wireless spectrum and AI security with BY Zhao identify Haitao Zheng.
   Expanded all31 titles without exact DBLP matches reveals recurring different-domain attributions: cooked-ham preservation71, steel coatings76, magnetic ordering83, petroleum84, soil carbon87, structural acoustics92 and tamoxifen96.
-  Recommend N for user review due to persistent mixed-author concerns; preserve Y. Networking patents and neural watermarks remain relevant.
+  Recommend N for user review due to persistent mixed-author concerns; preserve Y.
+  Networking patents and neural watermarks remain relevant.
 - [Zhu, Wenwu](https://scholar.google.com/citations?user=7t2jzpgAAAAJ): Tsinghua affiliation, multimedia networking and graph representation establish Wenwu Zhu.
   Expanded all19 nonmatching DBLP titles finds a recurring stem-cell/exosome cardiology cluster56,68,83 with shared Sun/Hong/Zhang coauthors, alongside quadrotor-control20/73 and optical imaging52.
   Flag whether these represent material namesake contamination versus supported collaborations; retain Y pending review, do not reject simply for cross-domain subject matter.
@@ -147,12 +148,14 @@ All 43 cases have final dispositions in the recalibration ledger; do not treat t
   Older R H Morris/Cherry UNIX work 57/84 and 1959 pregnancy study 41 add distinct-identity evidence.
   Strong case for N due to substantial mixed identities; preserve Y pending review.
 - [Anderson, James H](https://scholar.google.com/citations?user=mIZu9oQAAAAJ): UNC real-time-systems identity and substantial EDF/LITMUS/lock-free core are supported, but expanded inspection exposes a recurring unrelated cluster: atmospheric climate/chlorine/aerosol entries 9/23/37/87, HST astrometry 13, wheat genetics 30, neonatal transfusion 34 and blood utilization 91.
-  These exceed isolated errors; propose N for review while retaining the URL. Malformed mathematical entry 12 and early graph paper 92 add attribution uncertainty, not independent proof of the recipient's chronology.
+  These exceed isolated errors; propose N for review while retaining the URL.
+  Malformed mathematical entry 12 and early graph paper 92 add attribution uncertainty, not independent proof of the recipient's chronology.
 - [Haas, Peter](https://scholar.google.com/citations?user=PeCI8KcAAAAJ): UMass Peter J. Haas identity and online aggregation, histograms, stochastic simulation and substantial patent/methodology core are supported.
   Expanded inspection finds numerous entries visibly by other authors: malware GAN 47, emergency department 60, business digital twin 81, blockchain supply chain 83, electric vehicles 88, population movement 97 and kidney transplantation 100, plus Gemulla thesis 93.
   Repeated 2019 simulation papers suggest proceedings/editor attribution spillover; propose N for this material aggregate contamination rather than claiming a wrong-person page.
 - [Shim, Kyuseok](https://scholar.google.com/citations?user=3Y254i4AAAAJ): Seoul National University identity and CURE/ROCK/outlier mining with Guha/Rastogi establish Shim, but expanded inspection finds recurring atmospheric PM2.5/lidar/black-carbon papers 61/71/90/95 and a separate KS Shim quantum-network/protocol cluster 75/76/86/88/94 with W Lee and others.
-  Together with unrelated LDA entry 66, this is material mixed attribution; propose N for review, retaining URL. Database patents are legitimate distinct evidence, not contamination.
+  Together with unrelated LDA entry 66, this is material mixed attribution; propose N for review, retaining URL.
+  Database patents are legitimate distinct evidence, not contamination.
 - [Gao, Lixin](https://scholar.google.com/citations?user=bOKmjf8AAAAJ): UMass identity and AS relationships/routing with Rexford/Towsley support Lixin Gao, but expanded scope reveals extensive recurring corrosion/battery chemistry with D Zhang (28/31–37/45/51/54/58–60/62/65/84–90/92/96/97), PTP1B/natural products (63/69/73/78/83/88/93/94), biomedical and mechanical-fault work.
   These materially mix identities despite a strong networking core; propose N retaining URL.
 - [Gupta, Manish](https://scholar.google.com/citations?user=fHISoWoAAAAJ): Google DeepMind identity and substantial Banerjee/Choi/Midkiff/Moreira compiler and BlueGene core are supported.
@@ -171,7 +174,8 @@ All 43 cases have final dispositions in the recalibration ledger; do not treat t
   Flag the aggregation issue for user review; preserve Y pending assessment rather than asserting these are all unrelated works.
 - [Cohen, Michael F.](https://scholar.google.com/citations?user=YAtwLpwAAAAJ): Facebook identity and lumigraph, bilateral upsampling, Szeliski/Hoppe graphics establish Michael F. Cohen.
   Expanded scope reveals major astronomy (35/48/69), organizational psychology (5/27/63), schooling (56/68/78), cellular biology (13/32/34), and clinical/public-health clusters (18/33/60/64/73/74/83/87/91), plus urban policy 100.
-  This is substantial mixed attribution; propose N retaining URL. Graphics patents are legitimate, and Gemini 1 remains individually unverified rather than assumed wrong.
+  This is substantial mixed attribution; propose N retaining URL.
+  Graphics patents are legitimate, and Gemini 1 remains individually unverified rather than assumed wrong.
 - [Moore, J Strother](https://scholar.google.com/citations?user=91fyr68AAAAJ): UT Austin identity and Boyer-Moore/ACL2 theorem proving are clear, but expanded scope reveals many unrelated records: clinical cancer/asthma 8/19/26/37/78, aerospace 24/66/72, poultry 82/95, infection/microbiology 83/92/98, educational dialogue 42/81 and repeated neuroscience books 18/63/73/76.
   Material mixed attribution warrants proposed N retaining the correct-person URL; duplicate versions are not counted as distinct independent works.
 - [kumar, vipin](https://scholar.google.com/citations?user=BnxU9TEAAAAJ): Minnesota identity, Karypis parallel partitioning, Tan/Steinbach data mining and Chandola anomaly detection establish Vipin Kumar.
