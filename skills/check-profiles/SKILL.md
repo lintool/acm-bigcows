@@ -11,6 +11,15 @@ Evaluate Google Scholar, DBLP and CSRankings separately for each recipient, then
 Attempt to establish a CSRankings name link for every recipient whose `csrankings_name` is blank, alongside the Scholar and DBLP checks.
 Creating or editing this skill does not initiate a profile review.
 
+## Workflow Stage
+
+This skill owns **review** in the [four-stage workflow](../../README_FOR_AGENTS.md#four-stage-workflow).
+Use saved captures by default; parsing publications or metrics for inspection does not authorize canonical statistics imports.
+Record acceptance against specific capture hashes/timestamps, separately from profile-link acceptance and quality ratings, so extraction can consume the reviewed evidence.
+Crawling, canonical statistics extraction/import and visualization are separate stages and require their own authorization, which may already be included in the user's request.
+Preserve the standing authorization below for profile-link, quality and dependent consistency corrections; it is not blanket permission to refresh statistics.
+Report accepted captures awaiting extraction separately from unresolved review cases.
+
 ## Ground Truth and Scope
 
 Read the repository's `AGENTS.md`, [publication quality criteria](../../README_FOR_AGENTS.md#publication-profile-quality), [CSRankings name-link guidance](../../README_FOR_AGENTS.md#csrankings-name-links), and the latest relevant [Data Notes](../../docs/data_notes.md), including cited reviews and explicit user decisions.
@@ -193,16 +202,19 @@ Keep independently reviewed DBLP links and quality decisions in the award roster
 
 Apply date changes together with the corresponding accepted data changes, using UTC `YYYY-MM-DD` values.
 Keep capture dates, name-alignment decision dates and table-synchronization dates distinct.
+For Scholar, the date rules below apply when extraction/import is authorized; review-only acceptance records the new capture in the audit while preserving dates attached to existing imported statistics.
+Clear a rejected URL’s paired date when applying an authorized link correction, and leave a newly adopted Scholar URL’s date blank until its statistics are imported.
+For DBLP, record acceptance in review and advance the canonical capture date when the extract stage applies the accepted capture.
 The CSRankings lookup table has no date column; record synchronization time in Data Notes and retain source-download timestamps in the evidence audit.
 
 | CSV Field | Required Update |
 | --- | --- |
-| `acm_fellow_profile_crawl_date`, `google_scholar_profile_crawl_date`, `dblp_profile_crawl_date` in both award rosters | Use the actual `fetched_at` UTC date of the accepted successful capture for the stored URL. An accepted new capture updates the date even if the URL is unchanged. |
-| Capture date when a profile URL is added or replaced | Clear any old URL's date and use the accepted capture date for the new URL, including when the evidence is an existing crawl. Leave blank if no accepted successful capture exists; never substitute today's review date. |
+| `acm_fellow_profile_crawl_date`, `google_scholar_profile_crawl_date`, `dblp_profile_crawl_date` in both award rosters | Use the actual `fetched_at` UTC date of the accepted successful capture for the stored URL. Extraction of an accepted new capture updates the date even if the URL is unchanged. |
+| Capture date when a profile URL is added or replaced | Clear any old URL's date; populate the new date during authorized extraction from accepted evidence, including existing crawls. Leave blank while extraction is pending; never substitute today's review date. |
 | Capture date when a profile URL is cleared | Clear the paired date in the same edit, and set the applicable Scholar or DBLP quality flag to `N`. |
-| Capture date during a quality-only review, failed fetch or pending withdrawal decision | Preserve the previous accepted date unless a different successful capture is actually accepted. Record the review or failed-attempt timestamp in the audit instead. |
+| Capture date during a quality-only review, failed fetch or pending withdrawal decision | Preserve the previous imported date unless an authorized extraction applies a different accepted capture. Record the review or failed-attempt timestamp in the audit instead. |
 | `csrankings_name_alignment_date` in both award rosters | Set to the UTC decision date when adding, changing or explicitly revalidating a supported name link, even if using existing evidence. Clear it when removing the name link; preserve it for unresolved cases, unrelated edits or source refresh alone. |
-| `crawl_date` in `data/google_scholar_profiles.csv` | If importing a Scholar record, derive its date from the same accepted capture as its stored profile data and metrics. Do not restamp old metrics to the date of a newer identity check. |
+| `crawl_date` in `data/google_scholar_extracted_data.json` | If importing a Scholar record, derive its date from the same accepted capture as its stored profile data and metrics. Do not restamp old metrics to the date of a newer identity check. |
 
 Keep dates consistent across shared award recipients using the same accepted profile capture or name-alignment decision.
 Preserve capture timestamps and source dates in the evidence audit so every changed CSV date has a traceable basis.
@@ -218,7 +230,7 @@ Record representative relevant and conflicting publications where they determine
 Write the review summary and a completion-time entry in Data Notes according to repository conventions; preserve older audits as historical evidence.
 
 Validate changes against the input snapshots: only authorized fields changed, original award rows/order remain intact, shared-recipient decisions agree, and every populated CSRankings key resolves exactly once with no unreferenced table rows.
-Apply the CSV date updates above and the repository's [profile capture-date rules](../../README_FOR_AGENTS.md#profile-crawl-dates), checking old and new dates in the field-level audit.
+Apply only the stage-authorized CSV date updates above and the repository's [profile capture-date rules](../../README_FOR_AGENTS.md#profile-crawl-dates), checking old and new dates in the field-level audit.
 Verify every CSRankings DBLP link matches upstream-compatible generation, including links with known upstream errors, and that generated visualizations remain unchanged.
 Run the source-field manifest checks; after an authorized source update, rebuild that manifest only from the independently retained inputs described in the name-link guidance, never merely to bless a local mismatch.
 

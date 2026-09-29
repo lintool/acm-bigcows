@@ -166,7 +166,7 @@ class ProfileProvenanceTests(unittest.TestCase):
     def test_capture_queue_matches_current_rosters_and_metrics(self):
         rosters = {name: provenance.read_csv(ROOT / "data" / name)
                    for name in ["acm_fellows.csv", "turing_award_winners.csv"]}
-        metrics = provenance.read_csv(ROOT / "data/google_scholar_profiles.csv")
+        metrics = queue_builder.read_scholar(ROOT / "data/google_scholar_extracted_data.json")
         saved = json.loads((ROOT / "docs/profile_capture_queue.json").read_text())
         self.assertEqual(saved["schema_version"], 2)
         self.assertEqual(saved["tasks"], queue_builder.build_queue(rosters, metrics))

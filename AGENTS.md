@@ -19,10 +19,21 @@ The user has explicitly configured the [Check Profiles skill](skills/check-profi
 An explicit request to apply that skill carries this standing authorization within its stated scope; automatic skill discovery, general consistency sweeps, read-only reviews and dry runs do not.
 ACM names, award years, citations, award-profile links and roster membership remain subject to the source-of-truth and finalized-data rules above.
 
+## Four-Stage Workflow
+
+Follow **crawl → review → extract → visualize** as defined in the [detailed workflow](README_FOR_AGENTS.md#four-stage-workflow).
+Each stage is independently runnable; authorization for one stage does not automatically authorize the next.
+Honor authorization already given for multiple stages without asking again.
+Crawl retains source evidence without changing canonical data.
+Review records identity, coverage, quality and capture-acceptance decisions; apply profile-link and quality corrections only within the existing authorization rules.
+Extract parses accepted captures and imports canonical values with their actual capture dates; preserve review decisions and source provenance.
+Visualize reads canonical data and rebuilds generated snapshots only when explicitly authorized.
+Review may parse saved content for inspection without importing statistics, and extraction or visualization must not trigger a new crawl.
+
 ## Visualization Regeneration
 
 During the current data-reconciliation work, do not regenerate the visualization datasets unless the user explicitly requests it.
-The user will regenerate them at the end; preserve the checked-in snapshots and distinguish data-validation results from snapshot-synchronization checks while they are deferred.
+Preserve the checked-in snapshots between authorized regenerations and distinguish data-validation results from snapshot-synchronization checks when they lag canonical data.
 
 ## Crawl Artifact Storage
 

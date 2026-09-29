@@ -15,8 +15,8 @@ spec.loader.exec_module(builder)
 
 class CitationDataTests(unittest.TestCase):
     def test_induction_estimate_uses_inclusive_award_year_and_full_history(self):
-        metrics = [{"profile": "profile", "citations": "1000", "citation_by_year":
-                    json.dumps({"1985": 100, "2022": 50, "2023": 200, "2024": 100, "2026": 50})}]
+        metrics = [{"profile": "profile", "citations": 1000, "citation_by_year":
+                    {"1985": 100, "2022": 50, "2023": 200, "2024": 100, "2026": 50}}]
         for award in ("fellows", "turing"):
             for year, expected in (("2023", 650), ("1985", 500), ("2027", 1000)):
                 with self.subTest(award=award, year=year):
@@ -27,9 +27,9 @@ class CitationDataTests(unittest.TestCase):
 
     def test_induction_estimate_requires_total_year_and_history(self):
         metrics = [
-            {"profile": "complete", "citations": "5", "citation_by_year": '{"2023": 5}'},
-            {"profile": "no-total", "citation_by_year": '{"2023": 5}'},
-            {"profile": "no-history", "citations": "5"},
+            {"profile": "complete", "citations": 5, "citation_by_year": {"2023": 5}},
+            {"profile": "no-total", "citation_by_year": {"2023": 5}},
+            {"profile": "no-history", "citations": 5},
         ]
         roster = [{"name": name, "year": year, "google_scholar_profile": profile} for name, year, profile in (
             ("zero", "2023", "complete"), ("missing-total", "2023", "no-total"),
@@ -63,7 +63,7 @@ class CitationDataTests(unittest.TestCase):
                 self.assertEqual((args.award, args.roster, args.output), ("fellows", Path("custom.csv"), Path("custom.js")))
 
     def test_canonical_joins_and_current_metrics(self):
-        metrics = builder.read_csv(builder.DEFAULT_SCHOLAR)
+        metrics = builder.read_scholar(builder.DEFAULT_SCHOLAR)
         by_profile = {r["profile"]: r for r in metrics}
         for award, roster, output in (
             ("fellows", builder.DEFAULT_ACM, builder.DEFAULT_OUTPUT),
@@ -98,13 +98,13 @@ class CitationDataTests(unittest.TestCase):
                         metric = by_profile[row["scholarProfile"]]
                         self.assertEqual(row["citations"], int(metric["citations"]))
                         self.assertEqual(row["crawlDate"], metric["crawl_date"])
-                        self.assertEqual(row["citationByYear"], json.loads(metric["citation_by_year"]))
+                        self.assertEqual(row["citationByYear"], metric["citation_by_year"])
                         self.assertEqual(row["hasScholar"], bool(row["citationByYear"]))
 
 
 class SnapshotTests(unittest.TestCase):
     def test_snapshots_match_each_roster_and_current_metrics(self):
-        metrics = builder.read_csv(builder.DEFAULT_SCHOLAR)
+        metrics = builder.read_scholar(builder.DEFAULT_SCHOLAR)
         for award, roster, output in (
             ("fellows", builder.DEFAULT_ACM, builder.DEFAULT_OUTPUT),
             ("turing", builder.DEFAULT_TURING, builder.DEFAULT_TURING_OUTPUT),

@@ -14,6 +14,38 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+## 2026-09-29 09:06 EDT - Compact DBLP Data Extracted from Accepted Captures
+
+Created `data/dblp_extracted_data.json` for all 1,641 distinct stored DBLP profiles using the accepted September 19 capture-verification audit, with no new requests.
+Records contain profile URL/PID, displayed name, explicit alternate names and affiliations, publication totals, counts by year, coverage limits and capture provenance; individual publication records are omitted.
+Found explicit affiliations in 1,358 profiles and alternate names in 527 profiles; affiliations are not asserted to be current.
+Counted 416,403 profile-publication associations in total; coauthored publications can occur in more than one profile, so this is not a count of unique works across the dataset.
+Kasik's retained page displays the same DBLP key twice, yielding 70 distinct publications from 71 visible entries; its coverage note records this deduplication.
+Coverage is `unknown` for all records: all distinct entries present in the accepted HTML were counted, but full bibliography completeness is not independently established.
+Validated every selected capture's hash, byte count, PID, UTC roster date and visible-entry count against the accepted audit before writing.
+The extractor fails on missing or ambiguous publication years instead of silently dropping entries.
+All 49 Python tests pass, including aggregate-to-roster coverage and visualization synchronization; existing rosters, quality decisions, Scholar extraction data, search history and generated visualizations are unchanged.
+Retained acceptance input, command, validation and protected-file hashes under `../bigcows-crawler/.cache/dblp-extracted-data-2026-09-29/`.
+
+## 2026-09-29 08:53 EDT - Scholar Extracted Data Migrated to JSON
+
+Replaced `data/google_scholar_profiles.csv` with `data/google_scholar_extracted_data.json` as the sole canonical Scholar extraction source.
+Schema version 1 stores 1,279 native profile objects, numeric metrics, interests arrays, annual citation mappings and capture timestamps, IDs, hashes and source-run provenance.
+Preserved every existing value and record order; converted unavailable scalar fields to `null` without treating zero as missing.
+Updated visualization and university-analysis readers, capture-queue generation, tests, workflow documentation, review-skill references and both pages' download links.
+The pre-migration CSV, migration script and equality/hash validation are retained under `../bigcows-crawler/.cache/scholar-json-migration-2026-09-29/`.
+Historical entries retain the CSV filenames used at their original checkpoints; old cache-local import scripts target the former schema and must not be rerun against current canonical data.
+No roster or quality decisions changed, and both generated visualization datasets remain byte-identical and synchronized with the new JSON input.
+All 46 Python tests, including schema validation and snapshot synchronization, and JavaScript renderer checks pass.
+
+## 2026-09-29 08:45 EDT - Four-Stage Workflow Adopted
+
+Documented crawl → review → extract → visualize as independently runnable stages with explicit inputs, outputs, authorization boundaries and provenance.
+AGENTS.md defines the governing rules; the [agent workflow](../README_FOR_AGENTS.md#four-stage-workflow) owns procedures and commands, and the human README provides an overview.
+Aligned Check Profiles with the review stage and distinguished inspection parsing from canonical statistics extraction, including synchronized Scholar capture dates.
+The current status index now separates stage progress and documents the legacy capture/import queue's limits without changing its schema.
+Historical provenance remains unchanged; this documentation update performs no crawling, review of individuals, extraction or visualization regeneration.
+
 ## 2026-09-29 06:40 EDT - Data-to-Visualization Consistency Sweep
 
 Audited the repository's canonical data, retained Scholar import evidence, search history, capture queue, generated snapshots, local documentation links and static page assets.
