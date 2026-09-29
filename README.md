@@ -11,6 +11,7 @@ See the [source policy](AGENTS.md#acm-source-of-truth), [Fellows reconciliation 
 - [ACM Fellows](data/acm_fellows.csv): canonical dataset, including ACM, DBLP, and Google Scholar profile links and crawl dates.
 - [Turing Award winners](data/turing_award_winners.csv): canonical dataset with profile links and crawl dates, organized by award year.
 - [Google Scholar profiles](data/google_scholar_profiles.csv): profile links, affiliations, interests, and citation statistics for ACM Fellows and Turing Award winners.
+- [Google Scholar search history](data/google_scholar_profile_searches.csv): completed discovery searches, candidate outcomes, review dates and evidence, including unsuccessful searches.
 - [CSRankings profiles](data/csrankings_profiles.csv): faculty records referenced by the exact `csrankings_name` keys in either award roster, including documented historical records.
   Original source fields are preserved; `dblp_profile` reproduces CSRankings' own name-generated link, separately from our reviewed award-profile URLs.
 

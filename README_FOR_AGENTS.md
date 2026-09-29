@@ -197,6 +197,7 @@ Canonical CSV files live under `data/`:
 data/acm_fellows.csv
 data/csrankings_profiles.csv
 data/google_scholar_profiles.csv
+data/google_scholar_profile_searches.csv
 data/turing_award_winners.csv
 ```
 
@@ -267,6 +268,43 @@ When combining awards, state whether the result counts award rows or distinct pe
 Likewise, “missing any profile” means at least one of the three URL cells is blank, whereas “missing all profiles” means all three are blank.
 A resolved review case can still have a missing URL or an `N` rating.
 Dated audit CSVs preserve their batch's links and evidence; use the canonical rosters for current coverage.
+
+### Scholar Search History
+
+`data/google_scholar_profile_searches.csv` records completed Scholar discovery searches separately from successful captures and canonical profile associations.
+The initial backfill covers the 40 recipients in the September 28 first-ten and next-thirty missing-link discovery batches, with subsequent user decisions applied.
+The completed [Fellows discovery checkpoint](docs/scholar_missing_batch15_2026-09-28.md) covers all currently blank-link Fellows, including unavailable and rejected associations.
+Older discovery work documented in Data Notes is not yet comprehensively backfilled; absence from this CSV does not establish that a recipient was never searched.
+It does not relabel earlier quality audits, crawl attempts or unsearched missing profiles as completed searches.
+
+| Field | Meaning |
+| --- | --- |
+| `acm_profile` | ACM recipient URL used to join either award roster through `acm_fellow_profile`; shared recipients need only one search record per search/candidate. |
+| `name` | Readable canonical recipient name, not the identity key. |
+| `searched_at` | Completed discovery timestamp (or recorded intake time for a user-supplied candidate), as ISO 8601 with timezone; the backfill uses recorded batch completion times, not individual query times. |
+| `candidate_url` | Exact Scholar author-profile URL considered, or blank when no ID was resolved; directory leads belong in evidence, not this field. |
+| `outcome` | Latest disposition of this search/candidate, using the values below. |
+| `reviewed_at` | Latest recorded assessment or decision timestamp; initial assessments use search completion time, while later user decisions preserve their recorded time. |
+| `evidence` | Repository-root-relative Markdown report path and section anchor retaining queries, sources, rationale and decision history. |
+
+Outcomes are `candidate` (unaccepted proposal), `accepted` (approved association), `not_found` (no profile located in this search), `unresolved_lead` (lead without a resolved ID), `inaccessible` (reported unavailable/held), `wrong_person` (rejected identity), `rejected_quality` (identity may match but quality rejected), and `superseded` (a different candidate was accepted, without judging the old URL).
+`candidate` does not certify identity, availability or publication quality; consult the linked evidence for confidence and access limitations.
+`accepted` does not establish a successful capture or authorize a statistics import.
+User reports and tool failures must remain distinguishable in evidence; never invent a failure cause or HTTP status.
+
+Append one row per new search/candidate, or one blank-candidate row when no profile ID was resolved.
+The record key is (recipient key, `searched_at`, `candidate_url`), where the recipient key is `acm_profile` or the validated canonical-name fallback described below.
+Multiple candidates from the same search share the search timestamp.
+A later review of the same candidate updates `outcome`, `reviewed_at` and its evidence, preserving `searched_at` and the earlier findings in the linked report.
+A genuinely new search adds a new record even if its candidate repeats; never overwrite an earlier search or advance search time for a review-only decision.
+For a newly user-supplied candidate, append a record with its intake time and label that provenance in the evidence; do not invent an earlier search or message timestamp.
+The latest `searched_at` tracks discovery activity, including user-supplied candidates; consult evidence to distinguish that from a general-web search, and never substitute `reviewed_at` or a crawl date.
+Retain source precision: Markopoulou's backfilled acceptance is known only to the minute; do not invent seconds, use file modification times, or stamp historical work with the backfill date.
+For canonical historical recipients without a stored ACM URL, retain a blank `acm_profile` and use the exact canonical `name` as an explicitly documented fallback key only after confirming that the name identifies exactly one roster recipient.
+John D Gannon is the first such search-history exception, recorded in [batch seven](docs/scholar_missing_batch7_2026-09-28.md); do not group all blank ACM URLs together.
+Selection, uniqueness and coverage checks must use the ACM URL when present and otherwise this validated canonical-name fallback; do not infer a shared identity across rosters from a name alone.
+Maintain the relevant review report and current status alongside CSV decisions, preserving explicit user rejections.
+This ledger does not modify award rosters, capture dates, quality flags, statistics or capture/import queues automatically.
 
 ### Profile Crawl Dates
 
