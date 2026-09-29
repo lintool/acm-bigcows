@@ -85,7 +85,8 @@ Queries:
 ## Stonebraker, Michael
 
 **Stonebraker, Michael (2014) — `wrong_person`.**
-[Research.com](https://research.com/u/michael-stonebraker) resurfaced; preserve the earlier Samuel Madden exclusion. Direct directory retrieval returned 403; its indexed listing is not new identity evidence.
+[Research.com](https://research.com/u/michael-stonebraker) resurfaced; preserve the earlier Samuel Madden exclusion.
+Direct directory retrieval returned 403; its indexed listing is not new identity evidence.
 Historical association: [a1ngrCIAAAAJ](https://scholar.google.com/citations?user=a1ngrCIAAAAJ); disposition retained, not freshly fetched.
 Previous search record: [evidence](scholar_missing_batch15_2026-09-28.md#results).
 
@@ -98,7 +99,9 @@ Queries:
 ## Micali, Silvio
 
 **Micali, Silvio (2012) — `not_found`.**
-The [Italian directory](https://topitalianscientists.org/tis/1630/Silvio_Micali_-_Top_Italian_Scientist_in_Computer_Sciences) actually links `https://scholar.google.it/scholar?q=MICALI Silvio`, not an author profile. The [MIT homepage](https://people.csail.mit.edu/silvio/index.htm) supplies no Scholar link. Preserve the earlier `gUEkPQEAAAAJ`/Phillip Rogaway exclusion in [Data Notes](data_notes.md#2026-09-16-2219-edt---follow-up-missing-turing-scholar-profiles-with-general-web-search).
+The [Italian directory](https://topitalianscientists.org/tis/1630/Silvio_Micali_-_Top_Italian_Scientist_in_Computer_Sciences) actually links `https://scholar.google.it/scholar?q=MICALI Silvio`, not an author profile.
+The [MIT homepage](https://people.csail.mit.edu/silvio/index.htm) supplies no Scholar link.
+Preserve the earlier `gUEkPQEAAAAJ`/Phillip Rogaway exclusion in [Data Notes](data_notes.md#2026-09-16-2219-edt---follow-up-missing-turing-scholar-profiles-with-general-web-search).
 Previous search record: [evidence](scholar_missing_next30_2026-09-28.md#results).
 
 Queries:
@@ -148,7 +151,8 @@ Queries:
 ## Allen, Frances
 
 **Allen, Frances (2006) — `not_found`.**
-A [same-name directory result](https://adscientificindex.com/scientist/frances-allen/1733154/) concerns Berkeley materials research and ion beams, not the IBM compiler pioneer. No supported author ID.
+A [same-name directory result](https://adscientificindex.com/scientist/frances-allen/1733154/) concerns Berkeley materials research and ion beams, not the IBM compiler pioneer.
+No supported author ID.
 Previous search record: [evidence](scholar_missing_batch12_2026-09-28.md#results).
 
 Queries:
@@ -250,7 +254,8 @@ Queries:
 ## Yao, Andrew C
 
 **Yao, Andrew C (2000) — `wrong_person`.**
-[Research.com](https://research.com/u/andrew-chi-chih-yao) resurfaced; preserve the explicit rejection of its Micah Yao association. The [CUHK page](https://www.cse.cuhk.edu.hk/people/faculty/andrew-chi-chih-yao/) and indexed OpenReview entry provide no replacement Scholar ID.
+[Research.com](https://research.com/u/andrew-chi-chih-yao) resurfaced; preserve the explicit rejection of its Micah Yao association.
+The [CUHK page](https://www.cse.cuhk.edu.hk/people/faculty/andrew-chi-chih-yao/) and indexed OpenReview entry provide no replacement Scholar ID.
 Historical association: [c8Gq7AkAAAAJ](https://scholar.google.com/citations?user=c8Gq7AkAAAAJ); disposition retained, not freshly fetched.
 Previous search record: [evidence](scholar_missing_batch12_2026-09-28.md#subsequent-user-decision).
 
@@ -276,7 +281,8 @@ Queries:
 ## Blum, Manuel
 
 **Blum, Manuel (1995) — `wrong_person`.**
-A [Freiburg namesake directory](https://adscientificindex.com/scientist/manuel-blum/1783903/) resurfaced; preserve the earlier wrong-person exclusion. No supported replacement.
+A [Freiburg namesake directory](https://adscientificindex.com/scientist/manuel-blum/1783903/) resurfaced; preserve the earlier wrong-person exclusion.
+No supported replacement.
 Historical association: [7S-LSKoAAAAJ](https://scholar.google.com/citations?user=7S-LSKoAAAAJ); disposition retained, not freshly fetched.
 Previous search record: [evidence](scholar_missing_next30_2026-09-28.md#results).
 
@@ -303,7 +309,8 @@ Queries:
 ## Hartmanis, Juris
 
 **Hartmanis, Juris (1993) — `wrong_person`.**
-[Max Planck](https://pure.mpg.de/cone/persons/resource/persons296226) explicitly offers a Scholar search, not an author profile. Preserve the earlier wrong-person exclusion; no supported replacement.
+[Max Planck](https://pure.mpg.de/cone/persons/resource/persons296226) explicitly offers a Scholar search, not an author profile.
+Preserve the earlier wrong-person exclusion; no supported replacement.
 Historical association: [4Z6vo5QAAAAJ](https://scholar.google.com/citations?user=4Z6vo5QAAAAJ); disposition retained, not freshly fetched.
 Previous search record: [evidence](scholar_missing_batch14_2026-09-28.md#results).
 
@@ -330,7 +337,8 @@ Queries:
 ## Milner, A J
 
 **Milner, A J (1991) — `not_found`.**
-Results include Robin Milner-Gulland and collaborators. No supported replacement; preserve the user rejection of `1bezk50AAAAJ` documented in [batch fifteen](scholar_missing_batch15_2026-09-28.md#results).
+Results include Robin Milner-Gulland and collaborators.
+No supported replacement; preserve the user rejection of `1bezk50AAAAJ` documented in [batch fifteen](scholar_missing_batch15_2026-09-28.md#results).
 Previous search record: [evidence](scholar_missing_batch15_2026-09-28.md#results).
 
 Queries:
@@ -419,7 +427,8 @@ Queries:
 ## Hoare, C. Antony R.
 
 **Hoare, C. Antony R. (1980) — `not_found`.**
-Results concern publications and collaborators; no supported replacement. Preserve the user-reported 404 for `v-YdOywAAAAJ` in [Data Notes](data_notes.md#2026-09-15-1821-edt---user-resolution-of-shared-recipient-scholar-links).
+Results concern publications and collaborators; no supported replacement.
+Preserve the user-reported 404 for `v-YdOywAAAAJ` in [Data Notes](data_notes.md#2026-09-15-1821-edt---user-resolution-of-shared-recipient-scholar-links).
 Previous search record: [evidence](scholar_missing_next30_2026-09-28.md#results).
 
 Queries:
@@ -471,7 +480,8 @@ Queries:
 ## Simon, Herbert A
 
 **Simon, Herbert A (1975) — `inaccessible`.**
-[Indexed Wikidata](https://www.wikidata.org/wiki/Q25514477) repeats historical ID `9d7rMrkAAAAJ`; this does not establish current availability. Preserve the historical unavailable hold.
+[Indexed Wikidata](https://www.wikidata.org/wiki/Q25514477) repeats historical ID `9d7rMrkAAAAJ`; this does not establish current availability.
+Preserve the historical unavailable hold.
 Historical association: [9d7rMrkAAAAJ](https://scholar.google.com/citations?user=9d7rMrkAAAAJ); disposition retained, not freshly fetched.
 Previous search record: [evidence](scholar_missing_batch15_2026-09-28.md#results).
 
@@ -498,7 +508,8 @@ Queries:
 ## Dijkstra, Edsger W
 
 **Dijkstra, Edsger W (1972) — `inaccessible`.**
-[Research.com](https://research.com/u/edsger-w-dijkstra) resurfaced; preserve historical hold `g875mLgAAAAJ`. No new Scholar availability check or supported replacement.
+[Research.com](https://research.com/u/edsger-w-dijkstra) resurfaced; preserve historical hold `g875mLgAAAAJ`.
+No new Scholar availability check or supported replacement.
 Historical association: [g875mLgAAAAJ](https://scholar.google.com/citations?user=g875mLgAAAAJ); disposition retained, not freshly fetched.
 Previous search record: [evidence](scholar_missing_batch13_2026-09-28.md#results).
 
@@ -512,7 +523,8 @@ Queries:
 ## McCarthy, John
 
 **McCarthy, John (1971) — `inaccessible`.**
-Indexed [DBLP](https://dblp.org/pid/m/JohnMcCarthy.html) advertises a Scholar link, but source retrieval did not resolve a new ID. Preserve historical unavailable `SuVID2wAAAAJ`; linguistics and psychology namesakes are excluded.
+Indexed [DBLP](https://dblp.org/pid/m/JohnMcCarthy.html) advertises a Scholar link, but source retrieval did not resolve a new ID.
+Preserve historical unavailable `SuVID2wAAAAJ`; linguistics and psychology namesakes are excluded.
 Historical association: [SuVID2wAAAAJ](https://scholar.google.com/citations?user=SuVID2wAAAAJ); disposition retained, not freshly fetched.
 Previous search record: [evidence](scholar_missing_batch14_2026-09-28.md#results).
 

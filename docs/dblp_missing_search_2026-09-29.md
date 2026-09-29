@@ -25,7 +25,8 @@ No roster links, quality flags, capture dates, extracted data, capture/import qu
 ### Miller, Victor
 
 Outcome: `rejected_quality`.
-Rediscovered Victor S. Miller’s cryptographic bibliography; preserve the user’s rejection for sparse coverage. No supported replacement.
+Rediscovered Victor S. Miller’s cryptographic bibliography; preserve the user’s rejection for sparse coverage.
+No supported replacement.
 Search result: [DBLP bibliography](https://dblp.org/pid/00/146).
 
 Queries:
@@ -37,7 +38,8 @@ Queries:
 ### Gosling, James
 
 Outcome: `rejected_quality`.
-Rediscovered the James Gosling bibliography; preserve the user’s coverage rejection. No supported replacement.
+Rediscovered the James Gosling bibliography; preserve the user’s coverage rejection.
+No supported replacement.
 Search result: [DBLP bibliography](https://dblp.org/pid/92/3710).
 
 Queries:
@@ -49,7 +51,8 @@ Queries:
 ### Scott, Steven
 
 Outcome: `rejected_quality`.
-Rediscovered Steve Scott’s bibliography with Cray work; preserve rejection for mixed authorship. The separately rejected `34/2394` remains excluded.
+Rediscovered Steve Scott’s bibliography with Cray work; preserve rejection for mixed authorship.
+The separately rejected `34/2394` remains excluded.
 Search result: [DBLP bibliography](https://dblp.org/pid/92/719).
 
 Queries:
@@ -61,7 +64,8 @@ Queries:
 ### House, Charles H
 
 Outcome: `not_found`.
-No supported replacement found. Preserve the earlier removal of `47/1089` for sparse coverage.
+No supported replacement found.
+Preserve the earlier removal of `47/1089` for sparse coverage.
 
 Queries:
 
@@ -74,7 +78,8 @@ Queries:
 ### York, Bryant W
 
 Outcome: `not_found`.
-Results include a [CSAuthors listing](https://www.csauthors.net/bryant-w-york/), but no supported replacement DBLP ID. Preserve the earlier removal of `y/BryantWYork`.
+Results include a [CSAuthors listing](https://www.csauthors.net/bryant-w-york/), but no supported replacement DBLP ID.
+Preserve the earlier removal of `y/BryantWYork`.
 
 Queries:
 
@@ -98,7 +103,8 @@ Queries:
 ### Karin, Sidney
 
 Outcome: `not_found`.
-Results include the [UCSD biography](https://jacobsschool.ucsd.edu/people/profile/sidney-karin) and DBLP coauthor pages, not a supported replacement. Preserve removal of `53/1118`.
+Results include the [UCSD biography](https://jacobsschool.ucsd.edu/people/profile/sidney-karin) and DBLP coauthor pages, not a supported replacement.
+Preserve removal of `53/1118`.
 
 Queries:
 
@@ -122,7 +128,8 @@ Queries:
 ### Duncan, Karen
 
 Outcome: `not_found`.
-Results include medical-informatics publications and namesakes, but no supported replacement author ID. Preserve the user rejection of `82/415`.
+Results include medical-informatics publications and namesakes, but no supported replacement author ID.
+Preserve the user rejection of `82/415`.
 
 Queries:
 
@@ -134,7 +141,8 @@ Queries:
 ### Williams, Robin
 
 Outcome: `not_found`.
-Results include the [IBM picture-building paper](https://research.ibm.com/publications/a-picture-building-system), not a supported clean replacement. Preserve the wrong-person exclusion `231/5321` and mixed/disambiguation exclusion `390/9786`.
+Results include the [IBM picture-building paper](https://research.ibm.com/publications/a-picture-building-system), not a supported clean replacement.
+Preserve the wrong-person exclusion `231/5321` and mixed/disambiguation exclusion `390/9786`.
 
 Queries:
 
@@ -170,7 +178,8 @@ Queries:
 ### Bate, Roger R
 
 Outcome: `not_found`.
-Results include the matching [CMU SEI biography](https://insights.sei.cmu.edu/authors/roger-bate/), but no supported replacement DBLP ID. Preserve the user rejection of `25/4193`.
+Results include the matching [CMU SEI biography](https://insights.sei.cmu.edu/authors/roger-bate/), but no supported replacement DBLP ID.
+Preserve the user rejection of `25/4193`.
 
 Queries:
 
@@ -183,7 +192,8 @@ Queries:
 ### Young, Paul
 
 Outcome: `rejected_quality`.
-Rediscovered the previously excluded disambiguation bibliography, with complexity papers among mixed authorship. Preserve this exclusion and the earlier mixed `39/909` finding; no clean replacement established.
+Rediscovered the previously excluded disambiguation bibliography, with complexity papers among mixed authorship.
+Preserve this exclusion and the earlier mixed `39/909` finding; no clean replacement established.
 Search result: [DBLP bibliography](https://dblp.org/pid/09/5450).
 
 Queries:
@@ -195,7 +205,8 @@ Queries:
 ### Wolfson, Seymour J
 
 Outcome: `not_found`.
-Results include a DBLP person-directory mention and historical computing references, but no supported replacement author ID. Preserve the user rejection of `299/4257`.
+Results include a DBLP person-directory mention and historical computing references, but no supported replacement author ID.
+Preserve the user rejection of `299/4257`.
 
 Queries:
 

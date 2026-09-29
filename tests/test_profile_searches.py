@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 import re
 import unittest
-from urllib.parse import urlsplit
+from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 FIELDS = ['acm_profile', 'name', 'searched_at', 'candidate_url', 'outcome', 'reviewed_at', 'evidence']
@@ -30,7 +30,34 @@ def anchors(text):
     return result
 
 
+def canonical_name_matches(row, people):
+    return any(person['acm_fellow_profile'] == row['acm_profile']
+               and person['name'] == row['name'] for person in people)
+
+
+def has_scholar_user(query):
+    values = parse_qs(query, keep_blank_values=True).get('user', [])
+    return len(values) == 1 and bool(values[0].strip())
+
+
 class ProfileSearchTests(unittest.TestCase):
+    def test_scholar_query_requires_exact_nonempty_user(self):
+        for query in ['user=abc', 'hl=en&user=abc', 'user=abc&hl=en']:
+            self.assertTrue(has_scholar_user(query), query)
+        for query in ['', 'notuser=abc', 'user=', 'user', 'user=%20',
+                      'q=user=abc', 'user=abc&user=def', 'user=abc&user=']:
+            self.assertFalse(has_scholar_user(query), query)
+
+    def test_acm_identity_must_match_a_canonical_roster_name(self):
+        people = [dict(acm_fellow_profile='acm/alice', name='Person, Alice'),
+                  dict(acm_fellow_profile='acm/bob', name='Person, Bob'),
+                  dict(acm_fellow_profile='acm/alice', name='Person, Alice A.')]
+        for name in ['Person, Alice', 'Person, Alice A.']:
+            self.assertTrue(canonical_name_matches(dict(acm_profile='acm/alice', name=name), people))
+        for url, name in [('acm/bob', 'Person, Alice'), ('acm/alice', 'Person, Bob'),
+                          ('acm/unknown', 'Person, Alice')]:
+            self.assertFalse(canonical_name_matches(dict(acm_profile=url, name=name), people))
+
     def test_ledgers_and_profile_or_search_coverage(self):
         rosters = {name: read(ROOT / 'data' / name)[1] for name in
                    ['acm_fellows.csv', 'turing_award_winners.csv']}
@@ -46,6 +73,8 @@ class ProfileSearchTests(unittest.TestCase):
                     self.assertTrue(all(isinstance(value, str) for value in row.values()))
                     if row['acm_profile']:
                         self.assertIn(row['acm_profile'], known_ids)
+                        self.assertTrue(canonical_name_matches(row, people),
+                                        'ACM URL does not belong to the recorded canonical name')
                         identity = ('acm', row['acm_profile'])
                     else:
                         matches = [person for person in people if person['name'] == row['name']]
@@ -71,7 +100,8 @@ class ProfileSearchTests(unittest.TestCase):
                         else:
                             self.assertEqual(url.netloc, 'scholar.google.com')
                             self.assertEqual(url.path, '/citations')
-                            self.assertIn('user=', url.query)
+                            self.assertTrue(has_scholar_user(url.query),
+                                            'Scholar URL requires exactly one nonempty user parameter')
                     path, anchor = row['evidence'].split('#', 1)
                     evidence = ROOT / path
                     self.assertTrue(evidence.is_file())
