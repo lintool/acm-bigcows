@@ -14,6 +14,43 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+## 2026-09-29 10:00 EDT - Regenerate Both Award Visualizations
+
+Regenerated `scholar_data.js` and `turing_scholar_data.js` with explicit user authorization from the current canonical rosters and Scholar extraction JSON.
+Fellows contains 1,638 rows with 1,269 citation-history joins and 369 missing histories; Turing contains 81 rows with 40 joins and 41 missing histories.
+Only generation timestamps changed: profile links, metrics, quality flags, citation histories and actual capture dates are identical to the previous snapshots.
+All 51 Python tests, both award renderer checks and JavaScript syntax checks pass.
+No new crawl, canonical-data update or rendering-code change occurred.
+
+## 2026-09-29 09:59 EDT - Verify Repository and Search-History Consistency
+
+Verified both award rosters, extracted Scholar/DBLP data, CSRankings associations and source-field manifests, capture/import queue, and checked-in visualization snapshots with the offline test suites.
+Every one of the 1,719 award rows has a profile or a recorded search for each of Scholar and DBLP; the [coverage table](profile_review_status.md#profile-or-search-coverage) records linked and searched counts separately.
+Added a regression check for both search ledgers, including schema, recipient identity, unique keys, dates, outcomes, candidate URLs and evidence anchors.
+Added the DBLP search ledger to the human-facing README and included search-history checks in the documented canonical-validation command.
+All 51 Python tests and both award renderer checks pass; all local Markdown file links and section anchors resolve.
+Historical reports retain their completion-time counts and filenames; current status reflects the latest ledger totals.
+Canonical rosters, extracted data, source manifests, capture/import queues and generated visualization files remain unchanged.
+No crawl or visualization regeneration was performed.
+
+## 2026-09-29 09:53 EDT - Start Prospective DBLP Search History
+
+Created `data/dblp_profile_searches.csv` with the same seven-column schema and outcome vocabulary as the Scholar search ledger.
+Recorded fresh paced general-web searches for all 15 blank-link ACM Fellows; all 81 Turing winners already have DBLP links and were excluded.
+No historical backfill or search of populated DBLP links was performed.
+The [report](dblp_missing_search_2026-09-29.md) records queries, results, access limits and prior rejections: six rediscovered excluded profiles and nine not-found replacement searches, with no supported new candidates.
+Preserved prior user decisions and left rosters, extracted data, capture dates, capture/import queues and visualizations unchanged.
+
+## 2026-09-29 09:44 EDT - Search Missing Turing Scholar Profiles
+
+Completed paced general-web searches for all 41 blank-link Turing Award winners and appended 41 records to `data/google_scholar_profile_searches.csv`.
+The [report](scholar_missing_turing_2026-09-29.md) records exact queries, source links, prior decisions and evidence limits.
+No supported new candidates were found: 34 not-found replacement searches, four preserved wrong-person exclusions and three preserved unavailable holds.
+The ledger now contains 429 rows across 392 recipients; all 369 blank-link Fellows and 41 blank-link Turing winners have recorded searches.
+Thirty-three of these Turing winners had prior Fellows records, and eight receive their first ledger entry; this does not erase earlier Turing reviews outside the ledger.
+Preserved all 388 earlier search rows and all explicit user rejections.
+No Scholar profile fetch, canonical roster or extracted-data update, queue change or visualization regeneration occurred.
+
 ## 2026-09-29 09:06 EDT - Compact DBLP Data Extracted from Accepted Captures
 
 Created `data/dblp_extracted_data.json` for all 1,641 distinct stored DBLP profiles using the accepted September 19 capture-verification audit, with no new requests.

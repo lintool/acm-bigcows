@@ -236,6 +236,7 @@ data/csrankings_profiles.csv
 data/google_scholar_extracted_data.json
 data/dblp_extracted_data.json
 data/google_scholar_profile_searches.csv
+data/dblp_profile_searches.csv
 data/turing_award_winners.csv
 ```
 
@@ -312,6 +313,7 @@ Dated audit CSVs preserve their batch's links and evidence; use the canonical ro
 `data/google_scholar_profile_searches.csv` records completed Scholar discovery searches separately from successful captures and canonical profile associations.
 The initial backfill covers the 40 recipients in the September 28 first-ten and next-thirty missing-link discovery batches, with subsequent user decisions applied.
 The completed [Fellows discovery checkpoint](docs/scholar_missing_batch15_2026-09-28.md) covers all currently blank-link Fellows, including unavailable and rejected associations.
+The [September 29 Turing search](docs/scholar_missing_turing_2026-09-29.md) adds a fresh recorded search for all 41 blank-link Turing winners, preserving earlier exclusions and unavailable holds.
 Older discovery work documented in Data Notes is not yet comprehensively backfilled; absence from this CSV does not establish that a recipient was never searched.
 It does not relabel earlier quality audits, crawl attempts or unsearched missing profiles as completed searches.
 
@@ -343,6 +345,19 @@ John D Gannon is the first such search-history exception, recorded in [batch sev
 Selection, uniqueness and coverage checks must use the ACM URL when present and otherwise this validated canonical-name fallback; do not infer a shared identity across rosters from a name alone.
 Maintain the relevant review report and current status alongside CSV decisions, preserving explicit user rejections.
 This ledger does not modify award rosters, capture dates, quality flags, statistics or capture/import queues automatically.
+
+### DBLP Search History
+
+`data/dblp_profile_searches.csv` records prospective discovery attempts for recipients whose canonical `dblp_profile` is blank.
+Do not backfill old searches or search already populated DBLP links as part of routine missing-link discovery, including populated links rated N; a separately authorized review may have a broader scope.
+Consult prior decisions before searching so rejected profiles are not proposed again without new evidence.
+Use the same seven columns, outcome vocabulary, identity keys, timestamp rules and append/review semantics as [Scholar Search History](#scholar-search-history), with `candidate_url` holding the exact DBLP author URL instead of a Scholar URL.
+Use a stable `https://dblp.org/pid/...` URL when established; do not put publication records, search pages or directory URLs in that field.
+A fresh search that rediscovers a rejected profile receives a new record with its preserved disposition and evidence distinguishing the earlier decision from the current search.
+When no author URL is resolved in the new search, append a blank-candidate record and describe historical exclusions in evidence rather than backfilling them as fresh discoveries.
+An absent ledger record does not mean the person was never searched; dates are discovery dates, never capture dates.
+The [initial September 29 search](docs/dblp_missing_search_2026-09-29.md) covers all 15 blank-link Fellows; no Turing winners have blank DBLP links.
+This review/discovery ledger does not change rosters, extracted data, capture/import queues or visualizations automatically.
 
 ### Profile Crawl Dates
 
@@ -938,7 +953,7 @@ The snapshot check deliberately fails when generated datasets lag the CSVs; do n
 For canonical-data and builder validation during that deferral, run:
 
 ```bash
-PYTHONPATH=tests python -B -m unittest test_csrankings_rosters test_csrankings_dblp test_scholar_citation_data.CitationDataTests test_university_analysis test_profile_provenance test_profile_validation test_scholar_data test_dblp_extracted_data -v
+PYTHONPATH=tests python -B -m unittest test_csrankings_rosters test_csrankings_dblp test_scholar_citation_data.CitationDataTests test_university_analysis test_profile_provenance test_profile_validation test_scholar_data test_dblp_extracted_data test_profile_searches -v
 ```
 
 These checks build Scholar joins in memory without writing visualization files.
@@ -946,6 +961,8 @@ Run the full suite after authorized regeneration and report snapshot synchroniza
 Accepted links without an imported capture may have blank capture dates and missing metrics; the tests verify those missing-data semantics rather than requiring every URL to have a date.
 When a Scholar statistics row exists, its capture date must equal the referring roster's Scholar capture date.
 The canonical checks also enforce roster and CSRankings ordering, original CSRankings source-field hashes, the current capture/import queue and exact-name affiliation joins.
+Search-ledger checks enforce schema, recipient identity, unique attempt keys, timezone-aware search/review dates, outcomes, candidate URL forms and evidence anchors.
+Every award row must have either a linked profile or a recorded search for each of Scholar and DBLP; this coverage check does not certify availability or quality.
 Shared recipients are identified by normalized ACM recipient IDs before comparing publication URLs, quality flags, capture dates and CSRankings links/dates across awards; missing ACM identities are not inferred from names alone.
 Derived CSRankings DBLP fields must exactly match the upstream-compatible name generator, even when roster URLs differ, are blank, or have quality N.
 Tests preserve this independence and cover accents, campus notes, suffixes, disambiguators and generated-link checks without fetching profiles.

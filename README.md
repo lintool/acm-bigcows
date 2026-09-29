@@ -13,10 +13,11 @@ See the [source policy](AGENTS.md#acm-source-of-truth), [Fellows reconciliation 
 - [Google Scholar extracted data](data/google_scholar_extracted_data.json): profile links, affiliations, interests, and citation statistics for ACM Fellows and Turing Award winners.
 - [DBLP extracted data](data/dblp_extracted_data.json): profile names, explicitly listed affiliations, publication totals and counts by year, with capture provenance.
 - [Google Scholar search history](data/google_scholar_profile_searches.csv): completed discovery searches, candidate outcomes, review dates and evidence, including unsuccessful searches.
+- [DBLP search history](data/dblp_profile_searches.csv): prospective search attempts for missing DBLP links, with candidate outcomes and evidence.
 - [CSRankings profiles](data/csrankings_profiles.csv): faculty records referenced by the exact `csrankings_name` keys in either award roster, including documented historical records.
   Original source fields are preserved; `dblp_profile` reproduces CSRankings' own name-generated link, separately from our reviewed award-profile URLs.
 
-The CSV rosters and JSON Scholar data are ready to download or use from a clone.
+The CSV rosters and JSON extracted data are ready to download or use from a clone.
 Both award tables include Y/N quality assessments for DBLP and Google Scholar profiles; see the [DBLP review](docs/dblp_profile_quality_2026-09-17.md), [Fellows Scholar review](docs/acm_scholar_quality_2026-09-17.md), and [Turing Scholar review](docs/turing_scholar_quality_2026-09-17.md) for criteria, findings, and inspection limits.
 Later [Fellows decisions](docs/check_profiles_full_2026-09-18.md#explicit-user-decisions) and the [full Turing review](docs/check_profiles_turing_2026-09-18.md) supersede those initial findings where documented.
 The [September 28 Scholar audit and final user decisions](docs/scholar_recalibration_2026-09-28.md) complete the retained-evidence Scholar review across both rosters under the user's lenient contamination tolerance.

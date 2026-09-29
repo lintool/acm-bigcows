@@ -2,7 +2,7 @@
 // Rebuild default inputs with python scripts/build_scholar_citation_visualization.py --award turing
 window.SCHOLAR_DATA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T10:29:44+00:00",
+  "generatedAt": "2026-09-29T14:00:14+00:00",
   "metadata": {
     "award": "turing",
     "totalRows": 81,
