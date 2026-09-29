@@ -103,12 +103,129 @@
         "orcid": ""
       },
       "reviewed_names": [
+        "Ahmed Sameh",
+        "Alan Borning",
+        "Albert R. Meyer",
+        "Alexander Vardy",
+        "Alfred V. Aho",
         "Allan Gottlieb",
+        "Amos Fiat",
+        "Andrew M. Pitts",
+        "Andrew W. Appel",
+        "Arvind",
+        "Barbara G. Ryder",
+        "Barry W. Boehm",
+        "Ben Shneiderman",
+        "Bryant W. York",
+        "Carlo Zaniolo",
+        "Dana S. Nau",
+        "Dana S. Scott",
+        "Daniel A. Menascé",
+        "Daniel Gusfield",
+        "David A. Padua",
+        "David E. Culler",
+        "David P. Dobkin",
+        "David S. Rosenblum",
+        "Dexter Kozen",
+        "Dianne P. O'Leary",
+        "Donald A. Norman",
+        "Donald Kossmann",
+        "Dragomir R. Radev",
+        "E. Allen Emerson",
+        "Edmund M. Clarke",
+        "Edward A. Fox",
+        "Edward D. Lazowska",
+        "Edward M. Reingold",
+        "Edward W. Felten",
+        "Emery D. Berger",
+        "Eric A. Brewer",
+        "Eric Roberts",
+        "Feifei Li 0001",
+        "Franco P. Preparata",
+        "G. Edward Suh",
+        "Gary L. Miller",
+        "Gary M. Olson",
+        "Gul A. Agha",
+        "Henry M. Levy",
+        "J Strother Moore",
+        "J. Mark Pullen",
+        "James D. Foley",
+        "James Demmel",
+        "James F. Kurose",
+        "James R. Larus",
+        "Jayadev Misra",
+        "Jeanne Ferrante",
         "John E. Hopcroft",
+        "John E. Laird",
+        "John E. Savage",
+        "John K. Ousterhout",
+        "John P. Hayes",
+        "John T. Stasko",
+        "Jonathan Katz",
+        "Jonathan Turner",
         "Joseph M. Hellerstein",
+        "Judea Pearl",
+        "Kang G. Shin",
+        "Kathleen Fisher",
+        "Keshav Pingali",
         "Larry S. Davis",
+        "Lars Arge",
+        "Lawrence C. Paulson",
         "Laxmi N. Bhuyan",
-        "Peter L. Bartlett"
+        "Laxmikant V. Kalé",
+        "M. Balakrishnan",
+        "Manish Gupta 0001",
+        "Marc Snir",
+        "Mark S. Ackerman",
+        "Marvin Minsky",
+        "Mary Jane Irwin",
+        "Mathieu Desbrun",
+        "Micha Sharir",
+        "Mitchell Wand",
+        "Neil Immerman",
+        "Nick McKeown",
+        "Nick Roussopoulos",
+        "Noga Alon",
+        "Orna Grumberg",
+        "Pat Hanrahan",
+        "Peter L. Bartlett",
+        "Premkumar T. Devanbu",
+        "Ramesh C. Jain",
+        "Ramin Zabih [Tech]",
+        "Randal E. Bryant",
+        "Randy H. Katz",
+        "Rastislav Bodík",
+        "Rebecca N. Wright",
+        "Richard Cole 0001",
+        "Richard J. Lipton",
+        "Richard M. Fujimoto",
+        "Richard M. Karp",
+        "Richard N. Taylor",
+        "Richard P. Brent",
+        "Robert E. Kraut",
+        "Robert Kowalski",
+        "Robert L. Constable",
+        "Robert Sedgewick",
+        "Roger B. Dannenberg",
+        "Ronald L. Graham",
+        "Ruzena Bajcsy",
+        "Sara B. Kiesler",
+        "Scott Shenker",
+        "Sidney Karin",
+        "Simon S. Lam",
+        "Stanley B. Zdonik",
+        "Steve Blackburn",
+        "Sudipto Guha",
+        "Susanne E. Hambrusch",
+        "Tal Rabin",
+        "Trevor N. Mudge",
+        "Wang Chiew Tan",
+        "Wen-Mei W. Hwu",
+        "William J. Dally",
+        "Willy Zwaenepoel",
+        "Xuelong Li",
+        "Yoav Shoham",
+        "Zvi M. Kedem"
       ]
     }
   },
@@ -169,9 +286,17 @@
       "source": "csrankings-a.csv",
       "sha256": "9efe45ba5251d52a0e2e8302ce26af2901e42e25513131aa56ffdbef4d3ced0d"
     },
+    "Ahmed Sameh": {
+      "source": "legacy",
+      "sha256": "31c070300cfb6864501da6fba3229115b93fb63b418c56936fe17c6fad45b438"
+    },
     "Aidong Zhang 0001": {
       "source": "csrankings-a.csv",
       "sha256": "b73130cfb712d01295fd2e1b84b22c38af1ec68ed1c97e02f3ed3d74adcd1a28"
+    },
+    "Alan Borning": {
+      "source": "legacy",
+      "sha256": "66ccc2a83e935a643cd38787990a60f6dd8e8e792740e5eb090c3d2cca81367d"
     },
     "Alan Bundy": {
       "source": "csrankings-a.csv",
@@ -180,6 +305,10 @@
     "Alan H. Barr": {
       "source": "csrankings-a.csv",
       "sha256": "e53a57e22c5a05d57c1aabc2d513908e10fc3d32de8c71cfbbc539fcecbaf2f6"
+    },
+    "Albert R. Meyer": {
+      "source": "legacy",
+      "sha256": "3766d059e2f2aa2336b889d6697d13bb706497e83ffd6438a3e01b6ecd1fcb36"
     },
     "Alberto L. Sangiovanni-Vincentelli": {
       "source": "csrankings-a.csv",
@@ -213,9 +342,17 @@
       "source": "csrankings-a.csv",
       "sha256": "699af42cbd62390cf8efa50aa07a8d53dfb53a0f2d12207df00769e7ea129045"
     },
+    "Alexander Vardy": {
+      "source": "legacy",
+      "sha256": "ea3c3e1fadf5f4cd8bee8d750ba5e548a34a4c037dc01d839dc2717d089bdd73"
+    },
     "Alfons Kemper": {
       "source": "csrankings-a.csv",
       "sha256": "83b889bc8c200412f607efd6caf96b38a76f2eb741e03ef324ff6790e353734e"
+    },
+    "Alfred V. Aho": {
+      "source": "legacy",
+      "sha256": "d0941cb46339a49fc7c63bdde3be43038756a74c09c69e562fd09930f538f085"
     },
     "Alistair Moffat": {
       "source": "csrankings-a.csv",
@@ -248,6 +385,10 @@
     "Amit Sahai": {
       "source": "csrankings-a.csv",
       "sha256": "7cd67bc199cd836b4eaa713fbae5c38b9153c06f248266ba23001e4eb867a0d8"
+    },
+    "Amos Fiat": {
+      "source": "legacy",
+      "sha256": "a46610598f860fcc41cae906a7f8b67e40374dd3c9d2fe6bb2f5ff9ef82fa874"
     },
     "Amr El Abbadi": {
       "source": "csrankings-a.csv",
@@ -301,6 +442,10 @@
       "source": "csrankings-a.csv",
       "sha256": "09cab28aaeed4c03dbe64349c8ac83d721b4c70a22d889d4e4b60a3addfa2e58"
     },
+    "Andrew M. Pitts": {
+      "source": "legacy",
+      "sha256": "88829eb5b739e4c606bb53799026b7614c96e54c9e0c393870c46828af027906"
+    },
     "Andrew McCallum": {
       "source": "csrankings-a.csv",
       "sha256": "b6d198d78d0eeb5c389e65d9c7ce5f2d9bc99f228ab35c3d6035933bd648d7f6"
@@ -308,6 +453,10 @@
     "Andrew S. Tanenbaum": {
       "source": "csrankings-a.csv",
       "sha256": "51efed4c3dcb43b7295bb2a61c7533908c0779de0a24ac715745a4878a38b400"
+    },
+    "Andrew W. Appel": {
+      "source": "legacy",
+      "sha256": "71a094fff2f31c2c161c60fe5f3c159fc011b84e1052b174d98835862b2b6f77"
     },
     "Andries van Dam": {
       "source": "csrankings-a.csv",
@@ -377,6 +526,10 @@
       "source": "csrankings-a.csv",
       "sha256": "c707923c96322970ce3994414e703c8d053d226260e0f57c79c34c86531dfd7f"
     },
+    "Arvind": {
+      "source": "legacy",
+      "sha256": "f4a032f9a6f40a58facdc3bbab1949a56eb403eb98d3df6a2cf6e01cc1f2a05f"
+    },
     "Arvind Krishnamurthy": {
       "source": "csrankings-a.csv",
       "sha256": "75a2c416b389cfefff633b6df80a9436a1b93e5ac79556cd8e2102492023140c"
@@ -417,6 +570,10 @@
       "source": "csrankings-b.csv",
       "sha256": "476fc0a0dfc358094ee1563c361d7f3c7eeceb4290e2b330ca14ff6d842cd96a"
     },
+    "Barbara G. Ryder": {
+      "source": "legacy",
+      "sha256": "edbc67a17496bff691f5cca91092500ea3f0bc74e6e2e6da935e25f8b0146aba"
+    },
     "Barbara J. Grosz": {
       "source": "csrankings-b.csv",
       "sha256": "5b0b1d7370f0a1fe12a42134c5472c0956b6d2d71fc1648ca4dd6065937e6d7c"
@@ -424,6 +581,10 @@
     "Barbara Liskov": {
       "source": "csrankings-b.csv",
       "sha256": "8acf129dd350c2f8214eaead756b4b5334242c5e76881095d8bc2b857eeee7ef"
+    },
+    "Barry W. Boehm": {
+      "source": "legacy",
+      "sha256": "a185f5a1b502a35691d4117003f05b3cffbea25deb0733995b79ccfe28be0182"
     },
     "Bart Selman": {
       "source": "csrankings-b.csv",
@@ -440,6 +601,10 @@
     "Bella Bose": {
       "source": "csrankings-b.csv",
       "sha256": "996729a69f4ec9c01ad2d2f65e87793a20968f24b448adb8934df8d8061debf8"
+    },
+    "Ben Shneiderman": {
+      "source": "legacy",
+      "sha256": "f76092ef98d9925a1b4bbc1da16d63d6abf037c0f1ed342b7f8ee551d4dd3784"
     },
     "Ben Y. Zhao": {
       "source": "csrankings-b.csv",
@@ -525,6 +690,10 @@
       "source": "csrankings-b.csv",
       "sha256": "28201f2aa32fa960e1dd076ea792a0823e16b26a5b5fe24d5cb40f5f94297841"
     },
+    "Bryant W. York": {
+      "source": "legacy",
+      "sha256": "b1673341bc49c1f9be7b2dc810c844211464c5138afeccda86521534ad990d98"
+    },
     "Bud Mishra": {
       "source": "csrankings-b.csv",
       "sha256": "5b979909f3fd417643455c197aef2f38b8174adbcd800ae728dd5d213b76601d"
@@ -548,6 +717,10 @@
     "Carlo Tomasi": {
       "source": "csrankings-c.csv",
       "sha256": "27f3c1a3b53fbe4c0c640391c3ae4514a922a8ed45670a0a0c839ed6265753e4"
+    },
+    "Carlo Zaniolo": {
+      "source": "legacy",
+      "sha256": "2f1a10681f8551834e500b204e5cee501585d2dcac40dbae3fddfd72eae8e1be"
     },
     "Carlos José Pereira de Lucena": {
       "source": "csrankings-c.csv",
@@ -685,6 +858,18 @@
       "source": "csrankings-d.csv",
       "sha256": "ae19bf4f94450e35f287d06dfec95dac7fda9ab4e6a33ad4dfca312ecc0b26ec"
     },
+    "Dana S. Nau": {
+      "source": "legacy",
+      "sha256": "64545b236da8d77596345f2348fbaf8ae60481f6be4b485d92c9a24d08835e04"
+    },
+    "Dana S. Scott": {
+      "source": "legacy",
+      "sha256": "3b11b7d19ad2b2e45573e357f3b54b7006159d1225059aaee251086ba34b4397"
+    },
+    "Daniel A. Menascé": {
+      "source": "legacy",
+      "sha256": "f7475cda489a0ad5300ae4ae7bb86eff76c21d03278c4d27af29240983238959"
+    },
     "Daniel A. Reed": {
       "source": "csrankings-d.csv",
       "sha256": "c89e17c2ff798e4f76acda2eead26b2902dbb67bd3ebe249f817230107b24831"
@@ -696,6 +881,10 @@
     "Daniel Cohen-Or": {
       "source": "csrankings-d.csv",
       "sha256": "d356e2926adfcfde27744fdb06e1e15501bd1a326fb221379f57841e81e79c46"
+    },
+    "Daniel Gusfield": {
+      "source": "legacy",
+      "sha256": "a87816fa17f17d45c2ba40981158f0892f8a825de318df91c6b2a3bbd1b2bb17"
     },
     "Daniel J. Abadi": {
       "source": "csrankings-d.csv",
@@ -737,6 +926,10 @@
       "source": "csrankings-d.csv",
       "sha256": "1782420f082b49cd7b880fe6aaf178f89ef37995f7a807e02d27b0d38e40e38d"
     },
+    "David A. Padua": {
+      "source": "legacy",
+      "sha256": "4e867ae665f3e5779bdc768302d3c085ad782fe80bb947ef8842364482c30642"
+    },
     "David B. Shmoys": {
       "source": "csrankings-d.csv",
       "sha256": "39a5c843b35e12452517253268b86e3e3eee5d4e3aba7286cb10262354efaf15"
@@ -748,6 +941,10 @@
     "David C. Parkes": {
       "source": "csrankings-d.csv",
       "sha256": "808c7948e96cb43ec9ddc5acf75e12e09781eb0913ed0e4210a3834587875bb9"
+    },
+    "David E. Culler": {
+      "source": "legacy",
+      "sha256": "abc076655965df11efab9324045a511f63820a9f24a4db3e74ea0720668495aa"
     },
     "David Eppstein": {
       "source": "csrankings-d.csv",
@@ -785,6 +982,10 @@
       "source": "csrankings-d.csv",
       "sha256": "b457b21e6dace413d70ed6072cee59e32d41664b69a7d5a1cfd6e17017c6e78b"
     },
+    "David P. Dobkin": {
+      "source": "legacy",
+      "sha256": "61cf1e390531da8b3ecb7e32b72ac1e9ef871227693d2dce3da96276573feccf"
+    },
     "David P. Williamson": {
       "source": "csrankings-d.csv",
       "sha256": "2c75c8eb9368204cb34fd86d371bcf1ee125809348e7adab7491c1e0b20ed6cb"
@@ -800,6 +1001,10 @@
     "David R. Karger": {
       "source": "csrankings-d.csv",
       "sha256": "a5cd7a6f5df87f57d54cd286f54da92220a6d5525f4c77d9943b716b847c2a57"
+    },
+    "David S. Rosenblum": {
+      "source": "legacy",
+      "sha256": "80ad8600a6cbb73567ea5f95899720dca58af20d970007bd01d090575f83492c"
     },
     "David Z. Pan": {
       "source": "csrankings-d.csv",
@@ -849,6 +1054,10 @@
       "source": "csrankings-d.csv",
       "sha256": "f971a480c2ae4191b71039d06e7173c3f15a0005cf78f3e82c4912920fa0fd70"
     },
+    "Dexter Kozen": {
+      "source": "legacy",
+      "sha256": "97bde05e40ade633e81a1c5e5188393cceb64f1a3c9f2893752c8ee25f586a34"
+    },
     "Dhabaleswar K. Panda 0001": {
       "source": "csrankings-d.csv",
       "sha256": "59ce8f4963ea07b55d500f0630b1e1a2cfdeca2eb187e93708d95a9ac4151912"
@@ -869,6 +1078,10 @@
       "source": "csrankings-d.csv",
       "sha256": "d58538d6d6166d9f337a4cfdd1268cf257b92149db40040cd8a1fc50f8ce1187"
     },
+    "Dianne P. O'Leary": {
+      "source": "legacy",
+      "sha256": "bb65defa4e5fe366cbdb6fcd61c130c84f19c6ca6da4a09701503d23adc83a25"
+    },
     "Dina Katabi": {
       "source": "csrankings-d.csv",
       "sha256": "af4c8be7d0d939899380c4567e5d089c341c89c748678dcdc8c75e690a2ddc63"
@@ -881,6 +1094,10 @@
       "source": "csrankings-d.csv",
       "sha256": "86bee4612ef472bc1328f3ed60b2dc11f40084c8b64cedabb08e82c8da70a3e1"
     },
+    "Donald A. Norman": {
+      "source": "legacy",
+      "sha256": "6dc5822154fde3eb455963c540fee6c280ad196694221c9cbc4a9bce0fca8c6a"
+    },
     "Donald F. Towsley": {
       "source": "csrankings-d.csv",
       "sha256": "6be4ab84fab79815c6a1ba78affd16d0976c5be65a2d5224a2da445960134838"
@@ -889,13 +1106,45 @@
       "source": "historical",
       "sha256": "710abc79480ad200a89032347c56f9a83d1c1bd51e8f1d3a7234288c38846dbb"
     },
+    "Donald Kossmann": {
+      "source": "legacy",
+      "sha256": "243b504c8c25e01033088f102d55ee7403cba93e4c2f119b2ddc8e3d47d80a3b"
+    },
     "Douglas E. Comer": {
       "source": "csrankings-d.csv",
       "sha256": "5c4b3aac13cd8c7aa8bd73c4a8f7c20583cbef7e70b8cda3b0bf360eb1c13688"
     },
+    "Dragomir R. Radev": {
+      "source": "legacy",
+      "sha256": "4d50a12d71869fce99e21ed8a6f0fcd52316aeee597d6809b974d98b2f9174d7"
+    },
+    "E. Allen Emerson": {
+      "source": "legacy",
+      "sha256": "9223aa9ad348eed4e8838c663c5c57cd822f540009d5b66451489a1752d7b195"
+    },
+    "Edmund M. Clarke": {
+      "source": "legacy",
+      "sha256": "c4379612808e4877ac50c41c350c3767180131c203cc0c02e2ae303c19339f5d"
+    },
     "Edouard Bugnion": {
       "source": "csrankings-e.csv",
       "sha256": "1b3e1e4003cf898feaa06ea9a76240459935ab08d14cc51459c05b0af32e5edc"
+    },
+    "Edward A. Fox": {
+      "source": "legacy",
+      "sha256": "2c0b2648a6f1a2c1b3bf65920d4b947520d025cbe5bf939fb8d07bbf87b4d413"
+    },
+    "Edward D. Lazowska": {
+      "source": "legacy",
+      "sha256": "b2d623bee0393c005239d667e0d27d14eccd84b910b20aa0a1e4b3cfe59a6c0e"
+    },
+    "Edward M. Reingold": {
+      "source": "legacy",
+      "sha256": "e4dd9e6659d58d4b018fec38c15817089d6d8e4e374322532dc2576652fb6c07"
+    },
+    "Edward W. Felten": {
+      "source": "legacy",
+      "sha256": "9953df9b239531ad04ed9231e47caab32ef22a3c2b891fc74d7151790ab4ff47"
     },
     "Edward W. Knightly": {
       "source": "csrankings-e.csv",
@@ -937,6 +1186,10 @@
       "source": "csrankings-e.csv",
       "sha256": "8dcef4e35eeb68f3859729cbf32003dc274cc5690e70c0821d6ec1ef6bdd46e0"
     },
+    "Emery D. Berger": {
+      "source": "legacy",
+      "sha256": "5587350f1c7eeab787dcf9445e3b884cae12e0e1b55c0f51937d794dc1f96542"
+    },
     "Emmett Witchel": {
       "source": "csrankings-e.csv",
       "sha256": "72755768305baba3efc52e2115ee2e7a15fe33b01bbf1f374fa5d63f188baa73"
@@ -945,6 +1198,10 @@
       "source": "csrankings-e.csv",
       "sha256": "c1ed755a0bdb96d1286d627f314213f6a72919a65d730896e8c7562dea91d2dd"
     },
+    "Eric A. Brewer": {
+      "source": "legacy",
+      "sha256": "f04df62e5d8ec70469e92718812856cce420f8a1bf1fe1521643e44d6b77bcf0"
+    },
     "Eric Allender": {
       "source": "csrankings-e.csv",
       "sha256": "ec85fdfd19e54c57ae50a3d19d181a65bb9b380d89d3e3542ccc619a91fe4785"
@@ -952,6 +1209,10 @@
     "Eric P. Xing": {
       "source": "csrankings-e.csv",
       "sha256": "3a58fab449abea1fc8213f69858bc511a0ea92dd311e71e2a292a7514000150c"
+    },
+    "Eric Roberts": {
+      "source": "legacy",
+      "sha256": "5c886e4379c39b68eac822e2ad6b104cd6d3f5717494e658a8e0e13dfba97d64"
     },
     "Erik D. Demaine": {
       "source": "csrankings-e.csv",
@@ -993,6 +1254,10 @@
       "source": "csrankings-f.csv",
       "sha256": "1291fb1924abf915995a39433e7742d2f4edb1b15e11a9189f82f7719df56fce"
     },
+    "Feifei Li 0001": {
+      "source": "legacy",
+      "sha256": "319390d0062fdfa25a9e7b8c85ac53627ab1820e938ccf8a3d7baa926aa53e0f"
+    },
     "Filippo Menczer": {
       "source": "csrankings-f.csv",
       "sha256": "dbf94c13f7d808c4509c7551a436f08ec559d03e0880fc8bd52075445782e988"
@@ -1000,6 +1265,10 @@
     "Francine Berman": {
       "source": "csrankings-f.csv",
       "sha256": "3905141c8b961b9f65beadc2e474294540330daeb0cc2fc32ea09003580e2d96"
+    },
+    "Franco P. Preparata": {
+      "source": "legacy",
+      "sha256": "35c4c14277816b6be78cec57e8ed519b198df01cc1ec3c4e86feb7436b9908ab"
     },
     "Frank Mueller 0001": {
       "source": "csrankings-f.csv",
@@ -1021,6 +1290,10 @@
       "source": "csrankings-f.csv",
       "sha256": "6f807f88b0e328759bf2f0ad59264b240311bdc8e6d82b80b721e9aedaf2d80c"
     },
+    "G. Edward Suh": {
+      "source": "legacy",
+      "sha256": "f1bfc18bf86959f70025f60272b21b802ded30fdb35041a759b65a35a60be1c4"
+    },
     "Gail C. Murphy": {
       "source": "csrankings-g.csv",
       "sha256": "0489c64b3add8d2132dff291899542611117aaf804bfd4572da5b78512933d7f"
@@ -1028,6 +1301,14 @@
     "Gail-Joon Ahn": {
       "source": "csrankings-g.csv",
       "sha256": "08282914cfe48cd1de91d339003208b4e8df2a31001010555f30afebcd3e5789"
+    },
+    "Gary L. Miller": {
+      "source": "legacy",
+      "sha256": "edcb1b06494842a260d295102dece179123f06e51c922940830d42cb1e92561e"
+    },
+    "Gary M. Olson": {
+      "source": "legacy",
+      "sha256": "fbb56f106fc9f8d7a0efa02ece9b73fb9f66f7a297e240a77f79704371fdb1f1"
     },
     "Gautam Das 0001": {
       "source": "csrankings-g.csv",
@@ -1112,6 +1393,10 @@
     "Gregory R. Andrews": {
       "source": "csrankings-g.csv",
       "sha256": "442734905dbe50a0b87961f642312b72e6680d7207a299f2d7d8da09ba69ce29"
+    },
+    "Gul A. Agha": {
+      "source": "legacy",
+      "sha256": "68508f04b39a7a367e6ae005b9b8f64b29b62b7fcdfe77dd2bb850583558a511"
     },
     "Guoliang Li 0001": {
       "source": "csrankings-g.csv",
@@ -1213,6 +1498,10 @@
       "source": "csrankings-h.csv",
       "sha256": "74eb8b5c87849f3d7d1a634d66a2123183ff6825d64c8be70bb59ecdce1cefc5"
     },
+    "Henry M. Levy": {
+      "source": "legacy",
+      "sha256": "3df95597cf3ba2054edcfe7613ae7d3c41d9b0b46cdbed415a757eb982b6bfa9"
+    },
     "Holger H. Hoos": {
       "source": "csrankings-h.csv",
       "sha256": "cf4dc25f430a121407a2d18ab79efe2ab40bf120c5880d772d469009e6f94fb2"
@@ -1269,6 +1558,10 @@
       "source": "csrankings-i.csv",
       "sha256": "5b01bdc7bdabac6d12ff27c096412f7ad8a3af1adebad038f538f22148f1ffa4"
     },
+    "J Strother Moore": {
+      "source": "legacy",
+      "sha256": "a7ae5aed7dd6c187eaf7f152be92cbc9e96229a07d5bf49ee93000ff0804cc63"
+    },
     "J. Gregory Morrisett [Tech]": {
       "source": "csrankings-j.csv",
       "sha256": "cbcbe9d378bbcb9a533025598389142f232ead845f155df604e9d928c2e16b6f"
@@ -1276,6 +1569,10 @@
     "J. J. Garcia-Luna-Aceves": {
       "source": "csrankings-j.csv",
       "sha256": "a3b84d68693d303286038e65e95d855a09c26ad82f14844531b2ad121f0d8bfa"
+    },
+    "J. Mark Pullen": {
+      "source": "legacy",
+      "sha256": "792fbd92ea9f188a1c27ccaf9ceeae63d1ba569b998b3736c3241ed100c63a2b"
     },
     "Jack Dongarra": {
       "source": "csrankings-j.csv",
@@ -1301,6 +1598,18 @@
       "source": "csrankings-j.csv",
       "sha256": "fdbdefc3f5dfbc7e029cb15302249c3369bf85c4802a91742f472b6f7e0da592"
     },
+    "James D. Foley": {
+      "source": "legacy",
+      "sha256": "4dbbe8db1d39bb2cf01836f291bcf7cbe3ac62c18d5b691611fb06db693b8968"
+    },
+    "James Demmel": {
+      "source": "legacy",
+      "sha256": "7a4f92fc7632c0d25e2827271b75f088969b6cb72332725c46d3168ae2d2c010"
+    },
+    "James F. Kurose": {
+      "source": "legacy",
+      "sha256": "af24c35459df50e7d05dcbceec38b7fe73320f5279b7f34ed145618aa4fc5987"
+    },
     "James H. Anderson": {
       "source": "csrankings-j.csv",
       "sha256": "8fc75a741942ecb666824f84ee5f6977bb3db11c014a6d1f9e7beb6ec9331da6"
@@ -1308,6 +1617,10 @@
     "James H. Morris": {
       "source": "csrankings-j.csv",
       "sha256": "d7554c701632aff2a322cb3605ec8f5b1cc8a3ae5992a339f2e78320aca01d47"
+    },
+    "James R. Larus": {
+      "source": "legacy",
+      "sha256": "cb368dd177c5d31369b4829b608df6deadf1878aa9a2225cf4b24489f54c553a"
     },
     "Jason Cong": {
       "source": "csrankings-j.csv",
@@ -1325,6 +1638,10 @@
       "source": "csrankings-j.csv",
       "sha256": "2d562a7718c8ed8100e46963c0ef787062db98f6d475b6463260bb19a26d0798"
     },
+    "Jayadev Misra": {
+      "source": "legacy",
+      "sha256": "50b9e5ff4b0ab85d89095d70e0f8f41ca6333baed920b30fd7c88163d5260815"
+    },
     "Jayant R. Haritsa": {
       "source": "csrankings-j.csv",
       "sha256": "98ba13ced4724cd400cbe25589cbad8891b2e640838d34468b490ad2f8fe03b7"
@@ -1332,6 +1649,10 @@
     "Jean-Pierre Hubaux": {
       "source": "csrankings-j.csv",
       "sha256": "769aa74ba6fd78025e4c1a36ef6cd16ca835039ed7e234ca59edb05fd0cdfaac"
+    },
+    "Jeanne Ferrante": {
+      "source": "legacy",
+      "sha256": "91a546c4fbce8ce79f167433225a557fbbb41cce75fa0d93e3b3a48426d71fd6"
     },
     "Jeffrey Kramer": {
       "source": "csrankings-j.csv",
@@ -1437,6 +1758,14 @@
       "source": "legacy",
       "sha256": "f82c82bd6f66faead4f91250b234de10258b923f51190ff67521db8804886307"
     },
+    "John E. Laird": {
+      "source": "legacy",
+      "sha256": "a0ffc745b1f3572aae073885fa6d622b39d14d043fc99f3086b1d26d1f517bd3"
+    },
+    "John E. Savage": {
+      "source": "legacy",
+      "sha256": "3490fc3cb418969d0c04dae972596ec828f92aa1343946c1bb70dd45476ac39a"
+    },
     "John F. Canny": {
       "source": "csrankings-j.csv",
       "sha256": "f78835d20a0622164ddd132a2824ceb84b5ff0969e3e841f8e8051dec4718a35"
@@ -1448,6 +1777,10 @@
     "John Hughes 0001": {
       "source": "csrankings-j.csv",
       "sha256": "9f0e4b70258a77f670b7f4d1e82f2dfbb4451eaefc6906410f359b7ed223f89f"
+    },
+    "John K. Ousterhout": {
+      "source": "legacy",
+      "sha256": "4d40d3d73a480fb33eee290617ba07d057a7d188435446ecc4fe0127f25b0c5b"
     },
     "John L. Hennessy": {
       "source": "csrankings-j.csv",
@@ -1461,6 +1794,14 @@
       "source": "csrankings-j.csv",
       "sha256": "6bde3619c980d507bcbc38a76f7f819ec70786d6cf9fccd491df87765c8e2aa6"
     },
+    "John P. Hayes": {
+      "source": "legacy",
+      "sha256": "bbc145f307e95e7921a2128eb4d2180982e7e3afa94077f3c13f3d26edb08a12"
+    },
+    "John T. Stasko": {
+      "source": "legacy",
+      "sha256": "aa703a8e4d1588d20917ed676cdeeb62f3f2016dd9c5be56dd81b6828bb1a285"
+    },
     "John V. Guttag": {
       "source": "csrankings-j.csv",
       "sha256": "b1397a04c0d981e940a00fa8845033ba31db1de57d9adc766736b59929c236c5"
@@ -1472,6 +1813,14 @@
     "Jon M. Kleinberg": {
       "source": "csrankings-j.csv",
       "sha256": "6f49f1728634be4d2100e38a40d1bbd7b0708ab3389ee15b24c03f875afe73ae"
+    },
+    "Jonathan Katz": {
+      "source": "legacy",
+      "sha256": "4d9bfc054da453d6f605c931dce235c5965d63ddb290781f9d58e17535ff5994"
+    },
+    "Jonathan Turner": {
+      "source": "legacy",
+      "sha256": "79e1f8943b7acbcd196039ba9e580f0f8b1437172664399dd7ecaa81f5d41047"
     },
     "Joost-Pieter Katoen": {
       "source": "csrankings-j.csv",
@@ -1508,6 +1857,10 @@
     "Juan E. Gilbert": {
       "source": "csrankings-j.csv",
       "sha256": "1178dda717824749fdfe64ccbfcd55fb8402229eda1acaf8ef4a56944f35be39"
+    },
+    "Judea Pearl": {
+      "source": "legacy",
+      "sha256": "9604e37611e181db29c49916e02b171cc4a8bcceef281f7fbeadb44e5d8bd7e1"
     },
     "Judith S. Olson": {
       "source": "historical",
@@ -1549,6 +1902,10 @@
       "source": "csrankings-k.csv",
       "sha256": "f2b8397b863445014d3963b479f09309103b7c85723754815f7114b6c25d3afa"
     },
+    "Kang G. Shin": {
+      "source": "legacy",
+      "sha256": "35f622ddb07df9b5f4fd1a86c5d6c4c842f259d77e66d184f79ad0fd6d82c0fb"
+    },
     "Karem A. Sakallah": {
       "source": "csrankings-k.csv",
       "sha256": "4b23f15364cd0633d65a919907387135308bb737ab3c0676fb0dec8295f70678"
@@ -1556,6 +1913,10 @@
     "Katherine A. Yelick": {
       "source": "csrankings-k.csv",
       "sha256": "ac0c759041e7233357fc0ace60ead6a46911bc6c9a71a8d75bb32b9a51a46e36"
+    },
+    "Kathleen Fisher": {
+      "source": "legacy",
+      "sha256": "de6d3990f5aeacc9e6f737a7e2a711c910d699556f874f5d72b81d0ad1066bb0"
     },
     "Kathleen McKeown": {
       "source": "csrankings-k.csv",
@@ -1600,6 +1961,10 @@
     "Kenneth R. Koedinger": {
       "source": "csrankings-k.csv",
       "sha256": "d681721609a6f3dce6419198b01dff51310c31113b510b0422243429bb98731d"
+    },
+    "Keshav Pingali": {
+      "source": "legacy",
+      "sha256": "0810c4eda3f4261005972a02f095e7ad86bfd88a290bae0f1cf59b6935109423"
     },
     "Kevin Fu": {
       "source": "csrankings-k.csv",
@@ -1681,6 +2046,10 @@
       "source": "legacy",
       "sha256": "9b42d0f3a286c0ac88d931d0369976fadfd63fc5ac41336ddfe63245e14f055d"
     },
+    "Lars Arge": {
+      "source": "legacy",
+      "sha256": "797ab77bccebef069da9fe5cc0b859e54bea9858ead01172d6a706c6a6e4b250"
+    },
     "Lars Birkedal": {
       "source": "csrankings-l.csv",
       "sha256": "2e034783b2dcdcf6fc9b8604788e50f1d4f681262cee134502b61aadb38edde0"
@@ -1693,9 +2062,17 @@
       "source": "csrankings-l.csv",
       "sha256": "eb96b81dd116050c9e9ad51f6a1c9a2d78feaf85cb099eb79cd9f20b5d9748d7"
     },
+    "Lawrence C. Paulson": {
+      "source": "legacy",
+      "sha256": "5fec6918c7f5f0cd896118de9ea6e576a7b711bbb6a7e72c98ad5245edac904e"
+    },
     "Laxmi N. Bhuyan": {
       "source": "legacy",
       "sha256": "796bbffed7c8d90a1123ac2bffd2fbaf1c43349e68278b148e88aa0ba73436db"
+    },
+    "Laxmikant V. Kalé": {
+      "source": "legacy",
+      "sha256": "c5f026414d1205d420e84f2ac484f32d9391be7b448c3e004e8668e07f4cf14e"
     },
     "Leandros Tassiulas": {
       "source": "csrankings-l.csv",
@@ -1809,6 +2186,10 @@
       "source": "csrankings-l.csv",
       "sha256": "44af56509e0ab7e8fdf6709e8e9b2eaa6b65b81567157af942483709c43141b0"
     },
+    "M. Balakrishnan": {
+      "source": "legacy",
+      "sha256": "6d2b4aebf9b116b6af73a188d1061c281b73d697a0675ebe796d5afa1677f8ff"
+    },
     "M. Frans Kaashoek": {
       "source": "csrankings-m.csv",
       "sha256": "c29be1e3c467f241e418591e229371ce4eacc82c29699eab53b8a2820de82e05"
@@ -1849,6 +2230,10 @@
       "source": "csrankings-m.csv",
       "sha256": "5c50bf63c05b5b53e1023fa4838c1a26ac93be4d50917bbd0b65cfba097a35fd"
     },
+    "Manish Gupta 0001": {
+      "source": "legacy",
+      "sha256": "2ca4366b7708922108ec0cf40d6134a688ede7c1bd6ef79a509ace77f308943f"
+    },
     "Manish Parashar": {
       "source": "csrankings-m.csv",
       "sha256": "db946f9f903bf9f1d1e378c25257b14c83fb0ac7601ba1570c3bb472f23a8725"
@@ -1864,6 +2249,10 @@
     "Marc Alexa": {
       "source": "csrankings-m.csv",
       "sha256": "a74654d330814a50eead973c7b6e5a810167669c67e8f4da1ba4ab5998ee9dba"
+    },
+    "Marc Snir": {
+      "source": "legacy",
+      "sha256": "662e3520eee1ca757baf2018d463b270c1933e08b6bebf3c3819d510ead759eb"
     },
     "Marcelo Arenas": {
       "source": "csrankings-m.csv",
@@ -1908,6 +2297,10 @@
     "Mark Guzdial": {
       "source": "csrankings-m.csv",
       "sha256": "0e05019dcadb82379be2a1ec66cd877bd1f3fbb7e90400128e6c56f786132dbe"
+    },
+    "Mark S. Ackerman": {
+      "source": "legacy",
+      "sha256": "07067b41bc06393497d9746cd4bbb4ddb236a32d2c3268f9f44aaba4cbc5566f"
     },
     "Markus Gross 0001": {
       "source": "csrankings-m.csv",
@@ -1957,6 +2350,14 @@
       "source": "csrankings-m.csv",
       "sha256": "623cd60fc74d3962deedfab2c618a04a8352c90c417d00748505cf73ee1ee7b9"
     },
+    "Marvin Minsky": {
+      "source": "legacy",
+      "sha256": "cbd920982f7d284e5e7fd2598f614a8b448305d64e2f4e806d09e1056c921e82"
+    },
+    "Mary Jane Irwin": {
+      "source": "legacy",
+      "sha256": "3339fb08b3e04497988c7b65b20260fa8e0545f9fb1746f9c8ae503771821815"
+    },
     "Mary Lou Soffa": {
       "source": "csrankings-m.csv",
       "sha256": "b5bb15e842612957ebe80307624828d10b8e07df7f49603dd28ce622b0e6c12e"
@@ -1972,6 +2373,10 @@
     "Mateo Valero": {
       "source": "csrankings-m.csv",
       "sha256": "8ee64b8a86813b12ca962a38d2bebc13a699e62ea811526c03298d080e73d7ad"
+    },
+    "Mathieu Desbrun": {
+      "source": "legacy",
+      "sha256": "f079b76d086e980e5c8f39ae92b227e03e9eb80d3d8fcefbd29486252cfff533"
     },
     "Matthew A. Turk": {
       "source": "csrankings-m.csv",
@@ -2004,6 +2409,10 @@
     "Mendel Rosenblum": {
       "source": "csrankings-m.csv",
       "sha256": "8b91396ebe9ac8f5802073a1f4cf0cf780dc2a1b392c150626d8220fef71dcc4"
+    },
+    "Micha Sharir": {
+      "source": "legacy",
+      "sha256": "2425c30b9c877a239cd11565e872921faa3a84533f817c883ea647b91ce554a1"
     },
     "Michael Backes 0001": {
       "source": "csrankings-m.csv",
@@ -2141,6 +2550,10 @@
       "source": "csrankings-m.csv",
       "sha256": "6750c8cc8aacb572d4ef091524bfcc94da6215826d89d58f8952fa8b24c0dcd3"
     },
+    "Mitchell Wand": {
+      "source": "legacy",
+      "sha256": "a6541d7527de101d6849ece5ed7c496a49167ccbcd44287e329b84c351962763"
+    },
     "Mohamed F. Mokbel": {
       "source": "csrankings-m.csv",
       "sha256": "2a25e074043dce4587983396073b6495d18b4924e06e06b132e4a0c2b4e721de"
@@ -2237,6 +2650,10 @@
       "source": "csrankings-n.csv",
       "sha256": "24b826cd2956a7a247a543296dbe23714410b86a416f944ccb94e8ad813aa90e"
     },
+    "Neil Immerman": {
+      "source": "legacy",
+      "sha256": "4e76c9b49a00aa92c584f28fa340ad4a7a3f2f59c9f4b8a30f055263b46e0afe"
+    },
     "Nelson L. Max": {
       "source": "csrankings-n.csv",
       "sha256": "ac03601a03df4474ddbe3df43313dd0cd04bfe17934b59ac3ae8f46c43a30560"
@@ -2252,6 +2669,14 @@
     "Nick G. Duffield": {
       "source": "csrankings-n.csv",
       "sha256": "805d47856d34aca1dbbc35979c3eb5fd6e06279310341def293fa356cf6bf474"
+    },
+    "Nick McKeown": {
+      "source": "legacy",
+      "sha256": "698d8e0c8c5d9a4f32ef993dca14e720efe325a7bbc24a4af9a6b5bf32fbd595"
+    },
+    "Nick Roussopoulos": {
+      "source": "legacy",
+      "sha256": "c81be5482f25e740c17971df90840972d653560cf6568ccc2b9adc61bf60013e"
     },
     "Nicole Immorlica": {
       "source": "csrankings-n.csv",
@@ -2293,6 +2718,10 @@
       "source": "csrankings-n.csv",
       "sha256": "645fbab124e9a8b2cd7e898d9ccbdd462522f94f2cddd09515f1aac505ed3ff8"
     },
+    "Noga Alon": {
+      "source": "legacy",
+      "sha256": "d57efae8ef2e49097888f3881a67a3ba6d0b59d40601f655ac955de876ef62d1"
+    },
     "Noshir Contractor": {
       "source": "csrankings-n.csv",
       "sha256": "8ae03786419c5d77fb05988e19ee7f6e7a9f87af41f1968ee68c5377fd4e8457"
@@ -2325,6 +2754,10 @@
       "source": "csrankings-o.csv",
       "sha256": "33295c54067f76170f3cdadaa2267b70c5afeb75bb55c77d78fceda43d808741"
     },
+    "Orna Grumberg": {
+      "source": "legacy",
+      "sha256": "9a73d192e1ecffc3162b01d85697190d888cbf0ee566fd72b82a2091f405562a"
+    },
     "Oscar H. Ibarra": {
       "source": "csrankings-o.csv",
       "sha256": "7ffd5d10688d2254b5a955f41d11adbd05fc348f59dbfdf44f723223d2662d7e"
@@ -2348,6 +2781,10 @@
     "Paolo Ferragina": {
       "source": "csrankings-p.csv",
       "sha256": "ca527787fd9d7761fa26a5c0b8aa7d656799bccfbb7416049c3b32f7fff5dbc8"
+    },
+    "Pat Hanrahan": {
+      "source": "legacy",
+      "sha256": "fa9c7da064d2f739c14b32e82f3f1e2aa6f9215bee5459713b0aa8e0e72d6ba1"
     },
     "Patrick Cousot": {
       "source": "csrankings-p.csv",
@@ -2465,6 +2902,10 @@
       "source": "csrankings-p.csv",
       "sha256": "091897424081cdce4a012f0aeee224dca8ff9cf733879fea46a536e9b9b5d28a"
     },
+    "Premkumar T. Devanbu": {
+      "source": "legacy",
+      "sha256": "b6f771c23cefae0fc7330368b43489ffa450278328d055ab105c7c5434612890"
+    },
     "Qiang Yang 0001": {
       "source": "csrankings-q.csv",
       "sha256": "fc0fa41220244cda32bdfe27253204dceb44eb9382142971ea36907d13df1a7c"
@@ -2521,6 +2962,10 @@
       "source": "csrankings-r.csv",
       "sha256": "9cd484c4c67e1a72a94d66b89875e634594f22b06b9866bb24383a003c2d4204"
     },
+    "Ramesh C. Jain": {
+      "source": "legacy",
+      "sha256": "b43a4cfc9bb518f8e325181a0fd739b12df4c33af2541e984f5dcbe4e865a06e"
+    },
     "Ramesh Govindan": {
       "source": "csrankings-r.csv",
       "sha256": "4f2157194335be03fadb9b855646e3e7a23f4a3f5fd41656d96ced1f7b705bcc"
@@ -2529,9 +2974,21 @@
       "source": "csrankings-r.csv",
       "sha256": "4540f5e609f1b9c0bf8b280d6e6658bf8b8752bd18b7ba1af965c83f4c19fe55"
     },
+    "Ramin Zabih [Tech]": {
+      "source": "legacy",
+      "sha256": "e3b905e1a469185dbdb8c799ecb22f4b3d162326848d5b696c93cbf7499df54c"
+    },
     "Ran Canetti": {
       "source": "csrankings-r.csv",
       "sha256": "5685f1cd5b5157208bbe4fb1f7ea87b942fd12ad96f46f3731d7797ca486e019"
+    },
+    "Randal E. Bryant": {
+      "source": "legacy",
+      "sha256": "0a7fa05b82ae22260d47028093993636f37e74c912a603221e3d3205d0ed9915"
+    },
+    "Randy H. Katz": {
+      "source": "legacy",
+      "sha256": "026dedb1838bb4d3e52e5679a5e00edfc83a7bb54afb0a098891667949e55356"
     },
     "Ranjit Jhala": {
       "source": "csrankings-r.csv",
@@ -2540,6 +2997,10 @@
     "Rasmus Pagh": {
       "source": "csrankings-r.csv",
       "sha256": "1f08e101b2e0e455db1b9f5ce348ea2e6dfbfefdfee60323b4b064faa40f3b2f"
+    },
+    "Rastislav Bodík": {
+      "source": "legacy",
+      "sha256": "40b767b79b41abed9c0c9179bb84282269922a1178b0b9b3f58e3e2b65e10b92"
     },
     "Ratul Mahajan": {
       "source": "csrankings-r.csv",
@@ -2565,6 +3026,10 @@
       "source": "csrankings-r.csv",
       "sha256": "878ed76041d32d9f60faac99e45c8eae01da99ed85101fe67d89223267281ca4"
     },
+    "Rebecca N. Wright": {
+      "source": "legacy",
+      "sha256": "ca33c777127624cd39f314734a587013dc7d4a29c96595385d2c5cc150491e35"
+    },
     "Reinhard Wilhelm": {
       "source": "csrankings-r.csv",
       "sha256": "79b7b335f26223ff0d505331a402f514831993f8e9be69ed51b29c380fb49b4a"
@@ -2588,6 +3053,30 @@
     "Richard A. Kemmerer": {
       "source": "csrankings-r.csv",
       "sha256": "f009e2d1d448a21875a4cff2cc7253a28887a8a65119560c7b7312d26a6fcb07"
+    },
+    "Richard Cole 0001": {
+      "source": "legacy",
+      "sha256": "98b6b209b3a338b19a0ca253b216b4f73b7f36c42bbd64fc1b6fd74dd10481af"
+    },
+    "Richard J. Lipton": {
+      "source": "legacy",
+      "sha256": "88b7c7b1cb98588b72989af4270a9bce3837467789f4f762a0f25367dbb82dad"
+    },
+    "Richard M. Fujimoto": {
+      "source": "legacy",
+      "sha256": "5217786eb6cff1a9d5b005b04dc9f6604619ab87c0186a8aa962e4c9e58cf158"
+    },
+    "Richard M. Karp": {
+      "source": "legacy",
+      "sha256": "ec6c39df697a49954d1266fa36421488050709ed245e993141dce14b0300a024"
+    },
+    "Richard N. Taylor": {
+      "source": "legacy",
+      "sha256": "e63f465b3e59741e8e59c94263a839c858f89d3608d596418d7e0dd8239b0c24"
+    },
+    "Richard P. Brent": {
+      "source": "legacy",
+      "sha256": "a428470da0649ff0c91ece05abd75825ddf5b8dd30e12d7598308df7d8564af7"
     },
     "Richard S. Sutton": {
       "source": "csrankings-r.csv",
@@ -2621,6 +3110,10 @@
       "source": "csrankings-r.csv",
       "sha256": "5ec5a1c9101a4ffbf7389bd99f021cc2294f5f8cdbedcccf5071a5acbf338d2a"
     },
+    "Robert E. Kraut": {
+      "source": "legacy",
+      "sha256": "e69f4453c373d9d7daf8412b86f130a4fde9054723a36a4c7f6a84ba711eaa91"
+    },
     "Robert E. Tarjan": {
       "source": "csrankings-r.csv",
       "sha256": "d0f5d8560dabc6c0e660c37aea376ee38eeb7539f4b6578a710f7d903e596ee5"
@@ -2636,6 +3129,18 @@
     "Robert Kleinberg": {
       "source": "csrankings-r.csv",
       "sha256": "51b67062dadfafc52f17b62a4e254a9008b788088cbd548fe24a2709d80d07a3"
+    },
+    "Robert Kowalski": {
+      "source": "legacy",
+      "sha256": "34fe1cc83fe74bad26f5dc4f62b4ccd75639ab6d1a59e76ae5f50b5c7f6ecc12"
+    },
+    "Robert L. Constable": {
+      "source": "legacy",
+      "sha256": "042e6acfae70d811f20ff11e96adf44c30b62a263cf671353c08d8417a580985"
+    },
+    "Robert Sedgewick": {
+      "source": "legacy",
+      "sha256": "8da042941486263304eaa7a1831705ac3bd6f3631a1c980947d2b3b462a3909b"
     },
     "Robert Tappan Morris": {
       "source": "csrankings-r.csv",
@@ -2653,6 +3158,10 @@
       "source": "csrankings-r.csv",
       "sha256": "c8578c984e7cde3c56e409081627f87255d1eeb9eea17159c348a47b5575d507"
     },
+    "Roger B. Dannenberg": {
+      "source": "legacy",
+      "sha256": "a9e036246800aa25862a0098106b86efa1d77cd284b965735c6225475b738cc1"
+    },
     "Rolf Drechsler": {
       "source": "csrankings-r.csv",
       "sha256": "9a2079af04847e9c8731362a5f1c76ed5ee4a5f00d69ab3e82c62b68361d4e4a"
@@ -2669,6 +3178,10 @@
       "source": "csrankings-r.csv",
       "sha256": "07a515df64f4b05cfc5cf8a76378219a892aaf3432b2f46f2ee7e9402e4c7f71"
     },
+    "Ronald L. Graham": {
+      "source": "legacy",
+      "sha256": "4d59b1aa54a421352a398ee48b022692a589c69103cb36bb7d050a49d10c84d4"
+    },
     "Ronald L. Rivest": {
       "source": "csrankings-r.csv",
       "sha256": "26938bd557df0d710c45815cd02d537d92212fcd0fc0d056d38611aa9a628ee4"
@@ -2684,6 +3197,10 @@
     "Ruby B. Lee": {
       "source": "historical",
       "sha256": "726b63fc0e8a0b78612b259f77221ce3bf93144f78a3bc92e2e9c924acfdd216"
+    },
+    "Ruzena Bajcsy": {
+      "source": "legacy",
+      "sha256": "b2441ec1b463ea7a83ccc9309ece3b8099ca61d28d52624fe11da89ef53f3c45"
     },
     "S. Lakshmivarahan": {
       "source": "csrankings-s.csv",
@@ -2757,6 +3274,10 @@
       "source": "csrankings-s.csv",
       "sha256": "8d3796ee4f79e613c83927e465386e49024299a5936523ece1892e80c7fdcbe3"
     },
+    "Sara B. Kiesler": {
+      "source": "legacy",
+      "sha256": "2a9ae895aeb8c82736ce16ae0b3ba10dec5ef5a1de80a16c08820742e9d8ea06"
+    },
     "Sarit Kraus": {
       "source": "csrankings-s.csv",
       "sha256": "15424212eeda32bb76fd5e3f8837e0627bc568689622a34903b5203fbfeb9d89"
@@ -2796,6 +3317,10 @@
     "Scott E. Hudson": {
       "source": "csrankings-s.csv",
       "sha256": "67f75723c437a1a3985b50edc7121df80a897665a10d2dc97a78c2e5b7ea475d"
+    },
+    "Scott Shenker": {
+      "source": "legacy",
+      "sha256": "84e166a2659dd433cc25267465938d997360fe1ab3c3752f63c1052bff3676a0"
     },
     "Sebastian G. Elbaum": {
       "source": "csrankings-s.csv",
@@ -2865,9 +3390,17 @@
       "source": "csrankings-s.csv",
       "sha256": "cbfedda3659cd860ecea7da48688c8ce531ad294e1b245c88680a25214e0ee5f"
     },
+    "Sidney Karin": {
+      "source": "legacy",
+      "sha256": "949e9517afcb4c6e3aa72874bbeb998b771c8e97950e7d8a09fd52e227440de0"
+    },
     "Silvio Micali": {
       "source": "csrankings-s.csv",
       "sha256": "00762ea4444a5062dc97f3a0fc04383ce185fc910fba3bbe83d172f0276bcd95"
+    },
+    "Simon S. Lam": {
+      "source": "legacy",
+      "sha256": "06c7f5eebf862bb1af93efe1af7c0ddf17783b3ef90b3028881f8157bee6ea93"
     },
     "Somesh Jha": {
       "source": "csrankings-s.csv",
@@ -2897,6 +3430,10 @@
       "source": "csrankings-s.csv",
       "sha256": "4e281fdec6a38b90b0f020937ad5a96722b7f033fbf63f8bb5a9578844f56304"
     },
+    "Stanley B. Zdonik": {
+      "source": "legacy",
+      "sha256": "0abf733001a122294d2c7308e3c57f1c7d92c51f7e6732195652d8bb3b5b76fa"
+    },
     "Stefan Savage": {
       "source": "csrankings-s.csv",
       "sha256": "564bd8bff1990e287f486c19d444034b7691a3acabf6f60f0e0e2aeddc3cb97e"
@@ -2916,6 +3453,10 @@
     "Stephanie Weirich": {
       "source": "csrankings-s.csv",
       "sha256": "6089a73b9cfce6420df082360e8777f4cc260d4f882694647c666a78a9e6d656"
+    },
+    "Steve Blackburn": {
+      "source": "legacy",
+      "sha256": "c9d5420defda18e80ef540f9f06f85c0398e43315b5d53e763d5952e5b64d734"
     },
     "Steve Marschner": {
       "source": "csrankings-s.csv",
@@ -2965,6 +3506,10 @@
       "source": "csrankings-s.csv",
       "sha256": "92b4287e1f030aed27460be0b4c489f17134578c6c21da41227d5aec2005203a"
     },
+    "Sudipto Guha": {
+      "source": "legacy",
+      "sha256": "7cc14a45d450abfa5f1339f856aae2613d286532a01eb794e5b04626f5fde66b"
+    },
     "Suman Banerjee 0001": {
       "source": "csrankings-s.csv",
       "sha256": "b648eb97f40144d95eb7d5b305983d52a146d09d502181c2b62ac2e09140d1b9"
@@ -2988,6 +3533,10 @@
     "Susanne Bødker": {
       "source": "csrankings-s.csv",
       "sha256": "4747fcb5ce91b295c0e77a7f99d9389c003e478e7393a3dc27b18525b81b4e7b"
+    },
+    "Susanne E. Hambrusch": {
+      "source": "legacy",
+      "sha256": "144caaeeed531f314f52c0951efc5d53d8146d8fe196b6e69eca37d5b1dd81b1"
     },
     "Sven Apel": {
       "source": "csrankings-s.csv",
@@ -3020,6 +3569,10 @@
     "Takeo Kanade": {
       "source": "csrankings-t.csv",
       "sha256": "1253ad71dfe0df6fe66e136e683034858d4452affd2e78e5aae71fa35f51983f"
+    },
+    "Tal Rabin": {
+      "source": "legacy",
+      "sha256": "99ebcd384f555e182f6dd23dbaf634654aa0fe711cf1ac14f6addf49ad6d23f6"
     },
     "Tamal Krishna Dey": {
       "source": "csrankings-t.csv",
@@ -3149,6 +3702,10 @@
       "source": "csrankings-t.csv",
       "sha256": "10e80abf407bacd1d4c78a7ef08c8a9d11b084b9ee66ce1b04a86f45aae9a47d"
     },
+    "Trevor N. Mudge": {
+      "source": "legacy",
+      "sha256": "f33ea968ea0f90b4e5e45ec662e70903ba9a2660c6c3f2287dfe7e9391b707ba"
+    },
     "Tuomas Sandholm": {
       "source": "csrankings-t.csv",
       "sha256": "d8619a70ab02657321a0e7b7ba29354af74ef7518d51d05995b7f72999595653"
@@ -3245,6 +3802,10 @@
       "source": "csrankings-w.csv",
       "sha256": "37dbc1348cc7ac821d78c785805bba0251c9e6a52365286f75f72ea870b7dde0"
     },
+    "Wang Chiew Tan": {
+      "source": "legacy",
+      "sha256": "d17fb71c12cd54453799881c1816d622f4f2dbb7e98c749d34af0ecece3ba96e"
+    },
     "Wang Yi 0001": {
       "source": "csrankings-w.csv",
       "sha256": "9bc05dcff1d7de3cfaaea1af6a315447bb3c321631ec6eb2b2d23d725d833683"
@@ -3260,6 +3821,10 @@
     "Wen Gao 0001": {
       "source": "csrankings-w.csv",
       "sha256": "a93bdced55612a1b80237d4a2825752a96d2a4356c72c52da64ac0cc45ceec79"
+    },
+    "Wen-Mei W. Hwu": {
+      "source": "legacy",
+      "sha256": "7aed1581e0f95ada5ad2dcaf8992a347a7d63f15f62991546aa476b4bd6ce103"
     },
     "Wendi Beth Heinzelman": {
       "source": "csrankings-w.csv",
@@ -3305,9 +3870,17 @@
       "source": "csrankings-w.csv",
       "sha256": "35d227da247e3c4c725acfb8ca1c83b9288af0a03ffd043cb5c2a9168d4f1b52"
     },
+    "William J. Dally": {
+      "source": "legacy",
+      "sha256": "6582fff8e3462861ce7101eafa52a27fde2d306efb6e9ade054e37e68aa0383c"
+    },
     "William T. Freeman": {
       "source": "csrankings-w.csv",
       "sha256": "05115c1097497889e9950415f081cf73c5a135b7892de006a7aaec0a4197c7b4"
+    },
+    "Willy Zwaenepoel": {
+      "source": "legacy",
+      "sha256": "793cf8b3ff22bde0a31d1074fb5baef2dd1c2c97908dd33a61968ae5191a3139"
     },
     "Wolfgang Heidrich": {
       "source": "csrankings-w.csv",
@@ -3349,6 +3922,10 @@
       "source": "csrankings-x.csv",
       "sha256": "e4bccef03f7082cad25218eee7fc57612cbbf7031ec5d3dc1ce264c6bb17e7df"
     },
+    "Xuelong Li": {
+      "source": "legacy",
+      "sha256": "f824c959c7c0a0f41abf5ef4b5a01256243f85c0060fbb915706ba80f2430bf9"
+    },
     "Yan Solihin": {
       "source": "csrankings-y.csv",
       "sha256": "9eb34f8834021d7d2f4e2acff7542aadd1cde9f9a057649a1afab7239eeef907"
@@ -3376,6 +3953,10 @@
     "Yizhou Yu": {
       "source": "csrankings-y.csv",
       "sha256": "d22adc91c439160c9801af2192a03adf8467efe29cdc1464f13980828a163022"
+    },
+    "Yoav Shoham": {
+      "source": "legacy",
+      "sha256": "aa5d6de08880846bdd674bf93ade0b2441e6718138014798c48dc2b3e0cbaf42"
     },
     "Yoshua Bengio": {
       "source": "csrankings-y.csv",
@@ -3444,6 +4025,10 @@
     "Zvi Galil": {
       "source": "csrankings-z.csv",
       "sha256": "601ee26b21b2acb673079e1226b6a5f8306e4ed863eaeb33c30e5764ba5b5b2f"
+    },
+    "Zvi M. Kedem": {
+      "source": "legacy",
+      "sha256": "b67daa19213ea7fb1c1afbc09fccad43da950387c9b1af26bc742c6e371353e1"
     },
     "Zygmunt J. Haas": {
       "source": "csrankings-z.csv",

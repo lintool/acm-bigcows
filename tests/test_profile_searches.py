@@ -1,10 +1,14 @@
 """Search-ledger integrity and complete profile-or-search roster coverage."""
 import csv
+from collections import Counter
+import json
 from datetime import datetime
 from pathlib import Path
 import re
 import unittest
 from urllib.parse import parse_qs, urlsplit
+
+from scripts.profile_validation import acm_recipient_id
 
 ROOT = Path(__file__).resolve().parents[1]
 FIELDS = ['acm_profile', 'name', 'searched_at', 'candidate_url', 'outcome', 'reviewed_at', 'evidence']
@@ -31,7 +35,7 @@ def anchors(text):
 
 
 def canonical_name_matches(row, people):
-    return any(person['acm_fellow_profile'] == row['acm_profile']
+    return bool(row['acm_profile']) and any(acm_recipient_id(person['acm_fellow_profile']) == acm_recipient_id(row['acm_profile'])
                and person['name'] == row['name'] for person in people)
 
 
@@ -58,11 +62,90 @@ class ProfileSearchTests(unittest.TestCase):
                           ('acm/unknown', 'Person, Alice')]:
             self.assertFalse(canonical_name_matches(dict(acm_profile=url, name=name), people))
 
+    def test_search_identity_accepts_legacy_urls_without_merging_namesakes(self):
+        people = [dict(acm_fellow_profile='https://awards.acm.org/award-recipients/newname_A123',
+                       name='Person, Alice')]
+        self.assertTrue(canonical_name_matches(dict(
+            acm_profile='http://awards.acm.org/award-recipients/OLDNAME_a123.cfm',
+            name='Person, Alice'), people))
+        self.assertFalse(canonical_name_matches(dict(
+            acm_profile='https://awards.acm.org/award-recipients/newname_B456',
+            name='Person, Alice'), people))
+        self.assertFalse(canonical_name_matches(dict(acm_profile='', name='Person, Alice'), people))
+
+    def test_csrankings_search_ledger_and_coverage(self):
+        fields, searches = read(ROOT / 'data/csrankings_profile_searches.csv')
+        expected = ['acm_profile', 'name', 'searched_at', 'candidate_name',
+                    'source_scope', 'outcome', 'reviewed_at', 'evidence']
+        self.assertEqual(fields, expected)
+        people = [row for filename in ['acm_fellows.csv', 'turing_award_winners.csv']
+                  for row in read(ROOT / 'data' / filename)[1]]
+        keys, searched = set(), set()
+        def identity(row, field):
+            if row[field]:
+                return ('acm', acm_recipient_id(row[field]))
+            return ('name', row['name'])
+        for row in searches:
+            with self.subTest(name=row['name'], candidate=row['candidate_name']):
+                self.assertEqual(set(row), set(expected))
+                self.assertTrue(all(isinstance(v, str) for v in row.values()))
+                if row['acm_profile']:
+                    self.assertTrue(canonical_name_matches(row, people))
+                else:
+                    matches = [p for p in people if p['name'] == row['name']]
+                    self.assertEqual(len(matches), 1)
+                    self.assertFalse(matches[0]['acm_fellow_profile'])
+                person = identity(row, 'acm_profile')
+                key = (person, row['searched_at'], row['candidate_name'])
+                self.assertNotIn(key, keys)
+                keys.add(key)
+                searched.add(person)
+                start, reviewed = [datetime.fromisoformat(row[f]) for f in ['searched_at', 'reviewed_at']]
+                self.assertIsNotNone(start.utcoffset())
+                self.assertIsNotNone(reviewed.utcoffset())
+                self.assertGreaterEqual(reviewed, start)
+                self.assertIn(row['outcome'], {'candidate', 'accepted', 'not_found', 'unsupported_match', 'wrong_person', 'superseded'})
+                self.assertEqual(bool(row['candidate_name']), row['outcome'] != 'not_found')
+                for field in ['evidence', 'source_scope']:
+                    path, anchor = row[field].split('#', 1)
+                    self.assertTrue((ROOT / path).is_file())
+                    self.assertIn(anchor, anchors((ROOT / path).read_text()))
+        for row in people:
+            if not row['csrankings_name']:
+                self.assertIn(identity(row, 'acm_fellow_profile'), searched, row['name'])
+
+    def test_initial_csrankings_attempt_evidence(self):
+        evidence = json.loads((ROOT / 'docs/csrankings_missing_search_2026-09-29.json').read_text())
+        started = datetime.fromisoformat(evidence['started_at'])
+        completed = datetime.fromisoformat(evidence['searched_at'])
+        self.assertLessEqual(started, completed)
+        self.assertEqual(len(evidence['source_hashes']), 46)
+        for digest in evidence['source_hashes'].values():
+            self.assertRegex(digest, r'^[a-f0-9]{64}$')
+        records = read(ROOT / 'data/csrankings_profile_searches.csv')[1]
+        expected, actual = set(), set()
+        for person in evidence['people']:
+            self.assertTrue(person['search_names'])
+            names = {c['source']['name'] for c in person['candidates']}
+            for candidate in person['candidates']:
+                self.assertTrue(candidate['paths'])
+                self.assertTrue(set(candidate['paths']) <= set(evidence['source_hashes']))
+            for candidate, outcome in person['outcomes']:
+                if candidate:
+                    self.assertIn(candidate, names)
+                expected.add((person['acm_profile'], person['name'], candidate, outcome))
+        for row in records:
+            if row['searched_at'] == evidence['searched_at']:
+                actual.add((row['acm_profile'], row['name'], row['candidate_name'], row['outcome']))
+        self.assertEqual(actual, expected)
+        self.assertEqual(evidence['counts'], dict(Counter(
+            r['outcome'] for r in records if r['searched_at'] == evidence['searched_at'])))
+
     def test_ledgers_and_profile_or_search_coverage(self):
         rosters = {name: read(ROOT / 'data' / name)[1] for name in
                    ['acm_fellows.csv', 'turing_award_winners.csv']}
         people = [row for rows in rosters.values() for row in rows]
-        known_ids = {row['acm_fellow_profile'] for row in people if row['acm_fellow_profile']}
+        known_ids = {acm_recipient_id(row['acm_fellow_profile']) for row in people if row['acm_fellow_profile']}
         for service in ['google_scholar', 'dblp']:
             fields, searches = read(ROOT / 'data' / f'{service}_profile_searches.csv')
             self.assertEqual(fields, FIELDS)
@@ -72,10 +155,10 @@ class ProfileSearchTests(unittest.TestCase):
                     self.assertEqual(set(row), set(FIELDS))
                     self.assertTrue(all(isinstance(value, str) for value in row.values()))
                     if row['acm_profile']:
-                        self.assertIn(row['acm_profile'], known_ids)
+                        self.assertIn(acm_recipient_id(row['acm_profile']), known_ids)
                         self.assertTrue(canonical_name_matches(row, people),
                                         'ACM URL does not belong to the recorded canonical name')
-                        identity = ('acm', row['acm_profile'])
+                        identity = ('acm', acm_recipient_id(row['acm_profile']))
                     else:
                         matches = [person for person in people if person['name'] == row['name']]
                         self.assertEqual(len(matches), 1, 'Name fallback must be unambiguous')
@@ -110,7 +193,7 @@ class ProfileSearchTests(unittest.TestCase):
                 for row in rows:
                     with self.subTest(service=service, roster=roster, name=row['name']):
                         if not row[f'{service}_profile']:
-                            identity = ('acm', row['acm_fellow_profile']) if row['acm_fellow_profile'] else ('name', row['name'])
+                            identity = ('acm', acm_recipient_id(row['acm_fellow_profile'])) if row['acm_fellow_profile'] else ('name', row['name'])
                             self.assertIn(identity, searched, 'Neither a profile nor a recorded search')
 
 
