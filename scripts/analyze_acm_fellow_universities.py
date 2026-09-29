@@ -11,10 +11,15 @@ import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 
+try:
+    from scholar_data import read_scholar
+except ModuleNotFoundError:
+    from scripts.scholar_data import read_scholar
+
 
 APP_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ACM_FELLOWS = APP_ROOT / "data" / "acm_fellows.csv"
-DEFAULT_GOOGLE_SCHOLAR = APP_ROOT / "data" / "google_scholar_profiles.csv"
+DEFAULT_GOOGLE_SCHOLAR = APP_ROOT / "data" / "google_scholar_extracted_data.json"
 DEFAULT_CSRANKINGS = APP_ROOT / "data" / "csrankings_profiles.csv"
 
 
@@ -89,7 +94,7 @@ GENERIC_ORG_PATTERNS = [
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--acm-fellows", type=Path, default=DEFAULT_ACM_FELLOWS, help="Path to data/acm_fellows.csv.")
-    parser.add_argument("--google-scholar", type=Path, default=DEFAULT_GOOGLE_SCHOLAR, help="Path to data/google_scholar_profiles.csv.")
+    parser.add_argument("--google-scholar", type=Path, default=DEFAULT_GOOGLE_SCHOLAR, help="Path to data/google_scholar_extracted_data.json.")
     parser.add_argument("--csrankings", type=Path, default=DEFAULT_CSRANKINGS, help="Path to data/csrankings_profiles.csv.")
     parser.add_argument("--min-count", type=int, default=1, help="Minimum count to print.")
     parser.add_argument("--examples", type=int, default=0, help="Number of fellow examples to print per university.")
@@ -215,7 +220,7 @@ def build_indexes(google_rows: list[dict[str, str]], csrankings_rows: list[dict[
 def main() -> int:
     args = parse_args()
     fellows = read_csv(args.acm_fellows)
-    google_by_profile, csrankings_by_name = build_indexes(read_csv(args.google_scholar), read_csv(args.csrankings))
+    google_by_profile, csrankings_by_name = build_indexes(read_scholar(args.google_scholar), read_csv(args.csrankings))
 
     counts: Counter[str] = Counter()
     examples: dict[str, list[str]] = defaultdict(list)
@@ -228,7 +233,7 @@ def main() -> int:
         if google:
             universities.update(
                 extract_universities(
-                    google.get("affiliation", ""),
+                    google.get("affiliation") or "",
                     warnings if args.show_warnings else None,
                     f"{fellow.get('name', '')} / google_scholar",
                 )

@@ -10,12 +10,13 @@ See the [source policy](AGENTS.md#acm-source-of-truth), [Fellows reconciliation 
 
 - [ACM Fellows](data/acm_fellows.csv): canonical dataset, including ACM, DBLP, and Google Scholar profile links and crawl dates.
 - [Turing Award winners](data/turing_award_winners.csv): canonical dataset with profile links and crawl dates, organized by award year.
-- [Google Scholar profiles](data/google_scholar_profiles.csv): profile links, affiliations, interests, and citation statistics for ACM Fellows and Turing Award winners.
+- [Google Scholar extracted data](data/google_scholar_extracted_data.json): profile links, affiliations, interests, and citation statistics for ACM Fellows and Turing Award winners.
+- [DBLP extracted data](data/dblp_extracted_data.json): profile names, explicitly listed affiliations, publication totals and counts by year, with capture provenance.
 - [Google Scholar search history](data/google_scholar_profile_searches.csv): completed discovery searches, candidate outcomes, review dates and evidence, including unsuccessful searches.
 - [CSRankings profiles](data/csrankings_profiles.csv): faculty records referenced by the exact `csrankings_name` keys in either award roster, including documented historical records.
   Original source fields are preserved; `dblp_profile` reproduces CSRankings' own name-generated link, separately from our reviewed award-profile URLs.
 
-The CSVs are ready to download or use from a clone.
+The CSV rosters and JSON Scholar data are ready to download or use from a clone.
 Both award tables include Y/N quality assessments for DBLP and Google Scholar profiles; see the [DBLP review](docs/dblp_profile_quality_2026-09-17.md), [Fellows Scholar review](docs/acm_scholar_quality_2026-09-17.md), and [Turing Scholar review](docs/turing_scholar_quality_2026-09-17.md) for criteria, findings, and inspection limits.
 Later [Fellows decisions](docs/check_profiles_full_2026-09-18.md#explicit-user-decisions) and the [full Turing review](docs/check_profiles_turing_2026-09-18.md) supersede those initial findings where documented.
 The [September 28 Scholar audit and final user decisions](docs/scholar_recalibration_2026-09-28.md) complete the retained-evidence Scholar review across both rosters under the user's lenient contamination tolerance.
@@ -32,7 +33,7 @@ See the [current profile-review status](docs/profile_review_status.md) for remai
 
 Start at the [visualization landing page](https://lintool.github.io/acm-bigcows/).
 Explore separate citation timelines for [ACM Fellows](https://lintool.github.io/acm-bigcows/acm_fellows.html) and [Turing Award winners](https://lintool.github.io/acm-bigcows/turing_award_winners.html).
-The timelines use generated snapshots and can lag the canonical CSVs; see [Data Notes](docs/data_notes.md) for imports and deferred regeneration.
+The timelines use generated snapshots and can lag the canonical datasets; see [Data Notes](docs/data_notes.md) for imports and deferred regeneration.
 Bars show citations received in each calendar year, not publications produced that year.
 Each person's bars are scaled to their own highest year in the displayed window, so equal-height bars across people can represent different citation counts.
 Cites and h-index show Scholar's reported all-time metrics, which may include known publication-attribution errors documented in the reviews.
@@ -63,8 +64,14 @@ Maintainers can also [synchronize accepted CSRankings name links](README_FOR_AGE
 Fetching is handled by the shared [bigcows-crawler repository](https://github.com/lintool/bigcows-crawler).
 It stores pages and reports in its local, Git-ignored `.cache/`; this repository owns the reviewed datasets and analysis.
 ACM profile fetching uses Safari on macOS and does not edit the CSVs automatically.
-Scholar updates follow a [fresh-capture, identity-review, and import workflow](README_FOR_AGENTS.md#review-and-import-google-scholar-data) before the visualization data is regenerated.
-DBLP updates follow a [separate reviewed import](README_FOR_AGENTS.md#review-and-import-dblp-data) into the award rosters.
+Updates follow four independently runnable stages:
+
+1. **Crawl:** Save source pages and fetch outcomes without changing canonical data.
+2. **Review:** Verify identity, coverage and quality, and record which captures are accepted.
+3. **Extract:** Parse accepted captures and import canonical values with their source dates.
+4. **Visualize:** Rebuild the displayed datasets from canonical data.
+
+See the [detailed workflow](README_FOR_AGENTS.md#four-stage-workflow) for stage boundaries, service-specific procedures and validation.
 
 See [README_FOR_AGENTS.md](README_FOR_AGENTS.md) for maintenance workflows, application-specific crawler commands, and data-review rules.
-[AGENTS.md](AGENTS.md) defines the documentation policy.
+[AGENTS.md](AGENTS.md) defines workflow boundaries and repository policies.

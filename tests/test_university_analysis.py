@@ -21,7 +21,7 @@ class UniversityAnalysisTests(unittest.TestCase):
         output = io.StringIO()
         with patch.object(analysis, "parse_args", return_value=args), patch.object(
             analysis, "read_csv", side_effect=inputs.__getitem__
-        ), contextlib.redirect_stdout(output):
+        ), patch.object(analysis, "read_scholar", return_value=scholar), contextlib.redirect_stdout(output):
             self.assertEqual(analysis.main(), 0)
         return output.getvalue()
 

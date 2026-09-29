@@ -1,5 +1,20 @@
 # Current Profile Review Status
 
+## Current Workflow Stages
+
+Use the [four-stage workflow](../README_FOR_AGENTS.md#four-stage-workflow) to distinguish evidence collection, review decisions, canonical extraction and displayed snapshots.
+
+| Stage | Current State |
+| --- | --- |
+| Crawl | Current linked Scholar profiles have retained successful captures; no new fetch is scheduled by this index. |
+| Review | Scholar identity/quality decisions are complete within documented sampling limits, including the 19 subsequently approved profiles; DBLP review is complete within its scope; broader CSRankings review remains incomplete. |
+| Extract | All 1,279 stored Scholar profiles have statistics from the accepted selected captures; DBLP metadata and publication-year aggregates for all 1,641 stored profiles are extracted into `data/dblp_extracted_data.json`; the canonical capture/import gap queue is empty. |
+| Visualize | Both award snapshots were regenerated September 29 and match canonical data; full snapshot and renderer checks pass. |
+
+The gap queue is not a stage tracker; an empty queue alone cannot prove that review is complete, all newer captures are extracted or visualizations are synchronized.
+
+## Review History and Scope
+
 This is the current progress and open-work index for the September 18–19, 2026 reviews and the September 28 Scholar capture checkpoint and holistic audit.
 **DBLP is in an approved state across both award rosters: the review is complete within its documented scope, all user decisions are applied, every stored link has an accepted capture, and no DBLP decision or capture task is pending.**
 Approved N ratings, four user-approved holds and 15 missing-link Fellow rows remain intentional; approved state does not mean every profile is rated Y.
@@ -16,6 +31,7 @@ The user has since confirmed Paulson’s destination ID `x4toSGEAAAAJ`, and his 
 Its reported statistics and date match the already imported values; both canonical dates remain 2026-09-28.
 Paulson’s capture/import task is complete; all 100 captured entries were inspected with no apparent unrelated cluster, and quality Y is retained.
 Complete bibliography and recent-sorted coverage remain unverified.
+Canonical Scholar extraction now lives in `data/google_scholar_extracted_data.json` with native field types and per-profile capture provenance; historical CSV filenames below refer to their original checkpoints.
 Both award visualization snapshots were regenerated with explicit user authorization on September 29 and pass the full snapshot-synchronization checks.
 No new crawl or source refresh is authorized by maintaining this index.
 The lookup table now preserves [CSRankings-generated DBLP links](../README_FOR_AGENTS.md#csrankings-dblp-link-generation), independently of reviewed award links.

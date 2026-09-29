@@ -6,13 +6,46 @@ Follow its [ACM source-of-truth policy](AGENTS.md#acm-source-of-truth) for award
 Keep dataset provenance, reconciliation history, and deliberate source differences in [Data Notes](docs/data_notes.md).
 
 Use the [award field dictionary](#award-roster-fields) for CSV meaning, [missing-profile definitions](#missing-profiles-and-review-status) for coverage questions, and [quality criteria](#publication-profile-quality) for matching and rating decisions.
-Canonical CSVs contain the current stored values; dated reports and Data Notes explain the evidence and decisions at each batch's completion.
+Canonical datasets contain the current stored values; dated reports and Data Notes explain the evidence and decisions at each batch's completion.
 Read later decisions before using an older report as an import source.
 The [finalized-award-CSV instruction](AGENTS.md#finalized-award-csvs) limits the import workflows below to explicitly requested future data changes.
 
 This repository owns canonical data, application-specific joins, analysis, and visualization.
 All crawlers live in [bigcows-crawler](https://github.com/lintool/bigcows-crawler).
 Its [agent reference](https://github.com/lintool/bigcows-crawler/blob/main/README_FOR_AGENTS.md) is authoritative for transport, pacing, retries, manifests, cache schemas, and troubleshooting.
+
+## Four-Stage Workflow
+
+The [stage boundaries](AGENTS.md#four-stage-workflow) govern **crawl → review → extract → visualize** for Scholar, DBLP, ACM and CSRankings data.
+Select the requested services, recipients, evidence and stages before acting; an already authorized multi-stage task can proceed through those stages without repeated confirmation.
+These are workflow responsibilities, not four new CLI commands.
+
+| Stage | Inputs and Actions | Outputs and Completion |
+| --- | --- | --- |
+| **Crawl** | Fetch the authorized URLs or source shards with the shared crawler; retain stable inputs, raw responses, hashes, timestamps, final URLs and fetch outcomes. | Saved captures and a report of successes, failures and gaps; canonical datasets remain unchanged. |
+| **Review** | Inspect saved captures against recipient identity, publication coverage and contamination criteria; parsing for inspection is allowed. | Evidence-linked acceptance, rejection or unresolved decisions and quality ratings for every requested case; apply authorized link/quality corrections, but do not import new statistics. |
+| **Extract** | Select accepted captures, parse values and reconcile them into canonical datasets; retain before/after evidence and the importer or command used. | Validated canonical values and matching source capture dates, with decisions and unrelated fields preserved; no requests or visualization writes. |
+| **Visualize** | Build both award snapshots from the canonical datasets. | Generated snapshots matching the CSVs, with snapshot and renderer checks passing; no source fetching or canonical edits. |
+
+Capture acceptance is distinct from accepting a profile link or assigning quality Y.
+A quality N profile can still have an accepted capture and reported statistics, with its N rating preserved.
+Record the service, recipient or profile ID, selected capture path/hash, actual capture time, review decision and inspection limits so extraction does not silently select unreviewed newer evidence.
+Record extraction provenance and changed fields, then record snapshot generation separately; an import or generation timestamp never substitutes for a capture timestamp.
+For Scholar, update the statistics row and referring roster dates together during extraction; approving a newer capture in review alone must not advance dates attached to older imported metrics.
+Review may clear a rejected association and its dependent date within authorized correction scope, but must not attach an old profile's metrics to a replacement URL.
+
+### Running Each Stage
+
+- **Crawl:** Use the service-specific commands under [Crawlers](#crawlers) and the shared crawler reference for transport and pacing.
+- **Review:** Use [Check Profiles](skills/check-profiles/SKILL.md) for publication-profile judgments or [ACM comparisons](#review-existing-acm-captures) for award evidence; start with retained captures and record unresolved gaps.
+- **Extract:** Use an explicit reviewed import for [Scholar](#review-and-import-google-scholar-data), apply accepted [DBLP](#review-and-import-dblp-data) or [ACM](#apply-reviewed-acm-results) fields, or follow [CSRankings synchronization](#csrankings-name-links).
+  There is no generic reviewed-import CLI for Scholar; retain a run-specific importer and its accepted inputs instead of using the crawler's generic exporter as acceptance.
+- **Visualize:** Run the two builders and checks in the [visualization workflow](#google-scholar-citation-visualization) only when requested.
+
+Report **awaiting review**, **awaiting extraction**, and **awaiting visualization** separately for the selected scope.
+A failed crawl is a fetch outcome, not a quality decision; an unresolved review is not accepted input for extraction.
+Re-extraction from accepted evidence requires no new crawl or identity review unless the evidence or proposed interpretation changes.
+The [current status index](docs/profile_review_status.md) records stage progress; the existing [capture/import queue](#capture-and-import-backlog) detects canonical gaps and is not a four-stage state machine.
 
 ## Crawlers
 
@@ -39,7 +72,7 @@ python ../bigcows-crawler/scripts/compare_acm_fellow_profiles.py --award turing 
 
 The current CSV may differ from the crawl's original input snapshot.
 Compare the current CSV, but resume fetching only with the original snapshot.
-If no suitable cache is available locally, prepare and run a new crawl as described below.
+If no suitable cache is available locally, report the evidence gap and use the crawl procedure below only when fetching is authorized.
 To save comparison output, add `--output` with a new path under the shared `.cache/`; existing files cannot be overwritten.
 Without it, JSON goes to stdout.
 See [report interpretation](https://github.com/lintool/bigcows-crawler/blob/main/README_FOR_AGENTS.md#reports-and-data-review) for exact differences, name compatibility, missing captures, and duplicate URLs.
@@ -94,7 +127,8 @@ A redirected author page, a namesake profile, and a name-disambiguation page req
 Persistent access challenges or transport failures leave the refresh incomplete and do not justify clearing stored links.
 
 Before importing, check the retained HTML, capture timestamp and hash, final URL, ACM identity, and [publication quality criteria](#publication-profile-quality).
-Update reviewed URLs, crawl dates and quality fields in the award rosters; there is no separate canonical DBLP CSV to rebuild.
+During review, record accepted captures and apply authorized URL and quality decisions.
+During extraction, apply accepted capture dates and any other authorized source fields in the award rosters; the compact DBLP extraction JSON stores profile metadata and publication aggregates.
 Apply shared-URL decisions consistently across both rosters, even during a single-roster refresh.
 Retain rejected URLs and rationale in the review evidence, and record removals or unresolved cases in Data Notes.
 Reassess conflicting CSRankings evidence after an award URL change or removal, preserving the CSRankings-generated link even when it is wrong.
@@ -113,19 +147,19 @@ The DBLP command above uses the HTTP transport and its default cache; it can reu
 Use the reviewed DBLP workflow above when updating canonical data.
 Follow the shared reference for source pacing and retries.
 After refreshing CSRankings sources, follow [CSRankings Name Links](#csrankings-name-links) to synchronize the profile lookup table.
-For Scholar, use the reviewed workflow below rather than exporting directly into the canonical CSV.
+For Scholar, use the reviewed workflow below rather than exporting directly into canonical data.
 
 ### Review and Import Google Scholar Data
 
 The shared crawler handles transport and parsing; this repository owns identity decisions and canonical imports.
 Read its [Scholar workflow](https://github.com/lintool/bigcows-crawler/blob/main/README_FOR_AGENTS.md#google-scholar-profile-crawler) for pacing, retries, cache fields, and blocking behavior.
-The crawler's generic CSV exporter retains existing output rows and can reuse historical values; it does not enforce fresh-only acceptance or establish a person's identity.
-Do not use `--output data/google_scholar_profiles.csv` as the review or import step.
+The crawler's generic exporter produces CSV and can reuse historical values; it neither writes the canonical JSON schema nor establishes identity or acceptance.
+Do not point the crawler's `--output` at canonical data; a filename ending in `.json` does not change its CSV export format.
 
-1. **Define the refresh scope and retain inputs:** Create a new run directory under `../bigcows-crawler/.cache/` and snapshot both award rosters and the current shared statistics CSV there.
+1. **Crawl — Define the Scope and Retain Inputs:** Create a new run directory under `../bigcows-crawler/.cache/` and snapshot both award rosters and the current shared extraction JSON there.
    Record which roster or rosters will be refreshed, the start time, and the selected commands in the run manifest.
    Keep original inputs stable for resuming; record newly discovered candidates in a separate input file.
-2. **Crawl into a fresh cache without canonical output:** An unused cache makes this a fresh capture rather than reuse of the default historical cache.
+2. **Crawl — Retain Captures Without Canonical Output:** An unused cache makes this a fresh capture rather than reuse of the default historical cache.
    For both awards, share the new cache so a profile common to both is fetched once, and retain separate reports and logs.
    The following example prepares a combined run and starts only the Fellows crawl; replace the placeholder with a unique run label and create the directory only once:
 
@@ -137,7 +171,7 @@ Do not use `--output data/google_scholar_profiles.csv` as the review or import s
      mkdir "$scholar_run"
      cp data/acm_fellows.csv "$scholar_run/fellows-input.csv"
      cp data/turing_award_winners.csv "$scholar_run/turing-input.csv"
-     cp data/google_scholar_profiles.csv "$scholar_run/statistics-before.csv"
+     cp data/google_scholar_extracted_data.json "$scholar_run/statistics-before.json"
      python -u ../bigcows-crawler/scripts/cache_google_scholar_profiles.py --data "$scholar_run/fellows-input.csv" --cache "$scholar_run/cache.json" --report "$scholar_run/fellows-report.json" > "$scholar_run/fellows.log" 2>&1
    )
    ```
@@ -158,29 +192,32 @@ Do not use `--output data/google_scholar_profiles.csv` as the review or import s
    Ordinary resume usually skips cached failures; entries with an HTML-required status but no HTML are retried automatically.
    After inspecting failures and resolving any block, use the shared crawler's [resume and cache rules](https://github.com/lintool/bigcows-crawler/blob/main/README_FOR_AGENTS.md#cache) to select the appropriate retry.
    `--limit-new 0` rebuilds a report without fetching, but still writes cache/report artifacts and does not establish freshness.
-3. **Review freshness and identity:** Require a successful capture from the selected run with complete HTML, parsed statistics, and a supported identity before accepting a profile.
+3. **Review — Check Freshness and Identity:** Require a successful capture from the selected run with complete HTML, parsed statistics, and a supported identity before accepting a profile.
    Check capture timestamps and recorded fetch errors; a retained older success is not evidence of a successful current refresh.
    Inspect `last_fetch_error` in the cache itself: it is not exposed in the Scholar report and can accompany a retained `ok` status.
    Compare names, affiliations, research areas, and representative publications against ACM and primary institutional sources.
    A compatible name or HTTP 200 response alone is insufficient.
-4. **Resolve missing and rejected links:** Search for replacement profiles when discovery is in scope, then freshly crawl and verify candidates before accepting them.
+4. **Review — Resolve Missing and Rejected Links:** Search for replacement profiles when discovery is in scope, then freshly crawl and verify candidates before accepting them.
    If a link is missing or rejected and no fresh, verified replacement can be found, leave its Scholar URL and crawl date blank and set its quality to `N`; do not fill the gap with historical statistics.
    Treat a blocked or interrupted run as incomplete, rather than clearing links solely because of a temporary access failure.
    Record accepted, rejected, unresolved, and deferred decisions with evidence and capture references.
-5. **Reconcile and import across both rosters:** Build the accepted statistics set by unique Scholar URL, with one record for a person shared by the awards.
-   Apply reviewed link changes and reassess quality using the [profile-quality criteria](#publication-profile-quality), then replace or add statistics only from accepted captures.
+5. **Extract — Reconcile and Import Across Both Rosters:** Build the accepted statistics set by unique Scholar URL, with one record for a person shared by the awards.
+   Preserve the reviewed links and quality decisions, then replace or add statistics only from accepted captures.
+   Return conflicting identity or quality evidence to review instead of silently changing its decisions during extraction.
    Update `google_scholar_profile_crawl_date` from the same accepted capture as the statistics row's `crawl_date`, synchronizing recipients shared by both rosters.
    Preserve unrelated award fields.
    Remove rejected or obsolete statistics records only after confirming that neither roster still references them.
    Preserve reviewed records outside a single-award refresh's scope, with their original crawl dates; never describe those as newly refreshed.
    The generic exporter is not a reviewed importer: use a reviewed run-specific import script or prepare an explicit import for review, retaining it and the before/after evidence in the run directory.
-6. **Validate and publish the data snapshot:** Check unique profile URLs, roster joins, accepted capture coverage, actual crawl dates, missing-value semantics, unchanged unrelated fields, canonical sort order, and LF line endings.
+   Check unique profile URLs, roster joins, accepted capture coverage, actual crawl dates, missing-value semantics, unchanged unrelated fields, canonical sort order, and LF line endings before completing extraction.
    Record results and unresolved issues in [Data Notes](docs/data_notes.md).
-   Once the data refresh is ready for display, regenerate both award datasets and run the checks in the [visualization workflow](#google-scholar-citation-visualization), since shared statistics can affect both pages.
+6. **Visualize — Generate and Validate the Data Snapshot:**
+   Once visualization is explicitly authorized, regenerate both award datasets and run the checks in the [visualization workflow](#google-scholar-citation-visualization), since shared statistics can affect both pages.
+   Otherwise report awaiting visualization and preserve both snapshots.
 
 ### Apply Reviewed ACM Results
 
-The ACM crawlers never update canonical CSVs.
+The ACM crawlers never update canonical datasets.
 Verify the person and award using the captured HTML, and inspect exact differences as well as name compatibility.
 Profile headings often use given-name-first order; preserve the directory-based canonical name unless the [source policy](AGENTS.md#acm-source-of-truth) supports a documented correction.
 Use successful captures as evidence; preserve existing values when source fields are blank, truncated, malformed, or otherwise less accurate.
@@ -191,12 +228,13 @@ Follow the data conventions below and record dataset-specific decisions in [Data
 
 ## Data Layout
 
-Canonical CSV files live under `data/`:
+Canonical data files live under `data/`:
 
 ```text
 data/acm_fellows.csv
 data/csrankings_profiles.csv
-data/google_scholar_profiles.csv
+data/google_scholar_extracted_data.json
+data/dblp_extracted_data.json
 data/google_scholar_profile_searches.csv
 data/turing_award_winners.csv
 ```
@@ -311,7 +349,8 @@ This ledger does not modify award rosters, capture dates, quality flags, statist
 Both award rosters store each `*_profile_crawl_date` immediately after its corresponding URL.
 Each is the accepted successful capture's UTC date (`YYYY-MM-DD`), derived from `fetched_at`, not the run start, import or quality-review date.
 For example, a capture at `2026-09-18T01:00:00Z` receives `2026-09-18`, even when the run and Data Notes entry are dated September 17 in Toronto.
-Keep the date blank when the URL is blank or no successful capture has been accepted for that URL.
+Keep the date blank when the URL is blank or no successful capture has been accepted and applied through extraction for that URL.
+Review records capture acceptance separately; canonical dates advance when extraction applies that evidence, with Scholar roster dates and statistics dates updated together.
 When a URL changes or is cleared, clear its old date and populate a new date only from an accepted capture of the new URL.
 For URLs shared across the two rosters, update both dates together and keep them identical.
 An unsuccessful refresh leaves the previous accepted date in place; report the refresh as incomplete rather than advancing the date.
@@ -381,14 +420,51 @@ Python's `csv.DictWriter` defaults to CRLF unless `lineterminator="\n"` is suppl
 Apply the [award CSV sort order](#award-csv-sort-order) to both rosters.
 Canonical CSRankings source preservation, historical schemas and synchronization are documented in [CSRankings Name Links](#csrankings-name-links); [CSRankings DBLP Alignment](#csrankings-dblp-alignment) describes the separate legacy matcher.
 
+### DBLP Extracted Data
+
+`data/dblp_extracted_data.json` stores `schema_version: 1` and a `profiles` array, sorted by canonical DBLP URL.
+Each object contains `profile`, `pid`, `name`, `name_variants`, `affiliations`, `publication_count`, `publications_by_year`, `coverage` and `capture`.
+Names and alternate names come from the profile heading; affiliations include only explicit DBLP affiliation metadata and are not assumed current.
+Missing name variants or affiliations are empty arrays, not inferred from other services.
+Publication totals count distinct DBLP publication keys in the accepted HTML, including all publication categories; repeated renderings of the same key count once.
+`publications_by_year` maps four-digit year strings to integer counts, and its sum must equal `publication_count`.
+Individual publications are not retained in this canonical file.
+
+`coverage.status` is `complete`, `partial` or `unknown`; the current extractor uses `unknown` because counting all captured entries does not independently establish bibliography completeness.
+The coverage note records duplicate renderings where encountered.
+Counts describe the stored DBLP profile, including profiles deliberately retained with quality N; they do not establish authorship or coverage quality for the award recipient.
+The award roster remains authoritative for the association and its quality rating.
+
+`capture` contains `fetched_at`, `capture_id`, `html_sha256` and `source_run`.
+These legacy DBLP Safari captures have no native capture ID; `capture_id` is the retained HTML filename stem, and the file is under `<source_run>/safari/captures/<capture_id>.html` in the sibling crawler cache.
+The capture timestamp must be a valid full ISO timestamp expressed in UTC (`Z` or `+00:00`); its parsed date must match the roster's accepted UTC date.
+Malformed, timezone-naive and non-UTC offset timestamps are rejected; extraction time is not substituted.
+
+Run extraction only with an accepted audit of the selected captures:
+
+```bash
+python scripts/extract_dblp_data.py --accepted-captures ../bigcows-crawler/.cache/dblp-consistency-2026-09-19-164601/capture-verification.json
+```
+
+The audit supplies `url`, `path`, `sha256`, `bytes`, `records` and `fetched_at` for every linked profile; paths identify retained HTML, and `records` is the pre-deduplication visible-entry count.
+The example audit is local evidence absent from a fresh clone; use a reviewed audit available in the current environment.
+The extractor checks roster coverage and dates, HTML hashes and sizes, captured PIDs, audit entry counts and unambiguous publication years before writing.
+It never fetches pages or edits roster decisions, and stops rather than guessing a missing year or treating a parser failure as a zero-publication profile.
+Use `--output tmp/dblp_extracted_data.json` for a preview; canonical extraction and visualization remain separately authorized stages.
+
 ### Google Scholar Statistics
 
-`data/google_scholar_profiles.csv` stores one row per unique Scholar `profile` URL with accepted imported statistics across both award rosters.
+`data/google_scholar_extracted_data.json` is the sole canonical Scholar extraction dataset across both award rosters.
+The top-level object contains integer `schema_version: 1` and a `profiles` array with one object per unique canonical Scholar `profile` URL.
+Use `scripts/scholar_data.py:read_scholar` to validate and read native records; unknown schema versions, duplicate URLs or JSON keys, malformed types and inconsistent capture provenance are rejected.
+Numeric fields are nonnegative integers or `null`; `interests` is an array of strings and `citation_by_year` is an object of year strings to nonnegative integers.
+Preserve profile ordering during extraction; the visualization builder applies award-specific ordering independently.
 The [Check Profiles skill](skills/check-profiles/SKILL.md) can establish a new roster link through direct candidate inspection before a crawl is imported; such a link has a blank capture date and no statistics row until an approved crawl supplies accepted evidence.
 The fresh-capture requirements in the reviewed refresh workflow apply to importing statistics; an identity review does not invent or restamp metrics.
 Join each roster's `google_scholar_profile` to this `profile` field; names are descriptive fields, not join keys.
-Use the canonical URL form `https://scholar.google.com/citations?user=...` in both tables; the visualization and affiliation helper use exact-string joins rather than normalizing URL variants at read time.
-The row's `crawl_date` and each referring roster's `google_scholar_profile_crawl_date` should identify the same accepted capture.
+Use the canonical URL form `https://scholar.google.com/citations?user=...` in both datasets; the visualization and affiliation helper use exact-string joins rather than normalizing URL variants at read time.
+The record's `crawl_date`, the UTC date of `capture.fetched_at` and each referring roster's `google_scholar_profile_crawl_date` must agree.
+Capture provenance is copied from accepted evidence, never reconstructed from an import timestamp; source run directories remain local evidence absent from a fresh clone.
 
 | Field | Meaning |
 | --- | --- |
@@ -396,18 +472,19 @@ The row's `crawl_date` and each referring roster's `google_scholar_profile_crawl
 | `profile` | Canonical Scholar author URL, containing the `user` ID. |
 | `crawl_date` | UTC capture date (`YYYY-MM-DD`), derived from the accepted capture's `fetched_at`; not the import date. |
 | `affiliation` | Profile-reported affiliation text; not verified employment history. |
-| `interests` | JSON array of research-interest strings stored inside a CSV cell. |
+| `interests` | Native JSON array of research-interest strings. |
 | `citations` | Scholar's reported all-time citation count. |
 | `h_index` | Scholar's reported all-time h-index. |
 | `i10_index` | Scholar's reported all-time count of publications with at least ten citations. |
 | `citations_since_5y_ago`, `h_index_since_5y_ago`, `i10_index_since_5y_ago` | Values from Scholar's recent-period column at capture time; these are not recalculated from yearly bars. |
 | `first_citation_year` | Earliest year in the captured citation histogram, not necessarily the first year of the person's career or citation history. |
 | `citation_by_year` | JSON object mapping year strings to integer citation counts, such as `{"2024":125,"2025":140}`. |
+| `capture` | Provenance object containing `fetched_at` (UTC timestamp), `capture_id`, `html_sha256` and `source_run` (run directory name under the sibling crawler cache). |
 
-The recent-period field names are legacy names; the parser does not store the exact “Since YYYY” column heading in the CSV.
+The recent-period field names are legacy names; the extraction schema does not store the exact “Since YYYY” source column heading.
 Consult the retained HTML when the precise period matters, rather than deriving it from the current year.
-Read the CSV with a CSV parser before decoding JSON-valued cells.
-Blank scalar cells mean unavailable values, not zero; `[]` and `{}` mean no captured interests or yearly entries respectively.
+Read the file as JSON; do not JSON-decode `interests` or `citation_by_year` a second time.
+`null` means an unavailable scalar value, not zero; `[]` and `{}` mean no captured interests or yearly entries respectively.
 An absent year key does not establish zero citations, and the histogram need not sum to the all-time total.
 A blank Scholar link in an award roster means no accepted profile link is recorded, not proof that none exists.
 
@@ -766,7 +843,7 @@ python scripts/build_scholar_citation_visualization.py --award turing
 
 The default `--award fellows` reads `data/acm_fellows.csv` and writes `scholar_data.js`.
 With `--award turing`, it reads `data/turing_award_winners.csv` and writes `turing_scholar_data.js`.
-Both join `data/google_scholar_profiles.csv` by Scholar URL without touching HTML, rendering code, or canonical CSVs.
+Both join `data/google_scholar_extracted_data.json` by Scholar URL without touching HTML, rendering code, or canonical datasets.
 It preserves the [award CSV sort order](#award-csv-sort-order).
 The data object contains `schemaVersion`, `generatedAt` (UTC), `metadata` and `rows`.
 Metadata includes `award` (`fellows` or `turing`), which the renderer checks against the page's `data-award` attribute to prevent displaying the wrong roster.
@@ -796,7 +873,7 @@ python scripts/build_scholar_citation_visualization.py --award turing --output t
 Custom input and output paths are supported:
 
 ```bash
-python scripts/build_scholar_citation_visualization.py --award turing --roster path/to/turing_award_winners.csv --scholar path/to/google_scholar_profiles.csv --output tmp/turing_scholar_data.js
+python scripts/build_scholar_citation_visualization.py --award turing --roster path/to/turing_award_winners.csv --scholar path/to/google_scholar_extracted_data.json --output tmp/turing_scholar_data.js
 ```
 
 `--output` now names a JavaScript data file, not an HTML page.
@@ -812,7 +889,7 @@ Scholar links use Google's multicolor G, and DBLP links use its blue-and-yellow 
 The ACM diamond is also a local SVG asset; its 18px display size remains distinct from the 15px Google and DBLP icons.
 Each icon link has a service tooltip, an accessible label naming the recipient, and a visible keyboard-focus indicator; links remain available even when citation statistics are missing.
 The three service positions are fixed across rows; missing links leave empty, noninteractive slots so the remaining icons do not shift.
-Under each title, an initially collapsed, keyboard-accessible About the Data panel contains total coverage counts, the Google Scholar source note (showing the included citation captures’ UTC date range, or a single capture date when uniform, not the build date), the displayed year range, and links to the award CSV, shared Scholar statistics CSV, and data notes.
+Under each title, an initially collapsed, keyboard-accessible About the Data panel contains total coverage counts, the Google Scholar source note (showing the included citation captures’ UTC date range, or a single capture date when uniform, not the build date), the displayed year range, and links to the award CSV, shared Scholar extraction JSON, and data notes.
 Search and the missing-data toggle remain visible outside the panel.
 Display order defaults to award year descending, then last name ascending, without changing canonical CSV or generated data order.
 Last-name sorting uses the text before the comma for surname-first directory names, or the final name token for given-name-first names, excluding suffixes Jr., Sr., II, III, and IV, with the full name breaking ties.
@@ -861,7 +938,7 @@ The snapshot check deliberately fails when generated datasets lag the CSVs; do n
 For canonical-data and builder validation during that deferral, run:
 
 ```bash
-PYTHONPATH=tests python -B -m unittest test_csrankings_rosters test_csrankings_dblp test_scholar_citation_data.CitationDataTests test_university_analysis test_profile_provenance test_profile_validation -v
+PYTHONPATH=tests python -B -m unittest test_csrankings_rosters test_csrankings_dblp test_scholar_citation_data.CitationDataTests test_university_analysis test_profile_provenance test_profile_validation test_scholar_data test_dblp_extracted_data -v
 ```
 
 These checks build Scholar joins in memory without writing visualization files.
@@ -891,8 +968,10 @@ Regenerate the queue after changing accepted links, capture dates or imported st
 python scripts/build_profile_capture_queue.py --output docs/profile_capture_queue.json
 ```
 
-The command only reads canonical CSVs and writes the queue; it does not fetch pages, accept captures or update metrics.
-Entries await the user's refresh approval, and queue-generation timestamps never substitute for profile capture dates.
+The command only reads canonical datasets and writes the queue; it does not fetch pages, accept captures or update metrics.
+The legacy `awaiting_refresh_approval` status is generated from canonical gaps, not from capture inventories or review decisions.
+Inspect retained evidence to distinguish awaiting crawl, awaiting review and awaiting extraction; the queue cannot detect a newer unimported capture, missing or stale DBLP aggregate JSON, or an outdated visualization.
+Do not treat an entry as automatic authorization or a requirement to fetch again, and never substitute queue-generation timestamps for profile capture dates.
 Keep this backlog distinct from profile-review decisions and visualization snapshot regeneration; rebuilding snapshots does not fetch or import missing evidence.
 
 ## Git Hygiene

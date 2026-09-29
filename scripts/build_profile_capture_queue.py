@@ -6,6 +6,11 @@ from datetime import datetime, timezone
 import json
 from pathlib import Path
 
+try:
+    from scholar_data import read_scholar
+except ModuleNotFoundError:
+    from scripts.scholar_data import read_scholar
+
 try:  # Support direct CLI execution and importing from the repository root.
     from profile_validation import normalize_dblp_url
 except ModuleNotFoundError:
@@ -49,8 +54,8 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     rosters = {name: read_csv(ROOT / "data" / name) for name in ["acm_fellows.csv", "turing_award_winners.csv"]}
-    tasks = build_queue(rosters, read_csv(ROOT / "data/google_scholar_profiles.csv"))
-    if args.output.resolve() in {path.resolve() for path in (ROOT / "data").glob("*.csv")}:
+    tasks = build_queue(rosters, read_scholar(ROOT / "data/google_scholar_extracted_data.json"))
+    if args.output.resolve() in {path.resolve() for path in (ROOT / "data").iterdir()}:
         parser.error("Queue output cannot overwrite canonical inputs")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps({"schema_version": 2, "generated_at": datetime.now(timezone.utc).isoformat(),
