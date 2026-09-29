@@ -56,7 +56,9 @@ for (const [award, filename] of [['fellows', 'scholar_data.js'], ['turing', 'tur
   const rowCount = () => (node('#table').markup.match(/class="row"/g) || []).length;
   assert.equal(rowCount(), data.metadata.joinedRows);
   assert.equal(properties['--year-count'], 41);
-  assert.equal(node('#citation-source').textContent, 'All citation statistics from Google Scholar, as of 2026-09-17.');
+  const latestCaptureDate = data.rows.filter(row => row.hasScholar && row.crawlDate).map(row => row.crawlDate).sort().at(-1);
+  assert.ok(latestCaptureDate);
+  assert.equal(node('#citation-source').textContent, `All citation statistics from Google Scholar, as of ${latestCaptureDate}.`);
   assert.equal(node('#summary').textContent, 'Cites are Google Scholar’s reported all-time total; the per-year histogram displays 1986–2026.');
   assert.ok(node('#table').markup.includes('data-tooltip="1986:'));
   assert.ok(!node('#table').markup.includes('data-tooltip="1985:'));

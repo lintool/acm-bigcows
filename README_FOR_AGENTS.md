@@ -143,7 +143,7 @@ Do not use `--output data/google_scholar_profiles.csv` as the review or import s
    ```
 
    The subshell stops on command failure, including an existing run directory, before later commands can overwrite retained inputs or logs.
-   The Scholar runner records blocked responses but does not automatically stop on them; monitor the log and cache and interrupt the run if blocking appears.
+   The Safari transport saves any failed capture and stops the invocation without retrying it; inspect the saved error before deciding whether to resume.
    Exit code 0 does not establish successful coverage, freshness or identity.
    Inspect the Fellows report and recorded fetch errors before starting Turing; do not continue while a block is unresolved.
    Start the second award separately with the same run label and shared cache:
