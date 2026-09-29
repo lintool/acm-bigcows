@@ -3,6 +3,7 @@
 import argparse
 from collections import Counter
 import csv
+from datetime import datetime, timedelta
 import hashlib
 import html
 import json
@@ -61,6 +62,20 @@ def parse_profile(body):
             'coverage': {'status': 'unknown', 'note': 'All distinct publication entries present in the retained HTML were counted; completeness of the DBLP bibliography is not independently established.'}}
 
 
+def capture_date(value):
+    """Require a full ISO timestamp expressed in UTC before deriving its date."""
+    if not isinstance(value, str) or not re.fullmatch(
+            r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|\+00:00)', value):
+        raise ValueError('fetched_at must be a timezone-aware UTC timestamp')
+    try:
+        timestamp = datetime.fromisoformat(value.replace('Z', '+00:00'))
+    except ValueError as exc:
+        raise ValueError('Invalid fetched_at UTC timestamp') from exc
+    if timestamp.utcoffset() != timedelta(0):
+        raise ValueError('fetched_at must be expressed in UTC')
+    return timestamp.date().isoformat()
+
+
 def extract(audit, root=ROOT):
     """Use only captures explicitly selected by the accepted audit, matching current roster dates."""
     expected = {}
@@ -77,7 +92,7 @@ def extract(audit, root=ROOT):
     seen = set()
     for item in audit:
         url = normalize_dblp_url(item['url'])
-        if url not in expected or url in seen or item['fetched_at'][:10] != expected[url]:
+        if url not in expected or url in seen or capture_date(item.get('fetched_at')) != expected[url]:
             raise ValueError(f'Capture audit does not match current accepted roster: {url}')
         seen.add(url)
         path = Path(item['path'])

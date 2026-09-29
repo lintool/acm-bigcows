@@ -437,7 +437,8 @@ The award roster remains authoritative for the association and its quality ratin
 
 `capture` contains `fetched_at`, `capture_id`, `html_sha256` and `source_run`.
 These legacy DBLP Safari captures have no native capture ID; `capture_id` is the retained HTML filename stem, and the file is under `<source_run>/safari/captures/<capture_id>.html` in the sibling crawler cache.
-The capture timestamp must match the roster's accepted UTC date; extraction time is not substituted.
+The capture timestamp must be a valid full ISO timestamp expressed in UTC (`Z` or `+00:00`); its parsed date must match the roster's accepted UTC date.
+Malformed, timezone-naive and non-UTC offset timestamps are rejected; extraction time is not substituted.
 
 Run extraction only with an accepted audit of the selected captures:
 

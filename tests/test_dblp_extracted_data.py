@@ -1,9 +1,11 @@
 """Check compact DBLP extraction without fetching pages."""
 import csv
 import json
+import hashlib
+import tempfile
 from pathlib import Path
 import unittest
-from scripts.extract_dblp_data import parse_profile
+from scripts.extract_dblp_data import parse_profile, capture_date, extract
 from scripts.profile_validation import normalize_dblp_url
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +41,32 @@ class DblpExtractionTests(unittest.TestCase):
             with self.subTest(body=body), self.assertRaises(ValueError):
                 parse_profile(body)
 
+    def test_extraction_requires_full_utc_timestamp_and_matching_date(self):
+        with tempfile.TemporaryDirectory() as directory:
+            workspace = Path(directory)
+            root = workspace / 'app'
+            (root / 'data').mkdir(parents=True)
+            url = 'https://dblp.org/pid/12/345'
+            for name in ['acm_fellows.csv', 'turing_award_winners.csv']:
+                (root / 'data' / name).write_text(
+                    'dblp_profile,dblp_profile_crawl_date\n' + url + ',2026-09-19\n')
+            path = workspace / 'bigcows-crawler/.cache/test/safari/captures/example.html'
+            path.parent.mkdir(parents=True)
+            raw = page(entry('a', 2020)).encode()
+            path.write_bytes(raw)
+            item = {'url': url, 'path': str(path), 'sha256': hashlib.sha256(raw).hexdigest(),
+                    'bytes': len(raw), 'records': 1}
+            for value in ['2026-09-19T12:30:00Z', '2026-09-19T12:30:00+00:00',
+                          '2026-09-19T12:30:00.123Z']:
+                result = extract([{**item, 'fetched_at': value}], root)
+                self.assertEqual(result['profiles'][0]['capture']['fetched_at'], value)
+            for value in ['2026-09-19garbage', '2026-09-19', '2026-09-19T12:30:00',
+                          '2026-09-19T23:30:00-04:00', '2026-09-19T01:00:00+04:00',
+                          '2026-09-19T25:00:00Z', '2026-02-30T12:00:00Z',
+                          '2026-09-20T00:00:00Z', None, 20260919]:
+                with self.subTest(value=value), self.assertRaises(ValueError):
+                    extract([{**item, 'fetched_at': value}], root)
+
     def test_canonical_coverage_and_aggregate_totals(self):
         data = json.loads((ROOT / 'data/dblp_extracted_data.json').read_text())
         self.assertEqual(data['schema_version'], 1)
@@ -63,7 +91,7 @@ class DblpExtractionTests(unittest.TestCase):
                 self.assertIs(type(count), int)
                 self.assertGreater(count, 0)
             self.assertIn(row['coverage']['status'], ['complete', 'partial', 'unknown'])
-            self.assertEqual(row['capture']['fetched_at'][:10], expected[url])
+            self.assertEqual(capture_date(row['capture']['fetched_at']), expected[url])
             self.assertRegex(row['capture']['html_sha256'], r'^[0-9a-f]{64}$')
             self.assertTrue(row['capture']['capture_id'])
             self.assertTrue(row['capture']['source_run'])
