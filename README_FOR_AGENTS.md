@@ -237,6 +237,7 @@ data/google_scholar_extracted_data.json
 data/dblp_extracted_data.json
 data/google_scholar_profile_searches.csv
 data/dblp_profile_searches.csv
+data/csrankings_profile_searches.csv
 data/turing_award_winners.csv
 ```
 
@@ -333,7 +334,7 @@ Outcomes are `candidate` (unaccepted proposal), `accepted` (approved association
 User reports and tool failures must remain distinguishable in evidence; never invent a failure cause or HTTP status.
 
 Append one row per new search/candidate, or one blank-candidate row when no profile ID was resolved.
-The record key is (recipient key, `searched_at`, `candidate_url`), where the recipient key is `acm_profile` or the validated canonical-name fallback described below.
+The record key is (recipient key, `searched_at`, `candidate_url`), where the recipient key is the normalized ACM recipient ID from `acm_profile` or the validated canonical-name fallback described below.
 Multiple candidates from the same search share the search timestamp.
 A later review of the same candidate updates `outcome`, `reviewed_at` and its evidence, preserving `searched_at` and the earlier findings in the linked report.
 A genuinely new search adds a new record even if its candidate repeats; never overwrite an earlier search or advance search time for a review-only decision.
@@ -342,7 +343,7 @@ The latest `searched_at` tracks discovery activity, including user-supplied cand
 Retain source precision: Markopoulou's backfilled acceptance is known only to the minute; do not invent seconds, use file modification times, or stamp historical work with the backfill date.
 For canonical historical recipients without a stored ACM URL, retain a blank `acm_profile` and use the exact canonical `name` as an explicitly documented fallback key only after confirming that the name identifies exactly one roster recipient.
 John D Gannon is the first such search-history exception, recorded in [batch seven](docs/scholar_missing_batch7_2026-09-28.md); do not group all blank ACM URLs together.
-Selection, uniqueness and coverage checks must use the ACM URL when present and otherwise this validated canonical-name fallback; do not infer a shared identity across rosters from a name alone.
+Selection, uniqueness and coverage checks must use the normalized ACM recipient ID from the URL when present and otherwise this validated canonical-name fallback; do not infer a shared identity across rosters from a name alone.
 Maintain the relevant review report and current status alongside CSV decisions, preserving explicit user rejections.
 This ledger does not modify award rosters, capture dates, quality flags, statistics or capture/import queues automatically.
 
@@ -358,6 +359,38 @@ When no author URL is resolved in the new search, append a blank-candidate recor
 An absent ledger record does not mean the person was never searched; dates are discovery dates, never capture dates.
 The [initial September 29 search](docs/dblp_missing_search_2026-09-29.md) covers all 15 blank-link Fellows; no Turing winners have blank DBLP links.
 This review/discovery ledger does not change rosters, extracted data, capture/import queues or visualizations automatically.
+
+### CSRankings Search History
+
+`data/csrankings_profile_searches.csv` records fresh attempts to link recipients whose canonical `csrankings_name` is blank.
+Do not backfill earlier audits or search already linked recipients as part of routine missing-link discovery.
+Consult prior identity decisions before searching; rediscovering a rejected candidate is a fresh search with its rejection preserved unless new evidence supports reconsideration.
+The [initial September 29 searches](docs/csrankings_missing_search_2026-09-29.md) cover 704 distinct recipients across 690 blank-link Fellows and 55 blank-link Turing rows using retained sources only.
+
+Use these columns in order:
+
+| Field | Meaning |
+| --- | --- |
+| `acm_profile` | ACM recipient URL joining either roster; deduplicate shared recipients by normalized recipient ID. |
+| `name` | Canonical readable name; use a validated unique canonical-name fallback only when the ACM URL is blank, as in Scholar search history. |
+| `searched_at` | Actual completed discovery timestamp with timezone; a recorded batch completion time is allowed when labeled in evidence. |
+| `candidate_name` | Exact source `name`, including disambiguators and punctuation; blank for `not_found`. |
+| `source_scope` | Repository-relative report path and anchor identifying source snapshots, dates, completeness and hashes. |
+| `outcome` | `candidate`, `accepted`, `not_found`, `unsupported_match`, `wrong_person`, or `superseded`. |
+| `reviewed_at` | Latest recorded assessment time, preserving the original search time. |
+| `evidence` | Repository-relative report path and recipient anchor retaining queries, candidates and decision rationale. |
+
+Append one record per new search/candidate, or a blank-candidate `not_found` record when no supported source candidate was resolved.
+Broad fuzzy-name retrieval leads can be retained in evidence without promoting them to identity candidates.
+The record key is normalized recipient identity, `searched_at` and `candidate_name`; shared award recipients need only one record per search/candidate.
+A later disposition updates `outcome`, `reviewed_at` and evidence, preserving the search time and prior decision history in the report.
+A genuinely new search appends records even if it rediscovers an earlier candidate.
+`unsupported_match` rejects a proposed association for insufficient identity evidence without asserting a proven different person; retain the exact candidate key and decision rationale.
+`not_found` is bounded by the stated source scope and does not establish that a person was never in CSRankings.
+`accepted` establishes a reviewed name association, not current membership, upstream Scholar/DBLP correctness or authorization for extraction or visualization.
+Search timestamps are distinct from source-download timestamps, capture dates and `csrankings_name_alignment_date`.
+Use retained sources under the current no-download constraint; a new source refresh requires separate authorization.
+The ledger does not automatically modify rosters, lookup records, source manifests, statistics or capture/import queues.
 
 ### Profile Crawl Dates
 
@@ -618,28 +651,34 @@ Preserve discrepancies as source evidence, including known upstream errors; appl
 Earlier reports describing roster-derived URLs or blank exceptions in this table are historical and are superseded by this generation policy.
 Validate exact key coverage, uniqueness and source fields, retain input snapshots and a validation report in the shared cache, and preserve both award rosters and generated visualizations.
 
-After the [historical source recovery](docs/csrankings_historical_recovery_2026-09-18.md), the table contains 835 unique keys, including 11 historical profiles absent from the current faculty snapshot.
+After the [September 29 historical adoption](docs/csrankings_identity_audit_2026-09-29.md#adoption-follow-up), the table contains 952 unique keys, including 128 historical profiles absent from the September 18 faculty snapshot.
 University analysis joins through the exact `csrankings_name` key.
 The separate legacy DBLP-based builder below still uses inferred names and must not replace the canonical table.
 
 The [source-field manifest](docs/csrankings_source_fields.json) protects source values independently of the derived DBLP field.
-Its per-name hashes were verified against all 26 retained September 18 source shards, an independent retained table for five historical keys and an original four-column upstream snapshot for six recovered historical keys.
+Its per-name hashes were verified against all 26 retained September 18 source shards, an independent retained table for five historical keys and an original four-column upstream snapshot for 123 explicitly approved historical keys.
 The manifest explicitly records the legacy schema and the blank local representation of its absent ORCID column.
 Tests compare the canonical table against those hashes without requiring a local crawler cache.
 After an authorized source update, regenerate the manifest from independently retained inputs and inspect its changes; do not update hashes merely to make a failing test pass.
 For the current retained evidence:
 
 ```bash
-python scripts/build_csrankings_source_manifest.py \
-  --historical-source ../bigcows-crawler/.cache/check-profiles-full-2026-09-18/csrankings_profiles.csv.before \
-  --legacy-source ../bigcows-crawler/.cache/csrankings-history-recovery-2026-09-18/2020-12-30/csrankings.csv \
-  --legacy-name 'Peter L. Bartlett' \
-  --legacy-name 'Larry S. Davis' \
-  --legacy-name 'Joseph M. Hellerstein' \
-  --legacy-name 'Allan Gottlieb' \
-  --legacy-name 'Laxmi N. Bhuyan' \
-  --legacy-name 'John E. Hopcroft' \
-  --output docs/csrankings_source_fields.json
+python -B - <<'PYTHON'
+import json
+from pathlib import Path
+from scripts.build_csrankings_source_manifest import build_manifest
+
+output = Path("docs/csrankings_source_fields.json")
+reviewed_names = json.loads(output.read_text())["sources"]["legacy"]["reviewed_names"]
+manifest = build_manifest(
+    Path("data/csrankings_profiles.csv"),
+    Path("../bigcows-crawler/.cache/csrankings"),
+    Path("../bigcows-crawler/.cache/check-profiles-full-2026-09-18/csrankings_profiles.csv.before"),
+    Path("../bigcows-crawler/.cache/csrankings-history-recovery-2026-09-18/2020-12-30/csrankings.csv"),
+    reviewed_names,
+)
+output.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
+PYTHON
 ```
 
 This command checks existing files only; it performs no crawl and rejects fields that differ from the supplied source evidence.
@@ -961,8 +1000,8 @@ Run the full suite after authorized regeneration and report snapshot synchroniza
 Accepted links without an imported capture may have blank capture dates and missing metrics; the tests verify those missing-data semantics rather than requiring every URL to have a date.
 When a Scholar statistics row exists, its capture date must equal the referring roster's Scholar capture date.
 The canonical checks also enforce roster and CSRankings ordering, original CSRankings source-field hashes, the current capture/import queue and exact-name affiliation joins.
-Search-ledger checks enforce schema, recipient identity, unique attempt keys, timezone-aware search/review dates, outcomes, candidate URL forms and evidence anchors.
-Every award row must have either a linked profile or a recorded search for each of Scholar and DBLP; this coverage check does not certify availability or quality.
+Search-ledger checks enforce schema, recipient identity, unique attempt keys, timezone-aware search/review dates, outcomes, publication-service candidate URL forms, CSRankings source keys and scope, and evidence anchors.
+Every award row must have either a linked profile or a recorded search for each of Scholar, DBLP and CSRankings; this coverage check does not certify availability or quality.
 Shared recipients are identified by normalized ACM recipient IDs before comparing publication URLs, quality flags, capture dates and CSRankings links/dates across awards; missing ACM identities are not inferred from names alone.
 Derived CSRankings DBLP fields must exactly match the upstream-compatible name generator, even when roster URLs differ, are blank, or have quality N.
 Tests preserve this independence and cover accents, campus notes, suffixes, disambiguators and generated-link checks without fetching profiles.

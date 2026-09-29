@@ -16,6 +16,7 @@ See the [source policy](AGENTS.md#acm-source-of-truth), [Fellows reconciliation 
 - [DBLP search history](data/dblp_profile_searches.csv): prospective search attempts for missing DBLP links, with candidate outcomes and evidence.
 - [CSRankings profiles](data/csrankings_profiles.csv): faculty records referenced by the exact `csrankings_name` keys in either award roster, including documented historical records.
   Original source fields are preserved; `dblp_profile` reproduces CSRankings' own name-generated link, separately from our reviewed award-profile URLs.
+- [CSRankings search history](data/csrankings_profile_searches.csv): fresh linking attempts for unlinked recipients, with source scope and identity decisions.
 
 The CSV rosters and JSON extracted data are ready to download or use from a clone.
 Both award tables include Y/N quality assessments for DBLP and Google Scholar profiles; see the [DBLP review](docs/dblp_profile_quality_2026-09-17.md), [Fellows Scholar review](docs/acm_scholar_quality_2026-09-17.md), and [Turing Scholar review](docs/turing_scholar_quality_2026-09-17.md) for criteria, findings, and inspection limits.
@@ -24,7 +25,8 @@ The [September 28 Scholar audit and final user decisions](docs/scholar_recalibra
 Its quality decisions are applied; the latest Scholar statistics are imported and both visualization snapshots were regenerated on September 29.
 See [Data Notes](docs/data_notes.md) for provenance, reconciliation history, and known source differences.
 The [data dictionary](README_FOR_AGENTS.md#data-layout) explains both award schemas, Scholar statistics, joins, dates, and missing values.
-A missing profile means the corresponding URL cell is blank; always distinguish ACM, DBLP, and Scholar when reporting coverage.
+For ACM, DBLP and Scholar, a missing profile means the corresponding URL cell is blank; a missing CSRankings association means `csrankings_name` is blank.
+Every recipient currently has either a link or a recorded search attempt for each of Scholar, DBLP and CSRankings; see the [coverage table](docs/profile_review_status.md#profile-or-search-coverage) for counts and search limits.
 A quality rating of `N` can describe either a missing link or a poor linked profile.
 Profile crawl dates record accepted page captures; `csrankings_name_alignment_date` records the name-link decision in each award roster.
 The CSRankings lookup table has no date column.

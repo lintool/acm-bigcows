@@ -18,4 +18,4 @@ Read the [analysis reference](../../README_FOR_AGENTS.md#acm-fellow-university-a
 ## Scope
 
 Analysis is read-only unless the user asks for data changes.
-If source freshness limits the answer, state the limitation and follow the [reviewed Scholar workflow](../../README_FOR_AGENTS.md#review-and-import-google-scholar-data) or [CSRankings workflow](../../README_FOR_AGENTS.md#csrankings-dblp-alignment) only when a refresh is within the user's requested scope.
+If source freshness limits the answer, state the limitation and follow the [reviewed Scholar workflow](../../README_FOR_AGENTS.md#review-and-import-google-scholar-data) or [CSRankings workflow](../../README_FOR_AGENTS.md#csrankings-name-links) only when a refresh is within the user's requested scope.

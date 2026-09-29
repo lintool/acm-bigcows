@@ -7,15 +7,32 @@ Use the [four-stage workflow](../README_FOR_AGENTS.md#four-stage-workflow) to di
 | Stage | Current State |
 | --- | --- |
 | Crawl | Current linked Scholar profiles have retained successful captures; no new fetch is scheduled by this index. |
-| Review | Scholar identity/quality decisions are complete within documented sampling limits, including the 19 subsequently approved profiles; DBLP review is complete within its scope; broader CSRankings review remains incomplete. |
+| Review | Scholar identity/quality decisions are complete within documented sampling limits, including the 19 subsequently approved profiles; DBLP review is complete within its scope; the bounded CSRankings identity audit is complete, with all 117 approved historical associations adopted. |
 | Extract | All 1,279 stored Scholar profiles have statistics from the accepted selected captures; DBLP metadata and publication-year aggregates for all 1,641 stored profiles are extracted into `data/dblp_extracted_data.json`; the canonical capture/import gap queue is empty. |
-| Visualize | Both award snapshots were regenerated September 29 and match canonical data; full snapshot and renderer checks pass. |
+| Visualize | Both September 29 snapshots still match their canonical visualization inputs, and snapshot/renderer checks pass; CSRankings associations are not consumed by these timelines, so their later adoption does not require regeneration. |
 
 The gap queue is not a stage tracker; an empty queue alone cannot prove that review is complete, all newer captures are extracted or visualizations are synchronized.
+
+## CSRankings Identity Audit
+
+The [September 29 retained-source audit](csrankings_identity_audit_2026-09-29.md) records outcomes for all 1,719 award rows, completing the previously unfinished 338-Fellow segment and reconciling earlier inspection notes.
+The 851 previously existing award-row associations remain supported within the documented evidence scope.
+The user approved and adopted 117 additional historical identities across 123 award rows: 115 Fellows and eight Turing rows, with six shared recipients.
+Canonical coverage is now 974 award-row associations (948 Fellows and 26 Turing rows), representing 952 distinct keys, including 128 historical keys.
+The [proposal table](csrankings_identity_proposals_2026-09-29.csv) records exact original source fields and evidence; its review-time recommendations were adopted on September 29, with alignment dates set to `2026-09-29`.
+Reviewed publication links, quality ratings and capture dates are unchanged; Manish Gupta retains DBLP 0002 and Scholar fHISoWoAAAAJ independently of his historical source key.
+Nine recipient cases have rejected candidate associations: seven have wrong-person findings and the user confirmed unsupported matches for Wei Chen and Li Erran Li.
+Another 736 award rows have no supported match in the bounded retained-source search.
+The earlier six historical-source gaps remain resolved.
+No CSRankings download, canonical extraction, import or visualization update occurred.
+Current CSRankings membership and exhaustive historical coverage are not established by this audit.
 
 ## Profile-or-Search Coverage
 
 The September 29 consistency sweep confirms that every row in both award rosters has a profile link or a recorded search for each publication service.
+Fresh [CSRankings searches](csrankings_missing_search_2026-09-29.md) now cover all 745 blank-link award rows, deduplicated to 704 people; no additional supported matches were found.
+The new ledger contains only these fresh retained-source attempts, with no backfill of earlier audits or already linked recipients.
+The user confirmed leaving Wei Chen and Li Erran Li unlinked; their six candidate keys are classified as unsupported matches, with no further user decision pending.
 These are award-row counts; recipients shared across rosters appear in both totals.
 
 | Service | Roster | Linked | Blank With Search | Neither |
@@ -24,6 +41,8 @@ These are award-row counts; recipients shared across rosters appear in both tota
 | Google Scholar | Turing Winners | 40 | 41 | 0 |
 | DBLP | ACM Fellows | 1,623 | 15 | 0 |
 | DBLP | Turing Winners | 81 | 0 | 0 |
+| CSRankings | ACM Fellows | 948 | 690 | 0 |
+| CSRankings | Turing Winners | 26 | 55 | 0 |
 
 Links rated N count as linked; a search record does not establish that a matching profile exists or is currently available.
 The offline `tests/test_profile_searches.py` regression check enforces coverage and ledger integrity without fetching sources.
@@ -42,7 +61,8 @@ All five remaining cases are now resolved by explicit user decisions: Lixin Gao,
 The decisions are applied across both rosters where present, and the [current Scholar review queue](scholar_recalibration_queue_2026-09-28.csv) is empty; preserve these explicit decisions.
 Current canonical Scholar totals are 1,265 distinct linked Y profiles and 14 distinct linked N profiles: Fellows have 1,255 linked Y, 14 linked N and 369 blank links; Turing winners have 38 linked Y, two linked N and 41 blank links.
 The original audit ledger and proposal queue are historical; the [final disposition ledger](scholar_recalibration_2026-09-28.csv) supersedes their pending recommendations.
-Complete/recent publication coverage and live availability remain unverified, and the broader CSRankings audit remains incomplete.
+Complete/recent publication coverage and live availability remain unverified.
+The September 29 retained-source CSRankings identity audit is complete; its 117 historical proposals are now adopted as canonical associations.
 The separately authorized [September 28 Scholar refresh](scholar_capture_checkpoint_2026-09-28.md) has 1,263 successful captures and one recorded redirect across 1,264 distinct input URLs; Paulson’s retained destination capture has now been accepted and imported; four more captures are now imported in the [nineteen-profile import](scholar_reviewed19_import_2026-09-28.md); the remaining 1,259 profiles are now imported in the [September 29 full statistics update](scholar_full_import_2026-09-29.md).
 The user has since confirmed Paulson’s destination ID `x4toSGEAAAAJ`, and his canonical link is corrected; a subsequent user-authorized targeted Safari crawl captured 100 entries at 2026-09-28 22:17:11 UTC, reviewed and accepted as documented in the [Paulson import report](paulson_scholar_import_2026-09-28.md#latest-accepted-capture-100-entries).
 Its reported statistics and date match the already imported values; both canonical dates remain 2026-09-28.
@@ -136,13 +156,13 @@ Milner’s prior user rejection remains preserved; no canonical links or capture
 | September 28 Scholar refresh | All 1,264 distinct URLs attempted; 1,263 original successful captures plus Paulson’s resolved redirect and subsequent successful 100-entry capture; crawl stopped | All original successful captures and Paulson’s subsequent destination capture are accepted and imported; the 69 heuristic name flags were covered by the completed holistic audit; no restart scheduled. |
 | DBLP-only September 19 reassessment | All 1,719 award rows have recorded outcomes; the four new coverage flags are resolved and applied as N | Preserve the [four user-approved holds](dblp_reassessment_review_queue_2026-09-19.csv); all presented decisions are applied. |
 | Fellows 1–100 | Trial audit recorded for 100 recipients and 300 services | Preserve the [trial outcomes and evidence limits](check_profiles_trial_100_2026-09-18.md). |
-| Fellows 101–1,300 | Initial individual inspection notes saved for 1,200 recipients | Scholar now has a complete retained-evidence sweep; finish CSRankings and remaining multi-service follow-ups. |
-| Fellows 1,301–1,638, broader service review | 338 recipients lack a completed initial multi-service inspection; their DBLP reassessment is recorded | Scholar is now individually inspected; continue the broader CSRankings audit without reopening completed DBLP decisions. |
-| Turing Award roster | All 81 rows have 243 service outcomes; all presented profile decisions and Hopcroft's historical CSRankings link are applied | DBLP replacement captures imported September 19; Scholar retained-evidence review complete September 28, with full/recent coverage limits explicit. |
+| Fellows 101–1,300 | Earlier individual inspection notes reconciled in the September 29 CSRankings identity audit | Preserve resolved decisions; the supported historical proposals have been adopted. |
+| Fellows 1,301–1,638 | CSRankings identity inspection complete: 55 supported existing links, 32 historical proposals and 251 other missing associations | No further initial CSRankings inspection is pending in this segment; the 32 proposed historical associations are now adopted. |
+| Turing Award roster | All 81 rows have the earlier 243 service outcomes; the September 18 decisions and Hopcroft historical link are applied | September 29 CSRankings review adds eight approved and adopted historical associations; existing Scholar and DBLP outcomes are preserved. |
 | Explicit user dispositions | The earlier 18 cases, three DBLP quality decisions and five further profile decisions are resolved and applied | Preserve the [earlier decisions](check_profiles_full_2026-09-18.md#explicit-user-decisions) and all [subsequent Turing decisions](check_profiles_turing_2026-09-18.md#subsequent-user-decisions), including the rejected Manuel Blum Scholar ID. |
 | Rob Cook DBLP candidate | Approved and applied as Y in batch three | Captured and imported September 19. |
-| Final service audit | The full 5,157-assessment audit is not assembled | Distinguish recorded trial outcomes, initial inspection, unresolved evidence and unreviewed rows. |
-| Visualization | Both award snapshots regenerated September 29 from the latest canonical statistics, dates and quality flags | All 41 Python tests, including snapshot synchronization, and JavaScript renderer checks pass. |
+| Final service audit | The full 5,157-assessment audit is not assembled | Combine the separate completed service audits if requested, retaining their evidence limits and the completed CSRankings adoption decision. |
+| Visualization | Both award snapshots regenerated September 29 from the latest canonical statistics, dates and quality flags | The full Python suite, including snapshot synchronization, and JavaScript renderer checks pass. |
 
 The saved notes extend through Fellow 1,300, although the last bulk CSV checkpoint was through Fellow 1,285 before the subsequent user dispositions.
 These are different milestones; the earlier checkpoint totals are historical.
@@ -172,7 +192,7 @@ The [74-case exception inventory](dblp_reassessment_exceptions_2026-09-19.csv) a
 Other replacement leads are not accepted good-quality profiles; several earlier direct candidate inspections encountered access failures.
 The four authorized quality downgrades and seventeen approved replacements are applied; the earlier gap-fill evidence remains intact.
 This DBLP outcome inventory includes 503 freshly sampled profiles and 1,138 reused content assessments of identical retained captures.
-It does not complete the CSRankings portion of the earlier full-service review; the separate September 28 Scholar audit now supplies the retained-evidence Scholar outcomes.
+That DBLP review did not complete the CSRankings portion of the earlier full-service review; the September 29 CSRankings audit now records the name-association outcomes, and the separate September 28 Scholar audit supplies the retained-evidence Scholar outcomes.
 
 ## Unresolved Scholar Discovery Leads
 
@@ -240,7 +260,7 @@ The following links retain the initial discovery leads; these cases no longer aw
 | Laxmi Bhuyan | Laxmi N. Bhuyan | [Institution-hosted 2019 printout](https://vsclab.engr.ucr.edu/media/261/download?attachment=). |
 | John Hopcroft | John E. Hopcroft | [Public historical mirror](https://csrankings.swag.cispa.de/), identified during the [Turing sweep](check_profiles_turing_2026-09-18.md). |
 
-Together with Donald Greenberg, Georg Gottlob, Judith S. Olson, Luca Cardelli and Ruby B. Lee, these make 11 accepted historical keys within the 835-row canonical lookup table.
+Together with Donald Greenberg, Georg Gottlob, Judith S. Olson, Luca Cardelli and Ruby B. Lee, these were the 11 previously accepted historical keys; the September 29 adoption adds 117, bringing the canonical lookup table to 952 keys, including 128 historical keys.
 The accepted historical fields are protected by the [source-field manifest](csrankings_source_fields.json).
 
 ## Evidence and Resume Point
@@ -249,5 +269,8 @@ The retained run is `../bigcows-crawler/.cache/check-profiles-full-2026-09-18/`.
 It contains the input snapshots, `queue.json`, `inspection-notes-1286-1300.json`, `candidate-decisions-1286-1300.json`, earlier batch notes and `user-dispositions-2026-09-18.json`.
 The public status index consolidates that progress without claiming the unfinished notes constitute a final audit.
 The separate completed Turing audit and discovery follow-ups are retained in `../bigcows-crawler/.cache/check-profiles-turing-2026-09-18/` and summarized in the [Turing report](check_profiles_turing_2026-09-18.md).
-For the broader service audit, preserve completed DBLP decisions and the separate September 28 Scholar ledger, resume unfinished CSRankings work at Fellow 1,301, finish earlier CSRankings follow-ups, and combine the Turing outcomes with the eventual full audit.
+The September 29 [CSRankings identity audit](csrankings_identity_audit_2026-09-29.md) supersedes the old resume point at Fellow 1,301 and reconciles earlier follow-ups.
+All 117 supported historical proposals are adopted; no CSRankings adoption decision remains pending.
+A combined three-service audit remains separate.
+Preserve completed DBLP decisions and the separate September 28 Scholar ledger.
 Preserve the explicit user dispositions, original CSRankings source fields and finalized ACM award data; regenerate visualization snapshots only when requested.

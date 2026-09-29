@@ -14,6 +14,71 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+## 2026-09-29 14:58 EDT - Repository Data and Documentation Consistency Sweep
+
+Verified canonical roster joins, dates, quality values, exact CSRankings key coverage, source provenance, extracted-profile data, capture/import queue and all three search ledgers.
+All 1,719 award rows have either a link or a recorded search for each of Scholar, DBLP and CSRankings; no canonical-data inconsistency was found.
+Independently reproduced the 952-key CSRankings source-field manifest from retained sources and parsed all 31 CSVs and seven JSON files under `data/` and `docs/` without schema-width or syntax errors.
+Corrected the README's misplaced source-field note, added the CSRankings ledger to the data inventory, and updated coverage and search-key documentation to include all three services.
+Corrected current status wording to distinguish seven wrong-person recipient cases from the two user-confirmed unsupported-match cases and to mark historical proposals as adopted.
+Confirmed that both citation snapshots still match their canonical inputs, since they do not consume CSRankings associations; updated the status index accordingly without regenerating files.
+Aligned all search-ledger recipient matching and duplicate/coverage checks with the shared ACM recipient-ID normalizer, including legacy URL/name-slug variants, and added a regression case guarding against namesake merges.
+Added a check that machine-readable CSRankings search outcome counts agree with the ledger and corrected the analysis skill's CSRankings link to the canonical name-link workflow.
+All 56 Python tests, both renderer suites and JavaScript syntax checks pass; 611 local documentation links/anchors, 25 documented Python command references and 15 HTML asset/link references validate.
+`git diff --check` passes, and start/end hashes confirm no data, machine-readable audit evidence or generated visualization changes during this sweep.
+Historical batch counts and review-time proposals remain preserved as provenance.
+No download, extraction, visualization regeneration, staging, commit or publication occurred.
+
+## 2026-09-29 14:43 EDT - Confirm Unlinked Wei Chen and Li Erran Li
+
+The user confirmed that the presented CSRankings candidates do not establish good matches for Wei Chen or Li Erran Li; both canonical associations remain blank.
+Updated their six [search-ledger](../data/csrankings_profile_searches.csv) dispositions to `unsupported_match`, distinguishing insufficient identity evidence from definitive wrong-person proof.
+Preserved original search timestamps and candidate keys, recorded the latest review time, and retained the earlier dispositions in the [search evidence](csrankings_missing_search_2026-09-29.json).
+No new search, canonical-data change, extraction or visualization update occurred.
+
+## 2026-09-29 14:38 EDT - Fresh CSRankings Searches for Unlinked Recipients
+
+Completed fresh retained-source linking attempts for all 745 blank-link award rows (690 Fellows and 55 Turing winners), deduplicated to 704 distinct people.
+Created [CSRankings search history](../data/csrankings_profile_searches.csv) with 713 records: 695 `not_found` attempts and 18 `wrong_person` candidate dispositions across nine recipients.
+The [search report](csrankings_missing_search_2026-09-29.md) records per-recipient search variants, generated leads, prior-decision context and source limits; its linked machine-readable evidence retains original candidate fields and hashes for 44 faculty CSVs and two helper files.
+No additional supported associations were found.
+Earlier audits and already linked recipients were not backfilled into the ledger; the timestamps describe this new local search and subsequent review, not a new download.
+Documented append/review semantics, source scope and identity keys, and added integrity checks for ledger coverage, timestamps, candidate provenance and evidence anchors.
+All 55 Python tests pass, and protected-file hashes confirm that the rosters, existing ledgers, lookup, source manifest, extracted data, capture/import queue and visualizations are unchanged from the start of this search.
+No new source download, general-web search, extraction or visualization regeneration occurred.
+
+## 2026-09-29 14:27 EDT - Adopt Approved Historical CSRankings Associations
+
+Applied the user's approval of all 117 historical identities in the [proposal table](csrankings_identity_proposals_2026-09-29.csv): 115 Fellows and eight Turing rows, with six shared recipients.
+Set the 123 new `csrankings_name_alignment_date` values to `2026-09-29`; canonical coverage is now 948 Fellows and 26 Turing rows, representing 952 distinct keys.
+Added 117 original December 30, 2020 source records to the canonical lookup, preserving name, affiliation, homepage and Scholar ID verbatim and representing the absent ORCID column as blank.
+The table now includes 128 documented historical keys.
+Generated DBLP URLs remain derived from original CSRankings names, including Manish Gupta 0001; his reviewed award links remain DBLP 0002 and Scholar fHISoWoAAAAJ.
+Regenerated the [source-field manifest](csrankings_source_fields.json) against the retained alphabetical shards, independent historical table and original four-column snapshot, preserving all existing per-key hashes.
+Input snapshots and the validation report are retained in `../bigcows-crawler/.cache/csrankings-adoption-2026-09-29/`; the original proposal and audit files remain review-time evidence superseded by this adoption decision.
+All non-CSRankings roster fields, extracted data, capture/import queues and visualization files are unchanged.
+No new data download, extraction or visualization regeneration occurred.
+All 53 Python tests pass; exact key coverage, shared-recipient consistency, source provenance and preservation checks pass, and `git diff --check` is clean.
+
+## 2026-09-29 14:23 EDT - Manish Gupta Profile Identity Confirmation
+
+The user confirmed [Manish Gupta 0002](https://dblp.org/pid/g/ManishGupta2) as the correct DBLP identity and indicated that [Scholar profile fHISoWoAAAAJ](https://scholar.google.com/citations?user=fHISoWoAAAAJ) also appears correct.
+Recorded the decision in the [CSRankings identity audit](csrankings_identity_audit_2026-09-29.md), retaining the historical source's `Manish Gupta 0001` key as provenance and keeping its profile identifiers separate from the reviewed roster links.
+Both reviewed links are already in the award roster; no canonical change or historical-association adoption was needed or performed.
+No extraction or visualization update occurred.
+
+## 2026-09-29 13:45 EDT - CSRankings Identity Audit Completed with Retained Sources
+
+Completed the [bounded CSRankings identity audit](csrankings_identity_audit_2026-09-29.md), recording all 1,719 award-row outcomes and reconciling earlier notes with the remaining 338-Fellow inspection.
+All 851 existing associations, representing 835 distinct keys, remain supported within the retained evidence scope.
+The expanded search of already retained historical sources supports 117 additional historical identities across 123 currently blank award rows: 115 Fellows and eight Turing rows, with six shared recipients.
+The [proposal table](csrankings_identity_proposals_2026-09-29.csv) preserves exact December 30, 2020 source keys, original fields, hashes, institutional evidence and proposed actions; no association was adopted or restored.
+Rejected nine misleading CSRankings candidate matches and recorded 736 other rows without a supported candidate in the bounded search; neither outcome proves universal absence from CSRankings.
+Updated the current status index to supersede the old resume point and distinguish completed identity review from pending historical-link adoption.
+No CSRankings download, canonical-data change, extraction/import, capture/alignment date update, source-manifest update, queue change or visualization regeneration occurred.
+All 53 Python tests pass; audit coverage, original historical fields, shared-recipient proposals and protected-file hashes are verified.
+Current membership, live generated-DBLP destinations and exhaustive historical coverage remain outside this review's evidence scope.
+
 ## 2026-09-29 10:00 EDT - Regenerate Both Award Visualizations
 
 Regenerated `scholar_data.js` and `turing_scholar_data.js` with explicit user authorization from the current canonical rosters and Scholar extraction JSON.
