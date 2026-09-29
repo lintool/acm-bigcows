@@ -812,7 +812,7 @@ Scholar links use Google's multicolor G, and DBLP links use its blue-and-yellow 
 The ACM diamond is also a local SVG asset; its 18px display size remains distinct from the 15px Google and DBLP icons.
 Each icon link has a service tooltip, an accessible label naming the recipient, and a visible keyboard-focus indicator; links remain available even when citation statistics are missing.
 The three service positions are fixed across rows; missing links leave empty, noninteractive slots so the remaining icons do not shift.
-Under each title, an initially collapsed, keyboard-accessible About the Data panel contains total coverage counts, the Google Scholar source note (dated by the latest included citation capture, not the build date), the displayed year range, and links to the award CSV, shared Scholar statistics CSV, and data notes.
+Under each title, an initially collapsed, keyboard-accessible About the Data panel contains total coverage counts, the Google Scholar source note (showing the included citation captures’ UTC date range, or a single capture date when uniform, not the build date), the displayed year range, and links to the award CSV, shared Scholar statistics CSV, and data notes.
 Search and the missing-data toggle remain visible outside the panel.
 Display order defaults to award year descending, then last name ascending, without changing canonical CSV or generated data order.
 Last-name sorting uses the text before the comma for surname-first directory names, or the final name token for given-name-first names, excluding suffixes Jr., Sr., II, III, and IV, with the full name breaking ties.

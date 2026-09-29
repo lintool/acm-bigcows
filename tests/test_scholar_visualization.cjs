@@ -56,9 +56,10 @@ for (const [award, filename] of [['fellows', 'scholar_data.js'], ['turing', 'tur
   const rowCount = () => (node('#table').markup.match(/class="row"/g) || []).length;
   assert.equal(rowCount(), data.metadata.joinedRows);
   assert.equal(properties['--year-count'], 41);
-  const latestCaptureDate = data.rows.filter(row => row.hasScholar && row.crawlDate).map(row => row.crawlDate).sort().at(-1);
-  assert.ok(latestCaptureDate);
-  assert.equal(node('#citation-source').textContent, `All citation statistics from Google Scholar, as of ${latestCaptureDate}.`);
+  const captureDates = data.rows.filter(row => row.hasScholar && row.crawlDate).map(row => row.crawlDate).sort();
+  assert.ok(captureDates.length);
+  assert.equal(node('#citation-source').textContent,
+    `All citation statistics from Google Scholar, captured from ${captureDates[0]} to ${captureDates.at(-1)} (UTC).`);
   assert.equal(node('#summary').textContent, 'Cites are Google Scholar’s reported all-time total; the per-year histogram displays 1986–2026.');
   assert.ok(node('#table').markup.includes('data-tooltip="1986:'));
   assert.ok(!node('#table').markup.includes('data-tooltip="1985:'));
@@ -248,4 +249,18 @@ for (const award of ['fellows', 'turing']) {
   assert.deepEqual(names(), ['Mina Missing', 'Bob Alpha Jr.', 'Zoe Alpha', 'Amy Zulu', 'Carl Young']);
   assert.equal(JSON.stringify(data.rows), JSON.stringify(rows), 'Sorting must not mutate the dataset');
   console.log(`${award}: year/last-name default, header toggles, ties, suffixes, zero/missing metrics, filtering, and source order passed`);
+}
+
+for (const award of ['fellows', 'turing']) {
+  const sourceNote = rows => loadRows(award, rows.map((row, index) => ({
+    name: `Person ${index}`, year: 2025, hasScholar: true, citationByYear: {'2026': 1}, ...row,
+  }))).node('#citation-source').textContent;
+  assert.equal(sourceNote([{crawlDate: '2026-09-29'}, {crawlDate: '2026-09-24'},
+    {crawlDate: '2026-09-27'}, {hasScholar: false, crawlDate: '2026-10-01'}]),
+    'All citation statistics from Google Scholar, captured from 2026-09-24 to 2026-09-29 (UTC).');
+  assert.equal(sourceNote([{crawlDate: '2026-09-28'}, {crawlDate: '2026-09-28'}, {crawlDate: null}]),
+    'All citation statistics from Google Scholar, captured on 2026-09-28 (UTC).');
+  assert.equal(sourceNote([{crawlDate: null}, {}]), 'All citation statistics from Google Scholar.');
+  assert.equal(sourceNote([]), 'All citation statistics from Google Scholar.');
+  console.log(`${award}: mixed, single, missing and empty capture dates passed`);
 }
