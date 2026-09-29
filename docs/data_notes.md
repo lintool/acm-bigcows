@@ -14,6 +14,50 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+## 2026-09-29 06:40 EDT - Data-to-Visualization Consistency Sweep
+
+Audited the repository's canonical data, retained Scholar import evidence, search history, capture queue, generated snapshots, local documentation links and static page assets.
+All 41 Python tests, JavaScript renderer tests, syntax checks and `git diff --check` passed; both generated snapshots match the canonical CSVs.
+Verified all 1,279 imported Scholar records against the accepted import values and all 1,279 source HTML hashes.
+Validated 388 search-history records across 384 Fellows, including all 369 blank-link Fellows, with no unresolved candidate outcomes or broken evidence anchors.
+All local Markdown links and static HTML asset links resolve; CSV row widths, unique headers, LF line endings and JSON parsing checks pass.
+Corrected one stale visualization-status table row that still described regeneration as deferred.
+Canonical datasets and generated visualization files were unchanged by this sweep.
+The capture/import queue remains empty; the broader CSRankings review and complete/recent bibliography coverage remain outside the completed review scope.
+Direct visual browser inspection remains unavailable because the prior file-URL attempt was blocked by browser policy; automated renderer and snapshot checks passed.
+
+## 2026-09-29 06:30 EDT - Award Visualizations Regenerated
+
+The user explicitly authorized regeneration after the latest Scholar statistics import.
+Rebuilt `scholar_data.js` and `turing_scholar_data.js` from the canonical datasets.
+The Fellows snapshot has 1,638 rows, including 1,269 with citation histories and 369 without; the Turing snapshot has 81 rows, including 40 with citation histories and 41 without.
+Capture dates and quality flags reflect the refreshed canonical data; generation timestamps do not replace capture dates.
+All 41 Python tests, including snapshot synchronization, passed, along with the JavaScript renderer tests and syntax checks for both data scripts and the shared renderer.
+Updated the renderer test to derive the expected source date from each dataset instead of assuming September 17.
+Browser inspection from disk was attempted but blocked by the browser URL policy; no alternative browser access was attempted.
+No canonical data, HTML, rendering code or styles were changed by regeneration.
+
+## 2026-09-29 06:25 EDT - Latest Scholar Statistics Imported Across Both Rosters
+
+Imported the latest retained crawl statistics for all 1,279 stored Scholar profiles: 1,259 records changed and 20 already matched their latest accepted captures.
+Synchronized 1,249 Fellow and 40 Turing capture dates using actual UTC capture dates; all links, quality ratings and unrelated fields are preserved.
+See the [full import report](scholar_full_import_2026-09-29.md) for source runs, validation and retained provenance.
+The capture/import queue remains empty; no new crawl or visualization regeneration was performed.
+
+## 2026-09-28 23:10 EDT - Nineteen Scholar Captures Accepted and Imported
+
+The user approved all 19 pending profiles; imported their retained capture metrics and populated 19 Fellow capture dates using the actual UTC capture dates.
+Preserved all quality decisions, including Neil Jones's N, all existing statistics rows, unrelated Fellow fields and the complete Turing roster.
+The [import report](scholar_reviewed19_import_2026-09-28.md) records dates, evidence and validation; the canonical capture/import queue is now empty.
+No new crawl or visualization regeneration was performed.
+
+## 2026-09-28 23:05 EDT - Fifteen New Scholar Captures
+
+The user-authorized Safari crawl captured 100 publication entries for each of the 15 newly accepted Fellow profiles, with no reported traffic blocks or redirects.
+See the [capture checkpoint](scholar_new15_capture_2026-09-28.md) for profile IDs, retained artifacts, the initial local Safari launch failure and successful retry, and validation.
+Canonical rosters, metrics and visualization snapshots remain unchanged; the 19 canonical queue entries now all have retained 100-entry evidence but still await capture acceptance and metric import.
+The run stopped after the requested 15 profiles.
+
 ## 2026-09-28 22:41 EDT - Post-Decision Consistency Sweep
 
 Rechecked the 388-row search ledger, canonical roster associations, evidence paths and anchors, all repository Markdown file links outside scratch files, and the 19-task capture/import queue after the four directory-lead rejections.

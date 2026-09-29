@@ -44,8 +44,12 @@
 
   const table = document.getElementById('table');
   const captureDates = DATA.rows.filter(row => row.hasScholar && row.crawlDate).map(row => row.crawlDate).sort();
+  const firstCaptureDate = captureDates[0];
   const latestCaptureDate = captureDates.at(-1);
-  document.getElementById('citation-source').textContent = `All citation statistics from Google Scholar${latestCaptureDate ? `, as of ${latestCaptureDate}` : ''}.`;
+  const captureNote = firstCaptureDate
+    ? `, captured ${firstCaptureDate === latestCaptureDate ? `on ${firstCaptureDate}` : `from ${firstCaptureDate} to ${latestCaptureDate}`} (UTC)`
+    : '';
+  document.getElementById('citation-source').textContent = `All citation statistics from Google Scholar${captureNote}.`;
   const summary = document.getElementById('summary');
   summary.textContent = `Cites are Google Scholar’s reported all-time total; the per-year histogram displays ${YEAR_MIN}–${YEAR_MAX}.`;
   const empty = document.getElementById('empty');

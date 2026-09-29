@@ -11,40 +11,41 @@ The decisions are applied across both rosters where present, and the [current Sc
 Current canonical Scholar totals are 1,265 distinct linked Y profiles and 14 distinct linked N profiles: Fellows have 1,255 linked Y, 14 linked N and 369 blank links; Turing winners have 38 linked Y, two linked N and 41 blank links.
 The original audit ledger and proposal queue are historical; the [final disposition ledger](scholar_recalibration_2026-09-28.csv) supersedes their pending recommendations.
 Complete/recent publication coverage and live availability remain unverified, and the broader CSRankings audit remains incomplete.
-The separately authorized [September 28 Scholar refresh](scholar_capture_checkpoint_2026-09-28.md) has 1,263 successful captures and one recorded redirect across 1,264 distinct input URLs; Paulson’s retained destination capture has now been accepted and imported; the other 1,263 profiles have not been imported from this refresh.
+The separately authorized [September 28 Scholar refresh](scholar_capture_checkpoint_2026-09-28.md) has 1,263 successful captures and one recorded redirect across 1,264 distinct input URLs; Paulson’s retained destination capture has now been accepted and imported; four more captures are now imported in the [nineteen-profile import](scholar_reviewed19_import_2026-09-28.md); the remaining 1,259 profiles are now imported in the [September 29 full statistics update](scholar_full_import_2026-09-29.md).
 The user has since confirmed Paulson’s destination ID `x4toSGEAAAAJ`, and his canonical link is corrected; a subsequent user-authorized targeted Safari crawl captured 100 entries at 2026-09-28 22:17:11 UTC, reviewed and accepted as documented in the [Paulson import report](paulson_scholar_import_2026-09-28.md#latest-accepted-capture-100-entries).
 Its reported statistics and date match the already imported values; both canonical dates remain 2026-09-28.
 Paulson’s capture/import task is complete; all 100 captured entries were inspected with no apparent unrelated cluster, and quality Y is retained.
 Complete bibliography and recent-sorted coverage remain unverified.
+Both award visualization snapshots were regenerated with explicit user authorization on September 29 and pass the full snapshot-synchronization checks.
 No new crawl or source refresh is authorized by maintaining this index.
 The lookup table now preserves [CSRankings-generated DBLP links](../README_FOR_AGENTS.md#csrankings-dblp-link-generation), independently of reviewed award links.
 Historical audits and saved resume scripts used roster-derived lookup URLs; update any such writer to regenerate from source names before applying another checkpoint.
 Do not restore their old DBLP cells or blank exceptions, and do not treat their agreement with award URLs as independent corroboration.
 
-The subsequent [first-ten missing-link search](scholar_missing_first10_2026-09-28.md) found one supported identity candidate (Markopoulou) and two initially unresolved directory leads (Dukkipati and Walid, subsequently rejected as invalid); the user subsequently accepted Markopoulou’s link with quality Y, while its capture date and metric import remain pending.
-This discovery follow-up is separate from the closed quality-review queue and 19 canonical capture/import tasks.
+The subsequent [first-ten missing-link search](scholar_missing_first10_2026-09-28.md) found one supported identity candidate (Markopoulou) and two initially unresolved directory leads (Dukkipati and Walid, subsequently rejected as invalid); the user subsequently accepted Markopoulou’s link with quality Y, and its capture date and metrics are now imported.
+This discovery follow-up is separate from the closed quality-review queue and the now-completed 19 canonical capture/import tasks.
 The subsequent [next-thirty search](scholar_missing_next30_2026-09-28.md) initially recorded two supported identity candidates (Mount and Jackson), five further exact-ID candidates, one initially unresolved lead (subsequently rejected as invalid), 19 profiles not located and three preserved prior rejections.
 The user subsequently reported Jackson’s `PXY96lkAAAAJ`, Gerla’s `mO3xwbwAAAAJ` and Kannan’s `4oW5Q1wAAAAJ` links inaccessible; all three are on hold.
 The user also rejected Leino’s `mGYQLekAAAAJ` candidate as pointing to the wrong person; keep his canonical Scholar link blank and do not reintroduce the rejected association from directory evidence.
 Jackson’s, Gerla’s and Kannan’s canonical Scholar links remain blank; old indexed content and third-party links do not establish current availability.
-The user subsequently supplied and approved different URLs for Mount, Mei and Ricart; browser checks identified all three, and their links and Y ratings are applied with blank capture dates.
+The user subsequently supplied and approved different URLs for Mount, Mei and Ricart; browser checks identified all three, and their links and Y ratings are applied with accepted capture dates and imported metrics.
 See the [acceptance evidence](scholar_missing_next30_2026-09-28.md#subsequent-user-accepted-profiles); their old candidate IDs remain superseded history.
 The [Scholar search-history CSV](../data/google_scholar_profile_searches.csv) now records 388 candidate/search rows across 384 recipients from fifteen discovery batches and their latest dispositions, including 15 accepted profile associations, three superseded candidates and subsequent user corrections.
 Its search timestamps track completed discovery work separately from review decisions and successful capture dates; see the [schema and maintenance rules](../README_FOR_AGENTS.md#scholar-search-history).
 
 The [third discovery batch](scholar_missing_batch3_2026-09-28.md) adds 30 searches: one accepted profile (Kasik, Y after browser/DBLP review and user approval), one initially unresolved lead (Kitsuregawa, subsequently rejected as invalid), 21 initially not found, five unavailable/invalid associations and two excluded namesakes after the user reported Barroso’s `7stTzUMAAAAJ` URL invalid.
 Barroso is excluded from actionable recommendations; preserve his blank canonical link and the [user decision](scholar_missing_batch3_2026-09-28.md#subsequent-user-decision).
-Kasik’s link and Y rating are applied with a blank capture date; the other third-batch dispositions remain unchanged.
+Kasik’s link and Y rating are applied with an accepted capture date and imported metrics; the other third-batch dispositions remain unchanged.
 See the [Kasik assessment](kasik_scholar_review_2026-09-28.md) for all 122 displayed Scholar entries, retained DBLP comparison and limited attribution noise.
 All 369 missing-link Fellows now have search-history CSV records; zero remain without a recorded search.
 This completes bounded Fellows discovery, including held and rejected associations; older Data Notes searches are not comprehensively backfilled and the linked-profile quality audit is a separate workflow.
 
 The [fourth discovery batch](scholar_missing_batch4_2026-09-28.md) covers 25 more Fellows: Fischer is a user-approved Y profile with one suspect entry among 20 inspected; full/recent coverage remains unassessed.
 The batch also records 18 not found, five unavailable associations (three freshly observed 404s and two preserved prior holds), and Shyamasundar’s preserved rejection.
-Fischer’s link and Y rating are applied; his capture date remains blank pending an accepted capture.
+Fischer’s link and Y rating are applied; his capture date and metrics are now imported.
 
 The [fifth discovery batch](scholar_missing_batch5_2026-09-28.md) covers 25 more Fellows: Fayyad and Brooks are user-approved Y profiles based on live 20-entry samples; full/recent coverage remains unassessed.
-Their links and Y ratings are applied with blank capture dates; see the [acceptance record](scholar_missing_batch5_2026-09-28.md#subsequent-user-acceptance).
+Their links and Y ratings are applied with accepted capture dates and imported metrics; see the [acceptance record](scholar_missing_batch5_2026-09-28.md#subsequent-user-acceptance).
 It records 17 not found, three unavailable associations and three recipients with wrong-person associations, plus an additional wrong-person Motwani candidate.
 Norvig, Vianu and Dubois retain prior dispositions; Motwani’s plausible candidate returned a visible 404, and directory associations for Motwani, Umesh Vazirani and Bubenko resolved to other people.
 
@@ -53,16 +54,16 @@ Grosz’s directory candidate returned a visible 404; Schroeder retains the prio
 Sohi and Iyer directory links were placeholders, and Ferrari’s link was a general Scholar search; no exact profile was established for these leads.
 
 The [seventh discovery batch](scholar_missing_batch7_2026-09-28.md) covers 25 more Fellows, from Pohl through Lewis: Bhuyan is a user-approved Y profile based on a live 20-entry sample, with full/recent coverage still unassessed.
-His Scholar link and Y rating are applied with a blank capture date; see the [acceptance record](scholar_missing_batch7_2026-09-28.md#subsequent-user-acceptance).
+His Scholar link and Y rating are applied with an accepted capture date and imported metrics; see the [acceptance record](scholar_missing_batch7_2026-09-28.md#subsequent-user-acceptance).
 It also records two unavailable associations (Schlichting’s newly observed 404 and Steinmetz’s prior hold) and 22 searches without a supported profile, preserving Banerjee’s and Williams’s earlier rejections.
 
 The [eighth discovery batch](scholar_missing_batch8_2026-09-28.md) covers 25 more Fellows, from Martin through Rangan: Agrawal and Lam are user-approved Y profiles based on live 20-entry samples.
 The user accepted Jones’s link with quality N after five suspect entries among 20 inspected (25%); preserve this explicit decision.
-All three links are applied with blank capture dates; see the [acceptance record](scholar_missing_batch8_2026-09-28.md#subsequent-user-acceptance).
+All three links are applied with accepted capture dates and imported metrics; see the [acceptance record](scholar_missing_batch8_2026-09-28.md#subsequent-user-acceptance).
 The batch also preserves Clarke’s unavailable hold and records 21 searches without a supported profile ID; full/recent coverage remains unassessed.
 
 The [ninth discovery batch](scholar_missing_batch9_2026-09-28.md) covers 25 more Fellows, from Ryder through Akeley: Ryder and Akeley are user-approved Y profiles based on live 20-entry samples, with no obvious unrelated entries.
-Both links and Y ratings are applied with blank capture dates; full/recent coverage remains unassessed.
+Both links and Y ratings are applied with accepted capture dates and imported metrics; full/recent coverage remains unassessed.
 See the [acceptance record](scholar_missing_batch9_2026-09-28.md#subsequent-user-acceptance).
 The batch also preserves Pratt’s unavailable hold and records 22 searches without a supported profile, including preservation of Shaw’s prior namesake exclusion.
 
@@ -71,14 +72,14 @@ Ferrante’s directory link returned a visible Scholar 404; Wasserman’s unavai
 The batch records two unavailable associations and 23 searches without a supported author-profile ID.
 
 The [eleventh discovery batch](scholar_missing_batch11_2026-09-28.md) covers 25 more Fellows, from Abrahams through Preparata: Dorothy Denning is a user-approved Y profile based on a live 20-entry sample, with no obvious unrelated entries.
-Her link and Y rating are applied with a blank capture date; full/recent coverage remains unassessed.
+Her link and Y rating are applied with an accepted capture date and imported metrics; full/recent coverage remains unassessed.
 See the [acceptance record](scholar_missing_batch11_2026-09-28.md#subsequent-user-acceptance).
 The batch also preserves Booch’s unavailable hold, excludes the battery-research Goodenough namesake, and records 22 searches without a supported author-profile ID.
 
 The [twelfth discovery batch](scholar_missing_batch12_2026-09-28.md) covers 25 more Fellows, from Snyder through Cerf: no new confirmed match, two wrong-person exclusions (Yao and Evans), and 23 searches without a supported ID.
 The user [rejected Yao’s c8Gq7AkAAAAJ association](scholar_missing_batch12_2026-09-28.md#subsequent-user-decision) as wrong; the review item is closed.
 Keep his Scholar link blank in both award rosters and do not restore the rejected ID from directory evidence.
-The 19-task canonical capture/import queue is unchanged.
+The 19-task discovery-era capture/import backlog is now resolved by the subsequent import.
 
 The [thirteenth discovery batch](scholar_missing_batch13_2026-09-28.md) covers 25 more Fellows, from Chamberlin through Green: no new supported candidate, 23 not found, Dijkstra’s historical unavailable hold and Goldberg’s preserved wrong-person exclusion.
 DeFanti’s NRP source could not be retrieved and did not establish an exact ID; the source limitation is retained in the report.
@@ -97,7 +98,7 @@ Milner’s prior user rejection remains preserved; no canonical links or capture
 | Work | Current State | Next Step |
 | --- | --- | --- |
 | September 28 Scholar holistic audit | Complete using retained evidence; 1,264 linked profiles inspected, all 1,719 award rows recorded | [Five user decisions applied](scholar_recalibration_2026-09-28.md#resolved-user-decisions); no pending quality decisions, broader coverage limits explicit; no new crawling. |
-| September 28 Scholar refresh | All 1,264 distinct URLs attempted; 1,263 original successful captures plus Paulson’s resolved redirect and subsequent successful 100-entry capture; crawl stopped | Paulson’s destination capture is accepted and imported; other imports remain deferred; the 69 heuristic name flags were covered by the completed holistic audit; no restart scheduled. |
+| September 28 Scholar refresh | All 1,264 distinct URLs attempted; 1,263 original successful captures plus Paulson’s resolved redirect and subsequent successful 100-entry capture; crawl stopped | All original successful captures and Paulson’s subsequent destination capture are accepted and imported; the 69 heuristic name flags were covered by the completed holistic audit; no restart scheduled. |
 | DBLP-only September 19 reassessment | All 1,719 award rows have recorded outcomes; the four new coverage flags are resolved and applied as N | Preserve the [four user-approved holds](dblp_reassessment_review_queue_2026-09-19.csv); all presented decisions are applied. |
 | Fellows 1–100 | Trial audit recorded for 100 recipients and 300 services | Preserve the [trial outcomes and evidence limits](check_profiles_trial_100_2026-09-18.md). |
 | Fellows 101–1,300 | Initial individual inspection notes saved for 1,200 recipients | Scholar now has a complete retained-evidence sweep; finish CSRankings and remaining multi-service follow-ups. |
@@ -106,7 +107,7 @@ Milner’s prior user rejection remains preserved; no canonical links or capture
 | Explicit user dispositions | The earlier 18 cases, three DBLP quality decisions and five further profile decisions are resolved and applied | Preserve the [earlier decisions](check_profiles_full_2026-09-18.md#explicit-user-decisions) and all [subsequent Turing decisions](check_profiles_turing_2026-09-18.md#subsequent-user-decisions), including the rejected Manuel Blum Scholar ID. |
 | Rob Cook DBLP candidate | Approved and applied as Y in batch three | Captured and imported September 19. |
 | Final service audit | The full 5,157-assessment audit is not assembled | Distinguish recorded trial outcomes, initial inspection, unresolved evidence and unreviewed rows. |
-| Visualization | Checked-in snapshots precede subsequent data changes, including the September 28 Scholar quality decisions; new N colors are not yet reflected | Regeneration remains deferred at the user’s request. |
+| Visualization | Both award snapshots regenerated September 29 from the latest canonical statistics, dates and quality flags | All 41 Python tests, including snapshot synchronization, and JavaScript renderer checks pass. |
 
 The saved notes extend through Fellow 1,300, although the last bulk CSV checkpoint was through Fellow 1,285 before the subsequent user dispositions.
 These are different milestones; the earlier checkpoint totals are historical.
@@ -144,7 +145,7 @@ No unresolved Scholar discovery leads remain.
 The user rejected the four directory leads for Nandita Dukkipati, Anwar Walid, Ricardo Bianchini and Masaru Kitsuregawa as invalid.
 Their search outcomes are now `not_found`, with blank candidate URLs and original search timestamps preserved; this does not assert that no matching profile exists.
 See the recorded decisions in [batch one](scholar_missing_first10_2026-09-28.md#user-rejection-of-invalid-directory-leads), [batch two](scholar_missing_next30_2026-09-28.md#user-rejection-of-invalid-directory-leads) and [batch three](scholar_missing_batch3_2026-09-28.md#user-rejection-of-invalid-directory-leads).
-The 19 accepted-link capture/import tasks remain separate and unchanged.
+The 19 accepted-link capture/import tasks were subsequently completed after user approval.
 
 ## Capture and Import Backlog
 
@@ -152,13 +153,12 @@ The [September 19 gap fill](dblp_gap_fill_2026-09-19.md) captured and imported a
 That gap fill completed the then-accepted URLs.
 The [replacement gap fill](dblp_replacement_captures_2026-09-19.md) captured all seventeen subsequently approved DBLP URLs and imported their September 19 capture dates.
 All 1,641 distinct stored DBLP profiles have accepted captures; no DBLP capture gap remains.
-The [machine-readable queue](profile_capture_queue.json) contains 19 remaining Scholar tasks, all referring to Fellows.
-The 19 Scholar recipients are Paola Inverardi, David Abramson, Richard DeMillo, Vishwani Agrawal, Athina Markopoulou, David M. Mount, Hong Mei, Glenn Ricart, David J. Kasik, Gerhard Fischer, Usama Fayyad, Rodney Brooks, Laxmi Narayan Bhuyan, Dharma P. Agrawal, Simon S. Lam, Neil Jones, Barbara Ryder, Kurt Akeley and Dorothy Denning.
-Their blank dates remain intentional pending accepted captures; quality approval alone does not import metrics.
-The separately authorized September 28 refresh now provides successful 100-row captures for Inverardi, Abramson, DeMillo and Agrawal; Paulson’s destination ID `x4toSGEAAAAJ` is user-confirmed and its new 100-entry capture is now reviewed, accepted and reconciled with the imported metrics, as recorded in the [import report](paulson_scholar_import_2026-09-28.md).
-The 19 remaining canonical missing-date tasks remain open until accepted capture dates and statistics are imported; they no longer all represent missing local evidence.
-Markopoulou has a user-accepted link based on indexed discovery evidence but no accepted local capture or statistics import; this does not authorize a new crawl.
-The queue contains no missing links or unadopted discovery candidates.
+The [machine-readable queue](profile_capture_queue.json) is empty.
+The user reviewed and approved all 19 pending Scholar profiles; their retained 100-entry captures are now accepted, metrics imported and Fellow dates populated, as documented in the [import report](scholar_reviewed19_import_2026-09-28.md).
+This includes the fifteen new captures and the earlier captures for Inverardi, Abramson, DeMillo and Vishwani Agrawal.
+Existing quality decisions are preserved, including Neil Jones's N; no further fetch is needed for these completed tasks.
+All 1,279 current stored Scholar links now have accepted capture dates and statistics from their latest selected captures, including the completed broad refresh and subsequent targeted captures.
+Missing links and unadopted discovery candidates remain outside this queue.
 Use the [queue-generation workflow](../README_FOR_AGENTS.md#capture-and-import-backlog) after relevant CSV updates, then update these counts.
 
 ## Resolved Unavailable Scholar Candidates
@@ -187,7 +187,7 @@ Do not restore an association from search-index text or treat retained evidence 
 | Richard Schlichting | [K2We_X0AAAAJ](https://scholar.google.com/citations?user=K2We_X0AAAAJ) | Visible 404. |
 | Ralf Steinmetz | [S8m0ZkkAAAAJ](https://scholar.google.com/citations?user=S8m0ZkkAAAAJ) | Visible 404. |
 
-Paola Inverardi is resolved and is not part of this availability list; her approved successor is in the capture/import queue.
+Paola Inverardi is resolved and is not part of this availability list; her approved successor capture and statistics are imported.
 
 ## Resolved Historical CSRankings Source Gaps
 
