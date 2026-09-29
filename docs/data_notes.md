@@ -14,6 +14,301 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+## 2026-09-28 22:41 EDT - Post-Decision Consistency Sweep
+
+Rechecked the 388-row search ledger, canonical roster associations, evidence paths and anchors, all repository Markdown file links outside scratch files, and the 19-task capture/import queue after the four directory-lead rejections.
+All 40 canonical-data and builder tests pass; no open discovery candidates or unresolved leads remain, and every blank-link Fellow has a search record.
+Corrected two stale present-tense lead statements in the first and second discovery reports and added current-disposition pointers to all three affected batch reports, preserving their original discovery tables and decision history.
+Canonical data, search-history records, queue and visualization snapshots remain unchanged; snapshot regeneration is still deferred.
+
+## 2026-09-28 22:40 EDT - User Rejection of Four Invalid Scholar Directory Leads
+
+Recorded the user’s rejection of the directory leads for Nandita Dukkipati, Anwar Walid, Ricardo Bianchini and Masaru Kitsuregawa as invalid.
+Changed their search-history outcomes from unresolved_lead to not_found, preserving original search timestamps and blank candidate URLs and recording the decision time and evidence in their batch reports.
+No unresolved discovery leads or unaccepted profile candidates remain; the ledger still contains 388 records across 384 recipients, now with 322 not found and zero unresolved leads.
+The other outcomes remain 29 inaccessible, 17 wrong-person, 15 accepted, three superseded and two rejected for quality.
+All 369 blank-link Fellows retain recorded searches, and the 19 accepted-link capture/import tasks remain unchanged.
+Preserved canonical data and visualization snapshots; no searching, crawling or regeneration occurred.
+
+## 2026-09-28 22:35 EDT - Fellows Discovery Consistency Sweep
+
+Verified 388 search records across 384 Fellows: 318 not found, 29 inaccessible, 17 wrong-person, 15 accepted, four unresolved leads, three superseded and two rejected for quality.
+All 369 blank-link Fellows have recorded searches; the 15 accepted associations exactly match the canonical roster changes since HEAD, with blank capture dates and Neil Jones retaining N.
+Checked recipient keys, duplicate search keys, timestamp ordering, candidate URL syntax, evidence paths and anchors, canonical roster totals, cross-roster associations and the 19-task capture/import queue.
+The 40 canonical-data and builder tests pass; the full 41-test suite has only the two expected Fellows/Turing snapshot subtest failures while visualization regeneration is deferred.
+Clarified the search-history fallback record key and completed-discovery scope, collected the four unresolved directory leads in [current review status](profile_review_status.md#unresolved-scholar-discovery-leads), and corrected the historical McCarthy service-label typo from DBLP to Scholar without changing its provenance.
+Canonical data, the search ledger, capture/import queue and visualization files were preserved byte for byte during this sweep; no crawling or external checks occurred.
+
+## 2026-09-28 22:32 EDT - Completed Missing-Link Fellows Scholar Discovery
+
+Completed the [remaining 39 Fellows](scholar_missing_batch15_2026-09-28.md), from Daniel McCracken through William Wulf, using 60 paced general-web queries and a focused directory check.
+No new supported candidate was found: 37 not found, Simon’s historical unavailable hold and Stonebraker’s preserved wrong-person association; Milner’s earlier user rejection remains preserved.
+Appended 39 history records, bringing the ledger to 388 rows across 384 recipients, including 15 accepted associations.
+All 369 Fellows with blank Scholar links now have recorded searches; zero remain without search history.
+This completes bounded missing-link discovery, not proof that no profiles exist or a new full publication-quality audit.
+Preserved canonical data, the 19-task capture/import queue and visualization datasets.
+
+## 2026-09-28 22:20 EDT - Fourteenth Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch14_2026-09-28.md), from Carl Hammer through Edward McCluskey, using 36 paced general-web queries and focused source checks.
+No new supported candidate was found: recorded 21 not found, three wrong-person associations and McCarthy’s historical unavailable hold.
+Hartmanis’s directory link points to John Hopcroft in indexed Scholar content; preserved the earlier Lindsay and Liu exclusions without fresh Scholar checks.
+Appended 25 history rows, now 349 across 345 recipients; 330 of 369 missing-link Fellows have history records and 39 do not.
+Preserved both canonical rosters, imported metrics, the 19-task capture/import queue and visualization datasets.
+
+## 2026-09-28 22:12 EDT - Thirteenth Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch13_2026-09-28.md), from Donald Chamberlin through Cordell Green, using 39 paced general-web queries and focused directory checks.
+No new supported candidate was found: recorded 23 not found, preserved Dijkstra’s historical unavailable g875mLgAAAAJ and Goldberg’s wrong-person aK42DkQAAAAJ.
+Neither historical association was fetched directly; DeFanti’s NRP source could not be retrieved and did not establish an exact ID.
+Appended 25 history rows, now 324 across 320 recipients; 305 of 369 missing-link Fellows have history records and 64 do not.
+Preserved both canonical rosters, imported metrics, the 19-task capture/import queue and visualization datasets.
+
+## 2026-09-28 22:03 EDT - Rejected Andrew Yao Scholar Association
+
+Recorded the user’s [rejection of c8Gq7AkAAAAJ](scholar_missing_batch12_2026-09-28.md#subsequent-user-decision) as the wrong profile for Andrew Yao.
+Changed the search-history outcome from unresolved_lead to wrong_person, preserving the search timestamp and original evidence, and closed the current review item.
+Yao’s Scholar URL and capture date remain blank with quality N in both award rosters; do not reintroduce this rejected ID from third-party directory evidence.
+The ledger remains 299 rows across 295 recipients, with 89 blank-link Fellows still without search-history records.
+Canonical data, the 19-task capture/import queue and visualization datasets remain unchanged; no new search or crawl occurred.
+
+## 2026-09-28 22:00 EDT - Twelfth Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch12_2026-09-28.md), from Larry Snyder through Vinton Cerf, using 39 paced general-web queries and focused browser checks.
+No new confirmed match was applied.
+Andrew Yao’s directory-linked c8Gq7AkAAAAJ contains matching papers but displays Micah Yao with verified umich.edu email; record an unresolved identity conflict for user review.
+Preserved the historical Bob O Evans wrong-person exclusion BlOnsXMAAAAJ without a fresh fetch and recorded 23 searches without a supported profile ID.
+Appended 25 history rows, now 299 across 295 recipients; 280 of 369 missing-link Fellows have history records and 89 do not.
+Bob O Evans uses a validated unique canonical-name fallback key because his ACM URL cell is blank.
+Preserved both canonical rosters, imported metrics, the 19-task capture/import queue and visualization datasets during discovery.
+
+## 2026-09-28 21:51 EDT - Accepted Dorothy Denning Scholar Profile
+
+Applied the user’s [batch-eleven acceptance](scholar_missing_batch11_2026-09-28.md#subsequent-user-acceptance): Dorothy Denning’s 4nX0ljsAAAAJ link is stored with quality Y.
+Updated her search-history outcome to accepted, preserving the search timestamp and documented sample limits.
+Her capture date remains blank; no crawl, metrics import or visualization regeneration occurred.
+Fellows now have 1,255 linked Y, 14 linked N and 369 blank Scholar links; 255 blank-link Fellows have history records and 114 do not.
+The ledger remains 274 rows across 270 recipients with 15 accepted associations; the local capture/import queue grows to 19 Scholar tasks.
+
+## 2026-09-28 21:49 EDT - Eleventh Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch11_2026-09-28.md), from Paul W Abrahams through Franco P Preparata, using 37 paced general-web queries and focused source checks.
+Proposed Dorothy Denning’s 4nX0ljsAAAAJ after live identity and 20-entry inspection, with no obvious unrelated entries; full/recent coverage remains unassessed.
+The proposal remains unapplied pending user review.
+Preserved Booch’s historical unavailable Y0iLlFoAAAAJ without a new direct fetch, excluded battery-researcher Goodenough’s U8jmzF0AAAAJ, and recorded 22 searches without a supported profile ID.
+Appended 25 history rows, now 274 across 270 recipients; 256 of 370 missing-link Fellows have history records and 114 do not.
+Harold J Highland uses a validated unique canonical-name fallback key because his ACM URL cell is blank.
+Preserved canonical rosters, imported metrics, the 18-task capture/import queue and visualization datasets.
+
+## 2026-09-28 21:41 EDT - Tenth Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch10_2026-09-28.md), from Anita Borg through Marshall C Yovits, using 37 paced general-web queries and focused source checks.
+No usable new profile was established.
+Ferrante’s directory-linked sMN63KwAAAAJ returned a visible Scholar 404 in Chrome; preserved Wasserman’s historical unavailable 08Dlm8cAAAAJ without a new direct fetch.
+Recorded 23 other searches without a supported profile ID and preserved Savage’s earlier namesake exclusion.
+Appended 25 history rows, now 249 across 245 recipients; 231 of 370 missing-link Fellows have history records and 139 do not.
+Larry Stockmeyer uses a validated unique canonical-name fallback key because his ACM URL cell is blank.
+Preserved canonical rosters, imported metrics, the 18-task capture/import queue and visualization datasets.
+
+## 2026-09-28 21:32 EDT - Accepted Ryder and Akeley Scholar Profiles
+
+Applied the user’s [batch-nine acceptance](scholar_missing_batch9_2026-09-28.md#subsequent-user-acceptance): Barbara Ryder’s OdWimfcAAAAJ and Kurt Akeley’s fag2MKIAAAAJ links are stored with quality Y.
+Updated both search-history outcomes to accepted, preserving the original search timestamps and documented sample limits.
+Both capture dates remain blank; no crawl, metrics import or visualization regeneration occurred.
+Fellows now have 1,254 linked Y, 14 linked N and 370 blank Scholar links; 206 blank-link recipients have search-history records and 164 do not.
+The ledger remains 224 rows across 220 recipients, now with 14 accepted associations; the local capture/import queue grows to 18 Scholar tasks.
+
+## 2026-09-28 21:30 EDT - Ninth Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch9_2026-09-28.md), from Barbara Gershon Ryder through Kurt B Akeley, using 34 paced general-web queries and targeted browser checks.
+Proposed Ryder’s OdWimfcAAAAJ and Akeley’s fag2MKIAAAAJ after live identity and 20-entry inspection; no obvious unrelated entries were found, while full/recent coverage remains unassessed.
+Both proposals remain unapplied pending user review.
+Preserved Pratt’s unavailable hold and recorded 22 searches without a supported profile, maintaining Shaw’s namesake exclusion.
+Appended 25 history rows, now 224 across 220 recipients; 208 of 372 missing-link Fellows have history records and 164 do not.
+J D Couger and Raymond Reiter use validated unique canonical-name fallback keys because their ACM URL cells are blank.
+Preserved canonical rosters, imported metrics, the 16-task capture/import queue and visualization datasets.
+
+## 2026-09-28 21:21 EDT - Accepted Three Scholar Associations
+
+Applied the user’s [batch-eight decisions](scholar_missing_batch8_2026-09-28.md#subsequent-user-acceptance): Dharma Agrawal’s Cky-RdoAAAAJ and Simon Lam’s 0XV1sFsAAAAJ are Y; Neil Jones’s 2ADsKV4AAAAJ is accepted as the intended person with publication quality N.
+Preserve Jones’s explicit N rating for the mixed publication list, including five suspect entries in the inspected top 20.
+Updated the three Fellow links and search-history dispositions, preserving original search timestamps and leaving capture dates blank.
+Fellows now have 1,252 linked Y, 14 linked N and 372 blank Scholar links; 183 blank-link recipients have search-history records and 189 do not.
+The history ledger remains 199 rows across 195 recipients, with 12 accepted associations; the local capture/import queue grows to 16 Scholar tasks.
+No crawling, metrics import or visualization regeneration occurred.
+
+## 2026-09-28 21:10 EDT - Eighth Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch8_2026-09-28.md), from C. Dianne Martin through Venkat P Rangan, using 30 paced general-web queries and targeted browser checks.
+Proposed Dharma Agrawal’s Cky-RdoAAAAJ and Simon Lam’s 0XV1sFsAAAAJ after live identity and 20-entry inspection, with no obvious unrelated entries in those samples.
+Flagged Neil Jones’s 2ADsKV4AAAAJ for user review: identity is supported, but five of the live top 20 entries are suspect (25%); no canonical link or quality decision was applied.
+Preserved Clarke’s unavailable hold and recorded 21 searches without a supported profile ID, including preservation of Sameh’s prior rejected association.
+Appended 25 history rows, now 199 across 195 recipients; 186 of 375 missing-link Fellows have history records and 189 do not.
+Preserved canonical rosters, imported metrics, the 13-task capture/import queue and visualization datasets.
+
+## 2026-09-28 21:00 EDT - Accept Bhuyan Scholar Profile
+
+The user approved [Laxmi Narayan Bhuyan’s Scholar profile](scholar_missing_batch7_2026-09-28.md#subsequent-user-acceptance), EITmT94AAAAJ; added the URL and changed Scholar quality from N to Y in the Fellows roster.
+Preserved the blank capture date and the earlier 20-entry inspection limitations; full/recent coverage remains unassessed.
+Marked the search-history record accepted without changing its search timestamp; the ledger retains 174 rows across 170 recipients with nine accepted profiles.
+Updated the discovery report, current status and local capture/import queue, which now contains 13 tasks.
+Fellows have 1,250 linked Y profiles, 13 linked N profiles and 375 missing links; 161 of the missing-link Fellows have search-history records and 214 do not, using the documented Gannon fallback key.
+Only the two approved roster fields changed; no new crawling, metrics import or visualization regeneration occurred.
+
+## 2026-09-28 20:56 EDT - Seventh Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch7_2026-09-28.md) from Ira Pohl through Philip M. Lewis, using 31 paced general-web queries and targeted source/browser checks.
+Proposed Bhuyan’s EITmT94AAAAJ profile after live Riverside identity and 20-entry inspection; full/recent coverage remains unassessed and the proposal is unapplied.
+Recorded Schlichting’s visible 404, Steinmetz’s prior unavailable hold and 22 searches without a supported profile, preserving the earlier Banerjee and Williams rejections.
+Recorded John D Gannon with a blank ACM URL and a validated unique canonical-name fallback key; other blank-URL recipients remain distinct.
+Appended 25 history rows, now 174 across 170 recipients; 162 of 376 missing-link Fellows have search-history records and 214 do not.
+Preserved canonical rosters, imported metrics, the 12-task capture/import queue and visualization datasets; no bulk crawl or import occurred.
+
+## 2026-09-28 20:48 EDT - Sixth Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch6_2026-09-28.md) from Michael D. Schroeder through Donn B. Parker, using 34 paced general-web queries and targeted directory/browser checks.
+No supported new profile was found: recorded 23 not found and two unavailable associations.
+Grosz’s directory-supplied ID returned a visible 404; Schroeder’s earlier availability hold remains unchanged without a new direct fetch.
+Resolved the Sohi and Iyer directory leads to NOSCHOLARPAGE placeholders and Ferrari’s lead to a generic Scholar search, not author-profile IDs.
+Appended 25 history rows, now 149 across 145 recipients; 137 of 376 missing-link Fellows have search-history records and 239 do not.
+Preserved canonical rosters, imported metrics, the 12-task capture/import queue and visualization datasets; no bulk crawl or import occurred.
+
+## 2026-09-28 20:39 EDT - Accept Fayyad and Brooks Scholar Profiles
+
+The user approved [Usama Fayyad and Rodney Brooks](scholar_missing_batch5_2026-09-28.md#subsequent-user-acceptance); added their Scholar URLs (`RlpTB_UAAAAJ` and `BCGgwlEAAAAJ`) and set both quality ratings to Y.
+Their capture dates remain blank; the earlier 20-entry browser inspections are not accepted crawler captures, and full/recent coverage remains unassessed.
+Marked both search-history records accepted, preserving their search timestamps; the ledger retains 124 rows across 120 recipients, with eight accepted profiles.
+Updated the discovery report and current review status; the local capture/import queue now contains 12 tasks.
+Fellows now have 1,249 linked Y profiles, 13 linked N profiles and 376 missing links; 112 of the missing-link Fellows have search-history records and 264 do not.
+Only the four authorized roster fields changed; no new crawling, statistics import or visualization regeneration occurred.
+
+## 2026-09-28 20:37 EDT - Fifth Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch5_2026-09-28.md) from Rajeev Motwani through Richard Schantz, using 42 general-web queries with paced calls and targeted source/browser checks.
+Proposed Fayyad and Brooks after live identity and 20-entry inspections; complete and recent coverage remain unassessed, and neither proposal is applied.
+Recorded 17 not found, three unavailable associations and three recipients with wrong-person associations; Motwani also has a second, wrong-person candidate.
+Preserved Norvig’s and Vianu’s prior availability holds and Dubois’s prior namesake rejection; freshly observed Motwani’s plausible ID returning 404 and excluded directory links resolving to Hell, Vijay Vazirani and Jarke.
+Appended 26 history rows, now 124 across 120 recipients; 114 of 378 missing-link Fellows have search-history records and 264 do not.
+Canonical rosters, imported metrics, the ten-task capture queue and visualization datasets remain unchanged; no bulk crawl or import occurred.
+
+## 2026-09-28 20:24 EDT - Accept Fischer Scholar Profile
+
+The user approved [Gerhard Fischer’s Scholar profile](scholar_missing_batch4_2026-09-28.md#subsequent-user-acceptance), `NJSK64sAAAAJ`; added the URL and changed Scholar quality from N to Y in the Fellows roster.
+Retained a blank capture date and the documented 20-entry inspection limitations; no new fetch, accepted crawler capture or statistics import occurred.
+Marked the existing search-history row accepted, preserving the original search timestamp, and updated the discovery report and current review status.
+The local capture/import queue now contains ten tasks; Fellows have 1,247 linked Y profiles, 13 linked N profiles and 378 missing links.
+Of the missing-link Fellows, 89 have search-history records and 289 do not; the ledger retains 98 rows across 95 recipients with six accepted profiles.
+Only the two authorized Fischer roster fields changed; visualization regeneration remains deferred.
+
+## 2026-09-28 20:22 EDT - Fourth Missing-Link Scholar Search Batch
+
+Completed [25 further searches](scholar_missing_batch4_2026-09-28.md) from Nell Boylan Dale through John C. Klensin, using 48 general-web queries with paced calls and targeted source/browser checks.
+Recorded Fischer as a candidate with supported Colorado HCI identity and one suspect item in the 20-entry sample; complete and recent coverage remain unassessed.
+Recorded 18 not found, five unavailable associations and one preserved explicit user rejection; Dean, Cook and Gao were freshly observed as 404 in Chrome, while Hendren and Thekkath retain earlier holds.
+Appended 25 history rows, now 98 rows across 95 recipients; 90 of 379 missing-link Fellows have CSV search records and 289 do not.
+Preserved earlier history and all canonical rosters, imported metrics, the nine-task capture queue and visualization datasets; no bulk crawl or import occurred.
+
+## 2026-09-28 20:11 EDT - Accept Kasik Scholar Profile
+
+The user concurred with the [Kasik assessment](kasik_scholar_review_2026-09-28.md); added `j2vMBDgAAAAJ` to his Fellows row and changed Scholar quality from N to Y.
+The capture date remains blank because browser inspection is not an accepted crawler capture; no crawl or metrics import was performed.
+Marked the existing search-history candidate accepted, preserving its original search timestamp and review provenance; the ledger retains 73 rows across 70 recipients, with five accepted profiles.
+Updated the discovery reports and current review status, and regenerated the local capture/import queue to nine tasks.
+Fellows now have 1,246 linked Y profiles, 13 linked N profiles and 379 missing links; 65 of those missing-link recipients have search-history records and 314 do not.
+Verified that only the two approved Kasik roster fields changed in this acceptance; Turing data, imported Scholar statistics and visualization datasets were preserved.
+
+## 2026-09-28 20:09 EDT - Review Kasik Scholar Candidate Against DBLP
+
+[Reviewed the user-supplied Kasik profile](kasik_scholar_review_2026-09-28.md) in Chrome, exhausting its 122 displayed entries, against the retained September 17 DBLP capture of 71 cite entries.
+Recommend Y based on the verified Boeing identity, substantial career coverage and strong publication overlap; related-book chapter attribution and editorial metadata noise do not support rejection under the user's lenient threshold.
+Resolved the existing directory lead to `j2vMBDgAAAAJ` in search history, preserving its original search time and retaining the initial finding in the discovery report; the 73-row/70-recipient history totals remain unchanged.
+The third batch now has one proposed candidate and one unresolved lead; no canonical link, rating, capture date, metrics, queue or visualization changes were applied.
+
+## 2026-09-28 19:59 EDT - Record Invalid Barroso Scholar Link
+
+The user reported `7stTzUMAAAAJ` invalid; [recorded the decision](scholar_missing_batch3_2026-09-28.md#subsequent-user-decision) and removed it from actionable candidate recommendations.
+Updated the existing search-history row to inaccessible, retaining its original search timestamp and candidate URL as evidence; review time records this correction.
+No new fetch was performed or failure cause inferred; Barroso’s canonical link/date remain blank and quality N remains unchanged.
+The third batch now has no actionable exact-ID candidates and retains two unresolved directory leads.
+
+## 2026-09-28 19:58 EDT - Third Missing-Link Scholar Search Batch
+
+Completed [30 further discovery searches](scholar_missing_batch3_2026-09-28.md) from Cynthia Dwork through Gaetano Borriello using 54 general-web queries and selected source inspection, paced with 15-second pauses between web calls.
+Recorded one exact-ID candidate for review (Luiz André Barroso), two unresolved leads (Dave Kasik and Masaru Kitsuregawa), 21 not found, four preserved unavailable associations and two excluded namesakes.
+No new usable profile was verified or applied; canonical rosters, statistics, capture queue and visualization data remain unchanged.
+Appended 30 timestamped rows to the search-history CSV, now 73 rows for 70 recipients.
+Of the 380 missing-link Fellows, 66 have CSV search records and 314 do not; older discovery work found in these notes means the CSV is not an exhaustive history of every prior search.
+Preserved previous decisions and distinguished stale indexed Scholar content, source links, current tool failures and unresolved identities.
+
+## 2026-09-28 19:44 EDT - Accept Three User-Supplied Scholar Profiles
+
+Applied the user's approved Scholar URLs for David M. Mount (`QNkNlu4AAAAJ`), Hong Mei (`QMIdsa8AAAAJ`) and Glenn Ricart (`1gWf6F0AAAAJ`) with quality Y.
+Computer use read the three existing Chrome tabs and their 20 visible publication entries; [identity evidence and scope](scholar_missing_next30_2026-09-28.md#subsequent-user-accepted-profiles) are recorded in the discovery report.
+Capture dates remain blank; no crawl, metric import or visualization regeneration was performed.
+Preserved the three different original discovery IDs as superseded history without asserting redirects or incorrect identities, and appended the accepted user-supplied candidates with their recorded intake time.
+The search-history CSV now has 43 rows for 40 recipients, including four accepted and three superseded candidates.
+Fellows now have 1,245 linked Y profiles, 13 linked N profiles and 380 missing Scholar links; the canonical capture/import queue has eight tasks.
+Verified the six intended roster field changes, unique history keys and accepted associations, unchanged Turing/statistics files, and 40 passing data-validation tests.
+
+## 2026-09-28 19:37 EDT - Backfill Scholar Search History
+
+Created [the separate Scholar search-history CSV](../data/google_scholar_profile_searches.csv) with all 40 recipients from the September 28 first-ten and next-thirty discovery batches, incorporating subsequent user decisions.
+Current outcomes are 25 not found, three unresolved leads, three candidates, one accepted, four inaccessible, three wrong-person associations and one quality rejection.
+Preserved original batch completion timestamps as search times; review times use the batch assessment or later recorded user decision, with Markopoulou’s acceptance retained at the minute precision documented in these notes.
+The linked reports preserve original findings, source evidence, queries, limitations and superseded decisions.
+Earlier full-roster quality audits and crawl attempts remain in their existing ledgers; they are not labeled as completed discovery searches in this backfill.
+Documented the schema and future append/update rules in the [agent data dictionary](../README_FOR_AGENTS.md#scholar-search-history).
+Verified all 40 identities against the award roster, outcome counts, timestamps, candidate URLs and evidence links; existing roster, statistics, queue and visualization files are unchanged.
+No new searches, crawls, metric imports or visualization regeneration occurred.
+
+## 2026-09-28 19:34 EDT - Reject Leino Wrong-Person Scholar Candidate
+
+The user reported that K. Rustan M. Leino’s candidate `mGYQLekAAAAJ` points to the wrong person.
+Recorded the explicit rejection in the [next-thirty discovery report](scholar_missing_next30_2026-09-28.md#subsequent-user-availability-check), current review status and retained discovery decision log.
+Do not reintroduce this association from the original directory lead.
+Leino’s canonical Scholar URL and capture date remain blank, with quality N unchanged; no fetch, metric import or visualization regeneration occurred.
+
+## 2026-09-28 19:33 EDT - Record Ravi Kannan Scholar Inaccessibility
+
+The user reported that Ravi Kannan’s candidate `4oW5Q1wAAAAJ` is not accessible.
+Updated the [next-thirty discovery report](scholar_missing_next30_2026-09-28.md#subsequent-user-availability-check) and current review status to hold this candidate alongside Daniel Jackson and Mario Gerla.
+Kannan’s canonical Scholar URL and capture date remain blank, with quality N unchanged; no fetch, metric import or visualization regeneration occurred.
+
+## 2026-09-28 19:32 EDT - Record Mario Gerla Scholar Inaccessibility
+
+The user reported that Mario Gerla’s candidate `mO3xwbwAAAAJ` is not accessible.
+Updated the [next-thirty discovery report](scholar_missing_next30_2026-09-28.md#subsequent-user-availability-check) and current review status to hold this candidate alongside Daniel Jackson.
+Gerla’s canonical Scholar URL and capture date remain blank, with quality N unchanged; no fetch, metric import or visualization regeneration occurred.
+
+## 2026-09-28 19:32 EDT - Record Daniel Jackson Scholar Inaccessibility
+
+The user reported that Daniel Jackson’s candidate `PXY96lkAAAAJ` is not accessible.
+Updated the [next-thirty discovery report](scholar_missing_next30_2026-09-28.md#subsequent-user-availability-check) and current review status to hold this candidate and distinguish historical identity evidence from current availability.
+The canonical Scholar URL and capture date remain blank, with quality N unchanged; no fetch, metric import or visualization regeneration occurred.
+
+## 2026-09-28 19:29 EDT - Search the Next Thirty Missing Fellow Scholar Links
+
+Completed a paced [54-query general-web discovery pass](scholar_missing_next30_2026-09-28.md) for the next 30 blank Fellow Scholar links after the first ten, from Hong Mei through Radia Perlman.
+Recorded two supported identity candidates (David Mount and Daniel Jackson), five other exact-ID candidates, one unresolved directory lead, 19 profiles not located and three preserved prior rejections.
+Jackson's indexed 20-entry Scholar sample supports identity and sampled quality; Mount's official UMD link supports identity, with Scholar content unavailable.
+The older indexed Steven Hand page does not resolve the later live redirect or supersede the prior removal.
+No canonical edits, accepted captures, metric imports, scheduled tasks or visualization regeneration occurred; Fellows still have 383 blank Scholar links and five capture/import tasks remain.
+
+## 2026-09-28 19:10 EDT - Record the Accepted Markopoulou Scholar Match
+
+The user accepted Athina Markopoulou's [discovered Scholar match](scholar_missing_first10_2026-09-28.md#subsequent-user-acceptance).
+Set her Fellow Scholar link to `https://scholar.google.com/citations?user=WIXl6-gAAAAJ` and quality from N to Y, supported by UCI identity, verified university email and the relevant inspected publication sample.
+Preserved the blank capture date; no fresh capture, statistics import or visualization regeneration occurred.
+The capture/import backlog now contains five profiles, and Fellows missing Scholar links decrease from 384 to 383.
+Broader coverage remains limited by the older indexed 20-entry evidence; the accepted link does not claim complete or current bibliography verification.
+
+## 2026-09-28 19:08 EDT - Search the First Ten Missing Fellow Scholar Links
+
+Completed a paced [general-web discovery pass](scholar_missing_first10_2026-09-28.md) on the first ten blank Scholar links in roster order.
+Found Markopoulou's supported identity candidate, unresolved directory leads for Dukkipati and Walid, six profiles not located, and no verified alternative to Varma's previously rejected candidate.
+Recorded all 22 queries, candidate evidence and access limitations; Scholar content returned by the web tool is not represented as a fresh capture.
+No canonical data changes, bulk crawling, metric imports or visualization regeneration occurred.
+
 ## 2026-09-28 18:23 EDT - Check Current Repository Consistency
 
 Completed an offline consistency sweep of canonical data, final Scholar dispositions, capture/import backlog, local documentation links and retained Paulson acceptance evidence.
@@ -1288,7 +1583,7 @@ No additional profile was verified, so canonical datasets and visualization file
 
 Resolved Michael Stonebraker's Research.com link to Samuel Madden's existing profile (`a1ngrCIAAAAJ`), and rejected a Silvio Micali directory link assigned to Phillip Rogaway in CSRankings (`gUEkPQEAAAAJ`).
 Dijkstra's Research.com link (`g875mLgAAAAJ`) remains unverified: this web check was rate-limited with HTTP 429, and the historical local capture returned 404.
-John McCarthy's DBLP link (`SuVID2wAAAAJ`) yielded old indexed content through web search, but the fresh September 16 capture returned 404, so it was not restored.
+John McCarthy's Scholar link (`SuVID2wAAAAJ`) yielded old indexed content through web search, but the fresh September 16 capture returned 404, so it was not restored.
 Herbert Simon's rediscovered historical IDs remain unavailable according to the completed fresh crawl.
 Scholar rate limiting and source-page access failures limit verification; a blank field does not establish that no profile exists.
 Search results, fetched source pages, and review metadata are retained under `../bigcows-crawler/.cache/turing-scholar-web-followup-2026-09-16/`.
