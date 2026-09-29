@@ -13,11 +13,28 @@ Use the [four-stage workflow](../README_FOR_AGENTS.md#four-stage-workflow) to di
 
 The gap queue is not a stage tracker; an empty queue alone cannot prove that review is complete, all newer captures are extracted or visualizations are synchronized.
 
+## Profile-or-Search Coverage
+
+The September 29 consistency sweep confirms that every row in both award rosters has a profile link or a recorded search for each publication service.
+These are award-row counts; recipients shared across rosters appear in both totals.
+
+| Service | Roster | Linked | Blank With Search | Neither |
+| --- | --- | ---: | ---: | ---: |
+| Google Scholar | ACM Fellows | 1,269 | 369 | 0 |
+| Google Scholar | Turing Winners | 40 | 41 | 0 |
+| DBLP | ACM Fellows | 1,623 | 15 | 0 |
+| DBLP | Turing Winners | 81 | 0 | 0 |
+
+Links rated N count as linked; a search record does not establish that a matching profile exists or is currently available.
+The offline `tests/test_profile_searches.py` regression check enforces coverage and ledger integrity without fetching sources.
+
 ## Review History and Scope
 
 This is the current progress and open-work index for the September 18–19, 2026 reviews and the September 28 Scholar capture checkpoint and holistic audit.
 **DBLP is in an approved state across both award rosters: the review is complete within its documented scope, all user decisions are applied, every stored link has an accepted capture, and no DBLP decision or capture task is pending.**
 Approved N ratings, four user-approved holds and 15 missing-link Fellow rows remain intentional; approved state does not mean every profile is rated Y.
+The [September 29 missing-DBLP search](dblp_missing_search_2026-09-29.md) records fresh attempts for all 15 blank-link Fellows in the prospective [DBLP search ledger](../data/dblp_profile_searches.csv): six rediscovered excluded profiles and nine not-found replacement searches, with no supported new candidates.
+Existing linked profiles were excluded, no historical searches were backfilled, and all earlier decisions remain in force.
 The [detailed report](check_profiles_full_2026-09-18.md) retains historical observations and the 18 explicit user dispositions.
 The [September 28 Scholar holistic audit](scholar_holistic_review_2026-09-28.md) is complete within its existing-evidence sampling limits: all 1,264 distinct linked profiles were individually judged and all 1,719 award rows have recorded outcomes, including 425 blank links.
 The [user-directed lenient recalibration](scholar_recalibration_2026-09-28.md) accepts 38 of the original 43 flags under a roughly 20% contamination tolerance.
@@ -46,7 +63,7 @@ The user also rejected Leino’s `mGYQLekAAAAJ` candidate as pointing to the wro
 Jackson’s, Gerla’s and Kannan’s canonical Scholar links remain blank; old indexed content and third-party links do not establish current availability.
 The user subsequently supplied and approved different URLs for Mount, Mei and Ricart; browser checks identified all three, and their links and Y ratings are applied with accepted capture dates and imported metrics.
 See the [acceptance evidence](scholar_missing_next30_2026-09-28.md#subsequent-user-accepted-profiles); their old candidate IDs remain superseded history.
-The [Scholar search-history CSV](../data/google_scholar_profile_searches.csv) now records 388 candidate/search rows across 384 recipients from fifteen discovery batches and their latest dispositions, including 15 accepted profile associations, three superseded candidates and subsequent user corrections.
+The [Scholar search-history CSV](../data/google_scholar_profile_searches.csv) now records 429 candidate/search rows across 392 recipients from fifteen Fellows discovery batches and the [September 29 Turing search](scholar_missing_turing_2026-09-29.md), including 15 accepted profile associations, three superseded candidates and subsequent user corrections.
 Its search timestamps track completed discovery work separately from review decisions and successful capture dates; see the [schema and maintenance rules](../README_FOR_AGENTS.md#scholar-search-history).
 
 The [third discovery batch](scholar_missing_batch3_2026-09-28.md) adds 30 searches: one accepted profile (Kasik, Y after browser/DBLP review and user approval), one initially unresolved lead (Kitsuregawa, subsequently rejected as invalid), 21 initially not found, five unavailable/invalid associations and two excluded namesakes after the user reported Barroso’s `7stTzUMAAAAJ` URL invalid.
@@ -55,6 +72,8 @@ Kasik’s link and Y rating are applied with an accepted capture date and import
 See the [Kasik assessment](kasik_scholar_review_2026-09-28.md) for all 122 displayed Scholar entries, retained DBLP comparison and limited attribution noise.
 All 369 missing-link Fellows now have search-history CSV records; zero remain without a recorded search.
 This completes bounded Fellows discovery, including held and rejected associations; older Data Notes searches are not comprehensively backfilled and the linked-profile quality audit is a separate workflow.
+All 41 blank-link Turing winners also have fresh recorded general-web searches: no supported new candidates, 34 not-found replacement searches, four preserved wrong-person exclusions and three preserved unavailable holds.
+No new Scholar capture, availability verification, canonical association, quality change or visualization regeneration was performed.
 
 The [fourth discovery batch](scholar_missing_batch4_2026-09-28.md) covers 25 more Fellows: Fischer is a user-approved Y profile with one suspect entry among 20 inspected; full/recent coverage remains unassessed.
 The batch also records 18 not found, five unavailable associations (three freshly observed 404s and two preserved prior holds), and Shyamasundar’s preserved rejection.
