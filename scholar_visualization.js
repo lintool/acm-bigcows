@@ -23,11 +23,11 @@
     { key: 'year', label: 'Year', className: 'year', value: row => row.year, format: value => value || '' },
     { key: 'name', label: 'Name', sortLabel: 'last name', className: 'author', title: row => row.name, value: row => row.name,
       format: (_, row) => authorCell(row), compare: compareNames, initialDirection: 1 },
-    { key: 'citations', label: 'Cites', className: 'metric', align: 'right', value: row => scholarMetric(row, 'citations') },
-    { key: 'approximate_citations_at_induction', label: 'cites at award', headerHtml: 'cites<br>at award',
+    { key: 'citations', label: 'Cites', headerTitle: 'total citations from Google Scholar', className: 'metric', align: 'right', value: row => scholarMetric(row, 'citations') },
+    { key: 'approximate_citations_at_induction', label: 'cites at award', headerHtml: 'cites<br>at award', headerTitle: 'estimated citations from Google Scholar at year of award',
       className: 'metric', align: 'right', value: awardCitationsValue,
       format: (value, row) => predatesTuringEstimate(row) ? '-' : fmt(value) },
-    { key: 'hIndex', label: 'h-index', className: 'metric', align: 'right', value: row => scholarMetric(row, 'hIndex') },
+    { key: 'hIndex', label: 'h-index', headerTitle: 'h-index from Google Scholar', className: 'metric', align: 'right', value: row => scholarMetric(row, 'hIndex') },
   ];
   const columnsByKey = new Map(columns.map(column => [column.key, column]));
   const profiles = [
@@ -43,23 +43,26 @@
   }));
 
   const table = document.getElementById('table');
-  const captureDates = DATA.rows.filter(row => row.hasScholar && row.crawlDate).map(row => row.crawlDate).sort();
-  const firstCaptureDate = captureDates[0];
-  const latestCaptureDate = captureDates.at(-1);
-  const captureNote = firstCaptureDate
-    ? `, captured ${firstCaptureDate === latestCaptureDate ? `on ${firstCaptureDate}` : `from ${firstCaptureDate} to ${latestCaptureDate}`} (UTC)`
-    : '';
-  document.getElementById('citation-source').textContent = `All citation statistics from Google Scholar${captureNote}.`;
   const summary = document.getElementById('summary');
-  summary.textContent = `Cites are Google Scholar’s reported all-time total; the per-year histogram displays ${YEAR_MIN}–${YEAR_MAX}.`;
+  summary.textContent = `Annual citations from Google Scholar for ${YEAR_MIN}–${YEAR_MAX}.`;
   const empty = document.getElementById('empty');
   const hideTooltip = setupTooltip(table, document.getElementById('citation-tooltip'));
-  const withData = DATA.rows.filter(row => row.hasScholar).length;
-  document.getElementById('coverage').innerHTML = [
-    ['Total recipients', DATA.rows.length],
-    ['With citation data', withData],
-    ['Without citation data', DATA.rows.length - withData],
-  ].map(([label, count]) => `<div><dt>${label}</dt><dd>${fmt(count)}</dd></div>`).join('');
+  const scholarProfiles = DATA.rows.filter(row => row.scholarProfile).length;
+  const dblpProfiles = DATA.rows.filter(row => row.dblpProfile).length;
+  function captureRange(profileKey, dateKey) {
+    const dates = DATA.rows.filter(row => row[profileKey] && row[dateKey]).map(row => row[dateKey]).sort();
+    if (!dates.length) return 'Unavailable';
+    return dates[0] === dates.at(-1) ? escapeHtml(dates[0]) : `${escapeHtml(dates[0])} – ${escapeHtml(dates.at(-1))}`;
+  }
+  document.getElementById('coverage').innerHTML = `
+    <p class="coverage-total"><strong>${fmt(DATA.rows.length)}</strong> total recipients</p>
+    <table class="profile-coverage" aria-label="Linked profile coverage">
+      <thead><tr><th scope="col">Profiles</th><th scope="col">With</th><th scope="col">Without</th><th scope="col">Capture dates (UTC)</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Google Scholar</th><td>${fmt(scholarProfiles)}</td><td>${fmt(DATA.rows.length - scholarProfiles)}</td><td class="capture-dates">${captureRange('scholarProfile', 'crawlDate')}</td></tr>
+        <tr><th scope="row">DBLP</th><td>${fmt(dblpProfiles)}</td><td>${fmt(DATA.rows.length - dblpProfiles)}</td><td class="capture-dates">${captureRange('dblpProfile', 'dblpCrawlDate')}</td></tr>
+      </tbody>
+    </table>`;
 
   document.getElementById('search').addEventListener('input', event => { state.query = searchText(event.target.value); render(); });
   document.getElementById('showMissing').addEventListener('change', event => { state.showMissing = event.target.checked; render(); });
@@ -89,20 +92,20 @@
   }
 
   function setupTooltip(container, tooltip) {
-    let activeBar = null;
+    let activeTarget = null;
     let bounds;
     function hide() {
       tooltip.style.display = 'none';
-      activeBar = null;
+      activeTarget = null;
     }
     container.addEventListener('pointermove', event => {
-      const bar = event.target.closest('.bar');
-      if (!bar) { hide(); return; }
-      if (bar !== activeBar) {
-        tooltip.textContent = bar.dataset.tooltip;
+      const target = event.target.closest('[data-tooltip]');
+      if (!target) { hide(); return; }
+      if (target !== activeTarget) {
+        tooltip.textContent = target.dataset.tooltip;
         tooltip.style.display = 'block';
         bounds = tooltip.getBoundingClientRect();
-        activeBar = bar;
+        activeTarget = target;
       }
       const position = tooltipPosition(event.clientX, event.clientY, bounds,
         {width: window.innerWidth, height: window.innerHeight});
@@ -208,11 +211,11 @@
   }
 
   function headersHtml() {
-    return columns.map(({key, label, headerHtml, sortLabel, align}) => {
+    return columns.map(({key, label, headerHtml, headerTitle, sortLabel, align}) => {
       const active = state.sortKey === key;
       const direction = state.sortDirection === 1 ? 'ascending' : 'descending';
       const arrow = active ? (state.sortDirection === 1 ? '↑' : '↓') : '↕';
-      return `<div role="columnheader"${align === 'right' ? ' class="metric-header"' : ''}${active ? ` aria-sort="${direction}"` : ''}><button type="button" id="sort-${key}" class="sort-button" data-sort="${key}" aria-label="Sort by ${sortLabel || label}"><span class="sort-label">${headerHtml || label}</span><span class="sort-arrow" aria-hidden="true">${arrow}</span></button></div>`;
+      return `<div role="columnheader"${headerTitle ? ` data-tooltip="${escapeHtml(headerTitle)}"` : ''}${align === 'right' ? ' class="metric-header"' : ''}${active ? ` aria-sort="${direction}"` : ''}><button type="button" id="sort-${key}" class="sort-button" data-sort="${key}" aria-label="Sort by ${sortLabel || label}"><span class="sort-label">${headerHtml || label}</span><span class="sort-arrow" aria-hidden="true">${arrow}</span></button></div>`;
     }).join('');
   }
 

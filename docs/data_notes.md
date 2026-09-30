@@ -14,6 +14,28 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+
+## 2026-09-29 21:20 EDT - Verify Visualization, Data and Documentation Consistency
+
+Verified both generated award snapshots against canonical inputs, including the newly displayed DBLP capture dates.
+The About the Data profile table counts linked and missing URLs across the full roster: Fellows have 1,269/369 Scholar and 1,620/18 DBLP links/missing links; Turing winners have 40/41 Scholar and 81/0 DBLP links/missing links.
+Capture ranges are September 24–29 for Fellow Scholar profiles, September 26–28 for Turing Scholar profiles, and September 17–19 for DBLP in both awards, all in 2026 UTC.
+Updated current documentation for the service-row coverage table, capture-date provenance, four column explanations and custom metric-header tooltips, and corrected the README checkbox label.
+The redundant Scholar source sentence is removed from both pages; capture dates remain in the table.
+All 58 Python tests, JavaScript renderer tests, script syntax checks and whitespace checks passed, including added coverage for DBLP date ranges and links without citation histories.
+Canonical rosters and extracted JSON files remain byte-identical to the merged audit; this check performed no crawl, profile review or snapshot regeneration.
+
+## 2026-09-29 21:00 EDT - Re-extract Accepted Profiles and Regenerate Both Visualizations
+
+The user explicitly authorized extraction and visualization updates after merging PR #76.
+Reparsed all 1,279 accepted Scholar captures with the shared parser and all 1,638 currently linked DBLP captures with the repository extractor, verifying retained hashes and accepted capture metadata.
+Both extracted JSON datasets matched existing values exactly; all canonical award fields, quality decisions and actual capture dates remain unchanged.
+Regenerated `scholar_data.js` for 1,638 Fellows and `turing_scholar_data.js` for 81 Turing winners, reflecting five Fellow Scholar quality changes, Scott’s Turing quality change and three removed Fellow DBLP links.
+The two generation timestamps advanced; these timestamps do not imply new captures or fresher statistics.
+Rebuilt the capture/import queue, which remains empty, and updated the current workflow status to synchronized visualization.
+All 58 Python tests passed, including canonical and snapshot consistency; JavaScript renderer tests and syntax checks for both generated datasets and the renderer passed.
+No web access, source crawl, missing-link search, commit or publication occurred.
+
 ## 2026-09-29 20:45 EDT - Address Profile-Audit PR Review
 
 Converted all 3,013 publication capture paths in the row audit to repository-relative sibling-cache paths and verified their SHA-256 hashes against retained files.

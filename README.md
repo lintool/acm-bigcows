@@ -44,8 +44,8 @@ Both timelines start in 1986 and end in the current UTC year.
 Gray histograms indicate Scholar profiles rated `N` for quality; their citation counts remain visible.
 Darker bars show years before the award; lighter bars show the award year and later years.
 An empty bar can mean a reported zero or an absent year in the captured history; it does not establish zero citations.
-Recipients without citation histories are hidden by default; use **Show missing Scholar data** to include them.
-Click **Year**, **Name**, **Cites**, **cites at award**, or **h-index** to sort, and expand **About the Data** for coverage counts, the estimate's calculation and source links.
+Recipients without citation histories are hidden by default; use **Show researchers with missing Google Scholar profiles** to include them.
+Click **Year**, **Name**, **Cites**, **cites at award**, or **h-index** to sort, and expand **About the Data** for Google Scholar and DBLP link counts and capture dates, column explanations and source links.
 Use the small icons beside each name to open available ACM, Google Scholar and DBLP profiles; hover over an icon to identify its service.
 Open `index.html` directly in a browser with the accompanying HTML, JavaScript, CSS and `assets/` directory in place; no server or network connection is required to view the timelines.
 

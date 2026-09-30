@@ -56,11 +56,20 @@ for (const [award, filename] of [['fellows', 'scholar_data.js'], ['turing', 'tur
   const rowCount = () => (node('#table').markup.match(/class="row"/g) || []).length;
   assert.equal(rowCount(), data.metadata.joinedRows);
   assert.equal(properties['--year-count'], 41);
-  const captureDates = data.rows.filter(row => row.hasScholar && row.crawlDate).map(row => row.crawlDate).sort();
-  assert.ok(captureDates.length);
-  assert.equal(node('#citation-source').textContent,
-    `All citation statistics from Google Scholar, captured from ${captureDates[0]} to ${captureDates.at(-1)} (UTC).`);
-  assert.equal(node('#summary').textContent, 'Cites are Google Scholar’s reported all-time total; the per-year histogram displays 1986–2026.');
+  assert.equal(node('#summary').textContent, 'Annual citations from Google Scholar for 1986–2026.');
+  for (const text of ['total citations from Google Scholar',
+                      'estimated citations from Google Scholar at year of award',
+                      'h-index from Google Scholar']) {
+    assert.ok(node('#table').markup.includes(`data-tooltip="${text}"`));
+    const header = {dataset: {tooltip: text}};
+    node('#table').events.pointermove({clientX: 400, clientY: 100, target: {
+      closest: selector => selector === '[data-tooltip]' ? header : null,
+    }});
+    assert.equal(node('#citation-tooltip').textContent, text);
+    assert.equal(node('#citation-tooltip').styles.display, 'block');
+    node('#table').events.pointerleave();
+    assert.equal(node('#citation-tooltip').styles.display, 'none');
+  }
   assert.ok(node('#table').markup.includes('data-tooltip="1986:'));
   assert.ok(!node('#table').markup.includes('data-tooltip="1985:'));
   assert.ok(node('#table').markup.includes('data-tooltip="2026:'));
@@ -119,7 +128,7 @@ for (const [award, filename] of [['fellows', 'scholar_data.js'], ['turing', 'tur
   assert.equal(mismatch.node('#empty').classes.visible, true);
   const nextYear = load(award, script, 2027);
   assert.equal(nextYear.properties['--year-count'], 42);
-  assert.equal(nextYear.node('#summary').textContent, 'Cites are Google Scholar’s reported all-time total; the per-year histogram displays 1986–2027.');
+  assert.equal(nextYear.node('#summary').textContent, 'Annual citations from Google Scholar for 1986–2027.');
   console.log(`${award}: default rows, missing rows, search, empty state, year range, and wrong-dataset guard passed`);
 }
 assert.equal(load('turing').node('#empty').classes.visible, true);
@@ -252,15 +261,29 @@ for (const award of ['fellows', 'turing']) {
 }
 
 for (const award of ['fellows', 'turing']) {
-  const sourceNote = rows => loadRows(award, rows.map((row, index) => ({
-    name: `Person ${index}`, year: 2025, hasScholar: true, citationByYear: {'2026': 1}, ...row,
-  }))).node('#citation-source').textContent;
-  assert.equal(sourceNote([{crawlDate: '2026-09-29'}, {crawlDate: '2026-09-24'},
-    {crawlDate: '2026-09-27'}, {hasScholar: false, crawlDate: '2026-10-01'}]),
-    'All citation statistics from Google Scholar, captured from 2026-09-24 to 2026-09-29 (UTC).');
-  assert.equal(sourceNote([{crawlDate: '2026-09-28'}, {crawlDate: '2026-09-28'}, {crawlDate: null}]),
-    'All citation statistics from Google Scholar, captured on 2026-09-28 (UTC).');
-  assert.equal(sourceNote([{crawlDate: null}, {}]), 'All citation statistics from Google Scholar.');
-  assert.equal(sourceNote([]), 'All citation statistics from Google Scholar.');
+  const captureCells = rows => loadRows(award, rows.map((row, index) => ({
+    name: `Person ${index}`, year: 2025, hasScholar: true, scholarProfile: `scholar-${index}`,
+    citationByYear: {'2026': 1}, ...row,
+  }))).node('#coverage').markup.match(/class="capture-dates">([^<]*)/g);
+  assert.deepEqual(captureCells([{crawlDate: '2026-09-29'}, {crawlDate: '2026-09-24'},
+    {crawlDate: '2026-09-27'}, {scholarProfile: '', crawlDate: '2026-10-01'}]),
+    ['class="capture-dates">2026-09-24 – 2026-09-29', 'class="capture-dates">Unavailable']);
+  assert.deepEqual(captureCells([{crawlDate: '2026-09-28'}, {crawlDate: '2026-09-28'}, {crawlDate: null}]),
+    ['class="capture-dates">2026-09-28', 'class="capture-dates">Unavailable']);
+  for (const rows of [[{crawlDate: null}, {}], []]) {
+    assert.deepEqual(captureCells(rows), Array(2).fill('class="capture-dates">Unavailable'));
+  }
+  assert.deepEqual(captureCells([
+    {dblpProfile: 'dblp-1', dblpCrawlDate: '2026-09-17'},
+    {dblpProfile: 'dblp-2', dblpCrawlDate: '2026-09-19'},
+    {dblpProfile: '', dblpCrawlDate: '2026-10-01'},
+  ]), ['class="capture-dates">Unavailable', 'class="capture-dates">2026-09-17 – 2026-09-19']);
+  const coverage = loadRows(award, [
+    {name: 'Linked without history', hasScholar: false, scholarProfile: 'scholar-1', dblpProfile: 'dblp-1', citationByYear: {}},
+    {name: 'No links', hasScholar: false, citationByYear: {}},
+  ]).node('#coverage').markup;
+  for (const service of ['Google Scholar', 'DBLP']) {
+    assert.ok(coverage.includes(`<th scope="row">${service}</th><td>1</td><td>1</td>`));
+  }
   console.log(`${award}: mixed, single, missing and empty capture dates passed`);
 }

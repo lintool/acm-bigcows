@@ -131,29 +131,53 @@ label.toggle {
 }
 
 .coverage-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  max-width: 660px;
-  margin: 0;
+  max-width: 740px;
+  overflow-x: auto;
 }
 
-.coverage-stats > div {
-  display: flex;
-  flex-direction: column;
-}
-
-.coverage-stats dt {
+.coverage-total {
+  margin: 0 0 10px;
   font-size: 12px;
 }
 
-.coverage-stats dd {
-  order: -1;
-  margin: 0 0 2px;
+.coverage-total strong {
+  color: var(--ink);
   font-size: 24px;
   font-weight: 650;
-  line-height: 1.2;
+  margin-right: 4px;
+}
+
+.profile-coverage {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.profile-coverage th,
+.profile-coverage td {
+  padding: 8px 12px;
+  text-align: right;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.profile-coverage th:first-child {
+  text-align: left;
+}
+
+.profile-coverage thead th {
+  font-weight: 600;
+}
+
+.profile-coverage td {
   color: var(--ink);
+  font-size: 21px;
+  font-weight: 650;
+}
+
+.profile-coverage .capture-dates {
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .view-summary {
@@ -213,15 +237,6 @@ label.toggle {
   font-size: 10px;
   font-weight: 600;
   letter-spacing: .04em;
-}
-
-@media (max-width: 480px) {
-  .coverage-stats {
-    gap: 12px;
-  }
-  .coverage-stats dd {
-    font-size: 21px;
-  }
 }
 
 /* Timeline Layout */
