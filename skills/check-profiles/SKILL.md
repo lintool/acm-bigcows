@@ -6,9 +6,10 @@ description: Verify ACM Fellows and Turing Award winners' linked Google Scholar,
 # Check Profiles
 
 Use in the `acm-bigcows` repository.
-Unless the user specifies a subset, review every row in `data/acm_fellows.csv` and `data/turing_award_winners.csv`, including missing links and existing `N` ratings.
+Unless the user specifies a subset, review populated links in every row of `data/acm_fellows.csv` and `data/turing_award_winners.csv`, including existing `N` ratings.
 Evaluate Google Scholar, DBLP and CSRankings separately for each recipient, then reconcile the evidence across services.
-Attempt to establish a CSRankings name link for every recipient whose `csrankings_name` is blank, alongside the Scholar and DBLP checks.
+Record blank Scholar/DBLP URLs and blank CSRankings name keys as missing and not searched in this audit.
+Missing-link discovery is costly and requires a separate explicit user request; an audit or check does not authorize searching for absent associations, even when older searches or candidate evidence exist.
 Creating or editing this skill does not initiate a profile review.
 
 ## Workflow Stage
@@ -41,9 +42,22 @@ An unavailable, invalid or potentially withdrawn profile is a separate case: fol
 Rate a clearly contaminated or inadequately covered publication profile `N` even when the person matches; retain the URL unless a clearly supported better profile is found under the search workflow below.
 Correct ACM data only with the separate explicit authorization and stronger ground-truth exception above, with strong cited evidence of an actual error.
 For borderline identity, coverage or contamination findings, preserve the existing values and flag the case for user review with the competing evidence, proposed action and specific decision needed.
+During every requested profile audit or check, reflag stored links or CSRankings associations that remain suspicious under these criteria, including previously reviewed or explicitly accepted cases.
+Clear sparse-DBLP coverage findings follow the direct-resolution rule below instead of requiring repeated user review.
+Profiles can change over time, so a previously accepted identity or quality decision is not permanent verification; assess the evidence available for the current audit and resurface concerns that warrant reconsideration.
+When newer evidence is available, compare it with the earlier decision's evidence and describe any supported changes; retained evidence alone cannot establish that a profile has changed since that decision.
+A prior decision does not suppress a current review item, and new evidence is not required to resurface a concern supported by the inspected evidence.
+Include the exact link or key, concrete concern, evidence date and scope, prior user decision, and the decision now requested; identify reused evidence as retained rather than newly observed.
+Preserve prior user decisions in the canonical data until the user changes them; reflagging is not permission to reverse them automatically.
+An explicit request for a fresh audit authorizes and requires reassessment of all prior review decisions within the requested scope, including explicit user decisions, accepted exceptions, rejections and holds.
+Treat those decisions as historical context rather than exemptions from inspection; report whether the available evidence supports retaining or revising each decision, and bring proposed reversals of explicit user decisions back to the user before applying them, except for clear sparse-DBLP coverage findings already authorized for direct resolution below.
+“Fresh audit” means a new assessment, not automatic authorization for new crawls, statistics imports, missing-link discovery or visualization regeneration.
+Reassess prior missing-link rejections from retained evidence when relevant, but do not search for or restore absent associations without the separately required authorization.
+This applies to prior `Y` and `N` decisions: report evidence of deterioration or improvement, and distinguish a changed profile at the same URL from a different replacement candidate.
+An old evidence date alone is a freshness limitation, not proof that a link is suspicious; identify the concrete concern and request an evidence refresh only under the existing authorization rules.
 Keep a separate review queue; do not invent a third quality value or use `N` solely to signal uncertainty.
 Do not ask again for permission already given in the current task.
-Preserve unrelated fields, row order and manually accepted decisions.
+Preserve unrelated fields and row order; preserve manually accepted canonical values pending the user's decision on any proposed reversal, without exempting them from fresh-audit reassessment.
 Do not regenerate visualizations unless the user requests it.
 
 ## Evidence Collection
@@ -114,6 +128,18 @@ Citation totals and h-index are not publication counts and do not establish iden
 The user has chosen contextual judgment rather than a numerical minimum: assess substantial coverage relative to the recipient's career and known bibliography, recording actual publication counts or clearly labeled lower bounds.
 Do not use a fixed publication-count threshold as an automatic acceptance or rejection rule.
 A genuinely sparse profile is evidence of a poor match or inadequate coverage even if some entries fit; a justified exception needs positive identity and coverage evidence recorded in the audit.
+For DBLP, a genuinely sparse bibliography with clearly inadequate career coverage is a clear-cut quality `N`: retain the link, record the evidence and apply or retain `N` without requesting individual user confirmation.
+The user explicitly authorized this treatment on September 29, 2026, including downgrading existing `Y` ratings when the sparse-coverage finding is clear; this later instruction supersedes earlier sparse-profile acceptance for that finding.
+Reassess such profiles during fresh audits, but record resolved sparse-coverage findings in the audit rather than repeatedly placing them in the user-review queue.
+Do not mistake truncated captures, pagination, filters or access failures for a genuinely sparse bibliography, and do not invent a numerical cutoff.
+Continue to flag material identity conflicts, contamination thresholds and genuinely uncertain coverage; a sparse count alone does not authorize clearing a link.
+All ACM Fellows and Turing Award winners are prominent researchers with an established body of work.
+For both Google Scholar and DBLP, very few genuine profile entries are strong evidence of low quality even when the name, affiliation, research area and other identity information match.
+Identity agreement and a handful of recognizable landmark publications do not establish substantial coverage or justify `Y`; assess representation of the expected body of work and rate clearly inadequate coverage `N`.
+Do not weaken this coverage requirement merely because the recipient’s award recognizes historical, industrial, leadership or service contributions.
+The user explicitly reconfirmed linked quality `N` for [Burton Smith’s 11-entry DBLP profile](https://dblp.org/pid/64/4805) and [Charles Thacker’s 12-entry DBLP profile](https://dblp.org/pid/58/4470): these contain too few entries for their prominent careers despite matching core contributions.
+Treat these as specific coverage decisions, not a universal numerical cutoff; reassess them in fresh audits and resolve clear sparse-coverage findings directly under the rule above.
+See the [September 29 disposition ledger](../../docs/holistic_profile_audit_2026-09-29_dispositions.csv) for the user decisions.
 
 Apply the [quality criteria](../../README_FOR_AGENTS.md#publication-profile-quality) independently to each service:
 
@@ -121,24 +147,39 @@ Apply the [quality criteria](../../README_FOR_AGENTS.md#publication-profile-qual
 | --- | --- |
 | Supported identity, substantial coverage, and mostly relevant or adjacent publications without substantial contamination | `Y`, allowing isolated attribution errors. |
 | Wrong person | `N`, with the conflicting identity evidence. |
-| Correct person but substantial unrelated publications, mixed identities or a large unrelated cluster | `N`, even when many papers or a majority are relevant. |
+| Correct person but suspicious unrelated publications or mixed entries | Apply the rough 20% rule below; flag threshold or uncertain cases for the user. |
 | Obviously incomplete or genuinely sparse coverage without a supported exception | `N`, with actual counts and the coverage concern; do not automatically call it a wrong-person match. |
 | Missing stored link | `N`; record that service as missing rather than claiming no public profile exists. |
 | Previously linked profile now invalid, unavailable or potentially withdrawn | Flag its availability status for user review; preserve stored values pending disposition and do not treat old evidence as fresh verification. |
 | Fetch blocked or available evidence insufficient to assess identity, coverage or contamination | Mark the review unresolved and preserve the previous rating; do not call it verified or infer `N` from access failure alone. |
 
-Substantial contamination is a judgment about the amount, persistence and significance of unrelated work, not a fixed percentage rule.
+Apply the user's rough 20% suspicious-publication rule independently to Scholar and DBLP, subject to supported identity, substantial coverage and preserved explicit user decisions:
+
+- Much less than 20% suspicious publications: rate `Y`.
+- Much more than 20% suspicious publications: rate `N`.
+- Around 20%, or uncertainty that could place the result near that threshold: preserve the existing rating, flag the case and ask the user to decide.
+
+Do not invent precise numerical bands for “much less,” “much more” or “around.”
+Exactly 20% is a threshold case for the user, not an automatic `Y` or `N`.
+Record the suspicious-publication count, inspected denominator, sampling scope and attribution uncertainty; a sampled fraction is not a measured full-profile fraction or a citation-weighted fraction.
+If the sample is too small, incomplete or biased to support a judgment, expand inspection within the available evidence or mark the assessment unresolved; do not treat zero suspicious entries in an inadequate sample as proof of `Y`.
+Suspicious publications include apparently unrelated areas or topics, subject to the contextual checks below.
 Consider legitimate interdisciplinary work, career changes and collaborations before calling publications unrelated.
 Isolated questionable or misattributed publications are acceptable when the identity, coverage and overall bibliography otherwise support `Y`.
-Do not downgrade, seek a replacement or open a user-review item solely for such isolated entries; a brief informational audit note is sufficient.
+Do not downgrade or seek a replacement solely for such isolated entries; a brief informational audit note is sufficient when they leave no material concern about the link under the criteria above.
+If inspection leaves a material identity, coverage or threshold concern, reflag it even when the existing rating is `Y` or the concern was previously reviewed.
 Expand inspection when an isolated concern may indicate a larger cluster, and flag or reject substantial contamination under the criteria above.
-Preserve explicit user ratings unless the user authorizes reconsideration; report new conflicting evidence instead of silently reversing them.
+Preserve explicit user ratings while reflagging suspicious links for reconsideration as instructed above; do not silently reverse those ratings.
 Quality `N` does not itself authorize deleting a stored URL.
 
 ## Search for Missing or Better Profiles
 
-Whenever a Scholar or DBLP profile is low quality, perform a general web search for a better profile on that service, including cases that already had an `N` rating before the run.
-Whenever a stored Scholar or DBLP link or CSRankings name link is missing, perform a general web search for good matches; also search for the correct CSRankings entry when the existing association is a wrong-person match.
+Whenever a populated Scholar or DBLP profile is low quality, perform a general web search for a better profile on that service, including populated links that already had an `N` rating before the run.
+The `N` required for a blank URL does not trigger this replacement-search rule.
+Search for missing Scholar/DBLP links or CSRankings name links only when the user explicitly requests missing-link discovery as a separate step.
+Without that request, leave blank associations out of discovery, do not backfill them from cached candidates, and do not create search-ledger entries or advance search dates for merely observing a blank field.
+This boundary concerns absent stored associations; checks of populated links, corroborating identity searches, and searches for better alternatives to existing poor or wrong-person links remain in scope under this skill's other rules.
+Search for the correct CSRankings entry when an existing populated association is a wrong-person match.
 Do not limit discovery to the local tables, existing identifiers or a service's internal search.
 Use name variants together with the service name, current and historical institutions, country, research area or distinctive publication titles to distinguish candidates.
 Follow links from the recipient's own homepage, institutional biography or CV when available, and inspect the actual candidate profiles rather than accepting search-result snippets.
@@ -150,7 +191,7 @@ A same-name result, larger publication count or higher citation count alone does
 For Scholar and DBLP, accept a replacement only when both identity and quality are clearly supported; do not substitute one poor profile for another merely because it is less poor.
 For CSRankings, verify the exact source key and affiliation history against the selected cached or newly refreshed source files and independent identity evidence, recording source dates.
 
-In a normal invocation, add clearly supported missing links and replace low-quality links with clearly supported good alternatives, updating quality flags, dependent dates and CSRankings table associations consistently.
+During explicitly requested missing-link discovery, add clearly supported missing links; during an audit, replace low-quality populated links with clearly supported good alternatives within the existing correction authorization, updating quality flags, dependent dates and CSRankings table associations consistently.
 Preserve the old URL, its quality finding and the evidence for replacement in the audit.
 An explicit user decision about the old profile remains part of its history; it does not certify or determine the quality of a different candidate URL.
 If multiple plausible profiles remain, available candidate evidence is insufficient, or the improvement is borderline, flag the alternatives for user review without changing the association.
@@ -162,13 +203,14 @@ Record search queries, search dates, candidate URLs or exact name keys, reasons 
 
 ## CSRankings
 
-For every recipient, either verify the existing `csrankings_name` or attempt to find a supported exact source name; do not stop at checking populated links.
-Search the selected cached faculty sources, documented historical profile records and available alias/name-change evidence for candidates, and perform the general web search required for missing links.
+For every recipient, verify the existing populated `csrankings_name`; record blank keys as missing and not searched unless missing-link discovery was explicitly requested.
+For authorized discovery or replacement of an existing wrong-person association, search the selected cached faculty sources, documented historical profile records and available alias/name-change evidence for candidates, and perform general web searches.
 Use name variants, country, current and historical affiliations, research areas, publications, Scholar IDs and independently verified DBLP identities together to evaluate candidates.
 A missing or poor-quality Scholar or DBLP profile does not preclude a CSRankings link supported by other evidence.
 Add a clearly supported match using the source's exact `name`, including punctuation, disambiguation numbers and campus tags, and set `csrankings_name_alignment_date` to the UTC date the association is accepted.
 Keep the ACM name unchanged; store the CSRankings identity only in its dedicated field.
-For ambiguous candidates, leave the name link blank and flag the alternatives for review; when no supported match is found, leave it blank and record the searches performed.
+For ambiguous candidates, preserve an existing unresolved association or leave a missing name link blank, and flag the alternatives for review.
+When an authorized missing-link search finds no supported match, leave the key blank and record the search; a proven wrong-person existing link follows the correction and prior-decision rules above.
 If a candidate needs source files or captures not already available, follow the evidence-refresh approval policy rather than automatically downloading them.
 
 Resolve every populated `csrankings_name` exactly once against `data/csrankings_profiles.csv`; investigate absent or duplicate keys.
@@ -185,6 +227,7 @@ Generation is not a successful capture and does not update profile-crawl or name
 An upstream Scholar identifier can also be wrong; investigate conflicts rather than deciding by identifier alone.
 Preserve the original CSRankings source fields, including demonstrably incorrect upstream identifiers; ignore established source errors as matching evidence and do not try to repair them.
 Once independent evidence supports the recipient’s name association, treat an obvious upstream error as non-actionable; record a brief audit note when useful without opening a user-review item or repeatedly asking whether to fix it.
+This does not suppress reflagging when the evidence calls the recipient's name association itself into question; source-field preservation and association review are separate decisions.
 Do not modify upstream sources or submit upstream correction requests as part of this skill.
 Use the independently reviewed award-roster profile for the accepted association; do not overwrite source fields or add override columns without a separate user request.
 
@@ -238,4 +281,5 @@ Report per-roster and per-service totals for reviewed, supported, poor-quality, 
 Separate applied obvious corrections from borderline cases awaiting the user's decision, and present the latter with enough evidence for individual review.
 Report invalid, disappeared and potentially withdrawn profiles separately from missing stored links and ordinary quality problems.
 Complete a full sweep only when every requested row has a recorded outcome; blocked or uncertain profiles remain explicitly unresolved.
+Missing associations recorded as “missing—not searched in this audit” are valid completed audit outcomes, not unfinished discovery tasks; keep prior search history intact and do not imply they were never searched.
 For a long review, retain resumable progress and identify what remains rather than presenting a sample as a completed sweep.
