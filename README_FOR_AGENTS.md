@@ -993,7 +993,8 @@ Bars before the award year use a darker shade; the award year and all later year
 Every year has a tick, with horizontal labels at five-year intervals.
 Bar heights are normalized independently to each person's maximum within the displayed window; compare absolute counts using hover values and the metrics columns, not bar heights across people.
 Years absent from a recipient's history appear as empty bars; the underlying data and its coverage metadata remain unchanged.
-Hovering over the Cites, cites at award and h-index headers shows their Google Scholar metric descriptions in the shared custom tooltip.
+Hovering over or keyboard-focusing the Cites, cites at award and h-index headers shows their Google Scholar metric descriptions in the shared custom tooltip.
+Each metric sort button also references its persistent hidden description with `aria-describedby` for assistive technology; moving focus away hides the tooltip.
 Hovering over a bar immediately shows just its year and captured citation count in a tooltip kept within the viewport.
 Absent years show `no captured data`, while reported zeros show `0 cites`; the tooltip hides on pointer exit, scrolling, Escape or rerendering.
 A missing or unsupported data script produces a visible error instead of an empty page.

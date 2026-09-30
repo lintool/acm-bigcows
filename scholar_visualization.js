@@ -98,20 +98,30 @@
       tooltip.style.display = 'none';
       activeTarget = null;
     }
-    container.addEventListener('pointermove', event => {
-      const target = event.target.closest('[data-tooltip]');
-      if (!target) { hide(); return; }
+    function show(target, x, y) {
       if (target !== activeTarget) {
         tooltip.textContent = target.dataset.tooltip;
         tooltip.style.display = 'block';
         bounds = tooltip.getBoundingClientRect();
         activeTarget = target;
       }
-      const position = tooltipPosition(event.clientX, event.clientY, bounds,
+      const position = tooltipPosition(x, y, bounds,
         {width: window.innerWidth, height: window.innerHeight});
       tooltip.style.left = `${position.left}px`;
       tooltip.style.top = `${position.top}px`;
+    }
+    container.addEventListener('pointermove', event => {
+      const target = event.target.closest('[data-tooltip]');
+      if (!target) { hide(); return; }
+      show(target, event.clientX, event.clientY);
     });
+    container.addEventListener('focusin', event => {
+      const target = event.target.closest('[data-tooltip]');
+      if (!target) { hide(); return; }
+      const anchor = event.target.getBoundingClientRect();
+      show(target, anchor.left, anchor.bottom);
+    });
+    container.addEventListener('focusout', hide);
     container.addEventListener('pointerleave', hide);
     window.addEventListener('scroll', hide, true);
     window.addEventListener('resize', hide);
@@ -215,7 +225,7 @@
       const active = state.sortKey === key;
       const direction = state.sortDirection === 1 ? 'ascending' : 'descending';
       const arrow = active ? (state.sortDirection === 1 ? '↑' : '↓') : '↕';
-      return `<div role="columnheader"${headerTitle ? ` data-tooltip="${escapeHtml(headerTitle)}"` : ''}${align === 'right' ? ' class="metric-header"' : ''}${active ? ` aria-sort="${direction}"` : ''}><button type="button" id="sort-${key}" class="sort-button" data-sort="${key}" aria-label="Sort by ${sortLabel || label}"><span class="sort-label">${headerHtml || label}</span><span class="sort-arrow" aria-hidden="true">${arrow}</span></button></div>`;
+      return `<div role="columnheader"${headerTitle ? ` data-tooltip="${escapeHtml(headerTitle)}"` : ''}${align === 'right' ? ' class="metric-header"' : ''}${active ? ` aria-sort="${direction}"` : ''}><button type="button" id="sort-${key}" class="sort-button" data-sort="${key}"${headerTitle ? ` aria-describedby="description-${key}"` : ''} aria-label="Sort by ${sortLabel || label}"><span class="sort-label">${headerHtml || label}</span><span class="sort-arrow" aria-hidden="true">${arrow}</span></button>${headerTitle ? `<span id="description-${key}" hidden>${escapeHtml(headerTitle)}</span>` : ''}</div>`;
     }).join('');
   }
 

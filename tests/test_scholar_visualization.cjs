@@ -69,6 +69,23 @@ for (const [award, filename] of [['fellows', 'scholar_data.js'], ['turing', 'tur
     assert.equal(node('#citation-tooltip').styles.display, 'block');
     node('#table').events.pointerleave();
     assert.equal(node('#citation-tooltip').styles.display, 'none');
+    const focusEvent = {target: {
+      closest: () => header,
+      getBoundingClientRect: () => ({left: 400, bottom: 100}),
+    }};
+    node('#table').events.focusin(focusEvent);
+    assert.equal(node('#citation-tooltip').textContent, text);
+    assert.equal(node('#citation-tooltip').styles.display, 'block');
+    assert.equal(node('#citation-tooltip').styles.left, '412px');
+    document.events.keydown({key: 'Escape'});
+    assert.equal(node('#citation-tooltip').styles.display, 'none');
+    node('#table').events.focusin(focusEvent);
+    node('#table').events.focusout();
+    assert.equal(node('#citation-tooltip').styles.display, 'none');
+  }
+  for (const key of ['citations', 'approximate_citations_at_induction', 'hIndex']) {
+    assert.ok(node('#table').markup.includes(`data-sort="${key}" aria-describedby="description-${key}"`));
+    assert.ok(node('#table').markup.includes(`<span id="description-${key}" hidden>`));
   }
   assert.ok(node('#table').markup.includes('data-tooltip="1986:'));
   assert.ok(!node('#table').markup.includes('data-tooltip="1985:'));

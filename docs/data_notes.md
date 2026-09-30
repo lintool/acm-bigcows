@@ -14,16 +14,17 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
-
 ## 2026-09-29 21:20 EDT - Verify Visualization, Data and Documentation Consistency
 
-Verified both generated award snapshots against canonical inputs, including the newly displayed DBLP capture dates.
+The requested capture-date display change rebuilt both snapshots at 21:13:37 EDT (`2026-09-30T01:13:37+00:00`), adding `dblpCrawlDate` from the canonical rosters.
+This later visualization rebuild is separate from the extraction and initial regeneration completed at 21:00.
+The consistency check completed at 21:20 verified both resulting snapshots against canonical inputs, including the newly displayed DBLP capture dates.
 The About the Data profile table counts linked and missing URLs across the full roster: Fellows have 1,269/369 Scholar and 1,620/18 DBLP links/missing links; Turing winners have 40/41 Scholar and 81/0 DBLP links/missing links.
 Capture ranges are September 24–29 for Fellow Scholar profiles, September 26–28 for Turing Scholar profiles, and September 17–19 for DBLP in both awards, all in 2026 UTC.
 Updated current documentation for the service-row coverage table, capture-date provenance, four column explanations and custom metric-header tooltips, and corrected the README checkbox label.
 The redundant Scholar source sentence is removed from both pages; capture dates remain in the table.
 All 58 Python tests, JavaScript renderer tests, script syntax checks and whitespace checks passed, including added coverage for DBLP date ranges and links without citation histories.
-Canonical rosters and extracted JSON files remain byte-identical to the merged audit; this check performed no crawl, profile review or snapshot regeneration.
+Canonical rosters and extracted JSON files remain byte-identical to the merged audit; the 21:20 verification itself performed no crawl, profile review or additional snapshot regeneration.
 
 ## 2026-09-29 21:00 EDT - Re-extract Accepted Profiles and Regenerate Both Visualizations
 
