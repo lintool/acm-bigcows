@@ -80,6 +80,7 @@ def build_data(roster_rows: list[dict[str, str]], scholar_rows: list[dict[str, A
                 "location": recipient.get("location", ""),
                 "acmProfile": recipient.get("acm_fellow_profile", ""),
                 "dblpProfile": recipient.get("dblp_profile", ""),
+                "dblpCrawlDate": (recipient.get("dblp_profile_crawl_date") or None) if recipient.get("dblp_profile") else None,
                 "scholarProfile": profile,
                 "scholarQuality": recipient.get("google_scholar_profile_quality", ""),
                 "hasScholar": bool(scholar and citation_by_year),

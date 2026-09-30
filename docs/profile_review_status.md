@@ -1,5 +1,14 @@
 # Current Profile Review Status
 
+## Latest Extraction and Visualization Update
+
+Completed 2026-09-29 21:00 EDT with explicit authorization to update extraction and visualization.
+Re-extracted all 1,279 Scholar and 1,638 DBLP profiles from their accepted hash-verified captures; extracted values and canonical roster dates were unchanged.
+Regenerated both award snapshots, incorporating five Fellow Scholar quality changes, Scott’s Turing Scholar quality change and three removed Fellow DBLP links.
+All 58 Python tests and JavaScript renderer and syntax checks passed; the capture/import queue remains empty.
+No source fetch or new profile review occurred.
+Subsequent requested presentation updates added DBLP capture dates to both snapshots and a service-row profile coverage table; snapshot consistency was rechecked after those changes.
+
 ## Subsequent Gupta Replacement Search
 
 The [September 29 targeted web search](gupta_dblp_replacement_search_2026-09-29.md) found a better identity match at DBLP `60/5294`, but its 15-entry coverage remains N.
@@ -41,7 +50,7 @@ Use the [four-stage workflow](../README_FOR_AGENTS.md#four-stage-workflow) to di
 | Crawl | Current linked Scholar profiles have retained successful captures; no new fetch is scheduled by this index. |
 | Review | Fresh three-service sweep and all 66 flagged-case dispositions complete within retained-evidence limits; [review queue empty](holistic_profile_audit_2026-09-29_review_queue.csv); all 974 stored CSRankings associations supported. |
 | Extract | All 1,279 stored Scholar profiles have statistics from the accepted selected captures; DBLP metadata and publication-year aggregates for all 1,638 stored profiles are extracted into `data/dblp_extracted_data.json`; the canonical capture/import gap queue is empty. |
-| Visualize | September 29 snapshots remain unchanged as instructed; the Fellows snapshot predates five Scholar quality changes and three DBLP link removals; the Turing snapshot predates Scott’s Scholar N→Y change. Regeneration awaits an explicit request. |
+| Visualize | Both award snapshots regenerated after explicit authorization following PR #76; all approved Scholar quality changes and DBLP link removals are reflected, and snapshot synchronization passes. |
 
 The gap queue is not a stage tracker; an empty queue alone cannot prove that review is complete, all newer captures are extracted or visualizations are synchronized.
 These completion states describe the recorded reviews, not permanent verification of changing profiles.
@@ -105,7 +114,7 @@ Its reported statistics and date match the already imported values; both canonic
 Paulson’s capture/import task is complete; all 100 captured entries were inspected with no apparent unrelated cluster, and quality Y is retained.
 Complete bibliography and recent-sorted coverage remain unverified.
 Canonical Scholar extraction now lives in `data/google_scholar_extracted_data.json` with native field types and per-profile capture provenance; historical CSV filenames below refer to their original checkpoints.
-Both award visualization snapshots were regenerated with explicit user authorization earlier on September 29; later approved profile decisions now leave snapshot synchronization pending explicit regeneration.
+Both award visualization snapshots were regenerated again after explicit authorization following PR #76 and now match the current canonical profiles, quality flags and extracted statistics.
 No new crawl or source refresh is authorized by maintaining this index.
 The lookup table now preserves [CSRankings-generated DBLP links](../README_FOR_AGENTS.md#csrankings-dblp-link-generation), independently of reviewed award links.
 Historical audits and saved resume scripts used roster-derived lookup URLs; update any such writer to regenerate from source names before applying another checkpoint.
@@ -198,7 +207,7 @@ Milner’s prior user rejection remains preserved; no canonical links or capture
 | Explicit user dispositions | The earlier 18 cases, three DBLP quality decisions and five further profile decisions are resolved and applied | Preserve the [earlier decisions](check_profiles_full_2026-09-18.md#explicit-user-decisions) and all [subsequent Turing decisions](check_profiles_turing_2026-09-18.md#subsequent-user-decisions), including the rejected Manuel Blum Scholar ID. |
 | Rob Cook DBLP candidate | Approved and applied as Y in batch three | Captured and imported September 19. |
 | Final service audit | Fresh 5,157-outcome three-service audit completed September 29 | The [review queue](holistic_profile_audit_2026-09-29_review_queue.csv) is closed; all 66 flagged cases are resolved and dispositions applied. |
-| Visualization | September 29 snapshots intentionally lag the later approved Scholar quality changes and DBLP removals | Canonical validation passes; snapshot synchronization remains pending explicit regeneration. |
+| Visualization | Both award snapshots regenerated after the final profile decisions and explicit user authorization | All 58 Python tests, including snapshot synchronization, and JavaScript renderer checks pass. |
 
 The saved notes extend through Fellow 1,300, although the last bulk CSV checkpoint was through Fellow 1,285 before the subsequent user dispositions.
 These are different milestones; the earlier checkpoint totals are historical.

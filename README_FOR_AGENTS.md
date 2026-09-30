@@ -939,6 +939,7 @@ The result is approximate: missing annual counts are not imputed, histories star
 Preserve the arithmetic result without clamping; this estimate is not a historical capture or a new canonical roster field.
 Each row's `scholarQuality` copies `google_scholar_profile_quality` from the award roster; regenerate the dataset after changing this flag to update histogram colors.
 Each row's `dblpProfile` copies the award roster's reviewed `dblp_profile`, independently of CSRankings-generated links.
+Its `dblpCrawlDate` copies `dblp_profile_crawl_date` for a linked profile and is `null` when the link or date is missing.
 The generated rows omit DBLP quality; changing only that flag does not change the displayed snapshot.
 Unavailable metrics and crawl dates stay `null`, and missing citation histories stay empty objects.
 `hasScholar` indicates a joined row with citation-by-year data, not merely the presence of a profile URL.
@@ -972,7 +973,10 @@ Scholar links use Google's multicolor G, and DBLP links use its blue-and-yellow 
 The ACM diamond is also a local SVG asset; its 18px display size remains distinct from the 15px Google and DBLP icons.
 Each icon link has a service tooltip, an accessible label naming the recipient, and a visible keyboard-focus indicator; links remain available even when citation statistics are missing.
 The three service positions are fixed across rows; missing links leave empty, noninteractive slots so the remaining icons do not shift.
-Under each title, an initially collapsed, keyboard-accessible About the Data panel contains total coverage counts, the Google Scholar source note (showing the included citation captures’ UTC date range, or a single capture date when uniform, not the build date), the displayed year range, and links to the award CSV, shared Scholar extraction JSON, and data notes.
+Under each title, an initially collapsed, keyboard-accessible About the Data panel shows total recipients and a profile table with Google Scholar and DBLP rows.
+The table’s With and Without columns count nonblank and blank profile links across the entire roster, independently of quality, citation-history availability and current filters.
+Capture dates (UTC) shows each service’s earliest and latest available linked-profile capture dates, a single date when uniform, or Unavailable when no dates exist; these are not generation timestamps.
+The panel groups its explanations into cites, cites at award, h-index and citation histogram bullets, followed by links to the award CSV, shared Scholar extraction JSON and data notes.
 Search and the missing-data toggle remain visible outside the panel.
 Display order defaults to award year descending, then last name ascending, without changing canonical CSV or generated data order.
 Last-name sorting uses the text before the comma for surname-first directory names, or the final name token for given-name-first names, excluding suffixes Jr., Sr., II, III, and IV, with the full name breaking ties.
@@ -989,6 +993,8 @@ Bars before the award year use a darker shade; the award year and all later year
 Every year has a tick, with horizontal labels at five-year intervals.
 Bar heights are normalized independently to each person's maximum within the displayed window; compare absolute counts using hover values and the metrics columns, not bar heights across people.
 Years absent from a recipient's history appear as empty bars; the underlying data and its coverage metadata remain unchanged.
+Hovering over or keyboard-focusing the Cites, cites at award and h-index headers shows their Google Scholar metric descriptions in the shared custom tooltip.
+Each metric sort button also references its persistent hidden description with `aria-describedby` for assistive technology; moving focus away hides the tooltip.
 Hovering over a bar immediately shows just its year and captured citation count in a tooltip kept within the viewport.
 Absent years show `no captured data`, while reported zeros show `0 cites`; the tooltip hides on pointer exit, scrolling, Escape or rerendering.
 A missing or unsupported data script produces a visible error instead of an empty page.
