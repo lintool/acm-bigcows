@@ -246,6 +246,7 @@ Keep independently reviewed DBLP links and quality decisions in the award roster
 Apply date changes together with the corresponding accepted data changes, using UTC `YYYY-MM-DD` values.
 Keep capture dates, name-alignment decision dates and table-synchronization dates distinct.
 For Scholar, the date rules below apply when extraction/import is authorized; review-only acceptance records the new capture in the audit while preserving dates attached to existing imported statistics.
+Record explicit Scholar/DBLP link removals in the durable `data/profile_link_removals.csv` ledger following the [removal schema](../../README_FOR_AGENTS.md#explicit-profile-link-removals), preserving dated audit history; remove the current entry if a link is later accepted.
 Clear a rejected URL’s paired date when applying an authorized link correction, and leave a newly adopted Scholar URL’s date blank until its statistics are imported.
 For DBLP, record acceptance in review and advance the canonical capture date when the extract stage applies the accepted capture.
 The CSRankings lookup table has no date column; record synchronization time in Data Notes and retain source-download timestamps in the evidence audit.

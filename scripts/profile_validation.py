@@ -100,3 +100,42 @@ def validate_derived_dblp_links(rosters, profiles):
                 raise ValueError(f"Missing CSRankings key: {key}")
     if referenced != set(by_name):
         raise ValueError(f"Unreferenced CSRankings keys: {sorted(set(by_name) - referenced)}")
+
+
+def validate_profile_removals(removals, people):
+    """Validate current explicit removals independently of dated review ledgers."""
+    from datetime import datetime
+    removed = set()
+    for row in removals:
+        service = row['service']
+        if service not in {'google_scholar', 'dblp'}:
+            raise ValueError('Unsupported removal service')
+        recipient = acm_recipient_id(row['acm_profile'])
+        identity = ('acm', recipient) if recipient else ('name', row['name'])
+        matches = [p for p in people if
+                   (recipient and acm_recipient_id(p['acm_fellow_profile']) == recipient) or
+                   (not recipient and not p['acm_fellow_profile'] and p['name'] == row['name'])]
+        if not matches or not any(p['name'] == row['name'] for p in matches):
+            raise ValueError('Removal recipient identity mismatch')
+        if not recipient and len(matches) != 1:
+            raise ValueError('Ambiguous removal name')
+        key = (service, identity)
+        if key in removed:
+            raise ValueError('Duplicate current removal')
+        timestamp = datetime.fromisoformat(row['decided_at'])
+        if timestamp.utcoffset() is None or not row['evidence']:
+            raise ValueError('Removal requires a dated decision and evidence')
+        url = urlsplit(row['removed_url'])
+        if url.scheme != 'https' or (service == 'dblp' and
+                (url.netloc != 'dblp.org' or not url.path.startswith('/pid/'))):
+            raise ValueError('Invalid removed profile URL')
+        if service == 'google_scholar':
+            from urllib.parse import parse_qs
+            users = parse_qs(url.query).get('user', [])
+            if url.netloc != 'scholar.google.com' or url.path != '/citations' or len(users) != 1 or not users[0]:
+                raise ValueError('Invalid removed Scholar URL')
+        for person in matches:
+            if person[service + '_profile'] or person[service + '_profile_crawl_date'] or person[service + '_profile_quality'] != 'N':
+                raise ValueError('Removal conflicts with canonical profile fields')
+        removed.add(key)
+    return removed

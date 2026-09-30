@@ -95,7 +95,7 @@ The [September 28 Scholar holistic audit](scholar_holistic_review_2026-09-28.md)
 The [user-directed lenient recalibration](scholar_recalibration_2026-09-28.md) accepts 38 of the original 43 flags under a roughly 20% contamination tolerance.
 At that September 28 checkpoint, Lixin Gao, Robert Morris, Michael F. Cohen and Dana Scott were N, and Yorick Wilks was Y; Scott subsequently changed to Y in both rosters on September 29.
 The historical decisions were applied across both rosters where present, and the [September 28 Scholar review queue](scholar_recalibration_queue_2026-09-28.csv) is empty; consult the later disposition ledger for superseding decisions.
-Current canonical Scholar totals are 1,265 distinct linked Y profiles and 14 distinct linked N profiles: Fellows have 1,255 linked Y, 14 linked N and 369 blank links; Turing winners have 38 linked Y, two linked N and 41 blank links.
+Current canonical Scholar totals are 1,266 distinct linked Y profiles and 13 distinct linked N profiles: Fellows have 1,256 linked Y, 13 linked N and 369 blank links; Turing winners have 39 linked Y, one linked N and 41 blank links.
 The original audit ledger and proposal queue are historical; the [final disposition ledger](scholar_recalibration_2026-09-28.csv) supersedes their pending recommendations.
 Complete/recent publication coverage and live availability remain unverified.
 The September 29 retained-source CSRankings identity audit is complete; its 117 historical proposals are now adopted as canonical associations.
@@ -105,7 +105,7 @@ Its reported statistics and date match the already imported values; both canonic
 Paulson’s capture/import task is complete; all 100 captured entries were inspected with no apparent unrelated cluster, and quality Y is retained.
 Complete bibliography and recent-sorted coverage remain unverified.
 Canonical Scholar extraction now lives in `data/google_scholar_extracted_data.json` with native field types and per-profile capture provenance; historical CSV filenames below refer to their original checkpoints.
-Both award visualization snapshots were regenerated with explicit user authorization on September 29 and pass the full snapshot-synchronization checks.
+Both award visualization snapshots were regenerated with explicit user authorization earlier on September 29; later approved profile decisions now leave snapshot synchronization pending explicit regeneration.
 No new crawl or source refresh is authorized by maintaining this index.
 The lookup table now preserves [CSRankings-generated DBLP links](../README_FOR_AGENTS.md#csrankings-dblp-link-generation), independently of reviewed award links.
 Historical audits and saved resume scripts used roster-derived lookup URLs; update any such writer to regenerate from source names before applying another checkpoint.
@@ -197,8 +197,8 @@ Milner’s prior user rejection remains preserved; no canonical links or capture
 | Turing Award roster | All 81 rows have the earlier 243 service outcomes; the September 18 decisions and Hopcroft historical link are applied | September 29 CSRankings review adds eight approved and adopted historical associations; existing Scholar and DBLP outcomes are preserved. |
 | Explicit user dispositions | The earlier 18 cases, three DBLP quality decisions and five further profile decisions are resolved and applied | Preserve the [earlier decisions](check_profiles_full_2026-09-18.md#explicit-user-decisions) and all [subsequent Turing decisions](check_profiles_turing_2026-09-18.md#subsequent-user-decisions), including the rejected Manuel Blum Scholar ID. |
 | Rob Cook DBLP candidate | Approved and applied as Y in batch three | Captured and imported September 19. |
-| Final service audit | Fresh 5,157-outcome three-service audit completed September 29 | Resolve the [completed review queue](holistic_profile_audit_2026-09-29_review_queue.csv); preserve prior values until approved. |
-| Visualization | Both award snapshots regenerated September 29 from the latest canonical statistics, dates and quality flags | The full Python suite, including snapshot synchronization, and JavaScript renderer checks pass. |
+| Final service audit | Fresh 5,157-outcome three-service audit completed September 29 | The [review queue](holistic_profile_audit_2026-09-29_review_queue.csv) is closed; all 66 flagged cases are resolved and dispositions applied. |
+| Visualization | September 29 snapshots intentionally lag the later approved Scholar quality changes and DBLP removals | Canonical validation passes; snapshot synchronization remains pending explicit regeneration. |
 
 The saved notes extend through Fellow 1,300, although the last bulk CSV checkpoint was through Fellow 1,285 before the subsequent user dispositions.
 These are different milestones; the earlier checkpoint totals are historical.

@@ -8,7 +8,7 @@ import re
 import unittest
 from urllib.parse import parse_qs, urlsplit
 
-from scripts.profile_validation import acm_recipient_id
+from scripts.profile_validation import acm_recipient_id, validate_profile_removals
 
 ROOT = Path(__file__).resolve().parents[1]
 FIELDS = ['acm_profile', 'name', 'searched_at', 'candidate_url', 'outcome', 'reviewed_at', 'evidence']
@@ -146,19 +146,10 @@ class ProfileSearchTests(unittest.TestCase):
                    ['acm_fellows.csv', 'turing_award_winners.csv']}
         people = [row for rows in rosters.values() for row in rows]
         known_ids = {acm_recipient_id(row['acm_fellow_profile']) for row in people if row['acm_fellow_profile']}
-        removed = set()
-        decisions = read(ROOT / 'docs/holistic_profile_audit_2026-09-29_dispositions.csv')[1]
-        latest = {(r['roster'], r['roster_row'], r['service']): r for r in decisions}
-        for (roster, number, service), decision in latest.items():
-            if decision['action'].startswith('Cleared DBLP URL'):
-                person = rosters[roster][int(number) - 1]
-                self.assertEqual(person['name'], decision['name'])
-                self.assertEqual(service, 'dblp')
-                self.assertEqual(person['dblp_profile'], '')
-                self.assertEqual(person['dblp_profile_crawl_date'], '')
-                self.assertEqual(person['dblp_profile_quality'], 'N')
-                key = ('acm', acm_recipient_id(person['acm_fellow_profile']))
-                removed.add(key)
+        removed = validate_profile_removals(read(ROOT / 'data/profile_link_removals.csv')[1], people)
+        for removal in read(ROOT / 'data/profile_link_removals.csv')[1]:
+            path, anchor = removal['evidence'].split('#', 1)
+            self.assertIn(anchor, anchors((ROOT / path).read_text()))
 
         for service in ['google_scholar', 'dblp']:
             fields, searches = read(ROOT / 'data' / f'{service}_profile_searches.csv')
@@ -208,7 +199,7 @@ class ProfileSearchTests(unittest.TestCase):
                     with self.subTest(service=service, roster=roster, name=row['name']):
                         if not row[f'{service}_profile']:
                             identity = ('acm', acm_recipient_id(row['acm_fellow_profile'])) if row['acm_fellow_profile'] else ('name', row['name'])
-                            self.assertTrue(identity in searched or (service == 'dblp' and identity in removed),
+                            self.assertTrue(identity in searched or (service, identity) in removed,
                                             'Neither a profile, a recorded search nor an explicit removal')
 
 

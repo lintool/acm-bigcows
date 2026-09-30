@@ -14,6 +14,14 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+## 2026-09-29 20:45 EDT - Address Profile-Audit PR Review
+
+Converted all 3,013 publication capture paths in the row audit to repository-relative sibling-cache paths and verified their SHA-256 hashes against retained files.
+Recomputed current Scholar totals, marked the final audit queue closed, and corrected both visualization status statements to distinguish passing canonical validation from deferred snapshot synchronization.
+Added the durable [current removal ledger](../data/profile_link_removals.csv), keyed by recipient identity and service, and documented its lifecycle for both Scholar and DBLP.
+Replaced the dated-audit/action-text coverage dependency with validated current removals; tests cover both services, shared award rows, stale fields, duplicate decisions and ambiguous name fallbacks.
+All 40 selected tests passed; canonical award data and visualization files remain unchanged.
+
 ## 2026-09-29 20:23 EDT - Reconcile Recent Profile Decisions and Instructions
 
 The [consistency sweep](recent_decision_consistency_2026-09-29.md) verified all 71 final award-service dispositions against canonical rosters.

@@ -347,6 +347,15 @@ Selection, uniqueness and coverage checks must use the normalized ACM recipient 
 Maintain the relevant review report and current status alongside CSV decisions, preserving explicit user rejections.
 This ledger does not modify award rosters, capture dates, quality flags, statistics or capture/import queues automatically.
 
+### Explicit Profile-Link Removals
+
+`data/profile_link_removals.csv` is the durable current ledger of user-authorized Scholar and DBLP link removals.
+Its columns are `acm_profile`, `name`, `service` (`google_scholar` or `dblp`), `removed_url`, `decided_at` (timezone-aware ISO timestamp), and `evidence` (repository-relative report path with an anchor).
+Key entries by normalized ACM recipient ID and service, using an unambiguous canonical name only when the ACM URL is absent; do not use roster row positions or action prose as identity keys.
+Record explicit removals here alongside the dated review history, with a blank canonical URL and paired date and quality N in every referring award row.
+If a link is later accepted, remove the current-removal entry while preserving the historical decision in its dated report.
+This ledger satisfies the coverage check for both publication services without inventing a search or authorizing missing-link discovery.
+
 ### DBLP Search History
 
 `data/dblp_profile_searches.csv` records prospective discovery attempts for recipients whose canonical `dblp_profile` is blank.
