@@ -1,5 +1,37 @@
 # Current Profile Review Status
 
+## Subsequent Gupta Replacement Search
+
+The [September 29 targeted web search](gupta_dblp_replacement_search_2026-09-29.md) found a better identity match at DBLP `60/5294`, but its 15-entry coverage remains N.
+No verified Y replacement was established; the user subsequently requested no link, so Gupta’s DBLP URL and paired date are now blank with quality N.
+This subsequent search does not alter the completed offline audit or its resolved queue.
+
+## Fresh Three-Service Audit — September 29, 2026
+
+The [fresh holistic audit](holistic_profile_audit_2026-09-29.md) is complete for all 1,719 award rows and 5,157 row-service outcomes using retained evidence only.
+It reassessed every existing Scholar, DBLP and CSRankings association, including prior explicit decisions and sparse-profile exceptions.
+The [current review queue](holistic_profile_audit_2026-09-29_review_queue.csv) is empty: all 66 distinct flagged cases across 71 award-service rows are resolved.
+The user approved batch one: Scholar for Sudipta Sengupta and Carlos J. P. de Lucena, and DBLP for Meenakshi Balakrishnan, Mihai Pop and Chih-Jen Lin, are now Y.
+The [disposition ledger](holistic_profile_audit_2026-09-29_dispositions.csv) records all seven review batches and the user-authorized direct resolution of seven additional sparse DBLP profiles.
+Batch two sets DBLP Y for Michael Franz, Alan Bundy, Aravind Srinivasan, James H. Anderson, Lorenzo Alvisi, Jeffrey Dean and Anant Agarwal.
+David MacQueen, Edwin Catmull and Richard Hamming retain their existing DBLP links with explicit quality N; Catmull and Hamming are consistent across both award rosters.
+Batch three items 1–2 are resolved: Burton Smith and Charles Thacker remain linked with DBLP quality N because the user judged their 11- and 12-entry profiles inadequate for their prominent careers.
+Batch three items 3–10 are also resolved as linked N: Wilkinson, Pei Cao, Arindam Banerjee, Pradeep Dubey, Meenakshi Balakrishnan (Scholar), Feifei Li, Yuan Xie and Michael Kass.
+Balakrishnan and Xie changed from Scholar Y to N; Balakrishnan’s separately approved DBLP Y remains unchanged.
+Batch four preserves all ten existing links and ratings: Scholar Y for Yorick Wilks and J Strother Moore, and N for Junfeng Yang (DBLP), Robert Morris (Scholar), Lixin Gao (Scholar), Amit Singhal (DBLP), Vijay P Bhatkar (DBLP), Roy Levin (DBLP), Michael F Cohen (Scholar) and Ramesh C Jain (Scholar).
+Batch five sets Sung Mo Kang’s DBLP quality from Y to N and confirms linked N for Tetsuo Asano (Scholar), James H Morris (Scholar), Chung Jen Tan (DBLP), Gopal Krishna Gupta (DBLP), Neil Jones (Scholar), Paolo Zanella (DBLP), Edwin Catmull (Scholar), Herbert R J Grosch (DBLP) and David S Johnson (Scholar).
+Gupta’s batch-five hold was superseded by the subsequent no-link decision above; Catmull’s Scholar N remains consistent across both rosters.
+Batch six changes Richard R Burton’s DBLP Y to N and retains the other nine presented ratings, including Peter J Denning’s Scholar Y.
+The new sparse-DBLP rule resolves seven additional cases as N: Stephen Dunwell, Aaron Finerman, Herbert Maisel, Daniel D McCracken, William B Poucher, Jeff Rulifson and Edward A Taft; Rulifson and Taft change from Y to N.
+Batch seven removes Frank L Friedman’s and Fred H Harris’s DBLP links and paired capture dates, changes Dana S Scott’s Scholar quality to Y in both rosters, and retains Robert W Taylor’s linked DBLP N.
+Across the review and Gupta follow-up, three DBLP links and paired dates were removed along with their three unreferenced extraction records; other URLs, capture dates and retained statistics remain unchanged.
+All 974 stored CSRankings associations remain supported; explicit revalidation set their alignment dates to September 29 UTC, changing 851 previously older dates.
+The 1,170 blank row-service associations were recorded as missing—not searched in this audit; no cached missing candidate was adopted and all prior search/rejection history remains intact.
+The full-roster audit used retained evidence only; the subsequent Gupta replacement search explicitly used the web, without a crawl, statistics import or visualization regeneration.
+No new capture awaits extraction; both the review queue and capture/import backlog are empty.
+The complete [row ledger](holistic_profile_audit_2026-09-29.csv) gives exact links, evidence dates and hashes, actual inspection scope and requested decisions.
+Older counts and pending-decision statements below are historical; the final disposition ledger closes this audit’s review queue.
+
 ## Current Workflow Stages
 
 Use the [four-stage workflow](../README_FOR_AGENTS.md#four-stage-workflow) to distinguish evidence collection, review decisions, canonical extraction and displayed snapshots.
@@ -7,11 +39,14 @@ Use the [four-stage workflow](../README_FOR_AGENTS.md#four-stage-workflow) to di
 | Stage | Current State |
 | --- | --- |
 | Crawl | Current linked Scholar profiles have retained successful captures; no new fetch is scheduled by this index. |
-| Review | Scholar identity/quality decisions are complete within documented sampling limits, including the 19 subsequently approved profiles; DBLP review is complete within its scope; the bounded CSRankings identity audit is complete, with all 117 approved historical associations adopted. |
-| Extract | All 1,279 stored Scholar profiles have statistics from the accepted selected captures; DBLP metadata and publication-year aggregates for all 1,641 stored profiles are extracted into `data/dblp_extracted_data.json`; the canonical capture/import gap queue is empty. |
-| Visualize | Both September 29 snapshots still match their canonical visualization inputs, and snapshot/renderer checks pass; CSRankings associations are not consumed by these timelines, so their later adoption does not require regeneration. |
+| Review | Fresh three-service sweep and all 66 flagged-case dispositions complete within retained-evidence limits; [review queue empty](holistic_profile_audit_2026-09-29_review_queue.csv); all 974 stored CSRankings associations supported. |
+| Extract | All 1,279 stored Scholar profiles have statistics from the accepted selected captures; DBLP metadata and publication-year aggregates for all 1,638 stored profiles are extracted into `data/dblp_extracted_data.json`; the canonical capture/import gap queue is empty. |
+| Visualize | September 29 snapshots remain unchanged as instructed; the Fellows snapshot predates five Scholar quality changes and three DBLP link removals; the Turing snapshot predates Scott’s Scholar N→Y change. Regeneration awaits an explicit request. |
 
 The gap queue is not a stage tracker; an empty queue alone cannot prove that review is complete, all newer captures are extracted or visualizations are synchronized.
+These completion states describe the recorded reviews, not permanent verification of changing profiles.
+Future audits follow the current [review criteria](../README_FOR_AGENTS.md#publication-profile-quality): reflag suspicious populated associations, preserve prior user decisions pending reconsideration, and leave missing-link discovery to a separately requested step.
+An explicitly requested fresh audit reassesses all prior review decisions within scope; none of the resolved statuses or accepted exceptions below exempts a decision from that reassessment.
 
 ## CSRankings Identity Audit
 
@@ -35,31 +70,32 @@ The new ledger contains only these fresh retained-source attempts, with no backf
 The user confirmed leaving Wei Chen and Li Erran Li unlinked; their six candidate keys are classified as unsupported matches, with no further user decision pending.
 These are award-row counts; recipients shared across rosters appear in both totals.
 
-| Service | Roster | Linked | Blank With Search | Neither |
+| Service | Roster | Linked | Blank With Search | Blank by Explicit Removal |
 | --- | --- | ---: | ---: | ---: |
 | Google Scholar | ACM Fellows | 1,269 | 369 | 0 |
 | Google Scholar | Turing Winners | 40 | 41 | 0 |
-| DBLP | ACM Fellows | 1,623 | 15 | 0 |
+| DBLP | ACM Fellows | 1,620 | 15 | 3 |
 | DBLP | Turing Winners | 81 | 0 | 0 |
 | CSRankings | ACM Fellows | 948 | 690 | 0 |
 | CSRankings | Turing Winners | 26 | 55 | 0 |
 
 Links rated N count as linked; a search record does not establish that a matching profile exists or is currently available.
+Friedman, Harris and Gupta are explicitly removed links documented in the disposition ledger; they do not require invented search records or an unauthorized missing-link search.
 The offline `tests/test_profile_searches.py` regression check enforces coverage and ledger integrity without fetching sources.
 
 ## Review History and Scope
 
 This is the current progress and open-work index for the September 18–19, 2026 reviews and the September 28 Scholar capture checkpoint and holistic audit.
 **DBLP is in an approved state across both award rosters: the review is complete within its documented scope, all user decisions are applied, every stored link has an accepted capture, and no DBLP decision or capture task is pending.**
-Approved N ratings, four user-approved holds and 15 missing-link Fellow rows remain intentional; approved state does not mean every profile is rated Y.
+The September 18–19 checkpoint below is historical; current decisions, the three subsequent removals and all 18 blank DBLP Fellow rows are summarized above.
 The [September 29 missing-DBLP search](dblp_missing_search_2026-09-29.md) records fresh attempts for all 15 blank-link Fellows in the prospective [DBLP search ledger](../data/dblp_profile_searches.csv): six rediscovered excluded profiles and nine not-found replacement searches, with no supported new candidates.
 Existing linked profiles were excluded, no historical searches were backfilled, and all earlier decisions remain in force.
 The [detailed report](check_profiles_full_2026-09-18.md) retains historical observations and the 18 explicit user dispositions.
 The [September 28 Scholar holistic audit](scholar_holistic_review_2026-09-28.md) is complete within its existing-evidence sampling limits: all 1,264 distinct linked profiles were individually judged and all 1,719 award rows have recorded outcomes, including 425 blank links.
 The [user-directed lenient recalibration](scholar_recalibration_2026-09-28.md) accepts 38 of the original 43 flags under a roughly 20% contamination tolerance.
-All five remaining cases are now resolved by explicit user decisions: Lixin Gao, Robert Morris, Michael F. Cohen and Dana Scott are N; Yorick Wilks is Y.
-The decisions are applied across both rosters where present, and the [current Scholar review queue](scholar_recalibration_queue_2026-09-28.csv) is empty; preserve these explicit decisions.
-Current canonical Scholar totals are 1,265 distinct linked Y profiles and 14 distinct linked N profiles: Fellows have 1,255 linked Y, 14 linked N and 369 blank links; Turing winners have 38 linked Y, two linked N and 41 blank links.
+At that September 28 checkpoint, Lixin Gao, Robert Morris, Michael F. Cohen and Dana Scott were N, and Yorick Wilks was Y; Scott subsequently changed to Y in both rosters on September 29.
+The historical decisions were applied across both rosters where present, and the [September 28 Scholar review queue](scholar_recalibration_queue_2026-09-28.csv) is empty; consult the later disposition ledger for superseding decisions.
+Current canonical Scholar totals are 1,266 distinct linked Y profiles and 13 distinct linked N profiles: Fellows have 1,256 linked Y, 13 linked N and 369 blank links; Turing winners have 39 linked Y, one linked N and 41 blank links.
 The original audit ledger and proposal queue are historical; the [final disposition ledger](scholar_recalibration_2026-09-28.csv) supersedes their pending recommendations.
 Complete/recent publication coverage and live availability remain unverified.
 The September 29 retained-source CSRankings identity audit is complete; its 117 historical proposals are now adopted as canonical associations.
@@ -69,7 +105,7 @@ Its reported statistics and date match the already imported values; both canonic
 Paulson’s capture/import task is complete; all 100 captured entries were inspected with no apparent unrelated cluster, and quality Y is retained.
 Complete bibliography and recent-sorted coverage remain unverified.
 Canonical Scholar extraction now lives in `data/google_scholar_extracted_data.json` with native field types and per-profile capture provenance; historical CSV filenames below refer to their original checkpoints.
-Both award visualization snapshots were regenerated with explicit user authorization on September 29 and pass the full snapshot-synchronization checks.
+Both award visualization snapshots were regenerated with explicit user authorization earlier on September 29; later approved profile decisions now leave snapshot synchronization pending explicit regeneration.
 No new crawl or source refresh is authorized by maintaining this index.
 The lookup table now preserves [CSRankings-generated DBLP links](../README_FOR_AGENTS.md#csrankings-dblp-link-generation), independently of reviewed award links.
 Historical audits and saved resume scripts used roster-derived lookup URLs; update any such writer to regenerate from source names before applying another checkpoint.
@@ -161,8 +197,8 @@ Milner’s prior user rejection remains preserved; no canonical links or capture
 | Turing Award roster | All 81 rows have the earlier 243 service outcomes; the September 18 decisions and Hopcroft historical link are applied | September 29 CSRankings review adds eight approved and adopted historical associations; existing Scholar and DBLP outcomes are preserved. |
 | Explicit user dispositions | The earlier 18 cases, three DBLP quality decisions and five further profile decisions are resolved and applied | Preserve the [earlier decisions](check_profiles_full_2026-09-18.md#explicit-user-decisions) and all [subsequent Turing decisions](check_profiles_turing_2026-09-18.md#subsequent-user-decisions), including the rejected Manuel Blum Scholar ID. |
 | Rob Cook DBLP candidate | Approved and applied as Y in batch three | Captured and imported September 19. |
-| Final service audit | The full 5,157-assessment audit is not assembled | Combine the separate completed service audits if requested, retaining their evidence limits and the completed CSRankings adoption decision. |
-| Visualization | Both award snapshots regenerated September 29 from the latest canonical statistics, dates and quality flags | The full Python suite, including snapshot synchronization, and JavaScript renderer checks pass. |
+| Final service audit | Fresh 5,157-outcome three-service audit completed September 29 | The [review queue](holistic_profile_audit_2026-09-29_review_queue.csv) is closed; all 66 flagged cases are resolved and dispositions applied. |
+| Visualization | September 29 snapshots intentionally lag the later approved Scholar quality changes and DBLP removals | Canonical validation passes; snapshot synchronization remains pending explicit regeneration. |
 
 The saved notes extend through Fellow 1,300, although the last bulk CSV checkpoint was through Fellow 1,285 before the subsequent user dispositions.
 These are different milestones; the earlier checkpoint totals are historical.
@@ -179,13 +215,13 @@ The [current row snapshot](dblp_current_status_2026-09-19.csv) separates final v
 The [September 19 DBLP reassessment](dblp_reassessment_2026-09-19.md) records every Fellow and Turing row separately, reusing evidence for shared recipients.
 After seventeen approved replacements, 1,598 distinct stored profiles are supported as Y within the recorded sampling scope and 43 distinct linked profiles remain N.
 The user explicitly rated Burton Smith, Chung-Jen Tan, Aaron Finerman and Herbert Grosch N; all four changes are applied, with URLs and capture dates preserved.
-These four coverage cases are resolved and must not be reopened from the initial pending-review text.
+These four coverage cases are resolved; the initial pending-review text is historical, while a future audit may reflag supported concerns under the current review criteria.
 The 15 Fellows without stored DBLP links remain missing-link cases; prior rejections are preserved.
 The [four-case review queue](dblp_reassessment_review_queue_2026-09-19.csv) retains only user-approved holds: Gupta, Adams, Friedman and Harris.
 The [first five replacement recommendations](dblp_replacement_recommendations_2026-09-19.md) now support different candidate profiles for Robert Constable, Richard P. Gabriel, David S. Johnson, Kai Li and Allen Tucker, each approved and applied as Y.
 The user approved all five replacements; their new URLs and Y ratings are applied, and September 19 captures have now been accepted.
 The [second recommendation batch](dblp_replacement_recommendations_batch2_2026-09-19.md) is approved and applied: Y replacements for Dhiraj Pradhan, Ahmed Sameh, John Rice and J. Nievergelt; David MacQueen was initially held, then explicitly switched by the user to [84/3383](https://dblp.org/pid/84/3383), retaining N for coverage; its replacement capture is now accepted with a September 19 date.
-All four holds retain their existing URLs, N ratings and capture dates; no further user decision is requested without new evidence.
+All four holds retain their existing URLs, N ratings and capture dates; future audits may reflag suspicious associations for reconsideration, identifying whether the supporting evidence is retained or new.
 The [third recommendation batch](dblp_replacement_recommendations_batch3_2026-09-19.md) is approved and applied: seven Y replacements for Cook, Miller, Goodenough, Kim, Hillis, Lindsay and Liu; N holds for Gupta, Adams, Friedman and Harris.
 The batch corrects Lindsay’s discovery lead to Bruce G. Lindsay 0001 and identifies Frank L. Friedman’s candidate, whose coverage remains insufficient for Y.
 The [74-case exception inventory](dblp_reassessment_exceptions_2026-09-19.csv) additionally includes known N cases without a new action and the missing links.
@@ -271,6 +307,7 @@ The public status index consolidates that progress without claiming the unfinish
 The separate completed Turing audit and discovery follow-ups are retained in `../bigcows-crawler/.cache/check-profiles-turing-2026-09-18/` and summarized in the [Turing report](check_profiles_turing_2026-09-18.md).
 The September 29 [CSRankings identity audit](csrankings_identity_audit_2026-09-29.md) supersedes the old resume point at Fellow 1,301 and reconciles earlier follow-ups.
 All 117 supported historical proposals are adopted; no CSRankings adoption decision remains pending.
-A combined three-service audit remains separate.
+The fresh combined three-service audit is now complete; its linked current queue above supersedes historical no-pending-review statements.
+Its retained run is `../bigcows-crawler/.cache/holistic-audit-2026-09-29-205115/`.
 Preserve completed DBLP decisions and the separate September 28 Scholar ledger.
 Preserve the explicit user dispositions, original CSRankings source fields and finalized ACM award data; regenerate visualization snapshots only when requested.

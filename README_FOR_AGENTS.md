@@ -347,11 +347,20 @@ Selection, uniqueness and coverage checks must use the normalized ACM recipient 
 Maintain the relevant review report and current status alongside CSV decisions, preserving explicit user rejections.
 This ledger does not modify award rosters, capture dates, quality flags, statistics or capture/import queues automatically.
 
+### Explicit Profile-Link Removals
+
+`data/profile_link_removals.csv` is the durable current ledger of user-authorized Scholar and DBLP link removals.
+Its columns are `acm_profile`, `name`, `service` (`google_scholar` or `dblp`), `removed_url`, `decided_at` (timezone-aware ISO timestamp), and `evidence` (repository-relative report path with an anchor).
+Key entries by normalized ACM recipient ID and service, using an unambiguous canonical name only when the ACM URL is absent; do not use roster row positions or action prose as identity keys.
+Record explicit removals here alongside the dated review history, with a blank canonical URL and paired date and quality N in every referring award row.
+If a link is later accepted, remove the current-removal entry while preserving the historical decision in its dated report.
+This ledger satisfies the coverage check for both publication services without inventing a search or authorizing missing-link discovery.
+
 ### DBLP Search History
 
 `data/dblp_profile_searches.csv` records prospective discovery attempts for recipients whose canonical `dblp_profile` is blank.
 Do not backfill old searches or search already populated DBLP links as part of routine missing-link discovery, including populated links rated N; a separately authorized review may have a broader scope.
-Consult prior decisions before searching so rejected profiles are not proposed again without new evidence.
+Consult prior decisions before an authorized search and preserve their rationale; an explicit fresh audit may reconsider a rejection using the available evidence under the [current review criteria](#publication-profile-quality), without requiring a new search or new capture.
 Use the same seven columns, outcome vocabulary, identity keys, timestamp rules and append/review semantics as [Scholar Search History](#scholar-search-history), with `candidate_url` holding the exact DBLP author URL instead of a Scholar URL.
 Use a stable `https://dblp.org/pid/...` URL when established; do not put publication records, search pages or directory URLs in that field.
 A fresh search that rediscovers a rejected profile receives a new record with its preserved disposition and evidence distinguishing the earlier decision from the current search.
@@ -364,7 +373,8 @@ This review/discovery ledger does not change rosters, extracted data, capture/im
 
 `data/csrankings_profile_searches.csv` records fresh attempts to link recipients whose canonical `csrankings_name` is blank.
 Do not backfill earlier audits or search already linked recipients as part of routine missing-link discovery.
-Consult prior identity decisions before searching; rediscovering a rejected candidate is a fresh search with its rejection preserved unless new evidence supports reconsideration.
+Consult prior identity decisions before an authorized search; record rediscovery as a fresh search while preserving the prior disposition until a supported, authorized decision changes it.
+An explicit fresh audit reassesses prior rejections under the [current review criteria](#publication-profile-quality), including when only retained evidence is available; it does not authorize missing-link discovery.
 The [initial September 29 searches](docs/csrankings_missing_search_2026-09-29.md) cover 704 distinct recipients across 690 blank-link Fellows and 55 blank-link Turing rows using retained sources only.
 
 Use these columns in order:
@@ -411,6 +421,9 @@ Keep full timestamps, HTML, capture hashes and validation evidence in the shared
 ### Publication Profile Quality
 
 Use the repo-local [Check Profiles skill](skills/check-profiles/SKILL.md) for a holistic review of Google Scholar, DBLP and CSRankings links across either or both award rosters.
+Link audits and checks inspect populated associations, including existing `N` ratings; record blank Scholar/DBLP URLs and blank CSRankings keys as missing and not searched in that audit.
+Searching for absent associations is a separate, explicitly requested step because of its cost; an audit alone does not authorize missing-link searches, adoption of cached missing-link candidates or new search-ledger timestamps.
+Corroborating identity searches and searches for better alternatives to populated poor or wrong-person links remain governed by the skill's existing review rules.
 `dblp_profile_quality` and `google_scholar_profile_quality` are required for every award row and must be `Y` or `N`.
 Use the appropriate ACM Fellow or Turing recipient profile as the identity and research ground truth.
 If the individual ACM URL is missing, use retained ACM roster/directory evidence and corroborating primary sources, state the limitation, and flag uncertain identity or coverage for review.
@@ -418,24 +431,38 @@ Do not claim an individual ACM page was inspected when no such capture exists.
 
 | Finding | Rating And Action |
 | --- | --- |
-| Supported identity, substantial publication coverage and mostly matching or adjacent work without substantial unrelated contamination | `Y`, applying the service-specific contamination tolerance below. |
-| Wrong person or substantial unrelated contamination | `N`; record the identity or contamination evidence. |
+| Supported identity, substantial publication coverage and mostly matching or adjacent work without substantial unrelated contamination | `Y`, applying the rough contamination rule below. |
+| Wrong person | `N`; record the conflicting identity evidence, subject to preserving explicit user decisions pending reconsideration. |
+| Supported identity with suspicious unrelated publications | Apply the rough 20% rule below; preserve the rating and ask the user for threshold or uncertain cases. |
 | Missing link | `N`, with URL and crawl date blank. |
 | Obviously incomplete Scholar or DBLP bibliography | `N`, including incidental or split fragments omitting the established body of work. |
 | Genuinely sparse Scholar or DBLP bibliography without positive identity and coverage evidence supporting an exception | `N` pending verification; record the actual count and coverage concern. |
 
 Assess DBLP and Scholar independently.
-The user expects substantial numbers of publications in both Scholar and DBLP for Fellows and Turing winners.
+All ACM Fellows and Turing Award winners are prominent researchers; their Scholar and DBLP profiles should provide substantial publication coverage.
+Very few genuine profile entries are strong evidence of low quality even when the name, affiliation, research area and other identity information match; identity agreement alone does not justify `Y`.
+Rate clearly inadequate career coverage `N`, using contextual judgment rather than a fixed numerical cutoff.
+Handle clear sparse-DBLP findings directly under the [Check Profiles rule](skills/check-profiles/SKILL.md#google-scholar-and-dblp), without repeated requests for individual confirmation.
 A short captured first page, filtered view or incomplete crawl alone does not establish that the underlying profile is sparse or poor; check pagination and capture completeness, and preserve the previous rating when access prevents a supported decision.
 For both services, assess coverage against the ACM-recognized contributions and corroborating publication evidence.
 Do not retain `Y` merely because a handful of titles fit the topic or the recipient has a historical or service-oriented career; any justified exception requires positive identity and coverage evidence.
-There is no universal numerical cutoff; the nine one-to-four-record profiles in the September 17 reassessment describe that batch, not a general threshold.
+There is no universal publication-count minimum; the nine one-to-four-record profiles in the September 17 reassessment describe that batch, not a general threshold.
 
 Substantial contamination can warrant `N` despite a relevant majority.
-For Scholar, the user requested a lenient tolerance on September 28: below roughly 20% is acceptable when identity and substantial coverage are supported.
-Use this as contextual guidance, not a rigid cutoff or proof that unflagged entries are correct; state the inspected denominator, attribution uncertainty and capture limits.
+The user's clarified rough rule applies independently to Scholar and DBLP: much less than 20% suspicious publications means `Y` when identity and substantial coverage are supported; much more than 20% means `N`; around the threshold means preserve the existing rating, flag the case and ask the user to decide.
+Treat uncertainty that could place the result near the threshold as a user-review case, and do not invent precise numerical bands for “much less,” “much more” or “around.”
+Exactly 20% requires user review; an inadequate or biased sample requires further inspection or an unresolved finding rather than an automatic rating.
+Suspicious publications include apparently unrelated areas or topics after considering legitimate interdisciplinary work, career changes and collaborations.
+Record the suspicious-publication count, inspected denominator, sampling scope, attribution uncertainty and capture limits; a sampled fraction is not a measured full-profile fraction or a citation-weighted fraction.
 The [recalibration and final decisions](docs/scholar_recalibration_2026-09-28.md) use explicitly flagged entries in retained most-cited 100-entry pages, not full-profile or citation-weighted fractions.
-This Scholar preference does not reopen explicit prior ratings or change DBLP, identity or coverage requirements.
+This clarified rule does not automatically change explicit prior ratings or relax identity or coverage requirements.
+During a requested profile audit or check, reflag links or CSRankings associations that remain suspicious under the review criteria for the user's decision, even if previously reviewed or explicitly accepted and even when the supporting evidence is retained rather than new.
+Profiles can change over time, so earlier decisions are not permanent verification; compare newer evidence with the prior assessment when available, without claiming a change based solely on older captures.
+Reconsideration can concern deterioration of a prior `Y` or improvement of a prior `N`; distinguish changes at the same URL from replacement candidates, and treat evidence age alone as a freshness limitation rather than proof of a suspicious association.
+Include the exact link or key, concrete concern, evidence date and scope, prior decision and requested decision; preserve canonical values governed by prior user decisions until the user changes them.
+This reflagging instruction takes precedence over historical instructions not to reopen resolved concerns; it does not authorize restoring rejected links or automatically reversing earlier decisions.
+An explicit fresh-audit request requires reassessing all prior review decisions within scope, including explicit user decisions, exceptions, rejections and holds; retain their history, assess them anew and present proposed reversals of explicit user decisions before applying them, except for clear sparse-DBLP coverage findings already authorized for direct resolution in the Check Profiles rule.
+A fresh audit does not by itself authorize fresh crawling, statistics imports, searches for missing links or visualization regeneration; state the dates and limits of the evidence actually inspected.
 An isolated attribution error, abbreviated author list, name variant, contributor credit or interdisciplinary topic does not by itself justify `N`.
 Cross-service title agreement is corroboration, not independent proof of authorship.
 A rating does not certify every publication or aggregate citation total.
@@ -448,12 +475,14 @@ Keep quality ratings consistent for the same publication-service URL shared acro
 
 The user explicitly rated the Scholar profiles of Arindam Banerjee, Ramesh C Jain, James H Morris and David S Johnson `N`; do not upgrade them solely because a majority of sampled papers are adjacent.
 The [September 28 final Scholar decisions](docs/scholar_recalibration_2026-09-28.md#resolved-user-decisions) additionally rate Lixin Gao, Robert Morris, Michael F. Cohen and Dana Scott `N`, and explicitly retain Yorick Wilks as `Y`.
-All are applied, including Scott in both rosters; preserve these decisions rather than reopening the historical proposal queues.
-The user explicitly accepted Stephen David Crocker’s DBLP profile `https://dblp.org/pid/49/6744` as `Y` after reviewing its 15-record coverage and missing early RFC work; preserve this [documented coverage exception](docs/check_profiles_trial_100_2026-09-18.md) rather than reopening the same concern without new evidence.
+These are historical September 28 decisions; the September 29 user review supersedes Scott’s N with Y in both rosters, while the other listed ratings remain unchanged.
+The user explicitly accepted Stephen David Crocker’s DBLP profile `https://dblp.org/pid/49/6744` as `Y` after reviewing its 15-record coverage and missing early RFC work; retain this [historical coverage decision](docs/check_profiles_trial_100_2026-09-18.md) as context; future audits apply the later direct-resolution rule when inadequate sparse coverage is clear.
 The user rejected the stored DBLP profiles for David Patterson, Jim Gray, Richard Karp, J. H. Wilkinson, Seymour J. Wolfson, Roger R Bate and Karen Duncan; rejected URLs remain evidence only and must not be restored from older captures or snapshots.
-The [September 18 user dispositions](docs/check_profiles_full_2026-09-18.md#explicit-user-decisions) additionally retain the reviewed Meenakshi Balakrishnan and Mihai Pop DBLP candidates as `N`, rate Sudipta Sengupta's Scholar profile `N`, and accept Aravind Srinivasan and Vishwani Agrawal's Scholar profiles as `Y`.
+The historical [September 18 user dispositions](docs/check_profiles_full_2026-09-18.md#explicit-user-decisions) retained the reviewed Meenakshi Balakrishnan and Mihai Pop DBLP candidates as `N`, rate Sudipta Sengupta's Scholar profile `N`, and accept Aravind Srinivasan and Vishwani Agrawal's Scholar profiles as `Y`.
 They accept George Varghese and Prithviraj Banerjee's DBLP profiles as `Y`, select Sung Mo Kang's `57/2381-1.html` bibliography as `Y`, and reject both reviewed Steven Scott DBLP candidates.
-The same user disposition removes the sparse DBLP associations for Victor Miller, James Gosling, Charles H. House, Bryant York, Stephen Bourne, Sidney Karin, Joel Birnbaum and Charles Geschke; do not restore these rejected profiles from older evidence or reopen their coverage decisions without new evidence.
+The [September 29 dispositions](docs/holistic_profile_audit_2026-09-29_dispositions.csv) supersede those earlier ratings: Balakrishnan and Pop are DBLP Y, Sengupta is Scholar Y, and Kang is DBLP N.
+Friedman, Harris and Gopal Krishna Gupta now have no DBLP link; do not restore their rejected associations from older holds.
+The same user disposition removes the sparse DBLP associations for Victor Miller, James Gosling, Charles H. House, Bryant York, Stephen Bourne, Sidney Karin, Joel Birnbaum and Charles Geschke; do not automatically restore these rejected profiles, and retain the prior rejection as context for any reconsideration presented to the user.
 The later [Turing review and user decisions](docs/check_profiles_turing_2026-09-18.md#subsequent-user-decisions) accept distinct replacement DBLP URLs for Karp, Patterson and Gray as `Y` and Wilkinson as `N`; the earlier rejected URLs remain excluded.
 They retain Catmull's Scholar and DBLP links, and Thacker and Hamming's DBLP links, with quality `N`, and reject Manuel Blum's CSRankings-supplied Scholar candidate as the wrong person while preserving his original upstream fields.
 The [September 19 DBLP user decisions](docs/dblp_reassessment_2026-09-19.md#resolved-user-decisions) explicitly retain the stored links for Burton Smith, Chung-Jen Tan, Aaron Finerman and Herbert Grosch with quality `N`; preserve these resolved coverage decisions.
@@ -1001,7 +1030,8 @@ Accepted links without an imported capture may have blank capture dates and miss
 When a Scholar statistics row exists, its capture date must equal the referring roster's Scholar capture date.
 The canonical checks also enforce roster and CSRankings ordering, original CSRankings source-field hashes, the current capture/import queue and exact-name affiliation joins.
 Search-ledger checks enforce schema, recipient identity, unique attempt keys, timezone-aware search/review dates, outcomes, publication-service candidate URL forms, CSRankings source keys and scope, and evidence anchors.
-Every award row must have either a linked profile or a recorded search for each of Scholar, DBLP and CSRankings; this coverage check does not certify availability or quality.
+Every award row must have a linked profile, a recorded search, or a documented explicit removal for each service; a removal is not a search and does not authorize missing-link discovery.
+This coverage check does not certify availability or quality.
 Shared recipients are identified by normalized ACM recipient IDs before comparing publication URLs, quality flags, capture dates and CSRankings links/dates across awards; missing ACM identities are not inferred from names alone.
 Derived CSRankings DBLP fields must exactly match the upstream-compatible name generator, even when roster URLs differ, are blank, or have quality N.
 Tests preserve this independence and cover accents, campus notes, suffixes, disambiguators and generated-link checks without fetching profiles.

@@ -14,6 +14,133 @@ A low quality rating or failed latest fetch does not mean that a URL cell is bla
 A recorded Scholar URL alone does not establish current profile availability or validate every publication and citation metric.
 Scholar links labeled as cached evidence identify the source profile URLs; the historical captures are in the local cache files named in the entry.
 
+## 2026-09-29 20:45 EDT - Address Profile-Audit PR Review
+
+Converted all 3,013 publication capture paths in the row audit to repository-relative sibling-cache paths and verified their SHA-256 hashes against retained files.
+Recomputed current Scholar totals, marked the final audit queue closed, and corrected both visualization status statements to distinguish passing canonical validation from deferred snapshot synchronization.
+Added the durable [current removal ledger](../data/profile_link_removals.csv), keyed by recipient identity and service, and documented its lifecycle for both Scholar and DBLP.
+Replaced the dated-audit/action-text coverage dependency with validated current removals; tests cover both services, shared award rows, stale fields, duplicate decisions and ambiguous name fallbacks.
+All 40 selected tests passed; canonical award data and visualization files remain unchanged.
+
+## 2026-09-29 20:23 EDT - Reconcile Recent Profile Decisions and Instructions
+
+The [consistency sweep](recent_decision_consistency_2026-09-29.md) verified all 71 final award-service dispositions against canonical rosters.
+No canonical changes were needed; corrected stale documentation, appended Gupta’s final removal to the disposition ledger, and aligned the coverage check with documented user removals without inventing searches.
+All 38 selected tests passed; review and capture/import queues remain empty, and visualization files remain unchanged.
+
+## 2026-09-29 20:18 EDT - Remove Gupta DBLP Association After Replacement Search
+
+The user explicitly selected no DBLP link for Gopal Krishna Gupta because the [targeted search](gupta_dblp_replacement_search_2026-09-29.md) found no good-quality fit.
+Cleared `https://dblp.org/pid/g/GopalGupta` and its `2026-09-17` capture date in the Fellows roster, retaining quality N; removed the single unreferenced extracted-data record.
+The prior user-held association is superseded; historical audit decisions and captures remain preserved as provenance.
+Rebuilt the local capture/import queue; no missing-link search, crawl, statistics refresh or visualization regeneration occurred during this change.
+
+## 2026-09-29 20:15 EDT - Search for a Better Gupta DBLP Profile
+
+Completed the user-authorized [targeted web search](gupta_dblp_replacement_search_2026-09-29.md).
+Found a strong Monash identity candidate with only 15 entries and a separate initials-profile lead containing signature-verification work, but no verified good-quality replacement.
+Preserved the existing held N link and all canonical data; no crawl, statistics import or visualization regeneration occurred.
+
+## 2026-09-29 20:08 EDT - Clarify Sparse Coverage for All Award Recipients
+
+All ACM Fellows and Turing Award winners are prominent researchers; the user clarified that this is a fact, not an audit assumption.
+Recorded in the [Check Profiles skill](../skills/check-profiles/SKILL.md#google-scholar-and-dblp) and [quality criteria](../README_FOR_AGENTS.md#publication-profile-quality) that very few genuine Scholar or DBLP entries strongly indicate low quality even when the name and other identity information match.
+Identity agreement and a few landmark works do not establish substantial career coverage; clearly inadequate coverage merits N, without a fixed numerical cutoff or treating a truncated capture as a sparse profile.
+The existing direct-resolution rule for clear sparse DBLP cases remains in force.
+This instruction update does not initiate another audit or change canonical data or visualization files.
+
+## 2026-09-29 20:05 EDT - Resolve Final Four Profile Cases
+
+On 2026-09-29 20:05 EDT, the user removed the DBLP links for Frank L Friedman and Fred H Harris, retained Dana S Scott’s Scholar link with quality Y, and retained Robert W Taylor’s DBLP link with quality N.
+Cleared the two rejected URLs and paired capture dates while retaining quality N; removed their two now-unreferenced records from `data/dblp_extracted_data.json` as a dependent consistency correction, without re-extracting other profiles.
+Applied Scott’s Scholar N→Y consistently in both award rosters; his capture dates and statistics remain unchanged.
+The [disposition ledger](holistic_profile_audit_2026-09-29_dispositions.csv) now resolves all 66 distinct flagged cases across 71 award-service rows; the [review queue](holistic_profile_audit_2026-09-29_review_queue.csv) is empty.
+The two removed links are now absent associations; no replacement or missing-link search was performed.
+Rebuilt the local capture/import queue and checked roster, provenance and extracted-data consistency.
+Visualization files remain unchanged; both award snapshots now predate approved Scholar quality changes, and the Fellows snapshot also predates the two DBLP link removals.
+No web access, crawl, statistics refresh or visualization regeneration occurred.
+
+## 2026-09-29 20:01 EDT - Resolve Sixth Batch and Clear Sparse DBLP Cases
+
+On 2026-09-29 20:01 EDT, the user changed Richard R Burton’s DBLP quality to N and retained the other nine presented ratings, including Peter J Denning’s Scholar Y and James M Adams’s held DBLP N link.
+The user additionally instructed that DBLP profiles with clearly too few records should be resolved directly without individual review.
+Updated the [Check Profiles skill](../skills/check-profiles/SKILL.md) to apply or retain N for genuinely sparse DBLP coverage, including prior Y ratings, while preserving links and distinguishing incomplete captures and unresolved identity concerns.
+Applied this instruction to seven additional cases: Stephen Dunwell (2 records), Aaron Finerman (7), Herbert Maisel (4), Daniel D McCracken (1), William B Poucher (3), Jeff Rulifson (6) and Edward A Taft (10).
+Rulifson and Taft changed from Y to N; the other five remained N.
+Recorded 17 resolved cases in the [disposition ledger](holistic_profile_audit_2026-09-29_dispositions.csv), leaving four distinct cases across five award-service rows: Friedman, Harris and Taylor DBLP identity concerns, and Scott’s Scholar threshold concern.
+Verified that only three canonical DBLP quality cells changed; URLs, dates, statistics and visualization files remain unchanged.
+No search, crawl, import or visualization regeneration occurred.
+
+## 2026-09-29 19:56 EDT - Record Fifth Holistic Review Batch as Linked N
+
+On 2026-09-29 19:56 EDT, the user selected N for Sung Mo Kang’s DBLP profile and retained N for the other nine presented cases.
+Changed only Kang’s DBLP quality from Y to N; retained linked N for Tetsuo Asano (Scholar), James H Morris (Scholar), Chung Jen Tan (DBLP), Gopal Krishna Gupta (DBLP), Neil Jones (Scholar), Paolo Zanella (DBLP), Edwin Catmull (Scholar), Herbert R J Grosch (DBLP) and David S Johnson (Scholar).
+Gupta’s previously held link remains in place; Catmull’s Scholar decision is consistent across both award rosters.
+Recorded all ten cases across 11 award-service rows in the [disposition ledger](holistic_profile_audit_2026-09-29_dispositions.csv), leaving 21 distinct cases across 22 rows in the current queue.
+Verified that the only canonical field change was Kang’s DBLP quality; URLs, dates, statistics and visualization files remain unchanged.
+No search, crawl, import or visualization regeneration occurred.
+
+## 2026-09-29 19:53 EDT - Reconfirm Fourth Holistic Review Batch
+
+On 2026-09-29 19:53 EDT, the user instructed “keep all the same” for all ten presented profiles.
+Confirmed Scholar Y for Yorick Wilks and J Strother Moore; confirmed N for Junfeng Yang (DBLP), Robert Morris (Scholar), Lixin Gao (Scholar), Amit Singhal (DBLP), Vijay P Bhatkar (DBLP), Roy Levin (DBLP), Michael F Cohen (Scholar) and Ramesh C Jain (Scholar).
+All links and ratings remain unchanged; the decisions are recorded against retained capture timestamps and hashes in the [disposition ledger](holistic_profile_audit_2026-09-29_dispositions.csv).
+The current queue contains 33 award-service rows representing 31 distinct profile cases; earlier checkpoint counts below are historical.
+No canonical data or visualization files changed, and no search, crawl or import occurred.
+
+## 2026-09-29 19:33 EDT - Complete Third Holistic Review Batch as Linked N
+
+The user selected linked N for batch three items 3–10: J. H. Wilkinson, Pei Cao, Arindam Banerjee, Pradeep Dubey, Meenakshi Balakrishnan (Scholar), Feifei Li, Yuan Xie and Michael Kass.
+Changed only the Scholar quality cells for Balakrishnan and Xie from Y to N; the other six ratings were already N, and Balakrishnan’s DBLP Y remains unchanged.
+Recorded all eight decisions in the [disposition ledger](holistic_profile_audit_2026-09-29_dispositions.csv) and removed the cases from the current queue, leaving 41 distinct cases across 43 award-service rows with no N→Y proposals remaining.
+All ten cases in batch three are now resolved as linked N.
+Preserved URLs, capture dates, statistics, other canonical fields and visualization files; the Fellows visualization now predates four approved Scholar quality changes across the review batches.
+No search, crawl, import or visualization regeneration occurred.
+
+## 2026-09-29 19:28 EDT - Confirm Smith and Thacker Coverage Decisions
+
+The user reconfirmed linked DBLP quality N for Burton Smith and Charles Thacker because 11 and 12 entries are insufficient for their prominent careers, despite recognizable landmark publications.
+Recorded these two profile decisions across three award rows in the [disposition ledger](holistic_profile_audit_2026-09-29_dispositions.csv) and removed them from the current queue, leaving 49 distinct cases across 51 award-service rows.
+Updated the [Check Profiles skill](../skills/check-profiles/SKILL.md) to document the specific decisions and clarify that landmark matches alone do not establish substantial coverage of an extensive career; no universal publication-count cutoff was introduced.
+All canonical data and visualization files remain unchanged; batch three items 3–10 remain pending.
+
+## 2026-09-29 19:14 EDT - Apply Second Holistic Review Batch
+
+The user approved DBLP quality Y for Michael Franz, Alan Bundy, Aravind Srinivasan, James H. Anderson, Lorenzo Alvisi, Jeffrey Dean and Anant Agarwal, changing seven Fellows quality cells from N to Y.
+The user confirmed existing DBLP links with quality N for David MacQueen, Edwin Catmull and Richard Hamming; their proposed upgrades were not applied.
+Catmull and Hamming retain linked N consistently across both award rosters.
+Recorded all ten profile decisions across twelve award-service rows in the [disposition ledger](holistic_profile_audit_2026-09-29_dispositions.csv) and removed them from the [current review queue](holistic_profile_audit_2026-09-29_review_queue.csv).
+The queue now contains 51 distinct profile cases across 54 award-service rows, including three remaining N→Y proposals.
+URLs, capture dates, imported statistics, all other canonical fields and visualization files remain unchanged.
+No search, crawl, statistics import or visualization regeneration occurred.
+
+## 2026-09-29 19:08 EDT - Apply First Five Holistic Review Decisions
+
+The user approved all five profiles in the first review batch.
+Changed Scholar quality from N to Y for Sudipta Sengupta and Carlos J. P. de Lucena, and DBLP quality from N to Y for Meenakshi Balakrishnan, Mihai Pop and Chih-Jen Lin.
+The [disposition ledger](holistic_profile_audit_2026-09-29_dispositions.csv) records the exact URLs, approval, evidence hashes and rationale; these decisions supersede the earlier N ratings for those same links.
+Removed the five resolved cases from the [current review queue](holistic_profile_audit_2026-09-29_review_queue.csv), leaving 61 distinct profile cases across 66 award-service rows, including 13 remaining N→Y proposals.
+Preserved the original audit as historical assessment and updated the current review index.
+Only five quality cells in the Fellows roster changed; URLs, dates, statistics, other roster fields and all visualization files remain unchanged.
+The Fellows visualization now predates the two Scholar quality changes; regeneration remains separately authorized.
+No web access, discovery, crawl, statistics import or visualization regeneration occurred.
+
+## 2026-09-29 17:36 EDT - Fresh Holistic Audit of All ACM Fellows and Turing Winners
+
+Completed the [fresh three-service audit](holistic_profile_audit_2026-09-29.md) for all 1,719 award rows and 5,157 row-service outcomes, using retained captures and source records only.
+Reviewed 3,987 populated associations and recorded 1,170 missing associations without searching or adopting cached missing candidates.
+The [new review queue](holistic_profile_audit_2026-09-29_review_queue.csv) reflags 66 distinct profile links across 71 award-service rows, including 18 proposed N→Y changes: two Scholar and 16 DBLP.
+Reassessed prior explicit decisions, holds and sparse-profile exceptions; all URLs and quality ratings remain unchanged pending user disposition.
+Expanded suspicious clusters and contextual coverage cases, distinguishing apparent attribution counts from confirmed authorship and sampled fractions from complete bibliographies.
+Corrected the draft Thacker coverage observation: the retained DBLP list explicitly includes Alto/Ethernet, supporting a contextual Y proposal alongside Firefly, Autonet and Alpha.
+All 974 existing CSRankings name associations remain supported; explicit retained-evidence revalidation advanced 851 alignment dates from September 18 to September 29 UTC, with 123 already dated September 29.
+The [field-level audit](holistic_profile_audit_2026-09-29_field_changes.csv) records these date-only edits; original CSRankings source fields and generated DBLP links were preserved.
+No award fields, roster order, publication capture dates, imported statistics, search ledgers, capture/import backlog or visualization files changed.
+All reviewed captures were already imported; zero new captures await extraction, separately from unresolved review decisions.
+All 43 targeted tests pass; 2,920 publication capture hashes, the independently rebuilt source manifest, shared-recipient conclusions and protected-file invariants validate.
+No web access, new crawl, replacement search, missing-link discovery, statistics import, visualization regeneration, staging, commit or publication occurred.
+Retained input snapshots, parsed evidence, inspection records, final queue and validation are in `../bigcows-crawler/.cache/holistic-audit-2026-09-29-205115/`.
+
 ## 2026-09-29 14:58 EDT - Repository Data and Documentation Consistency Sweep
 
 Verified canonical roster joins, dates, quality values, exact CSRankings key coverage, source provenance, extracted-profile data, capture/import queue and all three search ledgers.
